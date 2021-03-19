@@ -187,11 +187,11 @@ ul[data-type="todo_list"] {
 }
 
 .menubar__button {
-  @apply bg-gray-900 py-2 px-2 rounded-lg text-xs font-black
+  @apply bg-gray-900 py-2 px-2 rounded-lg text-xs font-black;
 }
 
 code {
-  @apply bg-gray-900 p-2 m-2 rounded-lg block box-border text-xs
+  @apply bg-gray-900 p-2 m-2 rounded-lg block box-border text-xs;
 }
 
 pre::before {
