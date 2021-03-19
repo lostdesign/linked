@@ -1,0 +1,85 @@
+{
+  "name": "linked",
+  "version": "0.0.1",
+  "description": "Link your thoughts to days.",
+  "main": "electron/index.js",
+  "scripts": {
+    "electron": "electron dist",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "npm run build:vue && npm run build:electron",
+    "build:vue": "cross-env NODE_ENV=production webpack --production",
+    "build:electron": "cross-env NODE_ENV=production node ./prebuild && electron-builder"
+  },
+  "keywords": [],
+  "author": "André Weller <info@lost.design> (https://lost.design/)",
+  "license": "MIT",
+  "dependencies": {
+    "highlight.js": "^10.6.0",
+    "tiptap": "^1.32.1",
+    "tiptap-extensions": "^1.35.1",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.4",
+    "autoprefixer": "^9",
+    "copy-webpack-plugin": "^6.0.3",
+    "cross-env": "^7.0.2",
+    "css-loader": "^4.2.1",
+    "electron": "^9.0.0",
+    "electron-builder": "^22.8.0",
+    "electron-devtools-installer": "^3.1.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "postcss": "^7",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.2.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "vue-loader": "^15.9.3",
+    "vue-svg-loader": "^0.16.0",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "build": {
+    "npmRebuild": true,
+    "appId": "dev.muc.linked",
+    "win": {
+      "icon": "assets/icon.png",
+      "target": [
+        "nsis"
+      ],
+      "publish": {
+        "provider": "github",
+        "owner": "muc-dev",
+        "repo": "linked"
+      }
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "publish": {
+        "provider": "github",
+        "owner": "muc-dev",
+        "repo": "linked"
+      }
+    },
+    "linux": {
+      "maintainer": "André Weller <info@lost.design> (https://lost.design/)",
+      "target": [
+        "deb"
+      ],
+      "publish": {
+        "provider": "github",
+        "owner": "muc-dev",
+        "repo": "linked"
+      }
+    },
+    "directories": {
+      "app": "dist",
+      "output": "build"
+    }
+  }
+}
