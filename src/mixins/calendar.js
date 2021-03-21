@@ -30,7 +30,7 @@ export default {
       let week = []
 
       for (let i = 1; i <= 7; i++) {
-        let first = curr.getDate() - curr.getDay() + i 
+        let first = curr.getDate() - curr.getDay() + i
         week.push(new Date(curr.setDate(first)).toISOString().slice(0, 10))
       }
 
@@ -48,10 +48,17 @@ export default {
           mm: dt.getMonth() + 1,
           dd: dt.getDate(),
           yy: dt.getFullYear().toString().slice(-2),
-          year: dt.getFullYear()
+          year: dt.getFullYear(),
+          day: this.weekDay(dt.getDay())
       }
 
-      return format.replace(/mm|dd|yy|year/gi, matched => map[matched])
+      return format.replace(/mm|dd|yy|year|day/gi, matched => map[matched])
+    },
+    weekDay(day) {
+      const map = {
+        0: 'S', 1: 'M', 2: 'D', 3: 'M', 4: 'D', 5: 'F', 6: 'S'
+      }
+      return map[day]
     },
     /**
      * Takes an array and two indexes to return a new spliced array by given indexes.

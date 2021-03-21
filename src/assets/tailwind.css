@@ -3,9 +3,20 @@
 @tailwind utilities;
 
 h1 {
-    @apply text-2xl font-bold mb-5;
+    @apply text-2xl font-bold mb-2;
 }
 
 h2 {
-    @apply text-lg font-bold;
+    @apply text-lg font-bold mb-2;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+blockquote {
+  @apply border-l-4 border-gray-600 text-gray-400 py-4 pl-4 m-2 italic
+}
+blockquote p {
+  display: inline;
 }
