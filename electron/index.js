@@ -1,7 +1,11 @@
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 
 const { app, BrowserWindow, ipcMain, dialog, shell, protocol, nativeTheme } = require('electron')
-const path = require('path')
+const { default: installExtension, VUEJS_DEVTOOLS } = require('electron-devtools-installer');
+const fs = require('fs')
+const path = require('path');
+const { formatWithOptions } = require('util');
+const basePath = app.getPath('documents')
 
 let mainWindow
 
@@ -15,7 +19,7 @@ const createWindow  = () => {
     backgroundColor: '#000000',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true,
+      //nodeIntegration: true,
       devTools: process.env.NODE_ENV === 'development',
       webSecurity: false,
       allowRunningInsecureContent: true,
@@ -44,6 +48,9 @@ app.whenReady().then(() => {
   nativeTheme.themeSource = 'dark';
 
   createWindow()
+  installExtension(VUEJS_DEVTOOLS)
+    .then((name) => console.log(`Added Extension:  ${name}`))
+    .catch((err) => console.log('An error occurred: ', err));
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
@@ -65,3 +72,22 @@ ipcMain.on('select-dir', async (event) => {
 ipcMain.on('open-url', async (event, url) => {
   shell.openExternal(url)
 })
+
+ipcMain.handle('load-file', async (event, args) => {
+  return await fs.promises.readFile(`${basePath}/linked/${args[0]}/${args[1]}.md`, 'utf8').catch(async (e) => {
+    await saveFile(args)
+  })
+})
+
+ipcMain.handle('save-file', async (event, args) => {
+  return await saveFile(args)
+})
+
+const saveFile = async (args) => {
+  const filePath = `${basePath}/linked/${args[0]}/${args[1]}.md`
+  const content = args[2] ?? ''
+
+  return await fs.promises
+    .mkdir(path.dirname(filePath), {recursive: true})
+    .then(x => fs.promises.writeFile(filePath, content))
+}

@@ -1,29 +1,38 @@
-const fs = window.require('fs')
-const path = window.require('path')
-const remote = window.require('electron').remote
-const app = remote.app
-
 export default {
-  data () {
+  data() {
     return {
-      basePath: `${app.getPath('documents')}/linked`,
-      content: 'Loading...'
+      content: null
     }
   },
   methods: {
-    async loadFile() {
-      await fs.promises.readFile(this.currentFilePath, 'utf8')
-        .then(e => this.content = e)
-        .catch(e => this.createFile())
+    saveFile() {
+      window.electron.invoke('save-file', [
+        this.formatDate(this.today, 'year'),
+        this.today,
+        this.content
+      ]).then(e => console.log(e))
     },
-    async createFile() {
-      await fs.promises.mkdir(path.dirname(this.currentFilePath), {recursive: true})
-        .then(x => fs.promises.writeFile(this.currentFilePath, this.content))
+    loadFile() {
+      window.electron.invoke('load-file', [
+        this.formatDate(this.today, 'year'),
+        this.today
+      ]).then(e => this.editor.setContent(e))
     },
+    debounce(func, wait) {
+      let timeout;
+
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      }
+    }
   },
-  computed: {
-    currentFilePath() {
-      return `${this.basePath}/${this.formatDate(this.today, 'year')}/${this.formatDate(this.today, 'year-mm-dd')}.md`
-    },
+  created() {
+    this.loadFile()
   }
 }
