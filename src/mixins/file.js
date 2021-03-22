@@ -16,7 +16,10 @@ export default {
       window.electron.invoke('load-file', [
         this.formatDate(this.today, 'year'),
         this.today
-      ]).then(e => this.editor.setContent(e))
+      ]).then(data => {
+        const file = JSON.parse(data)
+        this.editor.setContent(file.content)
+      })
     },
     debounce(func, wait) {
       let timeout;

@@ -1,6 +1,6 @@
 {
   "name": "linked",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Link your thoughts to days.",
   "main": "electron/index.js",
   "scripts": {
@@ -13,6 +13,10 @@
   "keywords": [],
   "author": "André Weller <info@lost.design> (https://lost.design/)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muc-dev/linked"
+  },
   "dependencies": {
     "highlight.js": "^10.6.0",
     "tiptap": "^1.32.1",

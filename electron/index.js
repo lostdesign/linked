@@ -78,7 +78,7 @@ ipcMain.on('open-url', async (event, url) => {
 })
 
 ipcMain.handle('load-file', async (event, args) => {
-  return await fs.promises.readFile(`${basePath}/linked/${args[0]}/${args[1]}.md`, 'utf8').catch(async (e) => {
+  return await fs.promises.readFile(`${basePath}/linked/${args[0]}/${args[1]}.json`, 'utf8').catch(async (e) => {
     await saveFile(args)
   })
 })
@@ -88,10 +88,10 @@ ipcMain.handle('save-file', async (event, args) => {
 })
 
 const saveFile = async (args) => {
-  const filePath = `${basePath}/linked/${args[0]}/${args[1]}.md`
-  const content = args[2] ?? ''
+  const filePath = `${basePath}/linked/${args[0]}/${args[1]}.json`
+  const content = {"content": args[2]} ?? {"content":""}
 
   return await fs.promises
     .mkdir(path.dirname(filePath), {recursive: true})
-    .then(x => fs.promises.writeFile(filePath, content))
+    .then(x => fs.promises.writeFile(filePath, JSON.stringify(content)))
 }
