@@ -1,12 +1,14 @@
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 
-const { app, BrowserWindow, ipcMain, dialog, shell, protocol, nativeTheme } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog, shell, protocol, nativeTheme, Menu } = require('electron')
+
 const fs = require('fs')
 const path = require('path');
 const { formatWithOptions } = require('util');
 const basePath = app.getPath('documents')
 
 let mainWindow
+Menu.setApplicationMenu(false)
 
 const createWindow  = () => {
   app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
@@ -15,6 +17,7 @@ const createWindow  = () => {
     minWidth: 450,
     maxWidth: 450,
     height: 1000,
+    title: 'linked',
     backgroundColor: '#000000',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -26,7 +29,7 @@ const createWindow  = () => {
     },
   })
 
-  mainWindow.setMenuBarVisibility(false)
+  mainWindow.setTitle('linked');
 
   if (process.env.NODE_ENV !== 'development') mainWindow.loadFile('index.html')
 
