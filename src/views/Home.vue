@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <main class="flex-col items-stretch h-full">
+    <main class="flex-col items-stretch h-full" @click="focusEditor">
       <div class="sticky top-0 bg-black z-50">
-        <p class="text-center text-2xl font-black my-4">{{formatDate(today, 'dd. mm. year')}}</p>
+        <p class="text-center text-2xl font-black mb-4 pt-4">{{formatDate(today, 'dd. mm. year')}}</p>
         <div class="flex bg-black justify-center space-x-4 mb-2 z-50 border-b border-gray-900">
           <template v-for="day in currentWeek()">
             <div :key="day" class="mb-6 flex-col justify-center items-center self-center text-center">
@@ -22,7 +22,7 @@
           </template>
         </div>
       </div>
-      <div class="editor ml-2">
+      <div class="editor px-10 mt-10">
         <editor-floating-menu :editor="editor" v-slot="{ commands, isActive, menu }">
           <div
             class="editor__floating-menu"
@@ -152,6 +152,7 @@ export default {
   mixins: [Calendar, File],
   data() {
     return {
+      keysPressed: {},
       editor: new Editor({
         onUpdate: ({ getHTML }) => {
           // get new content on update
@@ -180,28 +181,34 @@ export default {
     }
   },
   methods: {
+    focusEditor() {
+      this.editor.focus()
+    }
   },
   mounted() {
-    let keysPressed = {}
-
     document.addEventListener('keydown', (event) => {
-      keysPressed[event.key] = true
+      this.keysPressed[event.key] = true
+      const modifier = this.keysPressed['Shift'] && this.keysPressed['Control']
 
-      if (keysPressed['Meta'] && event.code == 'KeyS') {
-        this.createFile()
+      if (this.keysPressed['Meta'] && event.code === 'Comma') {
+        this.$router.push('settings')
       }
 
-      if (event.code == 'ArrowLeft') {
+      if (modifier && event.code === 'Enter') {
+        this.today = this.formatDate(new Date(), 'year-mm-dd')
+      }
+
+      if (modifier && event.code === 'ArrowLeft') {
         this.today = this.formatDate(new Date(this.shiftDay(this.today, -1)), 'year-mm-dd')
       }
 
-      if (event.code == 'ArrowRight') {
+      if (modifier && event.code === 'ArrowRight') {
         this.today = this.formatDate(new Date(this.shiftDay(this.today, 1)), 'year-mm-dd')
       }
     })
 
     document.addEventListener('keyup', (event) => {
-      delete keysPressed[event.key]
+      delete this.keysPressed[event.key]
     })
   },
   beforeDestroy() {
@@ -209,111 +216,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.editor {
-  position: relative;
-}
-.editor__floating-menu {
-  position: absolute;
-  z-index: 1;
-  margin-top: -0.25rem;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.2s, visibility 0.2s;
-}
-.editor__floating-menu.is-active {
-  opacity: 1;
-  visibility: visible;
-}
-
-ul[data-type="todo_list"] {
-	 padding-left: 0;
-}
- li[data-type="todo_item"] {
-	 display: flex;
-	 flex-direction: row;
-}
- .todo-checkbox {
-	 border: 2px solid black;
-	 height: 0.9em;
-	 width: 0.9em;
-	 box-sizing: border-box;
-	 margin-right: 10px;
-	 margin-top: 0.3rem;
-	 user-select: none;
-	 -webkit-user-select: none;
-	 cursor: pointer;
-	 border-radius: 0.2em;
-	 background-color: transparent;
-	 transition: 0.4s background;
-}
- .todo-content {
-	 flex: 1;
-}
- .todo-content > p:last-of-type {
-	 margin-bottom: 0;
-}
- .todo-content > ul[data-type="todo_list"] {
-	 margin: 0.5rem 0;
-}
- li[data-done="true"] > .todo-content > p {
-	 text-decoration: line-through;
-}
- li[data-done="true"] > .todo-checkbox {
-	 background-color: black;
-}
- li[data-done="false"] {
-	 text-decoration: none;
-}
-
-.menubar__button {
-  @apply bg-gray-900 py-2 px-2 rounded-lg text-xs font-black;
-}
-
-code {
-  @apply bg-gray-900 p-2 m-2 rounded-lg block box-border text-xs;
-}
-
-pre::before {
-	 content: attr(data-language);
-	 text-transform: uppercase;
-	 display: block;
-	 text-align: right;
-	 font-weight: bold;
-	 font-size: 0.6rem;
-}
- pre code .hljs-comment, pre code .hljs-quote {
-	 color: #999;
-}
- pre code .hljs-variable, pre code .hljs-template-variable, pre code .hljs-attribute, pre code .hljs-tag, pre code .hljs-name, pre code .hljs-regexp, pre code .hljs-link, pre code .hljs-name, pre code .hljs-selector-id, pre code .hljs-selector-class {
-	 color: #f2777a;
-}
- pre code .hljs-number, pre code .hljs-meta, pre code .hljs-built_in, pre code .hljs-builtin-name, pre code .hljs-literal, pre code .hljs-type, pre code .hljs-params {
-	 color: #f99157;
-}
- pre code .hljs-string, pre code .hljs-symbol, pre code .hljs-bullet {
-	 color: #9c9;
-}
- pre code .hljs-title, pre code .hljs-section {
-	 color: #fc6;
-}
- pre code .hljs-keyword, pre code .hljs-selector-tag {
-	 color: #69c;
-}
- pre code .hljs-emphasis {
-	 font-style: italic;
-}
- pre code .hljs-strong {
-	 font-weight: 700;
-}
-.ProseMirror:focus {
-  outline: none;
-}
-
-.ProseMirror > ol, ul {
-  list-style-type: disc !important;
-  margin: 0.5rem !important;
-  padding: 0.5rem !important;
-}
-</style>

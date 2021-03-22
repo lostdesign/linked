@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 h1 {
-    @apply text-2xl font-bold mb-2;
+  @apply text-4xl font-bold mb-2;
 }
 
 h2 {
-    @apply text-lg font-bold mb-2;
+  @apply text-2xl font-bold mb-2;
+}
+
+h3 {
+  @apply text-xl font-bold mb-2;
 }
 
 ::-webkit-scrollbar {
@@ -19,4 +23,110 @@ blockquote {
 }
 blockquote p {
   display: inline;
+}
+
+.editor {
+  position: relative;
+}
+.editor__floating-menu {
+  position: absolute;
+  z-index: 1;
+  margin-top: -0.25rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+.editor__floating-menu.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+ul[data-type="todo_list"] {
+	 padding-left: 0;
+}
+ li[data-type="todo_item"] {
+	 display: flex;
+	 flex-direction: row;
+}
+ .todo-checkbox {
+	 border: 2px solid black;
+	 height: 0.9em;
+	 width: 0.9em;
+	 box-sizing: border-box;
+	 margin-right: 10px;
+	 margin-top: 0.3rem;
+	 user-select: none;
+	 -webkit-user-select: none;
+	 cursor: pointer;
+	 border-radius: 0.2em;
+	 background-color: transparent;
+	 transition: 0.4s background;
+}
+ .todo-content {
+	 flex: 1;
+}
+ .todo-content > p:last-of-type {
+	 margin-bottom: 0;
+}
+ .todo-content > ul[data-type="todo_list"] {
+	 margin: 0.5rem 0;
+}
+ li[data-done="true"] > .todo-content > p {
+	 text-decoration: line-through;
+}
+ li[data-done="true"] > .todo-checkbox {
+	 background-color: black;
+}
+ li[data-done="false"] {
+	 text-decoration: none;
+}
+
+.menubar__button {
+  @apply bg-gray-900 py-2 px-2 rounded-sm text-xs font-black;
+}
+
+code {
+  @apply bg-gray-900 p-2 rounded-lg block box-border text-xs;
+}
+
+pre::before {
+	 content: attr(data-language);
+	 text-transform: uppercase;
+	 display: block;
+	 text-align: right;
+	 font-weight: bold;
+	 font-size: 0.6rem;
+}
+ pre code .hljs-comment, pre code .hljs-quote {
+	 color: #999;
+}
+ pre code .hljs-variable, pre code .hljs-template-variable, pre code .hljs-attribute, pre code .hljs-tag, pre code .hljs-name, pre code .hljs-regexp, pre code .hljs-link, pre code .hljs-name, pre code .hljs-selector-id, pre code .hljs-selector-class {
+	 color: #f2777a;
+}
+ pre code .hljs-number, pre code .hljs-meta, pre code .hljs-built_in, pre code .hljs-builtin-name, pre code .hljs-literal, pre code .hljs-type, pre code .hljs-params {
+	 color: #f99157;
+}
+ pre code .hljs-string, pre code .hljs-symbol, pre code .hljs-bullet {
+	 color: #9c9;
+}
+ pre code .hljs-title, pre code .hljs-section {
+	 color: #fc6;
+}
+ pre code .hljs-keyword, pre code .hljs-selector-tag {
+	 color: #69c;
+}
+ pre code .hljs-emphasis {
+	 font-style: italic;
+}
+ pre code .hljs-strong {
+	 font-weight: 700;
+}
+.ProseMirror:focus {
+  outline: none;
+}
+
+.ProseMirror > ol, ul {
+  list-style-type: disc !important;
+  margin: 0rem 0.8rem !important;
+  padding: 0.5rem !important;
 }
