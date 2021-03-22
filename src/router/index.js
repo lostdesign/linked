@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
+import Settings from '@/views/Settings.vue'
 
 Vue.use(VueRouter)
   const routes = [
@@ -15,7 +16,7 @@ Vue.use(VueRouter)
   {
     path: '/settings',
     name: 'Settings',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Settings.vue'),
+    component: Settings,
     beforeEnter: (to, from, next) => {
       next()
     }
