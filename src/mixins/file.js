@@ -5,20 +5,19 @@ export default {
     }
   },
   methods: {
-    saveFile() {
-      window.electron.invoke('save-file', [
+    async saveFile() {
+      await window.electron.invoke('save-file', [
         this.formatDate(this.today, 'year'),
         this.today,
         this.content
-      ]).then(e => console.log(e))
+      ])
     },
-    loadFile() {
-      window.electron.invoke('load-file', [
+    async loadFile() {
+      await window.electron.invoke('load-file', [
         this.formatDate(this.today, 'year'),
         this.today
       ]).then(data => {
-        const file = JSON.parse(data)
-        this.editor.setContent(file.content)
+        this.editor.setContent(data)
       })
     },
     debounce(func, wait) {
