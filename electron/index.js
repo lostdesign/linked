@@ -1,7 +1,6 @@
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 
 const { app, BrowserWindow, ipcMain, dialog, shell, protocol, nativeTheme } = require('electron')
-const { default: installExtension, VUEJS_DEVTOOLS } = require('electron-devtools-installer');
 const fs = require('fs')
 const path = require('path');
 const { formatWithOptions } = require('util');
@@ -48,9 +47,14 @@ app.whenReady().then(() => {
   nativeTheme.themeSource = 'dark';
 
   createWindow()
-  installExtension(VUEJS_DEVTOOLS)
+
+  if (!app.isPackaged) {
+    const { default: installExtension, VUEJS_DEVTOOLS } = require('electron-devtools-installer');
+
+    process.installExtension(VUEJS_DEVTOOLS)
     .then((name) => console.log(`Added Extension:  ${name}`))
     .catch((err) => console.log('An error occurred: ', err));
+  }
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
