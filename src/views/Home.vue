@@ -3,7 +3,7 @@
     <main class="flex-col items-stretch h-full" @click="focusEditor">
       <div class="sticky top-0 bg-black z-50">
         <p class="text-center text-2xl font-black mb-4 pt-4">{{formatDate(today, 'dd. mm. year')}}</p>
-        <div class="flex bg-black justify-center space-x-4 mb-2 z-50 border-b border-gray-900">
+        <div class="flex bg-black justify-center space-x-4 z-50 border-b border-gray-900">
           <template v-for="day in currentWeek()">
             <div :key="day" class="mb-6 flex-col justify-center items-center self-center text-center">
               <span
@@ -22,101 +22,67 @@
           </template>
         </div>
       </div>
-      <div class="editor px-10 mt-10">
-        <editor-floating-menu :editor="editor" v-slot="{ commands, isActive, menu }">
-          <div
-            class="editor__floating-menu"
-            :class="{ 'is-active': menu.isActive }"
-            :style="`top: ${menu.top}px`"
-          >
-
-            <button
-              class="menubar__button"
-              :class="{ 'is-active': isActive.heading({ level: 1 }) }"
-              @click="commands.heading({ level: 1 })"
-            >
-              <svg width="14" height="16" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 11C0.447716 11 0 10.5523 0 10V1C0 0.447715 0.447715 0 1 0H1.03236C1.58465 0 2.03237 0.447715 2.03237 1V4.19403H5.87054V1C5.87054 0.447715 6.31825 0 6.87054 0H6.90957C7.46185 0 7.90957 0.447715 7.90957 1V10C7.90957 10.5523 7.46185 11 6.90957 11H6.87054C6.31825 11 5.87054 10.5523 5.87054 10V6.08955H2.03237V10C2.03237 10.5523 1.58465 11 1.03237 11H1Z" fill="white"/>
-                <path d="M10.5239 3.53731C10.1142 3.53731 9.78201 3.20516 9.78201 2.79543V2.79543C9.78201 2.40003 10.0927 2.07888 10.4862 2.0398C10.7251 2.01608 10.9102 1.98788 11.0414 1.95522C11.4234 1.8607 11.7344 1.67164 11.9743 1.38806C12.1387 1.19403 12.263 0.935323 12.3475 0.61194V0.61194C12.4068 0.376336 12.6177 0.179104 12.8607 0.179104H13.2104C13.6465 0.179104 14 0.532631 14 0.968728V10.0271C14 10.5644 13.5644 11 13.0271 11V11C12.4898 11 12.0543 10.5644 12.0543 10.0271V3.53731H10.5239Z" fill="white"/>
-              </svg>
-            </button>
-
-            <button
-              class="menubar__button"
-              :class="{ 'is-active': isActive.heading({ level: 2 }) }"
-              @click="commands.heading({ level: 2 })"
-            >
-              <svg width="15" height="16" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0.999999 11C0.447715 11 0 10.5523 0 10V1C0 0.447715 0.447715 0 1 0H1.04784C1.60012 0 2.04784 0.447715 2.04784 1V4.19403H5.91523V1C5.91523 0.447715 6.36295 0 6.91523 0H6.96979C7.52207 0 7.96979 0.447715 7.96979 1V10C7.96979 10.5523 7.52207 11 6.96979 11H6.91523C6.36295 11 5.91523 10.5523 5.91523 10V6.08955H2.04784V10C2.04784 10.5523 1.60012 11 1.04784 11H0.999999Z" fill="white"/>
-                <path d="M10.3561 11C9.7948 11 9.3327 10.5345 9.43902 9.98336C9.51426 9.5933 9.6288 9.22323 9.78263 8.87313C10.0557 8.15174 10.7002 7.38806 11.7163 6.58209C12.5981 5.8806 13.1688 5.37811 13.4285 5.07463C13.8268 4.60199 14.026 4.08458 14.026 3.52239C14.026 3.06468 13.9119 2.68408 13.6836 2.3806C13.4553 2.07711 13.1285 1.92537 12.7033 1.92537C12.1214 1.92537 11.7253 2.16667 11.5149 2.64925C11.4643 2.76596 11.4223 2.91147 11.3889 3.08578C11.2949 3.57751 10.9037 3.97761 10.4031 3.97761V3.97761C9.87668 3.97761 9.44588 3.53942 9.52513 3.01902C9.60029 2.52556 9.72193 2.10131 9.89005 1.74627C10.4003 0.666667 11.3068 0.126866 12.6093 0.126866C13.6388 0.126866 14.458 0.445274 15.0667 1.08209C15.6755 1.71393 15.9799 2.55224 15.9799 3.59702C15.9799 4.39801 15.765 5.10945 15.3353 5.73134C15.0533 6.14428 14.59 6.60448 13.9454 7.11194L13.18 7.71642C12.7011 8.09453 12.3721 8.36816 12.193 8.53731C12.0185 8.70647 11.8708 8.90299 11.7499 9.12687H15.0634C15.5807 9.12687 16 9.54618 16 10.0634V10.0634C16 10.5807 15.5807 11 15.0634 11H10.3561Z" fill="white"/>
-              </svg>
-            </button>
-
-            <button
-              class="menubar__button"
-              :class="{ 'is-active': isActive.heading({ level: 3 }) }"
-              @click="commands.heading({ level: 3 })"
-            >
-              <svg width="15" height="16" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0.999999 10.7377C0.447715 10.7377 0 10.29 0 9.73775V0.999999C0 0.447714 0.447715 0 1 0H1.04784C1.60012 0 2.04784 0.447715 2.04784 1V4.09404H5.91523V1C5.91523 0.447715 6.36295 0 6.91523 0H6.96979C7.52207 0 7.96979 0.447715 7.96979 1V9.73775C7.96979 10.29 7.52207 10.7377 6.96979 10.7377H6.91523C6.36295 10.7377 5.91523 10.29 5.91523 9.73775V5.94437H2.04784V9.73775C2.04784 10.29 1.60012 10.7377 1.04784 10.7377H0.999999Z" fill="white"/>
-                <path d="M10.2231 7.49603C10.7326 7.49603 11.1095 7.92379 11.2776 8.40472C11.2946 8.4534 11.3133 8.50017 11.3336 8.54503C11.5664 9.05497 11.9894 9.30993 12.6026 9.30993C12.9786 9.30993 13.3054 9.17152 13.5829 8.8947C13.8649 8.61302 14.0059 8.20993 14.0059 7.68543C14.0059 6.99095 13.7463 6.52715 13.227 6.29404C13.0631 6.22126 12.8467 6.16868 12.5779 6.1363C12.1673 6.08682 11.8305 5.76208 11.8305 5.34851V5.34851C11.8305 4.93949 12.1605 4.61763 12.5658 4.56293C12.8103 4.52994 12.9994 4.48048 13.133 4.41457C13.5583 4.2106 13.7709 3.79779 13.7709 3.17616C13.7709 2.77307 13.6612 2.44525 13.4419 2.19272C13.227 1.94018 12.9226 1.81391 12.5287 1.81391C12.0767 1.81391 11.7432 1.96932 11.5283 2.28013C11.4532 2.39105 11.3921 2.51527 11.345 2.65278C11.1872 3.11302 10.8273 3.52583 10.3407 3.52583V3.52583C9.84844 3.52583 9.44637 3.11517 9.53849 2.63156C9.5774 2.42727 9.62745 2.22757 9.68863 2.03245C9.84529 1.61965 10.0915 1.23841 10.4272 0.888742C10.6779 0.64106 10.9755 0.451656 11.3202 0.32053C11.6648 0.189404 12.0878 0.123841 12.5892 0.123841C13.5202 0.123841 14.27 0.386093 14.8384 0.910596C15.4114 1.43024 15.6979 2.12958 15.6979 3.00861C15.6979 3.63024 15.5278 4.15475 15.1876 4.58212C14.9727 4.84923 14.7489 5.03135 14.5162 5.12848C14.6907 5.12848 14.9414 5.29117 15.2681 5.61656C15.756 6.10706 16 6.77726 16 7.62715C16 8.52075 15.7135 9.30751 15.1406 9.98742C14.5721 10.6625 13.7284 11 12.6093 11C11.2307 11 10.2728 10.5119 9.73563 9.53576C9.56907 9.22885 9.44624 8.86602 9.36713 8.4473C9.27004 7.93344 9.7002 7.49603 10.2231 7.49603V7.49603Z" fill="white"/>
-              </svg>
-            </button>
-            <button class="menubar__button" :class="{ 'is-active': isActive.bold() }" @click="commands.bold">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bold" width="16" height="16" viewBox="0 0 24 24" stroke-width="3" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M7 5h6a3.5 3.5 0 0 1 0 7h-6z" />
-                <path d="M13 12h1a3.5 3.5 0 0 1 0 7h-7v-7" />
-              </svg>
-            </button>
-
-            <button class="menubar__button" :class="{ 'is-active': isActive.italic() }" @click="commands.italic">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-italic" width="16" height="16" viewBox="0 0 24 24" stroke-width="3" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <line x1="11" y1="5" x2="17" y2="5" />
-                <line x1="7" y1="19" x2="13" y2="19" />
-                <line x1="14" y1="5" x2="10" y2="19" />
-              </svg>
-            </button>
-
-            <button class="menubar__button" :class="{ 'is-active': isActive.code_block() }" @click="commands.code_block">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="16" height="16" viewBox="0 0 24 24" stroke-width="3" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <polyline points="7 8 3 12 7 16" />
-                <polyline points="17 8 21 12 17 16" />
-                <line x1="14" y1="4" x2="10" y2="20" />
-              </svg>
-            </button>
-            <button class="menubar__button" :class="{ 'is-active': isActive.bullet_list() }" @click="commands.bullet_list">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list" width="16" height="16" viewBox="0 0 24 24" stroke-width="3" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <line x1="9" y1="6" x2="20" y2="6" />
-                <line x1="9" y1="12" x2="20" y2="12" />
-                <line x1="9" y1="18" x2="20" y2="18" />
-                <line x1="5" y1="6" x2="5" y2="6.01" />
-                <line x1="5" y1="12" x2="5" y2="12.01" />
-                <line x1="5" y1="18" x2="5" y2="18.01" />
-              </svg>
-            </button>
-
-            <button
-              class="menubar__button"
-              :class="{ 'is-active': isActive.blockquote() }"
-              @click="commands.blockquote"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-blockquote" width="16" height="16" viewBox="0 0 24 24" stroke-width="3" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M6 15h15" />
-                <path d="M21 19h-15" />
-                <path d="M15 11h6" />
-                <path d="M21 7h-6" />
-                <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2" />
-                <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2" />
-              </svg>
-            </button>
-          </div>
-        </editor-floating-menu>
-        <editor-content class="editor__content outline-none" :editor="editor" />
+      <div v-if="editor">
+        <div class="px-10 border-b-2 border-gray-900  bg-gray-900">
+        <!--<button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().toggleHeading({ level: 1 }).run()" :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0H24V24H0z"/><path d="M13 20h-2v-7H4v7H2V4h2v7h7V4h2v16zm8-12v12h-2v-9.796l-2 .536V8.67L19.5 8H21z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().toggleHeading({ level: 2 }).run()" :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0H24V24H0z"/><path d="M4 4v7h7V4h2v16h-2v-7H4v7H2V4h2zm14.5 4c2.071 0 3.75 1.679 3.75 3.75 0 .857-.288 1.648-.772 2.28l-.148.18L18.034 18H22v2h-7v-1.556l4.82-5.546c.268-.307.43-.709.43-1.148 0-.966-.784-1.75-1.75-1.75-.918 0-1.671.707-1.744 1.606l-.006.144h-2C14.75 9.679 16.429 8 18.5 8z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().toggleHeading({ level: 3 }).run()" :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0H24V24H0z"/><path d="M22 8l-.002 2-2.505 2.883c1.59.435 2.757 1.89 2.757 3.617 0 2.071-1.679 3.75-3.75 3.75-1.826 0-3.347-1.305-3.682-3.033l1.964-.382c.156.806.866 1.415 1.718 1.415.966 0 1.75-.784 1.75-1.75s-.784-1.75-1.75-1.75c-.286 0-.556.069-.794.19l-1.307-1.547L19.35 10H15V8h7zM4 4v7h7V4h2v16h-2v-7H4v7H2V4h2z" fill="rgba(255,255,255,1)"/></svg>
+        </button>-->
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().toggleCodeBlock().run()" :class="{ 'is-active': editor.isActive('codeBlock') }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M23 12l-7.071 7.071-1.414-1.414L20.172 12l-5.657-5.657 1.414-1.414L23 12zM3.828 12l5.657 5.657-1.414 1.414L1 12l7.071-7.071 1.414 1.414L3.828 12z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().toggleHighlight().run()" :class="{ 'is-active': editor.isActive('highlight') }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.243 18H3v-4.243L14.435 2.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 18zM3 20h18v2H3v-2z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().setTextAlign('left').run()" :class="{ 'is-active': editor.isActive({ textAlign: 'left' }) }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 15h14v2H3v-2zm0-5h18v2H3v-2zm0-5h14v2H3V9z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().setTextAlign('center').run()" :class="{ 'is-active': editor.isActive({ textAlign: 'center' }) }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm2 15h14v2H5v-2zm-2-5h18v2H3v-2zm2-5h14v2H5V9z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().setTextAlign('right').run()" :class="{ 'is-active': editor.isActive({ textAlign: 'right' }) }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm4 15h14v2H7v-2zm-4-5h18v2H3v-2zm4-5h14v2H7V9z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().setTextAlign('justify').run()" :class="{ 'is-active': editor.isActive({ textAlign: 'justify' }) }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 15h18v2H3v-2zm0-5h18v2H3v-2zm0-5h18v2H3V9z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().toggleTaskList().run()" :class="{ 'is-active': editor.isActive('taskList') }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 2.992v18.016a1 1 0 0 1-.993.992H3.993A.993.993 0 0 1 3 21.008V2.992A1 1 0 0 1 3.993 2h16.014c.548 0 .993.444.993.992zm-9.707 10.13l-2.475-2.476-1.414 1.415 3.889 3.889 5.657-5.657-1.414-1.414-4.243 4.242z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        <button
+          class="bg-gray-900 p-2 hover:bg-gray-800"
+          @click="editor.chain().focus().toggleBulletList().run()" :class="{ 'is-active': editor.isActive('bulletList') }">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 4h13v2H8V4zM4.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 6.9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM8 11h13v2H8v-2zm0 7h13v2H8v-2z" fill="rgba(255,255,255,1)"/></svg>
+        </button>
+        </div>
+        <div class="px-10 mt-5">
+          <editor-content :editor="editor" v-model="content" />
+        </div>
       </div>
     </main>
   </Layout>
@@ -126,58 +92,29 @@
 import Layout from './Layout'
 import Calendar from '@/mixins/calendar'
 import File from '@/mixins/file'
-import javascript from 'highlight.js/lib/languages/javascript'
-import css from 'highlight.js/lib/languages/css'
-import { Editor, EditorContent, EditorMenuBar, EditorFloatingMenu} from 'tiptap'
-import {
-  CodeBlockHighlight,
-  HardBreak,
-  Heading,
-  Image,
-  Bold,
-  Code,
-  Italic,
-  BulletList,
-  ListItem,
-  Blockquote
-} from 'tiptap-extensions'
+import { Editor, EditorContent } from '@tiptap/vue-2'
+import Document from '@tiptap/extension-document'
+import Paragraph from '@tiptap/extension-paragraph'
+import Text from '@tiptap/extension-text'
+import TaskList from '@tiptap/extension-task-list'
+import TaskItem from '@tiptap/extension-task-item'
+import TextAlign from '@tiptap/extension-text-align'
+import Heading from '@tiptap/extension-heading'
+import Highlight from '@tiptap/extension-highlight'
+import CodeBlock from '@tiptap/extension-code-block'
+import BulletList from '@tiptap/extension-bullet-list'
+import ListItem from '@tiptap/extension-list-item'
 
 export default {
   components: {
     Layout,
-    EditorContent,
-    EditorMenuBar,
-    EditorFloatingMenu,
+    EditorContent
   },
   mixins: [Calendar, File],
   data() {
     return {
       keysPressed: {},
-      editor: new Editor({
-        onUpdate: ({ getHTML }) => {
-          // get new content on update
-          this.content = getHTML()
-          this.debounce(this.saveFile(), 400)
-        },
-        extensions: [
-          new CodeBlockHighlight({
-            languages: {
-              javascript,
-              css,
-            },
-          }),
-          new HardBreak(),
-          new Heading({ levels: [1, 2, 3] }),
-          new Bold(),
-          new Code(),
-          new Italic(),
-          new Image(),
-          new ListItem(),
-          new BulletList(),
-          new Blockquote(),
-        ],
-        content: this.content,
-      }),
+      editor: null,
     }
   },
   methods: {
@@ -186,6 +123,28 @@ export default {
     }
   },
   mounted() {
+    this.editor = new Editor({
+      extensions: [
+        Document,
+        Paragraph,
+        Text,
+        TaskList,
+        TaskItem,
+        TextAlign,
+        Heading,
+        Highlight,
+        CodeBlock,
+        BulletList,
+        ListItem
+      ],
+      content: this.content,
+      autofocus: true,
+      onUpdate: ({ editor }) => {
+        this.content = editor.getHTML()
+        this.debounce(this.saveFile(), 500)
+      }
+    })
+
     document.addEventListener('keydown', (event) => {
       this.keysPressed[event.key] = true
       const modifier = this.keysPressed['Shift'] && this.keysPressed['Control']
@@ -211,8 +170,55 @@ export default {
       delete this.keysPressed[event.key]
     })
   },
+
+  watch: {
+    content(value) {
+      const isSame = this.editor.getHTML() === value
+
+      if (isSame) {
+        return
+      }
+
+      this.editor.commands.setContent(this.content, false)
+    },
+  },
+
   beforeDestroy() {
     this.editor.destroy()
   },
 }
 </script>
+
+<style>
+button.is-active {
+  @apply bg-red-900;
+}
+ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+ul[data-type="taskList"] li {
+  display: flex;
+  align-items: center;
+}
+ul[data-type="taskList"] li > input {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+}
+ul[data-type="taskList"] input[type="checkbox"] {
+  cursor: pointer;
+}
+ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+ul[data-type="taskList"] li {
+  display: flex;
+  align-items: center;
+}
+ul[data-type="taskList"] li > input {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+}
+</style>
