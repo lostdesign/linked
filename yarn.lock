@@ -147,6 +147,11 @@
     prosemirror-transform "^1.2.12"
     prosemirror-view "^1.18.1"
 
+"@tiptap/extension-bold@^2.0.0-beta.1":
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-bold/-/extension-bold-2.0.0-beta.1.tgz#cd5fe381780ce7b64df886182373e027422a8d22"
+  integrity sha512-zdwmxpYF0Wjrn9lZx/CQPZPATl6R+Lx+9gzuwqW+MYh4jOlrWKRkp0wBHGkekQ8ltIp3zprZJl7CsWn34fuKpg==
+
 "@tiptap/extension-bullet-list@^2.0.0-beta.1":
   version "2.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-bullet-list/-/extension-bullet-list-2.0.0-beta.1.tgz#cd24739c7fd367a90e570187475b0c561f59aafc"
@@ -177,6 +182,11 @@
   version "2.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-highlight/-/extension-highlight-2.0.0-beta.1.tgz#f25c383178130ac1e1a5b5a1294a32841411afb1"
   integrity sha512-eBzyBtIuQMobmz2q9wxV06TS4T+0nUZm2hWagj95fzYgJ4WrkraMm6tBgy7WcNvdgzn3U0fjF2IAuY3YrfUfyw==
+
+"@tiptap/extension-italic@^2.0.0-beta.1":
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-italic/-/extension-italic-2.0.0-beta.1.tgz#ab32bef36207501dab8b8f212e821f7dff90b11e"
+  integrity sha512-IEP1USBIVCEonZCNj4mfSwQv/uDAn0s4bleWvEocJa7OT/uOjyYQwi7Tesa4jwh6vPSlaHM+yWoQqOIG7OSmOw==
 
 "@tiptap/extension-list-item@^2.0.0-beta.1":
   version "2.0.0-beta.1"

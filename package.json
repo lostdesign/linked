@@ -19,11 +19,13 @@
   },
   "dependencies": {
     "@tiptap/core": "^2.0.0-beta.5",
+    "@tiptap/extension-bold": "^2.0.0-beta.1",
     "@tiptap/extension-bullet-list": "^2.0.0-beta.1",
     "@tiptap/extension-code-block": "^2.0.0-beta.1",
     "@tiptap/extension-document": "^2.0.0-beta.1",
     "@tiptap/extension-heading": "^2.0.0-beta.1",
     "@tiptap/extension-highlight": "^2.0.0-beta.1",
+    "@tiptap/extension-italic": "^2.0.0-beta.1",
     "@tiptap/extension-list-item": "^2.0.0-beta.1",
     "@tiptap/extension-paragraph": "^2.0.0-beta.1",
     "@tiptap/extension-task-item": "^2.0.0-beta.1",
