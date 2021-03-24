@@ -17,7 +17,7 @@ export default {
         this.formatDate(this.today, 'year'),
         this.today
       ]).then(data => {
-        this.editor.setContent(data)
+        this.content = data
       })
     },
     debounce(func, wait) {
