@@ -1,8 +1,9 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+  darkMode: 'class',
   purge: {
-    enabled: false,
+    enabled: true,
     content: [
       './src/**/*.html',
       './src/**/*.vue',
@@ -21,7 +22,7 @@ module.exports = {
     },
   },
   variants: {
-    opacity: ['active'],
+    opacity: ['active', 'hover'],
     scale: ['active'],
     border: ['focus']
   },

@@ -1,6 +1,6 @@
 {
   "name": "linked",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Link your thoughts to days.",
   "main": "electron/index.js",
   "scripts": {
