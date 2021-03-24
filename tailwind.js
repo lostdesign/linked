@@ -4,7 +4,7 @@ module.exports = {
   purge: {
     enabled: false,
     content: [
-      './src/**/*.html', 
+      './src/**/*.html',
       './src/**/*.vue',
     ],
   },
@@ -12,7 +12,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: colors.black,
+      black: '#161616',
       white: colors.white,
       gray: colors.gray,
       indigo: colors.indigo,
