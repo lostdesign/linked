@@ -22,6 +22,10 @@
           </template>
         </div>
       </div>
+
+      <button @click="handleRec()">RECORD</button>
+      <audio :src="src" autoplay></audio>
+
       <div class="editor px-10 mt-10">
         <editor-floating-menu :editor="editor" v-slot="{ commands, isActive, menu }">
           <div
@@ -152,6 +156,7 @@ export default {
   mixins: [Calendar, File],
   data() {
     return {
+      src: null,
       keysPressed: {},
       editor: new Editor({
         onUpdate: ({ getHTML }) => {
@@ -183,6 +188,63 @@ export default {
   methods: {
     focusEditor() {
       this.editor.focus()
+    },
+    handleRec() {
+      navigator.mediaDevices.enumerateDevices()
+      .then(devices => {
+
+        //We filter the device which we are willing to get
+        let audDevice = devices.filter(device => {
+          console.log(device.kind, device.label, device.deviceId);
+
+            return device.kind == "audioinput" && device.label == "Soundflower (2ch)" && device.deviceId != "default"
+        })[0]
+
+        console.log("audDevice", audDevice);
+
+        //We get the user media corresponding to the audio device we are willing to get
+        return navigator.mediaDevices.getUserMedia({
+            audio: {
+                deviceId:{exact: audDevice.deviceId}
+            }
+        })
+      })
+      .then(audioStream => {
+
+
+        const mediaRecorder = new MediaRecorder(audioStream);
+        mediaRecorder.start();
+
+        const audioChunks = [];
+
+        mediaRecorder.addEventListener("dataavailable", event => {
+          console.log("DATA", event.data);
+          audioChunks.push(event.data);
+        });
+
+        mediaRecorder.addEventListener("stop", () => {
+          const audioBlob = new Blob(audioChunks);
+          const audioUrl = URL.createObjectURL(audioBlob);
+          const audio = new Audio(audioUrl);
+          console.log("PLAY", audioUrl);
+          audio.play();
+
+          this.src = audioUrl
+        });
+
+        setTimeout(() => {
+          mediaRecorder.stop();
+        }, 3000);
+
+
+        console.log("OKKKKKKKKKKK", audioStream, mediaRecorder);
+
+        let audioTracks = audioStream.getAudioTracks();
+
+        console.log("audioTracks", audioTracks);
+      })
+
+
     }
   },
   mounted() {

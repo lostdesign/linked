@@ -38,7 +38,7 @@
     "postcss": "^7",
     "postcss-loader": "^3.0.0",
     "style-loader": "^1.2.1",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "tailwindcss": "2.0.4",
     "vue-loader": "^15.9.3",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11",

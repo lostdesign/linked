@@ -10,6 +10,11 @@ Linked allows you to write down your thoughts and ideas to link them with days. 
 - Rate your days
 - Year overview
 
+## Local development
+
+- yarn
+- yarn dev
+
 # Install
 Download the latest release and run the app or
 - clone repo
