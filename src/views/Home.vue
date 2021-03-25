@@ -24,7 +24,7 @@
       </div>
 
       <button @click="handleRec()">RECORD</button>
-      <audio :src="src" autoplay></audio>
+      <audio></audio>
 
       <div class="editor px-10 mt-10">
         <editor-floating-menu :editor="editor" v-slot="{ commands, isActive, menu }">
@@ -156,7 +156,6 @@ export default {
   mixins: [Calendar, File],
   data() {
     return {
-      src: null,
       keysPressed: {},
       editor: new Editor({
         onUpdate: ({ getHTML }) => {
@@ -194,25 +193,39 @@ export default {
       .then(devices => {
 
         //We filter the device which we are willing to get
-        let audDevice = devices.filter(device => {
-          console.log(device.kind, device.label, device.deviceId);
+        const audDevice = devices.filter(device => {
+          // console.log(device.kind, device.label, device.deviceId);
 
-            return device.kind == "audioinput" && device.label == "Soundflower (2ch)" && device.deviceId != "default"
+          return device.kind == "audioinput" && device.label == "Soundflower (2ch)" && device.deviceId != "default"
+        })[0]
+
+        const audOutDevice = devices.filter(device => {
+          // console.log(device.kind, device.label, device.deviceId);
+
+          return device.kind == "audiooutput" && device.label == "Soundflower (2ch)" && device.deviceId != "default"
         })[0]
 
         console.log("audDevice", audDevice);
+        console.log("audOutDevice", audOutDevice);
 
         //We get the user media corresponding to the audio device we are willing to get
-        return navigator.mediaDevices.getUserMedia({
+        return Promise.all([
+          navigator.mediaDevices.getUserMedia({
             audio: {
-                deviceId:{exact: audDevice.deviceId}
+              deviceId:{exact: audDevice.deviceId}
             }
-        })
+          }),
+          navigator.mediaDevices.getUserMedia({
+            audio: {
+              deviceId:{exact: audOutDevice.deviceId}
+            }
+          })
+        ])
+
       })
-      .then(audioStream => {
-
-
-        const mediaRecorder = new MediaRecorder(audioStream);
+      .then(audioStreams => {
+        console.log("audioStreams", audioStreams);
+        const mediaRecorder = new MediaRecorder(audioStreams[0]);
         mediaRecorder.start();
 
         const audioChunks = [];
@@ -226,25 +239,22 @@ export default {
           const audioBlob = new Blob(audioChunks);
           const audioUrl = URL.createObjectURL(audioBlob);
           const audio = new Audio(audioUrl);
-          console.log("PLAY", audioUrl);
+          console.log("PLAY", audioBlob);
           audio.play();
 
-          this.src = audioUrl
+          const audioEl = document.querySelector('audio');
+          audioEl.src = audioUrl
+          audioEl.load()
+          audioEl.play()
         });
 
         setTimeout(() => {
           mediaRecorder.stop();
         }, 3000);
 
-
-        console.log("OKKKKKKKKKKK", audioStream, mediaRecorder);
-
-        let audioTracks = audioStream.getAudioTracks();
-
-        console.log("audioTracks", audioTracks);
+        // let audioTracks = audioStream.getAudioTracks();
+        // console.log("audioTracks", audioTracks);
       })
-
-
     }
   },
   mounted() {
