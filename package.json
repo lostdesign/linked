@@ -1,23 +1,36 @@
 {
   "name": "linked",
-  "version": "0.5.0",
+  "version": "1.0.0",
+  "keywords": ["journal", "calendar"],
   "description": "Link your thoughts to days.",
-  "main": "electron/index.js",
-  "scripts": {
-    "electron": "electron dist",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "npm run build:vue && npm run build:electron",
-    "build:vue": "cross-env NODE_ENV=production webpack --production",
-    "build:electron": "cross-env NODE_ENV=production node ./prebuild && electron-builder"
-  },
-  "keywords": [],
   "author": "André Weller <info@lost.design> (https://lost.design/)",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/muc-dev/linked"
   },
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "publish:osx": "yarn electron:build -p always",
+    "publish:win": "yarn electron:build -- --win  --x64 --ia32 -p always",
+    "publish:linux": "yarn electron:build -- --linux -p always",
+    "publish:all": "yarn run publish:osx && yarn run publish:win && yarn run publish:linux",
+    "build:osx": "yarn electron:build -p never",
+    "build:win": "yarn electron:build -p never -- --win  --x64 --ia32",
+    "build:linux": "yarn electron:build -p never -- --linux",
+    "build:all": "yarn run build:osx && yarn run build:win && yarn run build:linux",
+    "electron:icon": "electron-icon-builder --input=./appIcon/icon.png --output=./build --flatten",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
+  },
+  "main": "background.js",
   "dependencies": {
+    "@sentry/electron": "^2.0.0",
     "@tiptap/core": "^2.0.0-beta.5",
     "@tiptap/extension-bold": "^2.0.0-beta.1",
     "@tiptap/extension-bullet-list": "^2.0.0-beta.1",
@@ -33,70 +46,55 @@
     "@tiptap/extension-text": "^2.0.0-beta.1",
     "@tiptap/extension-text-align": "^2.0.0-beta.1",
     "@tiptap/vue-2": "^2.0.0-beta.4",
+    "core-js": "^3.6.5",
+    "electron-store": "^6.0.0",
+    "electron-updater": "^4.3.4",
     "highlight.js": "^10.6.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.4",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
     "autoprefixer": "^9",
-    "copy-webpack-plugin": "^6.0.3",
-    "cross-env": "^7.0.2",
-    "css-loader": "^4.2.1",
+    "babel-eslint": "^10.1.0",
+    "dotenv": "^8.2.0",
     "electron": "^12.0.1",
     "electron-builder": "^22.8.0",
     "electron-devtools-installer": "^3.1.1",
-    "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^4.3.0",
+    "electron-icon-builder": "^1.0.2",
+    "electron-notarize": "^1.0.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
     "postcss": "^7",
-    "postcss-loader": "^3.0.0",
-    "style-loader": "^1.2.1",
+    "prompts": "^2.3.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "vue-loader": "^15.9.3",
-    "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.4",
+    "vue-template-compiler": "^2.6.11"
   },
-  "build": {
-    "npmRebuild": true,
-    "appId": "dev.muc.linked",
-    "win": {
-      "icon": "assets/icon.png",
-      "target": [
-        "nsis"
-      ],
-      "publish": {
-        "provider": "github",
-        "owner": "muc-dev",
-        "repo": "linked"
-      }
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "mac": {
-      "target": [
-        "dmg"
-      ],
-      "publish": {
-        "provider": "github",
-        "owner": "muc-dev",
-        "repo": "linked"
-      }
+    "globals": {
+      "__static": "readable",
+      "mainStorage": "writable"
     },
-    "linux": {
-      "maintainer": "André Weller <info@lost.design> (https://lost.design/)",
-      "target": [
-        "deb"
-      ],
-      "publish": {
-        "provider": "github",
-        "owner": "muc-dev",
-        "repo": "linked"
-      }
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
     },
-    "directories": {
-      "app": "dist",
-      "output": "build"
-    }
-  }
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

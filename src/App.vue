@@ -3,13 +3,19 @@
 </template>
 
 <script>
+const { ipcRenderer } = require('electron')
+
 export default {
   data() {
     return {
       get themeMode() {
-        return localStorage.theme
+        const mode = localStorage.theme
+        ipcRenderer.invoke('dark-mode:toggle', mode)
+
+        return mode
       },
-      set themeMode(value) {
+      set themeMode(value) {// eslint-disable-line
+        ipcRenderer.invoke('dark-mode:toggle', value)
         return localStorage.theme = value
       },
     }

@@ -71,7 +71,7 @@ export default {
     },
   },
   watch: {
-    today(newDate, oldDate) {
+    today(newDate, oldDate) { //eslint-disable-line
       this.date = this.formatDate(newDate, 'year-mm-dd')
       this.loadFile()
     }

@@ -27,19 +27,24 @@
 </template>
 
 <script>
-
 import {version} from '../../package.json'
 import Layout from './Layout'
+const { ipcRenderer } = require('electron')
 
 export default {
   data() {
     return {
       version,
       get themeMode() {
-        return localStorage.theme
+        const mode = localStorage.theme
+        ipcRenderer.invoke('dark-mode:toggle', mode)
+
+        return mode
       },
-      set themeMode(value) {
+       set themeMode(value) {// eslint-disable-line
+        ipcRenderer.invoke('dark-mode:toggle', value)
         location.reload()
+
         return localStorage.theme = value
       },
     }
@@ -47,8 +52,5 @@ export default {
   components: {
     Layout
   },
-  methods: {
-
-  }
 }
 </script>

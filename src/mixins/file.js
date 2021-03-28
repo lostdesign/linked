@@ -1,23 +1,28 @@
+const { ipcRenderer } = require('electron')
+
 export default {
   data() {
     return {
-      content: null
+      content: null,
+      rating: null
     }
   },
   methods: {
-    async saveFile() {
-      await window.electron.invoke('save-file', [
+    saveFile() {
+      ipcRenderer.invoke('save-file', [
         this.formatDate(this.today, 'year'),
         this.today,
-        this.content
+        this.content,
+        this.rating
       ])
     },
-    async loadFile() {
-      await window.electron.invoke('load-file', [
+    loadFile() {
+      ipcRenderer.invoke('load-file', [
         this.formatDate(this.today, 'year'),
         this.today
       ]).then(data => {
-        this.content = data
+        this.content = data.content
+        this.rating = data.rating
       })
     },
     debounce(func, wait) {
