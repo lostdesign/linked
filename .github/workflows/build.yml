@@ -21,9 +21,14 @@ jobs:
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
+        env:
+          APPLE_ID: ${{secrets.APPLE_ID}}
+          APPLE_ID_PASSWORD: ${{secrets.APPLE_ID_PASSWORD}}
         with:
-          skip_build: true
+          mac_certs: ${{ secrets.CSC_LINK }}
+          mac_certs_password: ${{ secrets.CSC_KEY_PASSWORD }}
 
+          skip_build: true
           use_vue_cli: true
 
           # GitHub token, automatically provided to the action
