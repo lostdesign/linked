@@ -21,6 +21,7 @@ jobs:
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
+        continue-on-error: true
         env:
           APPLE_ID: ${{secrets.APPLE_ID}}
           APPLE_ID_PASSWORD: ${{secrets.APPLE_ID_PASSWORD}}
