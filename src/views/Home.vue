@@ -1,22 +1,37 @@
 <template>
   <Layout>
     <main class="flex-col items-stretch h-full" @click="focusEditor">
-      <div class="sticky top-0 text-black dark:bg-black dark:text-white z-50">
-        <p class="text-center text-2xl font-black mb-4 pt-4">{{formatDate(today, 'dd. mm. year')}}</p>
+      <div class="sticky top-0 text-black dark:bg-black dark:text-white z-50 select-none">
+        <div class="flex justify-between items-center align-center mb-6 mt-6 px-10">
+          <span class="text-center text-4xl font-black">{{this.formatDate('dd.LL.yyyy')}}</span>
+          <span class="ml-4 text-red-500 select-none">
+            <span @click="shiftDay(-7)">
+              <svg  class="inline text-white hover:text-red-500 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path fill="none" d="M0 0h24v24H0z"/>
+                <path d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z" fill="currentColor"/>
+              </svg>
+            </span>
+            KW{{this.formatDate('WW')}}
+            <span @click="shiftDay(7)">
+              <svg class="inline text-white hover:text-red-500 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+                <path fill="none" d="M0 0h24v24H0z"/><path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" fill="currentColor"/>
+              </svg>
+            </span>
+          </span>
+        </div>
         <div class="flex dark:bg-black justify-center space-x-4 z-50 border-b border-gray-400 dark:border-gray-800">
-          <template v-for="day in currentWeek()">
-            <div :key="day" class="mb-6 flex-col justify-center items-center self-center text-center">
+          <template v-for="date in getCurrentWeekDates()">
+            <div :key="date.day" class="mb-6 flex-col justify-center items-center self-center text-center">
               <span
                 class="block mb-1 text-xs text-gray-400 dark:text-gray-700"
-                :class="{ 'text-red-400 dark:text-red-500': formatDate(day, 'dd.mm') === formatDate(today, 'dd.mm') }">
-                {{formatDate(day, 'day')}}
+                :class="{ 'text-red-400 dark:text-red-500': date.isoDate === today }">
+                {{date.weekDay}}
               </span>
               <span
                 class="flex justify-center items-center self-center text-center w-10 h-10 rounded-full font-black text-xs hover:bg-gray-200 dark:hover:bg-gray-800 cursor-pointer ring-red-600 dark:ring-red-900"
-                :class="{ 'ring-4 text-sm': formatDate(day, 'dd.mm') === formatDate(today, 'dd.mm') }"
-                :key="day"
-                @click="setDay(day)">
-                {{formatDate(day, 'dd')}}
+                :class="{ 'ring-4 text-sm': date.isoDate === today }"
+                :key="date.day"
+                @click="setDay(date.isoDate)">
+                {{date.day}} 
               </span>
             </div>
           </template>
@@ -39,16 +54,6 @@
           </button>-->
           <button
             class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
-            @click="editor.chain().focus().toggleCodeBlock().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('codeBlock') }">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M23 12l-7.071 7.071-1.414-1.414L20.172 12l-5.657-5.657 1.414-1.414L23 12zM3.828 12l5.657 5.657-1.414 1.414L1 12l7.071-7.071 1.414 1.414L3.828 12z" fill="currentColor"/></svg>
-          </button>
-          <button
-            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
-            @click="editor.chain().focus().toggleHighlight().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('highlight') }">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.243 18H3v-4.243L14.435 2.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 18zM3 20h18v2H3v-2z" fill="currentColor"/></svg>
-          </button>
-          <button
-            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
             @click="editor.chain().focus().setTextAlign('left').run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive({ textAlign: 'left' }) }">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 15h14v2H3v-2zm0-5h18v2H3v-2zm0-5h14v2H3V9z" fill="currentColor"/></svg>
           </button>
@@ -69,8 +74,18 @@
           </button>
           <button
             class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
+            @click="editor.chain().focus().toggleHighlight().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('highlight') }">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.243 18H3v-4.243L14.435 2.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 18zM3 20h18v2H3v-2z" fill="currentColor"/></svg>
+          </button>
+          <button
+            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
             @click="editor.chain().focus().toggleTaskList().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('taskList') }">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 2.992v18.016a1 1 0 0 1-.993.992H3.993A.993.993 0 0 1 3 21.008V2.992A1 1 0 0 1 3.993 2h16.014c.548 0 .993.444.993.992zm-9.707 10.13l-2.475-2.476-1.414 1.415 3.889 3.889 5.657-5.657-1.414-1.414-4.243 4.242z" fill="currentColor"/></svg>
+          </button>
+          <button
+            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
+            @click="editor.chain().focus().toggleCodeBlock().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('codeBlock') }">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M23 12l-7.071 7.071-1.414-1.414L20.172 12l-5.657-5.657 1.414-1.414L23 12zM3.828 12l5.657 5.657-1.414 1.414L1 12l7.071-7.071 1.414 1.414L3.828 12z" fill="currentColor"/></svg>
           </button>
           <button
             class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
@@ -127,19 +142,10 @@ export default {
   mounted() {
     this.editor = new Editor({
       extensions: [
-        Document,
-        Paragraph,
-        Text,
-        TaskList,
-        TaskItem,
+        Bold, BulletList, CodeBlock, Document,
+        Heading, Highlight, Italic, ListItem,
+        Paragraph, TaskItem, TaskList, Text,
         TextAlign,
-        Heading,
-        Highlight,
-        CodeBlock,
-        BulletList,
-        ListItem,
-        Bold,
-        Italic
       ],
       content: this.content,
       autofocus: true,
@@ -158,15 +164,15 @@ export default {
       }
 
       if (modifier && event.code === 'Enter') {
-        this.today = this.formatDate(new Date(), 'year-mm-dd')
+        this.today = this.getToday()
       }
 
       if (modifier && event.code === 'ArrowLeft') {
-        this.today = this.formatDate(new Date(this.shiftDay(this.today, -1)), 'year-mm-dd')
+        this.shiftDay(-1)
       }
 
       if (modifier && event.code === 'ArrowRight') {
-        this.today = this.formatDate(new Date(this.shiftDay(this.today, 1)), 'year-mm-dd')
+        this.shiftDay(1)
       }
     })
 
@@ -192,34 +198,3 @@ export default {
   },
 }
 </script>
-
-<style>
-ul[data-type="taskList"] {
-  list-style: none;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-ul[data-type="taskList"] li {
-  display: flex;
-  align-items: center;
-}
-ul[data-type="taskList"] li > input {
-  flex: 0 0 auto;
-  margin-right: 0.5rem;
-}
-ul[data-type="taskList"] input[type="checkbox"] {
-  cursor: pointer;
-}
-ul[data-type="taskList"] {
-  list-style: none;
-  padding: 0;
-}
-ul[data-type="taskList"] li {
-  display: flex;
-  align-items: center;
-}
-ul[data-type="taskList"] li > input {
-  flex: 0 0 auto;
-  margin-right: 0.5rem;
-}
-</style>

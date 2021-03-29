@@ -22,9 +22,13 @@ module.exports = {
     },
   },
   variants: {
-    opacity: ['active', 'hover'],
-    scale: ['active'],
-    border: ['focus']
+    extends: {
+      opacity: ['active', 'hover'],
+      scale: ['active'],
+      border: ['focus'],
+      translate: ['active'],
+      transform: ['active']
+    }
   },
   plugins: [
   ],

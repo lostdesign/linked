@@ -86,7 +86,7 @@ ul[data-type="todo_list"] {
 }
 
 code {
-  @apply bg-gray-900 p-2 rounded-lg block box-border text-xs;
+  @apply bg-gray-800 p-2 rounded-lg block box-border text-xs;
 }
 
 pre::before {
@@ -129,4 +129,33 @@ pre::before {
   list-style-type: disc !important;
   margin: 0rem 0.8rem !important;
   padding: 0.5rem !important;
+}
+
+ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+ul[data-type="taskList"] li {
+  display: flex;
+  align-items: center;
+}
+ul[data-type="taskList"] li > input {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+}
+ul[data-type="taskList"] input[type="checkbox"] {
+  cursor: pointer;
+}
+ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+ul[data-type="taskList"] li {
+  display: flex;
+  align-items: center;
+}
+ul[data-type="taskList"] li > input {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
 }
