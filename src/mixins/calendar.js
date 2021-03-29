@@ -1,17 +1,22 @@
+import { DateTime } from "luxon"
+
 export default {
   data () {
     return {
-      today: this.formatDate(new Date(), 'year-mm-dd')
+      today: this.getToday()
     }
   },
   methods: {
+    getToday() {
+      return DateTime.now().toISODate()
+    },
     /**
      * Set the current day by click.
      * @param {*} day
      * @returns
      */
     setDay(day) {
-      this.today = this.formatDate(day, 'year-mm-dd')
+      this.today = DateTime.fromISO(day).toISODate()
     },
     /**
      * Takes in any integer and shifts the date by the value of the integer. Returns a normal date string.
@@ -19,21 +24,27 @@ export default {
      * @param {string} date
      * @returns {string} date
      */
-     shiftDay(date, day) {
-      return new Date(date).setDate(new Date(date).getDate() + day)
+     shiftDay(day) {
+      this.today = DateTime.fromISO(this.today).plus({days: day}).toISODate()
     },
     /**
      * Returns an array of date strings in YYYY-mm-dd for the current active week
      */
-     currentWeek() {
-      const curr = new Date(this.today)
+     getCurrentWeekDates() {
       let week = []
+      const startOfWeek = DateTime.fromISO(this.today).startOf('week')
 
-      for (let i = 1; i <= 7; i++) {
-        let first = curr.getDate() - curr.getDay() + i
-        week.push(new Date(curr.setDate(first)).toISOString().slice(0, 10))
+      // TODO get locale from state
+      for (let i = 0; i <= 6; i++) {
+        let day = startOfWeek.plus({days: i}).setLocale('de-DE')
+        week.push(
+          {
+            isoDate: day.toISODate(),
+            day: day.toFormat('d'),
+            weekDay: day.toFormat('ccccc'),
+          }
+        )
       }
-
       return week
     },
     /**
@@ -42,32 +53,8 @@ export default {
      * @param {string} format
      * @returns {string}
      */
-    formatDate(date, format) {
-      const dt = new Date(date)
-      const map = {
-          mm: dt.getMonth() + 1,
-          dd: dt.getDate(),
-          yy: dt.getFullYear().toString().slice(-2),
-          year: dt.getFullYear(),
-          day: this.weekDay(dt.getDay())
-      }
-
-      return format.replace(/mm|dd|yy|year|day/gi, matched => map[matched])
-    },
-    weekDay(day) {
-      const map = {
-        0: 'S', 1: 'M', 2: 'D', 3: 'M', 4: 'D', 5: 'F', 6: 'S'
-      }
-      return map[day]
-    },
-    /**
-     * Takes an array and two indexes to return a new spliced array by given indexes.
-     * @param {array} array
-     * @param {integer} from
-     * @param {integer} to
-     */
-     returnDatesArrayFromTo(array, from, to) {
-      return array.slice(from,to)
+    formatDate(format) {
+      return DateTime.fromISO(this.today).toFormat(format)
     },
   },
   watch: {

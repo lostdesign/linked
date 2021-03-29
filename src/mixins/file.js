@@ -10,7 +10,7 @@ export default {
   methods: {
     saveFile() {
       ipcRenderer.invoke('save-file', [
-        this.formatDate(this.today, 'year'),
+        this.formatDate('y'),
         this.today,
         this.content,
         this.rating
@@ -18,7 +18,7 @@ export default {
     },
     loadFile() {
       ipcRenderer.invoke('load-file', [
-        this.formatDate(this.today, 'year'),
+        this.formatDate('y'),
         this.today
       ]).then(data => {
         this.content = data.content

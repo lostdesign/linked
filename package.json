@@ -1,7 +1,10 @@
 {
   "name": "linked",
   "version": "1.0.5",
-  "keywords": ["journal", "calendar"],
+  "keywords": [
+    "journal",
+    "calendar"
+  ],
   "description": "Link your thoughts to days.",
   "author": "André Weller <info@lost.design> (https://lost.design/)",
   "license": "MIT",
@@ -50,6 +53,7 @@
     "electron-store": "^6.0.0",
     "electron-updater": "^4.3.4",
     "highlight.js": "^10.6.0",
+    "luxon": "^1.26.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
