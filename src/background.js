@@ -27,7 +27,7 @@ function createWindow() {
     maxWidth: 450,
     height: 1000,
     title: 'linked',
-    backgroundColor: '#000000',
+    backgroundColor: '#161616',
     webPreferences: {
       devTools: process.env.NODE_ENV === 'development',
       nodeIntegration: true,
