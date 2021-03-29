@@ -1,5 +1,5 @@
 # linked
-![Project Status](https://img.shields.io/badge/🏷-v1.0.5-green)
+![Project Status](https://img.shields.io/badge/🏷-v1.1.0-green)
 
 Linked allows you to write down your thoughts and ideas to link them with days. [Download your free copy now!](https://github.com/muc-dev/linked/releases)
 
