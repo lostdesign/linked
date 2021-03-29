@@ -6,7 +6,6 @@ import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from "electron-updater"
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
-const path = require('path')
 const fs = require('fs')
 let win
 
