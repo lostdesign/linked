@@ -49,7 +49,6 @@ export default {
     },
     /**
      * Format a date into any string.
-     * @param {string} date
      * @param {string} format
      * @returns {string}
      */
@@ -59,7 +58,7 @@ export default {
   },
   watch: {
     today(newDate, oldDate) { //eslint-disable-line
-      this.date = this.formatDate(newDate, 'year-mm-dd')
+      this.setDay(newDate)
       this.loadFile()
     }
   }

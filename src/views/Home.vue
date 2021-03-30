@@ -54,6 +54,16 @@
           </button>-->
           <button
             class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
+            @click="editor.chain().focus().toggleCodeBlock().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('codeBlock') }">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M23 12l-7.071 7.071-1.414-1.414L20.172 12l-5.657-5.657 1.414-1.414L23 12zM3.828 12l5.657 5.657-1.414 1.414L1 12l7.071-7.071 1.414 1.414L3.828 12z" fill="currentColor"/></svg>
+          </button>
+          <button
+            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
+            @click="editor.chain().focus().toggleHighlight().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('highlight') }">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.243 18H3v-4.243L14.435 2.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 18zM3 20h18v2H3v-2z" fill="currentColor"/></svg>
+          </button>
+          <button
+            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
             @click="editor.chain().focus().setTextAlign('left').run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive({ textAlign: 'left' }) }">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 15h14v2H3v-2zm0-5h18v2H3v-2zm0-5h14v2H3V9z" fill="currentColor"/></svg>
           </button>
@@ -74,18 +84,8 @@
           </button>
           <button
             class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
-            @click="editor.chain().focus().toggleHighlight().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('highlight') }">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.243 18H3v-4.243L14.435 2.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 18zM3 20h18v2H3v-2z" fill="currentColor"/></svg>
-          </button>
-          <button
-            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
             @click="editor.chain().focus().toggleTaskList().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('taskList') }">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 2.992v18.016a1 1 0 0 1-.993.992H3.993A.993.993 0 0 1 3 21.008V2.992A1 1 0 0 1 3.993 2h16.014c.548 0 .993.444.993.992zm-9.707 10.13l-2.475-2.476-1.414 1.415 3.889 3.889 5.657-5.657-1.414-1.414-4.243 4.242z" fill="currentColor"/></svg>
-          </button>
-          <button
-            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
-            @click="editor.chain().focus().toggleCodeBlock().run()" :class="{ 'bg-red-600 dark:bg-red-900': editor.isActive('codeBlock') }">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M23 12l-7.071 7.071-1.414-1.414L20.172 12l-5.657-5.657 1.414-1.414L23 12zM3.828 12l5.657 5.657-1.414 1.414L1 12l7.071-7.071 1.414 1.414L3.828 12z" fill="currentColor"/></svg>
           </button>
           <button
             class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
@@ -142,10 +142,19 @@ export default {
   mounted() {
     this.editor = new Editor({
       extensions: [
-        Bold, BulletList, CodeBlock, Document,
-        Heading, Highlight, Italic, ListItem,
-        Paragraph, TaskItem, TaskList, Text,
+        Document,
+        Paragraph,
+        Text,
+        TaskList,
+        TaskItem,
         TextAlign,
+        Heading,
+        Highlight,
+        CodeBlock,
+        BulletList,
+        ListItem,
+        Bold,
+        Italic
       ],
       content: this.content,
       autofocus: true,
