@@ -2,7 +2,7 @@
   <Layout>
     <main class="flex-col items-stretch h-full" @click="focusEditor">
       <div class="sticky top-0 text-black dark:bg-black dark:text-white z-50 select-none">
-        <div class="flex justify-between items-center align-center mb-6 mt-6 px-10">
+        <div class="flex justify-between items-center align-center mb-6 pt-6 px-10">
           <span class="text-center text-4xl font-black">{{this.formatDate('dd.LL.yyyy')}}</span>
           <span class="ml-4 text-red-500 select-none">
             <span @click="shiftDay(-7)">
