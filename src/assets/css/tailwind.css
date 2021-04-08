@@ -82,7 +82,7 @@ ul[data-type="todo_list"] {
 }
 
 .menubar__button {
-  @apply bg-gray-900 py-2 px-2 rounded-sm text-xs font-black;
+  @apply text-gray-800 py-2 px-3 rounded-sm text-xs font-black;
 }
 
 code {
@@ -158,4 +158,43 @@ ul[data-type="taskList"] li {
 ul[data-type="taskList"] li > input {
   flex: 0 0 auto;
   margin-right: 0.5rem;
+}
+
+.floating-menu {
+  display: flex;
+  background-color: #0d0d0d 10;
+  padding: 0.2rem 0;
+  border-radius: 0.5rem;
+  margin-top: -0.25rem;
+  margin-left: 0rem;
+  transition: visibility 0.1s ease, opacity 0.1s ease;
+}
+.floating-menu button {
+  @apply px-1 dark:text-gray-600;
+}
+.floating-menu button:hover, .floating-menu button.is-active {
+  @apply text-gray-700 dark:text-gray-400;
+}
+
+.bubble-menu {
+  display: flex;
+  background-color: #161616;
+  padding: 0.3rem;
+  margin-bottom: 0.3rem;
+  border-radius: 0.5rem;
+  transition: visibility 0.1s ease, opacity 0.1s ease;
+  z-index: 60 !important;
+}
+
+.bubble-menu button {
+  @apply dark:text-gray-600;
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0 0.2rem;
+}
+
+.bubble-menu button:hover, .bubble-menu button.is-active {
+  @apply text-gray-700 dark:text-gray-400;
 }
