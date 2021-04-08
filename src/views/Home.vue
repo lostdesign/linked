@@ -90,6 +90,7 @@ import Image from '@tiptap/extension-image'
 import HorizontalRule from '@tiptap/extension-horizontal-rule'
 import Strike from '@tiptap/extension-strike'
 import Link from '@tiptap/extension-link'
+import History from '@tiptap/extension-history'
 
 export default {
   components: {
@@ -137,7 +138,8 @@ export default {
         Image,
         HorizontalRule,
         Strike,
-        Link
+        Link,
+        History
       ],
       content: this.content,
       autofocus: true,
