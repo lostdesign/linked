@@ -1571,6 +1571,11 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-paragraph/-/extension-paragraph-2.0.0-beta.1.tgz#849bd69683dbc5dd8a7054ad1cd40becd0653b18"
   integrity sha512-0iIie1j/B52PTlrqikMrOE+Bm6QJi5PlyDkXnvuJQFD0LSnRk5Is9yrjtWXu+J2e77XeU5aeVrc9t4CKABBcmw==
 
+"@tiptap/extension-strike@^2.0.0-beta.1":
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-strike/-/extension-strike-2.0.0-beta.1.tgz#3a1c32075a7f20cd85109ea81a90f84d86b7e79c"
+  integrity sha512-tUeEbFO9vMRSYhpsBShEa723daT2sJeKGgZmsUzt/H5VInmEhstPMzVo2N1HoQ3QqEGHSkOCWVgA2g3O0IUzug==
+
 "@tiptap/extension-task-item@^2.0.0-beta.1":
   version "2.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-task-item/-/extension-task-item-2.0.0-beta.1.tgz#410d072b3a88a3c5717129f69436860f8ab1fbf1"

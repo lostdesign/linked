@@ -43,6 +43,7 @@
             <button @click="editor.chain().focus().toggleHighlight().run()"><PenIcon /></button>
             <button @click="editor.chain().focus().toggleBold().run()"><BoldIcon /></button>
             <button @click="editor.chain().focus().toggleItalic().run()"><ItalicIcon /></button>
+            <button @click="editor.chain().focus().toggleStrike().run()"><StrikeThroughIcon /></button>
           </bubble-menu>
           <floating-menu class="floating-menu" :editor="editor" v-if="editor">
             <button @click="editor.chain().focus().toggleTaskList().run()"><CheckboxIcon /></button>
@@ -70,6 +71,7 @@ import CodeIcon from '@/assets/icons/code.svg'
 import PenIcon from '@/assets/icons/pen.svg'
 import BoldIcon from '@/assets/icons/bold.svg'
 import ItalicIcon from '@/assets/icons/italic.svg'
+import StrikeThroughIcon from '@/assets/icons/strikethrough.svg'
 
 import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
 import Document from '@tiptap/extension-document'
@@ -86,6 +88,7 @@ import Bold from '@tiptap/extension-bold'
 import Italic from '@tiptap/extension-italic'
 import Image from '@tiptap/extension-image'
 import HorizontalRule from '@tiptap/extension-horizontal-rule'
+import Strike from '@tiptap/extension-strike'
 
 export default {
   components: {
@@ -101,6 +104,7 @@ export default {
     PenIcon,
     BoldIcon,
     ItalicIcon,
+    StrikeThroughIcon
   },
   mixins: [Calendar, File],
   data() {
@@ -130,7 +134,8 @@ export default {
         Bold,
         Italic,
         Image,
-        HorizontalRule
+        HorizontalRule,
+        Strike
       ],
       content: this.content,
       autofocus: true,
