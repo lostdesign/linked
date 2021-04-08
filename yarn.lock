@@ -1544,6 +1544,13 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-highlight/-/extension-highlight-2.0.0-beta.1.tgz#f25c383178130ac1e1a5b5a1294a32841411afb1"
   integrity sha512-eBzyBtIuQMobmz2q9wxV06TS4T+0nUZm2hWagj95fzYgJ4WrkraMm6tBgy7WcNvdgzn3U0fjF2IAuY3YrfUfyw==
 
+"@tiptap/extension-horizontal-rule@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-horizontal-rule/-/extension-horizontal-rule-2.0.0-beta.2.tgz#7331c3fac91903395b2c0998782399ce19942fd1"
+  integrity sha512-GURNeEQRYW1nBzt1YjHPH6lnBgDlBO977KEpcawahvYrbKUWTIJJeacxAvQkjUcIN0bZprIS1ustP0ShGiJIoQ==
+  dependencies:
+    prosemirror-state "^1.3.4"
+
 "@tiptap/extension-image@^2.0.0-beta.1":
   version "2.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-image/-/extension-image-2.0.0-beta.1.tgz#dc8c13e43fa9b336690b3d5de53dc7c2019d3e7b"

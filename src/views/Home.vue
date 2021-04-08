@@ -85,6 +85,7 @@ import ListItem from '@tiptap/extension-list-item'
 import Bold from '@tiptap/extension-bold'
 import Italic from '@tiptap/extension-italic'
 import Image from '@tiptap/extension-image'
+import HorizontalRule from '@tiptap/extension-horizontal-rule'
 
 export default {
   components: {
@@ -128,7 +129,8 @@ export default {
         ListItem,
         Bold,
         Italic,
-        Image
+        Image,
+        HorizontalRule
       ],
       content: this.content,
       autofocus: true,
