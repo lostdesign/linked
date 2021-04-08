@@ -84,6 +84,7 @@ import BulletList from '@tiptap/extension-bullet-list'
 import ListItem from '@tiptap/extension-list-item'
 import Bold from '@tiptap/extension-bold'
 import Italic from '@tiptap/extension-italic'
+import Image from '@tiptap/extension-image'
 
 export default {
   components: {
@@ -126,7 +127,8 @@ export default {
         BulletList,
         ListItem,
         Bold,
-        Italic
+        Italic,
+        Image
       ],
       content: this.content,
       autofocus: true,
