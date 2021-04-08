@@ -89,6 +89,7 @@ import Italic from '@tiptap/extension-italic'
 import Image from '@tiptap/extension-image'
 import HorizontalRule from '@tiptap/extension-horizontal-rule'
 import Strike from '@tiptap/extension-strike'
+import Link from '@tiptap/extension-link'
 
 export default {
   components: {
@@ -135,7 +136,8 @@ export default {
         Italic,
         Image,
         HorizontalRule,
-        Strike
+        Strike,
+        Link
       ],
       content: this.content,
       autofocus: true,

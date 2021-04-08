@@ -1561,6 +1561,13 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-italic/-/extension-italic-2.0.0-beta.1.tgz#ab32bef36207501dab8b8f212e821f7dff90b11e"
   integrity sha512-IEP1USBIVCEonZCNj4mfSwQv/uDAn0s4bleWvEocJa7OT/uOjyYQwi7Tesa4jwh6vPSlaHM+yWoQqOIG7OSmOw==
 
+"@tiptap/extension-link@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-link/-/extension-link-2.0.0-beta.2.tgz#0321055a9aba1154ea2a9ae6ff5670f8e82029dc"
+  integrity sha512-1XeykEbtlmG6Em7RXJDgRACTV5bqsGjNHclIaUDit1oJeD1JeW3vOyGr1Wgptba257nklfEKxqd/6YeglIiCNg==
+  dependencies:
+    prosemirror-state "^1.3.4"
+
 "@tiptap/extension-list-item@^2.0.0-beta.1":
   version "2.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-list-item/-/extension-list-item-2.0.0-beta.1.tgz#2da1b571edbf5374593511e1735a4bcd9e3dc807"
