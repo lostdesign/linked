@@ -12,14 +12,14 @@ let win
 //import * as Sentry from '@sentry/electron';
 //Sentry.init({ dsn: 'https://f12af54d6a3b4f00a7ec80e69cba835e@o559982.ingest.sentry.io/5695233' });
 
+// Turn off software rasterizer for less resource usage
+app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
+
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
 function createWindow() {
-  // turn off rasterizer for more performance
-  app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
-
   // Create the browser window.
   win = new BrowserWindow({
     width: 450,
