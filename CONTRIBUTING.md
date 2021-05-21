@@ -3,7 +3,10 @@
 When contributing to this repository, please first discuss the change you wish to make via [github discussions](https://github.com/muc-dev/linked/discussions),
 before making a change.
 
-Please note we have a [code of conduct](/code_of_conduct.md), please follow it in all your interactions with the project.
+Please note we have a [code of conduct](/CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
+
+## Commits
+Please note that this project uses [gitmoji](https://gitmoji.dev/), all commits must use gitmoji with the respective type. For example a new feature commit would look like: ✨ add search. If you've commited without the use of gitmoji, please use this [tool](https://bokub.github.io/git-history-editor/) in order to fix them.
 
 ## Pull Request Process
 
@@ -13,5 +16,4 @@ Please note we have a [code of conduct](/code_of_conduct.md), please follow it i
    variables, exposed ports, useful file locations and container parameters.
 3. Increase the version numbers in any examples files and the README.md to the new version that this
    Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
-   do not have permission to do that, you may request the second reviewer to merge it for you.
+   
