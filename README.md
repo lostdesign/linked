@@ -23,3 +23,6 @@ Download the latest release and run the app or
 - clone repo
 - yarn
 - yarn electron:serve
+
+## 💖 Sponsor
+If you like the app, [please consider sponsoring me](https://github.com/sponsors/lostdesign) as it helps me a lot focus more on building opensource apps.
