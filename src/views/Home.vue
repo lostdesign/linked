@@ -153,7 +153,7 @@ export default {
       this.keysPressed[event.key] = true
       const modifier = this.keysPressed['Shift'] && this.keysPressed['Control']
 
-      if (this.keysPressed['Alt'] && event.code === 'Comma') {
+      if (this.keysPressed['Meta'] && event.code === 'Comma') {
         this.$router.push('settings')
       }
 
