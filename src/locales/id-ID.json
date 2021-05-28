@@ -1,0 +1,12 @@
+{
+  "title" : "Bahasa Indonesia",
+  "home" : {
+    "calendarWeek" : "BK"
+  },
+  "settings" : {
+    "back" : "Kembali",
+    "title" : "Pengaturan",
+    "designMode" : "Mode desain",
+    "language" : "Bahasa"
+  }
+}
