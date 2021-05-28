@@ -10,7 +10,7 @@
             <span class="text-red-800 hover:text-red-400 cursor-pointer" @click="shiftDay(-7)">
               <ArrowLeftIcon />
             </span>
-            <span>KW{{this.formatDate('WW')}}</span>
+            <span>{{$t("home.calendarWeek")}}{{this.formatDate('WW')}}</span>
             <span class="text-red-800 hover:text-red-400 cursor-pointer" @click="shiftDay(7)">
               <ArrowRightIcon />
             </span>
@@ -153,7 +153,7 @@ export default {
       this.keysPressed[event.key] = true
       const modifier = this.keysPressed['Shift'] && this.keysPressed['Control']
 
-      if (this.keysPressed['Meta'] && event.code === 'Comma') {
+      if (this.keysPressed['Alt'] && event.code === 'Comma') {
         this.$router.push('settings')
       }
 
