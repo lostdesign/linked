@@ -36,7 +36,7 @@ export default {
 
       // TODO get locale from state
       for (let i = 0; i <= 6; i++) {
-        let day = startOfWeek.plus({days: i}).setLocale('de-DE')
+        let day = startOfWeek.plus({days: i}).setLocale(localStorage.lang ?? 'en-US')
         week.push(
           {
             isoDate: day.toISODate(),
