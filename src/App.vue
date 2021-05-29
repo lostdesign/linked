@@ -14,14 +14,15 @@ export default {
 
         return mode
       },
-      set themeMode(value) {// eslint-disable-line
+      // eslint-disable-next-line
+      set themeMode(value) {
         ipcRenderer.invoke('dark-mode:toggle', value)
-        return localStorage.theme = value
-      },
+        return (localStorage.theme = value)
+      }
     }
   },
   created() {
-    if (this.themeMode === 'dark' || (!('theme' in localStorage))) {
+    if (this.themeMode === 'dark' || !('theme' in localStorage)) {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')

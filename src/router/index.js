@@ -4,7 +4,7 @@ import Home from '@/views/Home.vue'
 import Settings from '@/views/Settings.vue'
 
 Vue.use(VueRouter)
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
@@ -20,7 +20,7 @@ Vue.use(VueRouter)
     beforeEnter: (to, from, next) => {
       next()
     }
-  },
+  }
 ]
 
 const router = new VueRouter({

@@ -4,10 +4,7 @@ module.exports = {
   darkMode: 'class',
   purge: {
     enabled: true,
-    content: [
-      './src/**/*.html',
-      './src/**/*.vue',
-    ],
+    content: ['./src/**/*.html', './src/**/*.vue']
   },
   theme: {
     colors: {
@@ -18,8 +15,8 @@ module.exports = {
       gray: colors.gray,
       indigo: colors.indigo,
       red: colors.rose,
-      yellow: colors.amber,
-    },
+      yellow: colors.amber
+    }
   },
   variants: {
     extends: {
@@ -27,9 +24,8 @@ module.exports = {
       scale: ['active'],
       border: ['focus'],
       translate: ['active'],
-      transform: ['active'],
+      transform: ['active']
     }
   },
-  plugins: [
-  ],
+  plugins: []
 }

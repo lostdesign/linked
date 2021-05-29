@@ -19,7 +19,7 @@ h3 {
 }
 
 blockquote {
-  @apply border-l-4 border-gray-600 text-gray-400 py-4 pl-4 m-2 italic
+  @apply border-l-4 border-gray-600 text-gray-400 py-4 pl-4 m-2 italic;
 }
 blockquote p {
   display: inline;
@@ -41,44 +41,44 @@ blockquote p {
   visibility: visible;
 }
 
-ul[data-type="todo_list"] {
-	 padding-left: 0;
+ul[data-type='todo_list'] {
+  padding-left: 0;
 }
- li[data-type="todo_item"] {
-	 display: flex;
-	 flex-direction: row;
+li[data-type='todo_item'] {
+  display: flex;
+  flex-direction: row;
 }
- .todo-checkbox {
-	 border: 2px solid black;
-	 height: 0.9em;
-	 width: 0.9em;
-	 box-sizing: border-box;
-	 margin-right: 10px;
-	 margin-top: 0.3rem;
-	 user-select: none;
-	 -webkit-user-select: none;
-	 cursor: pointer;
-	 border-radius: 0.2em;
-	 background-color: transparent;
-	 transition: 0.4s background;
+.todo-checkbox {
+  border: 2px solid black;
+  height: 0.9em;
+  width: 0.9em;
+  box-sizing: border-box;
+  margin-right: 10px;
+  margin-top: 0.3rem;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  border-radius: 0.2em;
+  background-color: transparent;
+  transition: 0.4s background;
 }
- .todo-content {
-	 flex: 1;
+.todo-content {
+  flex: 1;
 }
- .todo-content > p:last-of-type {
-	 margin-bottom: 0;
+.todo-content > p:last-of-type {
+  margin-bottom: 0;
 }
- .todo-content > ul[data-type="todo_list"] {
-	 margin: 0.5rem 0;
+.todo-content > ul[data-type='todo_list'] {
+  margin: 0.5rem 0;
 }
- li[data-done="true"] > .todo-content > p {
-	 text-decoration: line-through;
+li[data-done='true'] > .todo-content > p {
+  text-decoration: line-through;
 }
- li[data-done="true"] > .todo-checkbox {
-	 background-color: black;
+li[data-done='true'] > .todo-checkbox {
+  background-color: black;
 }
- li[data-done="false"] {
-	 text-decoration: none;
+li[data-done='false'] {
+  text-decoration: none;
 }
 
 .menubar__button {
@@ -90,72 +90,93 @@ code {
 }
 
 pre::before {
-	 content: attr(data-language);
-	 text-transform: uppercase;
-	 display: block;
-	 text-align: right;
-	 font-weight: bold;
-	 font-size: 0.6rem;
+  content: attr(data-language);
+  text-transform: uppercase;
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  font-size: 0.6rem;
 }
- pre code .hljs-comment, pre code .hljs-quote {
-	 color: #999;
+pre code .hljs-comment,
+pre code .hljs-quote {
+  color: #999;
 }
- pre code .hljs-variable, pre code .hljs-template-variable, pre code .hljs-attribute, pre code .hljs-tag, pre code .hljs-name, pre code .hljs-regexp, pre code .hljs-link, pre code .hljs-name, pre code .hljs-selector-id, pre code .hljs-selector-class {
-	 color: #f2777a;
+pre code .hljs-variable,
+pre code .hljs-template-variable,
+pre code .hljs-attribute,
+pre code .hljs-tag,
+pre code .hljs-name,
+pre code .hljs-regexp,
+pre code .hljs-link,
+pre code .hljs-name,
+pre code .hljs-selector-id,
+pre code .hljs-selector-class {
+  color: #f2777a;
 }
- pre code .hljs-number, pre code .hljs-meta, pre code .hljs-built_in, pre code .hljs-builtin-name, pre code .hljs-literal, pre code .hljs-type, pre code .hljs-params {
-	 color: #f99157;
+pre code .hljs-number,
+pre code .hljs-meta,
+pre code .hljs-built_in,
+pre code .hljs-builtin-name,
+pre code .hljs-literal,
+pre code .hljs-type,
+pre code .hljs-params {
+  color: #f99157;
 }
- pre code .hljs-string, pre code .hljs-symbol, pre code .hljs-bullet {
-	 color: #9c9;
+pre code .hljs-string,
+pre code .hljs-symbol,
+pre code .hljs-bullet {
+  color: #9c9;
 }
- pre code .hljs-title, pre code .hljs-section {
-	 color: #fc6;
+pre code .hljs-title,
+pre code .hljs-section {
+  color: #fc6;
 }
- pre code .hljs-keyword, pre code .hljs-selector-tag {
-	 color: #69c;
+pre code .hljs-keyword,
+pre code .hljs-selector-tag {
+  color: #69c;
 }
- pre code .hljs-emphasis {
-	 font-style: italic;
+pre code .hljs-emphasis {
+  font-style: italic;
 }
- pre code .hljs-strong {
-	 font-weight: 700;
+pre code .hljs-strong {
+  font-weight: 700;
 }
 .ProseMirror:focus {
   outline: none;
 }
 
-.ProseMirror > ol, ul {
+.ProseMirror > ol,
+ul {
   list-style-type: disc !important;
   margin: 0rem 0.8rem !important;
   padding: 0.5rem !important;
 }
 
-ul[data-type="taskList"] {
+ul[data-type='taskList'] {
   list-style: none;
   padding: 0 !important;
   margin: 0 !important;
 }
-ul[data-type="taskList"] li {
+ul[data-type='taskList'] li {
   display: flex;
   align-items: center;
 }
-ul[data-type="taskList"] li > input {
+ul[data-type='taskList'] li > input {
   flex: 0 0 auto;
   margin-right: 0.5rem;
 }
-ul[data-type="taskList"] input[type="checkbox"] {
+ul[data-type='taskList'] input[type='checkbox'] {
   cursor: pointer;
 }
-ul[data-type="taskList"] {
+ul[data-type='taskList'] {
   list-style: none;
   padding: 0;
 }
-ul[data-type="taskList"] li {
+ul[data-type='taskList'] li {
   display: flex;
   align-items: center;
 }
-ul[data-type="taskList"] li > input {
+ul[data-type='taskList'] li > input {
   flex: 0 0 auto;
   margin-right: 0.5rem;
 }
@@ -172,7 +193,8 @@ ul[data-type="taskList"] li > input {
 .floating-menu button {
   @apply px-1 dark:text-gray-600;
 }
-.floating-menu button:hover, .floating-menu button.is-active {
+.floating-menu button:hover,
+.floating-menu button.is-active {
   @apply text-gray-700 dark:text-gray-400;
 }
 
@@ -194,6 +216,7 @@ ul[data-type="taskList"] li > input {
   padding: 0 0.2rem;
 }
 
-.bubble-menu button:hover, .bubble-menu button.is-active {
+.bubble-menu button:hover,
+.bubble-menu button.is-active {
   @apply text-gray-700 dark:text-gray-400;
 }
