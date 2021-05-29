@@ -1,7 +1,7 @@
-import { DateTime } from "luxon"
+import { DateTime } from 'luxon'
 
 export default {
-  data () {
+  data() {
     return {
       today: this.getToday()
     }
@@ -24,26 +24,26 @@ export default {
      * @param {string} date
      * @returns {string} date
      */
-     shiftDay(day) {
-      this.today = DateTime.fromISO(this.today).plus({days: day}).toISODate()
+    shiftDay(day) {
+      this.today = DateTime.fromISO(this.today)
+        .plus({ days: day })
+        .toISODate()
     },
     /**
      * Returns an array of date strings in YYYY-mm-dd for the current active week
      */
-     getCurrentWeekDates() {
+    getCurrentWeekDates() {
       let week = []
       const startOfWeek = DateTime.fromISO(this.today).startOf('week')
 
       // TODO get locale from state
       for (let i = 0; i <= 6; i++) {
-        let day = startOfWeek.plus({days: i}).setLocale('de-DE')
-        week.push(
-          {
-            isoDate: day.toISODate(),
-            day: day.toFormat('d'),
-            weekDay: day.toFormat('ccccc'),
-          }
-        )
+        let day = startOfWeek.plus({ days: i }).setLocale('de-DE')
+        week.push({
+          isoDate: day.toISODate(),
+          day: day.toFormat('d'),
+          weekDay: day.toFormat('ccccc')
+        })
       }
       return week
     },
@@ -54,10 +54,11 @@ export default {
      */
     formatDate(format) {
       return DateTime.fromISO(this.today).toFormat(format)
-    },
+    }
   },
   watch: {
-    today(newDate, oldDate) { //eslint-disable-line
+    //eslint-disable-next-line
+    today(newDate, oldDate) {
       this.setDay(newDate)
       this.loadFile()
     }

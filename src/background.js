@@ -3,7 +3,7 @@
 import { app, protocol, BrowserWindow, ipcMain, nativeTheme } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
-import { autoUpdater } from "electron-updater"
+import { autoUpdater } from 'electron-updater'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const fs = require('fs')
@@ -32,8 +32,8 @@ function createWindow() {
       devTools: process.env.NODE_ENV === 'development',
       nodeIntegration: true,
       contextIsolation: false,
-      enableRemoteModule: true,
-    },
+      enableRemoteModule: true
+    }
   })
 
   // Load the url of the dev server if in development mode
@@ -92,7 +92,7 @@ app.on('ready', async () => {
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
   if (process.platform === 'win32') {
-    process.on('message', (data) => {
+    process.on('message', data => {
       if (data === 'graceful-exit') {
         app.quit()
       }
@@ -115,21 +115,21 @@ ipcMain.handle('dark-mode:toggle', (event, mode) => {
 
 ipcMain.handle('load-file', async (event, args) => {
   const [year, fileName] = args
-  const dataPath = getFilePath(year , fileName)
+  const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
   let file
 
   // create the file if it does not exist yet
   if (!fs.existsSync(filePath)) {
-    file = fs.promises.mkdir(dataPath, {recursive: true}).then(() => {
+    file = fs.promises.mkdir(dataPath, { recursive: true }).then(() => {
       return fs.promises.writeFile(filePath, getDefaultData()).then(() => {
-        return fs.promises.readFile(filePath, 'utf-8').then((data) => {
+        return fs.promises.readFile(filePath, 'utf-8').then(data => {
           return JSON.parse(data)
         })
       })
     })
   } else {
-    file = fs.promises.readFile(filePath, 'utf-8').then((data) => {
+    file = fs.promises.readFile(filePath, 'utf-8').then(data => {
       return JSON.parse(data)
     })
   }
@@ -140,29 +140,29 @@ ipcMain.handle('load-file', async (event, args) => {
 
 ipcMain.handle('save-file', (event, args) => {
   const [year, fileName, content, rating] = args
-  const dataPath = getFilePath(year , fileName)
+  const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
 
-  fs.promises.writeFile(filePath, JSON.stringify(
-    {
-      "content": content,
-      "rating": rating
-    }
-  ))
+  fs.promises.writeFile(
+    filePath,
+    JSON.stringify({
+      content: content,
+      rating: rating
+    })
+  )
 })
 
 /**
  * Construct the base path where files are stored and loaded from
  */
 const basePath = app.getPath('documents')
-const getFilePath = (year) => {
+const getFilePath = year => {
   return `${basePath}/linked/${year}`
 }
 
 const getDefaultData = () => {
   return JSON.stringify({
-    "content": "",
-    "rating": 0
+    content: '',
+    rating: 0
   })
 }
-

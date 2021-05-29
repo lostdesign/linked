@@ -3,6 +3,7 @@
 Linked allows you to write down your thoughts and ideas to link them with days. [Download your free copy now!](https://github.com/muc-dev/linked/releases)
 
 ## Features
+
 📅 Add your thoughts based on days
 
 🖼 Dark or light mode
@@ -12,11 +13,13 @@ Linked allows you to write down your thoughts and ideas to link them with days. 
 💾 Files are forever yours, you can find them at `~/Documents/linked`
 
 ### Coming soon
+
 ⭐️ Rate your days
 
 🗓 Month overview
 
 # Install
+
 Download the latest release and run the app or
 
 - clone repo
@@ -24,4 +27,5 @@ Download the latest release and run the app or
 - yarn electron:serve
 
 ## 💖 Sponsor
+
 If you like the app, [please consider sponsoring me](https://github.com/sponsors/lostdesign) as it helps me a lot focus more on building opensource apps.
