@@ -3,7 +3,7 @@
     <main class="px-10 mt-10 text-black dark:text-white">
       <router-link
         to="/"
-        class="flex items-center align-center mb-3 hover:text-red-500"
+        class="flex items-center align-center mb-3 hover:text-red-500 focus:outline-none focus:ring-1 focus:ring-red-800 focus:border-red-500"
       >
         <span class="mr-1"
           ><svg
@@ -58,22 +58,12 @@
           </svg>
         </div>
       </div>
-      <h3>{{ $t('settings.language') }}</h3>
-      <div class="flex space-x-5 mb-4">
-        <template v-for="(lang, index) in languages">
-          <div
-            :key="index"
-            @click="language = index"
-            :class="{
-              'bg-gray-800 text-white': index !== language,
-              'bg-gray-100 text-black': index === language
-            }"
-            class="w-1/2 h-16 rounded-lg flex justify-center items-center align-center hover:opacity-75 cursor-pointer"
-          >
-            {{ lang.title }}
-          </div>
-        </template>
-      </div>
+      <h3 class="mt-4">{{ $t('settings.language') }}</h3>
+      <dropdown
+        :languages="languages"
+        :activeLanguage="language"
+        @languageSelect="_handleLanguageChange($event)"
+      />
       <span
         class="fixed bottom-0 left-0 w-full p-5 text-center text-white self-end text-xs text-gray-500"
         >v{{ version }}</span
@@ -87,6 +77,7 @@ import { version } from '../../package.json'
 import Layout from './Layout'
 import i18n, { loadLocaleMessages } from '@/locales'
 import { DateTime } from 'luxon'
+import Dropdown from '@/components/dropdown'
 
 const { ipcRenderer } = require('electron')
 
@@ -100,8 +91,8 @@ export default {
 
         return mode
       },
+      // eslint-disable-next-line
       set themeMode(value) {
-        // eslint-disable-line
         ipcRenderer.invoke('dark-mode:toggle', value)
         location.reload()
 
@@ -121,8 +112,14 @@ export default {
       }
     }
   },
+  methods: {
+    _handleLanguageChange(lang) {
+      this.language = lang
+    }
+  },
   components: {
-    Layout
+    Layout,
+    Dropdown
   }
 }
 </script>

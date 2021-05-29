@@ -44,7 +44,7 @@ export default {
         week.push({
           isoDate: day.toISODate(),
           day: day.toFormat('d'),
-          weekDay: day.toFormat('ccccc')
+          weekDay: day.toFormat('EEE')
         })
       }
       return week
@@ -55,7 +55,9 @@ export default {
      * @returns {string}
      */
     formatDate(format) {
-      return DateTime.fromISO(this.today).toFormat(format)
+      return DateTime.fromISO(this.today)
+        .setLocale(localStorage.lang ?? 'en-US')
+        .toFormat(format)
     }
   },
   watch: {

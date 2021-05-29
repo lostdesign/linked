@@ -1,12 +1,12 @@
 {
-  "title" : "English (US)",
-  "home" : {
-    "calendarWeek" : "CW"
+  "title": "English (US)",
+  "home": {
+    "calendarWeek": "Week"
   },
-  "settings" : {
-    "back" : "Back",
-    "title" : "Settings",
-    "designMode" : "Design mode",
-    "language" : "Language"
+  "settings": {
+    "back": "Back",
+    "title": "Settings",
+    "designMode": "Design mode",
+    "language": "Language"
   }
 }

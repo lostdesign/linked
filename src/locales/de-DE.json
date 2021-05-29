@@ -1,0 +1,12 @@
+{
+  "title": "Deutsch",
+  "home": {
+    "calendarWeek": "Woche"
+  },
+  "settings": {
+    "back": "Zurück",
+    "title": "Einstellungen",
+    "designMode": "Design Modus",
+    "language": "Sprache"
+  }
+}

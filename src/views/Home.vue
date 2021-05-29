@@ -12,7 +12,7 @@
           class="flex justify-between items-center align-center pt-6 px-10 mb-2"
         >
           <span class="text-center text-4xl font-black">{{
-            this.formatDate('dd.LL.yyyy')
+            this.formatDate('MMMM yyyy')
           }}</span>
           <!-- Week switcher -->
           <span
@@ -24,8 +24,11 @@
             >
               <ArrowLeftIcon />
             </span>
-            <span
-              >{{ $t('home.calendarWeek') }}{{ this.formatDate('WW') }}</span
+            <span>
+              <span class="mr-1 text-gray-400 dark:text-gray-700">
+                {{ $t('home.calendarWeek') }}
+              </span>
+              {{ this.formatDate('WW') }}</span
             >
             <span
               class="text-red-800 hover:text-red-400 cursor-pointer"
