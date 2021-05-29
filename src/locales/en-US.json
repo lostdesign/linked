@@ -1,0 +1,12 @@
+{
+  "title": "English (US)",
+  "home": {
+    "calendarWeek": "Week"
+  },
+  "settings": {
+    "back": "Back",
+    "title": "Settings",
+    "designMode": "Design mode",
+    "language": "Language"
+  }
+}
