@@ -7,19 +7,19 @@ import '@/assets/css/tailwind.css'
 // import * as Sentry from '@sentry/electron';
 // Sentry.init({ dsn: 'your-dsn-url' });
 
-const Storage = require('electron-store');
+const Storage = require('electron-store')
 
 // We keep our main storage as a global variable
 // so that it's automatically available in all
 // our components
 window.mainStorage = new Storage({
-    watch: true,
-    defaults: {}
-});
+  watch: true,
+  defaults: {}
+})
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
-  render: h => h(App),
+  render: h => h(App)
 }).$mount('#app')

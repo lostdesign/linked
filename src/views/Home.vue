@@ -1,36 +1,62 @@
 <template>
   <Layout>
-    <main class="flex-col items-stretch h-full min-h-screen" @click="focusEditor">
+    <main
+      class="flex-col items-stretch h-full min-h-screen"
+      @click="focusEditor"
+    >
       <!-- Header Start -->
-      <header class="sticky top-0 text-black bg-white dark:bg-black dark:text-white z-50 select-none">
-        <div class="flex justify-between items-center align-center pt-6 px-10 mb-2">
-          <span class="text-center text-4xl font-black">{{this.formatDate('dd.LL.yyyy')}}</span>
+      <header
+        class="sticky top-0 text-black bg-white dark:bg-black dark:text-white z-50 select-none"
+      >
+        <div
+          class="flex justify-between items-center align-center pt-6 px-10 mb-2"
+        >
+          <span class="text-center text-4xl font-black">{{
+            this.formatDate('dd.LL.yyyy')
+          }}</span>
           <!-- Week switcher -->
-          <span class="text-black dark:text-white select-none flex justify-center items-center align-center space-x-1">
-            <span class="text-red-800 hover:text-red-400 cursor-pointer" @click="shiftDay(-7)">
+          <span
+            class="text-black dark:text-white select-none flex justify-center items-center align-center space-x-1"
+          >
+            <span
+              class="text-red-800 hover:text-red-400 cursor-pointer"
+              @click="shiftDay(-7)"
+            >
               <ArrowLeftIcon />
             </span>
-            <span>KW{{this.formatDate('WW')}}</span>
-            <span class="text-red-800 hover:text-red-400 cursor-pointer" @click="shiftDay(7)">
+            <span>KW{{ this.formatDate('WW') }}</span>
+            <span
+              class="text-red-800 hover:text-red-400 cursor-pointer"
+              @click="shiftDay(7)"
+            >
               <ArrowRightIcon />
             </span>
           </span>
         </div>
         <!-- Day switcher -->
-        <div class="flex dark:bg-black justify-center space-x-4 z-50 border-b border-gray-400 dark:border-gray-800 py-4">
+        <div
+          class="flex dark:bg-black justify-center space-x-4 z-50 border-b border-gray-400 dark:border-gray-800 py-4"
+        >
           <template v-for="date in getCurrentWeekDates()">
-            <div :key="date.day" class="flex-col justify-center items-center self-center text-center">
+            <div
+              :key="date.day"
+              class="flex-col justify-center items-center self-center text-center"
+            >
               <span
                 class="block mb-1 text-xs text-gray-400 dark:text-gray-700"
-                :class="{ 'text-red-400 dark:text-red-500': date.isoDate === today }">
-                {{date.weekDay}}
+                :class="{
+                  'text-red-400 dark:text-red-500': date.isoDate === today
+                }"
+              >
+                {{ date.weekDay }}
               </span>
               <span
                 class="flex justify-center items-center self-center text-center w-10 h-10 rounded-full font-black text-xs hover:bg-gray-200 dark:hover:bg-gray-800 cursor-pointer ring-red-600 dark:ring-red-900"
                 :class="{ 'ring-4 text-sm': date.isoDate === today }"
                 :key="date.day"
-                @click="setDay(date.isoDate)">
-                {{date.day}}
+                @click="setDay(date.isoDate)"
+              >
+                {{ date.day }}
               </span>
             </div>
           </template>
@@ -40,15 +66,29 @@
       <div v-if="editor">
         <div class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative">
           <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
-            <button @click="editor.chain().focus().toggleHighlight().run()"><PenIcon /></button>
-            <button @click="editor.chain().focus().toggleBold().run()"><BoldIcon /></button>
-            <button @click="editor.chain().focus().toggleItalic().run()"><ItalicIcon /></button>
-            <button @click="editor.chain().focus().toggleStrike().run()"><StrikeThroughIcon /></button>
+            <button @click="editor.chain().focus().toggleHighlight().run()">
+              <PenIcon />
+            </button>
+            <button @click="editor.chain().focus().toggleBold().run()">
+              <BoldIcon />
+            </button>
+            <button @click="editor.chain().focus().toggleItalic().run()">
+              <ItalicIcon />
+            </button>
+            <button @click="editor.chain().focus().toggleStrike().run()">
+              <StrikeThroughIcon />
+            </button>
           </bubble-menu>
           <floating-menu class="floating-menu" :editor="editor" v-if="editor">
-            <button @click="editor.chain().focus().toggleTaskList().run()"><CheckboxIcon /></button>
-            <button @click="editor.chain().focus().toggleBulletList().run()"><BulletListIcon /></button>
-            <button @click="editor.chain().focus().toggleCodeBlock().run()"><CodeIcon /></button>
+            <button @click="editor.chain().focus().toggleTaskList().run()">
+              <CheckboxIcon />
+            </button>
+            <button @click="editor.chain().focus().toggleBulletList().run()">
+              <BulletListIcon />
+            </button>
+            <button @click="editor.chain().focus().toggleCodeBlock().run()">
+              <CodeIcon />
+            </button>
           </floating-menu>
           <div class="text-black dark:text-white">
             <editor-content :editor="editor" v-model="content" />
@@ -112,7 +152,7 @@ export default {
   data() {
     return {
       keysPressed: {},
-      editor: null,
+      editor: null
     }
   },
   methods: {
@@ -184,11 +224,11 @@ export default {
       }
 
       this.editor.commands.setContent(this.content, false)
-    },
+    }
   },
 
   beforeDestroy() {
     this.editor.destroy()
-  },
+  }
 }
 </script>
