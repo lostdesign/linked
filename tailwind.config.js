@@ -4,7 +4,7 @@ module.exports = {
   darkMode: 'class',
   purge: {
     enabled: true,
-    content: ['./src/**/*.html', './src/**/*.vue']
+    content: ['./src/**/*.html', './src/**/*.vue', './src/**/*.svg']
   },
   theme: {
     colors: {
