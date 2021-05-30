@@ -20,11 +20,20 @@ Linked allows you to write down your thoughts and ideas to link them with days. 
 
 # Install
 
-Download the latest release and run the app or
+Download the latest release and run the app _or_:
 
-- clone repo
-- yarn
-- yarn electron:serve
+1. 
+```
+git clone https://github.com/muc-dev/linked.git
+```
+2. 
+```
+yarn
+```
+3. 
+```
+yarn electron:serve
+```
 
 ## 💖 Sponsor
 
