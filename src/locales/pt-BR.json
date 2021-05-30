@@ -1,0 +1,12 @@
+{
+  "title": "Português (Brasil)",
+  "home": {
+    "calendarWeek": "Semana"
+  },
+  "settings": {
+    "back": "Voltar",
+    "title": "Configurações",
+    "designMode": "Aparência",
+    "language": "Idioma"
+  }
+}
