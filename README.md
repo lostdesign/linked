@@ -20,9 +20,9 @@ Linked allows you to write down your thoughts and ideas to link them with days. 
 
 🗓 Month overview
 
-# Install
+# Usage
 
-Download the latest release and run the app or
+Download the latest release and run the app _or_
 
 1. Check your node version, it must be v15 or newer
 
