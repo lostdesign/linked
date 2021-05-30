@@ -1,0 +1,12 @@
+{
+  "title": "русский",
+  "home": {
+    "calendarWeek": "неделя"
+  },
+  "settings": {
+    "back": "назад",
+    "title": "настройки",
+    "designMode": "Режим дизайна",
+    "language": "язык"
+  }
+}
