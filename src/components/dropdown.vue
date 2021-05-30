@@ -3,7 +3,7 @@
     <div class="mt-1 relative">
       <button
         type="button"
-        class="relative w-full bg-gray-800 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-red-800 focus:border-red-500 sm:text-sm"
+        class="relative w-full bg-gray-100 dark:bg-gray-800 rounded-md pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-red-800 focus:border-red-500 sm:text-sm"
         aria-haspopup="listbox"
         aria-expanded="true"
         aria-labelledby="listbox-label"
@@ -17,7 +17,7 @@
         </span>
       </button>
       <ul
-        class="absolute z-10 mt-1 w-full bg-gray-800 shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+        class="absolute z-10 mt-1 w-full bg-gray-100 dark:bg-gray-800 shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
         style="
           margin-left: 0 !important;
           margin-right: 0 !important;
@@ -31,7 +31,7 @@
       >
         <template v-for="(lang, index) in languages">
           <li
-            class="text-white cursor-default select-none relative py-2 pl-8 pr-4"
+            class="cursor-default select-none relative py-2 pl-8 pr-4"
             id="listbox-option-0"
             role="option"
             :key="index"
