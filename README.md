@@ -1,6 +1,8 @@
 ![Bildschirmfoto 2021-05-21 um 09 14 10](https://user-images.githubusercontent.com/5164617/119097398-f526b900-ba14-11eb-8570-d73a3c2533ab.png)
+
 ![Project Status](https://img.shields.io/badge/🏷-v1.1.6-green)
-Linked allows you to write down your thoughts and ideas to link them with days. [Download your free copy now!](https://github.com/muc-dev/linked/releases)
+
+Linked allows you to write down your thoughts and ideas to link them with days. [Download your free copy now!](https://github.com/lostdesign/linked/releases/latest)
 
 ## Features
 
@@ -22,9 +24,23 @@ Linked allows you to write down your thoughts and ideas to link them with days. 
 
 Download the latest release and run the app or
 
-- clone repo
-- yarn
-- yarn electron:serve
+1. Clone the repository
+
+```
+git clone https://github.com/lostdesign/linked.git
+```
+
+2. Install project dependencies
+
+```
+yarn
+```
+
+3. Start the application
+
+```
+yarn electron:serve
+```
 
 ## 💖 Sponsor
 
