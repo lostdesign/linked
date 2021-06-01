@@ -1,6 +1,12 @@
 name: Build/release
 
-on: push
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'fix/**'
+    tags:
+      - '*'
 
 jobs:
   release:
