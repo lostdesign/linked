@@ -24,19 +24,25 @@ Linked allows you to write down your thoughts and ideas to link them with days. 
 
 Download the latest release and run the app or
 
-1. Clone the repository
+1. Check your node version, it must be v15 or newer
+
+```
+node --version
+```
+
+2. Clone the repository
 
 ```
 git clone https://github.com/lostdesign/linked.git
 ```
 
-2. Install project dependencies
+3. Install project dependencies
 
 ```
 yarn
 ```
 
-3. Start the application
+4. Start the application
 
 ```
 yarn electron:serve
