@@ -1,0 +1,12 @@
+{
+  "title": "Hrvatski",
+  "home": {
+    "calendarWeek": "Tjedan"
+  },
+  "settings": {
+    "back": "Natrag",
+    "title": "Postavke",
+    "designMode": "Tema",
+    "language": "Jezik"
+  }
+}
