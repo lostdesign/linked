@@ -77,6 +77,34 @@ const template = [
         accelerator: 'CTRL + SHIFT + ENTER'
       },
       { type: 'separator' },
+      {
+        label: 'Previous Day',
+        click() {
+          win.webContents.send('previous-day')
+        },
+        accelerator: 'CTRL + SHIFT + LEFT'
+      },
+      {
+        label: 'Next Day',
+        click() {
+          win.webContents.send('next-day')
+        },
+        accelerator: 'CTRL + SHIFT + RIGHT'
+      },
+      { type: 'separator' },
+      {
+        label: 'Previous Week',
+        click() {
+          win.webContents.send('previous-week')
+        }
+      },
+      {
+        label: 'Next Week',
+        click() {
+          win.webContents.send('next-week')
+        }
+      },
+      { type: 'separator' },
       { role: 'reload' }
     ]
   },

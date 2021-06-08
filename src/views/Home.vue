@@ -249,6 +249,22 @@ export default {
       this.today = this.getToday()
     })
 
+    ipcRenderer.on('previous-day', () => {
+      this.shiftDay(-1)
+    })
+
+    ipcRenderer.on('next-day', () => {
+      this.shiftDay(1)
+    })
+
+    ipcRenderer.on('previous-week', () => {
+      this.shiftDay(-7)
+    })
+
+    ipcRenderer.on('next-week', () => {
+      this.shiftDay(7)
+    })
+
     document.addEventListener('keydown', (event) => {
       this.keysPressed[event.key] = true
       const modifier = this.keysPressed['Shift'] && this.keysPressed['Control']
