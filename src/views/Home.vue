@@ -6,7 +6,16 @@
     >
       <!-- Header Start -->
       <header
-        class="sticky top-0 text-black bg-white dark:bg-black dark:text-white z-50 select-none"
+        class="
+          sticky
+          top-0
+          text-black
+          bg-white
+          dark:bg-black
+          dark:text-white
+          z-50
+          select-none
+        "
       >
         <div
           class="flex justify-between items-center align-center pt-6 px-10 mb-2"
@@ -16,7 +25,16 @@
           }}</span>
           <!-- Week switcher -->
           <span
-            class="text-black dark:text-white select-none flex justify-center items-center align-center space-x-1"
+            class="
+              text-black
+              dark:text-white
+              select-none
+              flex
+              justify-center
+              items-center
+              align-center
+              space-x-1
+            "
           >
             <span
               class="text-red-800 hover:text-red-400 cursor-pointer"
@@ -40,12 +58,27 @@
         </div>
         <!-- Day switcher -->
         <div
-          class="flex dark:bg-black justify-center space-x-4 z-50 border-b border-gray-400 dark:border-gray-800 py-4"
+          class="
+            flex
+            dark:bg-black
+            justify-center
+            space-x-4
+            z-50
+            border-b border-gray-400
+            dark:border-gray-800
+            py-4
+          "
         >
           <template v-for="date in getCurrentWeekDates()">
             <div
               :key="date.day"
-              class="flex-col justify-center items-center self-center text-center"
+              class="
+                flex-col
+                justify-center
+                items-center
+                self-center
+                text-center
+              "
             >
               <span
                 class="block mb-1 text-xs text-gray-400 dark:text-gray-700"
@@ -56,7 +89,23 @@
                 {{ date.weekDay }}
               </span>
               <span
-                class="flex justify-center items-center self-center text-center w-10 h-10 rounded-full font-black text-xs hover:bg-gray-200 dark:hover:bg-gray-800 cursor-pointer ring-red-600 dark:ring-red-900"
+                class="
+                  flex
+                  justify-center
+                  items-center
+                  self-center
+                  text-center
+                  w-10
+                  h-10
+                  rounded-full
+                  font-black
+                  text-xs
+                  hover:bg-gray-200
+                  dark:hover:bg-gray-800
+                  cursor-pointer
+                  ring-red-600
+                  dark:ring-red-900
+                "
                 :class="{ 'ring-4 text-sm': date.isoDate === today }"
                 :key="date.day"
                 @click="setDay(date.isoDate)"
@@ -137,6 +186,8 @@ import Strike from '@tiptap/extension-strike'
 import Link from '@tiptap/extension-link'
 import History from '@tiptap/extension-history'
 
+const { ipcRenderer } = require('electron')
+
 export default {
   components: {
     Layout,
@@ -194,13 +245,13 @@ export default {
       }
     })
 
+    ipcRenderer.on('set-today', () => {
+      this.today = this.getToday()
+    })
+
     document.addEventListener('keydown', (event) => {
       this.keysPressed[event.key] = true
       const modifier = this.keysPressed['Shift'] && this.keysPressed['Control']
-
-      if (this.keysPressed['Meta'] && event.code === 'Comma') {
-        this.$router.push('settings')
-      }
 
       if (modifier && event.code === 'Enter') {
         this.today = this.getToday()
