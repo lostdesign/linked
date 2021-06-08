@@ -1,0 +1,12 @@
+{
+  "title": "Türkçe",
+  "home": {
+    "calendarWeek": "Hafta"
+  },
+  "settings": {
+    "back": "Geri",
+    "title": "Ayarlar",
+    "designMode": "Tasarım modu",
+    "language": "Dil"
+  }
+}
