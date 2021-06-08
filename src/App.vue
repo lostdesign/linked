@@ -21,6 +21,11 @@ export default {
       }
     }
   },
+  mounted() {
+    ipcRenderer.on('open-settings', () => {
+      this.$router.push('settings', () => {})
+    })
+  },
   created() {
     if (this.themeMode === 'dark' || !('theme' in localStorage)) {
       document.documentElement.classList.add('dark')

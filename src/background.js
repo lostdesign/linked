@@ -1,11 +1,20 @@
 'use strict'
 
-import { app, protocol, BrowserWindow, ipcMain, nativeTheme } from 'electron'
+import {
+  app,
+  protocol,
+  BrowserWindow,
+  ipcMain,
+  nativeTheme,
+  Menu
+} from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from 'electron-updater'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
+const isWindows = process.platform === 'win32'
+const isMacOS = process.platform === 'darwin'
 const fs = require('fs')
 let win
 
@@ -18,6 +27,75 @@ app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
+
+const template = [
+  {
+    label: app.name,
+    submenu: [
+      { role: 'about' },
+      {
+        label: 'Settings',
+        click() {
+          win.webContents.send('open-settings')
+        },
+        ...(isMacOS ? { accelerator: 'CMD + ,' } : { accelerator: 'CTRL + ,' })
+      },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      ...(isMacOS
+        ? [
+            { role: 'delete' },
+            { role: 'selectAll' },
+            { type: 'separator' },
+            {
+              label: 'Speech',
+              submenu: [{ role: 'startSpeaking' }, { role: 'stopSpeaking' }]
+            }
+          ]
+        : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }])
+    ]
+  },
+  {
+    label: 'View',
+    submenu: [
+      {
+        label: 'Today',
+        click() {
+          win.webContents.send('set-today')
+        },
+        accelerator: 'CTRL + SHIFT + ENTER'
+      },
+      { type: 'separator' },
+      { role: 'reload' }
+    ]
+  },
+  {
+    role: 'help',
+    submenu: [
+      {
+        label: 'Documentation',
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://uselinked.com/docs')
+        }
+      }
+    ]
+  }
+]
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
 
 function createWindow() {
   // Create the browser window.
@@ -61,7 +139,7 @@ function createWindow() {
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
+  if (!isMacOS) {
     app.quit()
   }
 })
@@ -91,7 +169,7 @@ app.on('ready', async () => {
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
-  if (process.platform === 'win32') {
+  if (isWindows) {
     process.on('message', data => {
       if (data === 'graceful-exit') {
         app.quit()
