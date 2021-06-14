@@ -17,46 +17,14 @@
           select-none
         "
       >
-        <div
-          class="flex justify-between items-center align-center pt-6 px-10 mb-2"
-        >
-          <span class="text-center text-4xl font-black">{{
-            this.formatDate('MMMM yyyy')
-          }}</span>
-          <!-- Week switcher -->
-          <span
-            class="
-              text-black
-              dark:text-white
-              select-none
-              flex
-              justify-center
-              items-center
-              align-center
-              space-x-1
-            "
-          >
-            <span
-              class="text-red-800 hover:text-red-400 cursor-pointer"
-              @click="shiftDay(-7)"
-            >
-              <ArrowLeftIcon />
-            </span>
-            <span>
-              <span class="mr-1 text-gray-400 dark:text-gray-700">
-                {{ $t('home.calendarWeek') }}
-              </span>
-              {{ this.formatDate('WW') }}</span
-            >
-            <span
-              class="text-red-800 hover:text-red-400 cursor-pointer"
-              @click="shiftDay(7)"
-            >
-              <ArrowRightIcon />
-            </span>
-          </span>
-        </div>
-        <!-- Day switcher -->
+        <week-switcher />
+
+        <!--
+          Day switcher,
+          already exists as own component, but currently isnt working, the editor content doesnt swap.
+
+          going to fix when move to vuex
+        -->
         <div
           class="
             flex
@@ -157,10 +125,9 @@
 import Layout from './Layout'
 import Calendar from '@/mixins/calendar'
 import File from '@/mixins/file'
+import WeekSwitcher from '@/components/week-switcher'
 import BulletListIcon from '@/assets/icons/bullet-list.svg'
 import CheckboxIcon from '@/assets/icons/checkbox.svg'
-import ArrowLeftIcon from '@/assets/icons/arrow-left.svg'
-import ArrowRightIcon from '@/assets/icons/arrow-right.svg'
 import CodeIcon from '@/assets/icons/code.svg'
 import PenIcon from '@/assets/icons/pen.svg'
 import BoldIcon from '@/assets/icons/bold.svg'
@@ -196,13 +163,12 @@ export default {
     BubbleMenu,
     BulletListIcon,
     CheckboxIcon,
-    ArrowLeftIcon,
-    ArrowRightIcon,
     CodeIcon,
     PenIcon,
     BoldIcon,
     ItalicIcon,
-    StrikeThroughIcon
+    StrikeThroughIcon,
+    WeekSwitcher
   },
   mixins: [Calendar, File],
   data() {
