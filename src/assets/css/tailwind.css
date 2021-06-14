@@ -86,7 +86,7 @@ li[data-done='false'] {
 }
 
 code {
-  @apply bg-gray-800 p-2 rounded-lg block box-border text-xs;
+  @apply bg-gray-800 dark:text-gray-100 text-gray-200 p-2 rounded-lg block box-border text-xs;
 }
 
 pre::before {
