@@ -18,7 +18,7 @@
     >
       <span
         class="text-red-800 hover:text-red-400 cursor-pointer"
-        @click="setPreviousWeek()"
+        @click="setDayTo(-7)"
       >
         <ArrowLeftIcon />
       </span>
@@ -30,7 +30,7 @@
       >
       <span
         class="text-red-800 hover:text-red-400 cursor-pointer"
-        @click="setNextWeek()"
+        @click="setDayTo(7)"
       >
         <ArrowRightIcon />
       </span>
@@ -56,10 +56,7 @@ export default {
   },
   methods: {
     formatDate,
-    ...mapActions('calendar', [
-      CalendarActions.SET_PREVIOUS_WEEK,
-      CalendarActions.SET_NEXT_WEEK
-    ])
+    ...mapActions('calendar', [CalendarActions.SET_DAY_TO])
   },
   computed: {
     ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE])
