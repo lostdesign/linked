@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import store from '@/store'
+
 import App from './App.vue'
 import router from './router'
 import i18n from '@/locales'
@@ -23,5 +25,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   i18n,
+  store,
   render: h => h(App)
 }).$mount('#app')

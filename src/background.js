@@ -219,7 +219,7 @@ ipcMain.handle('dark-mode:toggle', (event, mode) => {
   return nativeTheme.shouldUseDarkColors
 })
 
-ipcMain.handle('load-file', async (event, args) => {
+ipcMain.handle('FETCH_FILE', async (event, args) => {
   const [year, fileName] = args
   const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
@@ -244,7 +244,7 @@ ipcMain.handle('load-file', async (event, args) => {
   return file
 })
 
-ipcMain.handle('save-file', (event, args) => {
+ipcMain.handle('SAVE_FILE', (event, args) => {
   const [year, fileName, content, rating] = args
   const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`

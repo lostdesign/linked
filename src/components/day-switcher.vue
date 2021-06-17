@@ -11,7 +11,7 @@
       py-4
     "
   >
-    <template v-for="date in getCurrentWeekDates()">
+    <template v-for="date in getCurrentWeek">
       <div
         :key="date.day"
         class="flex-col justify-center items-center self-center text-center"
@@ -19,7 +19,7 @@
         <span
           class="block mb-1 text-xs text-gray-400 dark:text-gray-700"
           :class="{
-            'text-red-400 dark:text-red-500': date.isoDate === today
+            'text-red-400 dark:text-red-500': date.isoDate === getCurrentDate
           }"
         >
           {{ date.weekDay }}
@@ -42,9 +42,11 @@
             ring-red-600
             dark:ring-red-900
           "
-          :class="{ 'ring-4 text-sm': date.isoDate === today }"
+          :class="{
+            'ring-4 text-sm': date.isoDate === getCurrentDate
+          }"
           :key="date.day"
-          @click="setDay(date.isoDate)"
+          @click="setDate(date.isoDate)"
         >
           {{ date.day }}
         </span>
@@ -54,10 +56,21 @@
 </template>
 
 <script>
-import Calendar from '@/mixins/calendar'
-import File from '@/mixins/file'
+import { mapGetters, mapActions } from 'vuex'
+import {
+  Getters as CalendarGetters,
+  Actions as CalendarActions
+} from '@/store/modules/calendar/types'
 
 export default {
-  mixins: [Calendar, File]
+  methods: {
+    ...mapActions('calendar', [CalendarActions.SET_DATE])
+  },
+  computed: {
+    ...mapGetters('calendar', [
+      CalendarGetters.GET_CURRENT_DATE,
+      CalendarGetters.GET_CURRENT_WEEK
+    ])
+  }
 }
 </script>
