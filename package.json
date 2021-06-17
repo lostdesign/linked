@@ -60,7 +60,8 @@
     "luxon": "1.26.0",
     "vue": "2.6.11",
     "vue-i18n": "8.24.4",
-    "vue-router": "3.2.0"
+    "vue-router": "3.2.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "2.0.4",
