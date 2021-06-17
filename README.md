@@ -1,6 +1,6 @@
 ![Bildschirmfoto 2021-05-21 um 09 14 10](https://user-images.githubusercontent.com/5164617/119097398-f526b900-ba14-11eb-8570-d73a3c2533ab.png)
 
-![Project Status](https://img.shields.io/badge/🏷-v1.2.2-green)
+![Project Status](https://img.shields.io/badge/🏷-v1.3.0-green)
 
 Linked allows you to write down your thoughts and ideas to link them with days. [Download your free copy now!](https://github.com/lostdesign/linked/releases/latest)
 
