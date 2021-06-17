@@ -132,6 +132,7 @@ function createWindow() {
     minWidth: 450,
     maxWidth: 450,
     height: 1000,
+    minHeight: 500,
     title: 'linked',
     backgroundColor: '#161616',
     webPreferences: {
