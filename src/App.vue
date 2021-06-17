@@ -33,7 +33,8 @@ export default {
   methods: {
     ...mapActions('calendar', [
       CalendarActions.SET_DATE,
-      CalendarActions.SET_DAY_TO
+      CalendarActions.SET_DAY_TO,
+      CalendarActions.SET_CURRENT_WEEK
     ]),
     ...mapActions('file', [FileActions.FETCH_FILE])
   },
@@ -71,6 +72,7 @@ export default {
     this.$store.subscribe((mutation) => {
       if (mutation.type === `calendar/${CalendarActions.SET_DATE}`) {
         this.fetchFile(this.getCurrentDate)
+        this.setCurrentWeek()
       }
     })
 

@@ -24,11 +24,6 @@ export default {
     AppHeader,
     Editor
   },
-  data() {
-    return {
-      keysPressed: {}
-    }
-  },
   methods: {
     ...mapActions('calendar', [
       CalendarActions.SET_DATE,
@@ -37,28 +32,6 @@ export default {
   },
   computed: {
     ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE])
-  },
-  mounted() {
-    document.addEventListener('keydown', (event) => {
-      this.keysPressed[event.key] = true
-      const modifier = this.keysPressed['Shift'] && this.keysPressed['Control']
-
-      if (modifier && event.code === 'Enter') {
-        this.setDate()
-      }
-
-      if (modifier && event.code === 'ArrowLeft') {
-        this.setDayTo(-1)
-      }
-
-      if (modifier && event.code === 'ArrowRight') {
-        this.setDayTo(1)
-      }
-    })
-
-    document.addEventListener('keyup', (event) => {
-      delete this.keysPressed[event.key]
-    })
   }
 }
 </script>
