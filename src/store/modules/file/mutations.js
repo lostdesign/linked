@@ -1,4 +1,4 @@
-import { Mutations } from './types'
+import { Mutations } from '@/store/modules/file/types'
 
 export default {
   [Mutations.SET_CONTENT](state, content) {

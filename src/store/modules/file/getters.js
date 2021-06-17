@@ -1,4 +1,4 @@
-import { Getters } from './types'
+import { Getters } from '@/store/modules/file/types'
 
 export default {
   [Getters.GET_CONTENT](state) {
