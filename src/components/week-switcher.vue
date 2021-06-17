@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between items-center align-center pt-6 px-10 mb-2">
     <span class="text-center text-4xl font-black">{{
-      this.formatDate('MMMM yyyy')
+      formatDate(getCurrentDate, 'MMMM yyyy')
     }}</span>
     <!-- Week switcher -->
     <span
@@ -18,7 +18,7 @@
     >
       <span
         class="text-red-800 hover:text-red-400 cursor-pointer"
-        @click="shiftDay(-7)"
+        @click="setPreviousWeek()"
       >
         <ArrowLeftIcon />
       </span>
@@ -26,11 +26,11 @@
         <span class="mr-1 text-gray-400 dark:text-gray-700">
           {{ $t('home.calendarWeek') }}
         </span>
-        {{ this.formatDate('WW') }}</span
+        {{ formatDate(getCurrentDate, 'WW') }}</span
       >
       <span
         class="text-red-800 hover:text-red-400 cursor-pointer"
-        @click="shiftDay(7)"
+        @click="setNextWeek()"
       >
         <ArrowRightIcon />
       </span>
@@ -39,15 +39,30 @@
 </template>
 
 <script>
-import Calendar from '@/mixins/calendar'
 import ArrowLeftIcon from '@/assets/icons/arrow-left.svg'
 import ArrowRightIcon from '@/assets/icons/arrow-right.svg'
 
+import { formatDate } from '@/store/modules/calendar/helper'
+import { mapActions, mapGetters } from 'vuex'
+import {
+  Actions as CalendarActions,
+  Getters as CalendarGetters
+} from '@/store/modules/calendar/types'
+
 export default {
-  mixins: [Calendar],
   components: {
     ArrowLeftIcon,
     ArrowRightIcon
+  },
+  methods: {
+    formatDate,
+    ...mapActions('calendar', [
+      CalendarActions.SET_PREVIOUS_WEEK,
+      CalendarActions.SET_NEXT_WEEK
+    ])
+  },
+  computed: {
+    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE])
   }
 }
 </script>
