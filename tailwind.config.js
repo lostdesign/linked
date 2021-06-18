@@ -3,14 +3,14 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   darkMode: 'class',
   purge: {
-    enabled: true,
+    enabled: false,
     content: ['./src/**/*.html', './src/**/*.vue', './src/**/*.svg']
   },
   theme: {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: '#161616',
+      black: '#07080a',
       white: '#ffffff',
       gray: colors.gray,
       indigo: colors.indigo,
@@ -27,5 +27,5 @@ module.exports = {
       transform: ['active']
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/forms')]
 }
