@@ -6,12 +6,12 @@ import {
   BrowserWindow,
   ipcMain,
   nativeTheme,
-  Menu
+  Menu,
+  shell
 } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from 'electron-updater'
-import { template } from './services/menu-template'
 import { v4 as uuidv4 } from 'uuid'
 import { isDevelopment, isMacOS, isWindows } from '@/services/helpers'
 
@@ -27,6 +27,117 @@ app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
+
+const template = [
+  {
+    label: app.name,
+    submenu: [
+      { role: 'about' },
+      {
+        label: 'Settings',
+        click() {
+          win.webContents.send('open-settings')
+        },
+        accelerator: 'CMD + ,'
+      },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      ...(isMacOS
+        ? [
+            { role: 'delete' },
+            { role: 'selectAll' },
+            { type: 'separator' },
+            {
+              label: 'Speech',
+              submenu: [{ role: 'startSpeaking' }, { role: 'stopSpeaking' }]
+            }
+          ]
+        : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }])
+    ]
+  },
+  {
+    label: 'View',
+    submenu: [
+      {
+        label: 'Home',
+        click() {
+          win.webContents.send('open-home')
+        }
+      },
+      {
+        label: 'Search',
+        click() {
+          win.webContents.send('open-search')
+        },
+        accelerator: 'CMD + K'
+      }
+    ]
+  },
+  {
+    label: 'Calendar',
+    submenu: [
+      {
+        label: 'Today',
+        click() {
+          win.webContents.send('set-today')
+        },
+        accelerator: 'CTRL + SHIFT + ENTER'
+      },
+      { type: 'separator' },
+      {
+        label: 'Previous Day',
+        click() {
+          win.webContents.send('previous-day')
+        },
+        accelerator: 'CTRL + SHIFT + LEFT'
+      },
+      {
+        label: 'Next Day',
+        click() {
+          win.webContents.send('next-day')
+        },
+        accelerator: 'CTRL + SHIFT + RIGHT'
+      },
+      { type: 'separator' },
+      {
+        label: 'Previous Week',
+        click() {
+          win.webContents.send('previous-week')
+        }
+      },
+      {
+        label: 'Next Week',
+        click() {
+          win.webContents.send('next-week')
+        }
+      },
+      { type: 'separator' },
+      { role: 'reload' }
+    ]
+  },
+  {
+    role: 'help',
+    submenu: [
+      {
+        label: 'Documentation',
+        click: async () => {
+          await shell.openExternal('https://uselinked.com/docs')
+        }
+      }
+    ]
+  }
+]
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
