@@ -2,13 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import calendar from '@/store/modules/calendar'
-import file from '@/store/modules/file'
+import storage from '@/store/modules/storage'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
     calendar,
-    file
+    storage
   }
 })

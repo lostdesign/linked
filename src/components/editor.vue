@@ -38,7 +38,7 @@ import { mapGetters, mapActions } from 'vuex'
 import {
   Getters as FileGetters,
   Actions as FileActions
-} from '@/store/modules/file/types'
+} from '@/store/modules/storage/types'
 
 import BulletListIcon from '@/assets/icons/bullet-list.svg'
 import CheckboxIcon from '@/assets/icons/checkbox.svg'
@@ -71,10 +71,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions('file', [FileActions.SET_CONTENT, FileActions.SAVE_FILE])
+    ...mapActions('storage', [FileActions.SET_CONTENT, FileActions.SAVE_FILE])
   },
   computed: {
-    ...mapGetters('file', [FileGetters.GET_CONTENT])
+    ...mapGetters('storage', [FileGetters.GET_CONTENT])
   },
   mounted() {
     this.editor = new Editor({
