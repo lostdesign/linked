@@ -8,5 +8,9 @@
     "title": "Settings",
     "designMode": "Design mode",
     "language": "Language"
+  },
+  "command-panel": {
+    "title": "Command Panel",
+    "placeholder": "Go to day..."
   }
 }
