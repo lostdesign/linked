@@ -43,7 +43,15 @@ export default {
   },
   mounted() {
     ipcRenderer.on('open-settings', () => {
-      this.$router.push('settings', () => {})
+      this.$router.push('/settings', () => {})
+    })
+
+    ipcRenderer.on('open-home', () => {
+      this.$router.push('/', () => {})
+    })
+
+    ipcRenderer.on('open-search', () => {
+      this.$router.push('/search', () => {})
     })
 
     ipcRenderer.on('set-today', () => {

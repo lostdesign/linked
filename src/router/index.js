@@ -2,24 +2,24 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 import Settings from '@/views/Settings.vue'
+import Search from '@/views/Search.vue'
 
 Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
-    beforeEnter: (to, from, next) => {
-      next()
-    }
+    name: 'home',
+    component: Home
   },
   {
     path: '/settings',
-    name: 'Settings',
-    component: Settings,
-    beforeEnter: (to, from, next) => {
-      next()
-    }
+    name: 'settings',
+    component: Settings
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: Search
   }
 ]
 
