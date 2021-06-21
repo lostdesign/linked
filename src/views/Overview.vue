@@ -33,15 +33,23 @@
           bg-gray-100
           text-wite
           dark:bg-gray-900
+          mb-4
         "
         :placeholder="$t('overview.placeholder')"
       />
+      <!--<div class="grid gap-2 grid-cols-7 grid-rows-5 mb-4 h-32">
+        <template v-for="date in getCurrentMonth">
+          <div class='flex justify-center items-center w-full bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800 cursor-pointer' :key="date.isoDate"></div>
+        </template>
+      </div>-->
     </main>
   </Layout>
 </template>
 
 <script>
 import Layout from './Layout'
+import { mapGetters } from 'vuex'
+import { Getters as CalendarGetters } from '@/store/modules/calendar/types'
 //import BackIcon from '@/assets/icons/back.svg'
 
 export default {
@@ -62,6 +70,10 @@ export default {
       delete this.keysPressed[event.key]
     }
   },
+  computed: {
+    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_MONTH])
+  },
+  
   mounted() {
     window.addEventListener('keydown', this._handleKeyDown)
     window.addEventListener('keyup', this._handleKeyUp)

@@ -1,7 +1,13 @@
 import { DateTime } from 'luxon'
-import { getCurrentWeekDates } from '@/store/modules/calendar/helper'
+import {
+  getCurrentMonthDates,
+  getCurrentWeekDates
+} from '@/store/modules/calendar/helper'
+
+const today = DateTime.now().toISODate()
 
 export default () => ({
-  currentDate: DateTime.now().toISODate(),
-  currentWeek: getCurrentWeekDates(DateTime.now().toISODate())
+  currentDate: today,
+  currentWeek: getCurrentWeekDates(today),
+  currentMonth: getCurrentMonthDates(today)
 })

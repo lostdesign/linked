@@ -42,19 +42,46 @@ const formatDate = (date, format) => {
  */
 const getCurrentWeekDates = date => {
   let week = []
-  const startOfWeek = DateTime.fromISO(date).startOf('week')
+
+  const startOfWeek = DateTime.fromISO(date)
+    .startOf('week')
+    .setLocale(localStorage.lang ?? 'en-US')
 
   for (let i = 0; i <= 6; i++) {
-    let day = startOfWeek
-      .plus({ days: i })
-      .setLocale(localStorage.lang ?? 'en-US')
-    week.push({
-      isoDate: day.toISODate(),
-      day: day.toFormat('d'),
-      weekDay: day.toFormat('EEE')
-    })
+    week.push(dayDto(startOfWeek.plus({ days: i })))
   }
+
   return week
 }
 
-export { getToday, setDate, shiftDate, formatDate, getCurrentWeekDates }
+const getCurrentMonthDates = date => {
+  let month = []
+
+  const endOfMonth = DateTime.fromISO(date).endOf('month')
+  const startOfMonth = DateTime.fromISO(date)
+    .startOf('month')
+    .setLocale(localStorage.lang ?? 'en-US')
+
+  for (let i = 0; i <= endOfMonth.day - 1; i++) {
+    month.push(dayDto(startOfMonth.plus({ days: i })))
+  }
+
+  return month
+}
+
+const dayDto = day => {
+  return {
+    isoDate: day.toISODate(),
+    day: day.toFormat('d'),
+    weekDay: day.toFormat('EEE')
+  }
+}
+
+export {
+  getToday,
+  setDate,
+  shiftDate,
+  formatDate,
+  getCurrentWeekDates,
+  getCurrentMonthDates
+}
