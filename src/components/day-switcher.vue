@@ -37,7 +37,7 @@
             font-black
             text-xs
             hover:bg-gray-200
-            dark:hover:bg-gray-800
+            dark:hover:bg-gray-900
             cursor-pointer
             ring-red-600
             dark:ring-red-900

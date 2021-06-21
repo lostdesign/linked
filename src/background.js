@@ -15,9 +15,6 @@ import { template } from './services/menu-template'
 import { isWindows, isMacOS, isDevelopment } from '@/services/helper'
 import { v4 as uuidv4 } from 'uuid'
 
-const isDevelopment = process.env.NODE_ENV !== 'production'
-const isWindows = process.platform === 'win32'
-const isMacOS = process.platform === 'darwin'
 const fs = require('fs')
 let win
 
@@ -31,100 +28,6 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
-const template = [
-  {
-    label: app.name,
-    submenu: [
-      { role: 'about' },
-      {
-        label: 'Settings',
-        click() {
-          win.webContents.send('open-settings')
-        },
-        ...(isMacOS ? { accelerator: 'CMD + ,' } : { accelerator: 'CTRL + ,' })
-      },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  },
-  {
-    label: 'Edit',
-    submenu: [
-      { role: 'undo' },
-      { role: 'redo' },
-      { type: 'separator' },
-      { role: 'cut' },
-      { role: 'copy' },
-      { role: 'paste' },
-      ...(isMacOS
-        ? [
-            { role: 'delete' },
-            { role: 'selectAll' },
-            { type: 'separator' },
-            {
-              label: 'Speech',
-              submenu: [{ role: 'startSpeaking' }, { role: 'stopSpeaking' }]
-            }
-          ]
-        : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }])
-    ]
-  },
-  {
-    label: 'View',
-    submenu: [
-      {
-        label: 'Today',
-        click() {
-          win.webContents.send('set-today')
-        },
-        accelerator: 'CTRL + SHIFT + ENTER'
-      },
-      { type: 'separator' },
-      {
-        label: 'Previous Day',
-        click() {
-          win.webContents.send('previous-day')
-        },
-        accelerator: 'CTRL + SHIFT + LEFT'
-      },
-      {
-        label: 'Next Day',
-        click() {
-          win.webContents.send('next-day')
-        },
-        accelerator: 'CTRL + SHIFT + RIGHT'
-      },
-      { type: 'separator' },
-      {
-        label: 'Previous Week',
-        click() {
-          win.webContents.send('previous-week')
-        }
-      },
-      {
-        label: 'Next Week',
-        click() {
-          win.webContents.send('next-week')
-        }
-      },
-      { type: 'separator' },
-      { role: 'reload' }
-    ]
-  },
-  {
-    role: 'help',
-    submenu: [
-      {
-        label: 'Documentation',
-        click: async () => {
-          const { shell } = require('electron')
-          await shell.openExternal('https://uselinked.com/docs')
-        }
-      }
-    ]
-  }
-]
-
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
@@ -137,7 +40,7 @@ function createWindow() {
     height: 1000,
     minHeight: 500,
     title: 'linked',
-    backgroundColor: '#161616',
+    backgroundColor: '#07080a',
     webPreferences: {
       devTools: process.env.NODE_ENV === 'development',
       nodeIntegration: true,
