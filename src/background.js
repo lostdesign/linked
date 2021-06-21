@@ -11,6 +11,9 @@ import {
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from 'electron-updater'
+import { template } from './services/menu-template'
+import { isWindows, isMacOS, isDevelopment } from '@/services/helper'
+import { v4 as uuidv4 } from 'uuid'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const isWindows = process.platform === 'win32'
@@ -253,6 +256,8 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
   fs.promises.writeFile(
     filePath,
     JSON.stringify({
+      uuid: uuidv4(),
+      date: fileName,
       content: content,
       rating: rating
     })

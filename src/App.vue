@@ -10,7 +10,7 @@ import {
   Actions as CalendarActions
 } from '@/store/modules/calendar/types'
 
-import { Actions as FileActions } from '@/store/modules/file/types'
+import { Actions as StorageActions } from '@/store/modules/storage/types'
 
 const { ipcRenderer } = require('electron')
 
@@ -36,7 +36,7 @@ export default {
       CalendarActions.SET_DAY_TO,
       CalendarActions.SET_CURRENT_WEEK
     ]),
-    ...mapActions('file', [FileActions.FETCH_FILE])
+    ...mapActions('storage', [StorageActions.FETCH_FILE])
   },
   computed: {
     ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE])
