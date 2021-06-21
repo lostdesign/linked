@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import store from '@/store'
 
-import App from './App.vue'
-import router from './router'
+import App from './App'
+import router from '@/router'
 import i18n from '@/locales'
 import '@/assets/css/tailwind.css'
 

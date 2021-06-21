@@ -55,10 +55,10 @@ export const template = [
         }
       },
       {
-        label: 'Search',
+        label: 'Overview',
         click() {
           BrowserWindow.getAllWindows().forEach(browserWindow => {
-            browserWindow.webContents.send('open-search')
+            browserWindow.webContents.send('open-overview')
             browserWindow.show()
           })
         },
