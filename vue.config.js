@@ -27,7 +27,7 @@ module.exports = {
         linux: {
           target: ['AppImage', 'deb', 'snap']
         },
-        windows: {
+        win: {
           target: ['nsis', 'portable']
         },
         publish: ['github'],

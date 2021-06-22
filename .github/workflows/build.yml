@@ -45,3 +45,18 @@ jobs:
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+      
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: everything-dist
+          retention-days: 3
+          path: |
+            dist_electron
+            !dist_electron/bundled/*
+            !dist_electron/mac/*
+            !dist_electron/builder-debug.yml
+            !dist_electron/builder-effective-config.yml
+            !dist_electron/index.js
+            !dist_electron/package.json
+            !dist_electron/.icon-icns/*
