@@ -46,17 +46,15 @@ jobs:
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
       
-      - name: Archive artifacts
+      - name: Archive build artifacts for each os
         uses: actions/upload-artifact@v2
         with:
-          name: everything-dist
-          retention-days: 3
+          name: all-os-built-executables
+          retention-days: 1
           path: |
-            dist_electron
-            !dist_electron/bundled/*
-            !dist_electron/mac/*
-            !dist_electron/builder-debug.yml
-            !dist_electron/builder-effective-config.yml
-            !dist_electron/index.js
-            !dist_electron/package.json
-            !dist_electron/.icon-icns/*
+            dist_electron/*.deb
+            dist_electron/*.snap
+            dist_electron/*.AppImage
+            dist_electron/*.dmg
+            dist_electron/*.exe
+            !dist_electron/**
