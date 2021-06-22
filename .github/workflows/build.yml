@@ -55,12 +55,12 @@ jobs:
             dist_electron
             !dist_electron/bundled/*
             !dist_electron/mac/*
-            !dist_electron/builder-debug.yml
-            !dist_electron/builder-effective-config.yml
+            !dist_electron/builder*
             !dist_electron/index.js
             !dist_electron/package.json
             !dist_electron/.icon-icns/*
             !dist_electron/win-unpacked/*
             !dist_electron/linux-unpacked/*
-            !dist_electron/latest-mac.yml
-            !dist_electron/latest-linux.yml
+            !dist_electron/latest*
+            !dist_electron/*.blockmap
+            
