@@ -57,4 +57,4 @@ jobs:
             dist_electron/*.AppImage
             dist_electron/*.dmg
             dist_electron/*.exe
-            !dist_electron/**
+            !dist_electron/**/*
