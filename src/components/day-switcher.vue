@@ -24,7 +24,8 @@
         >
           {{ date.weekDay }}
         </span>
-        <span
+        <router-link
+          :to="`/day/${date.isoDate}`"
           class="
             flex
             justify-center
@@ -45,26 +46,23 @@
           :class="{
             'ring-4 text-sm': date.isoDate === getCurrentDate
           }"
-          :key="date.day"
-          @click="setDate(date.isoDate)"
+          :key="date.date"
+          >{{ date.day }}</router-link
         >
-          {{ date.day }}
-        </span>
       </div>
     </template>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import {
-  Getters as CalendarGetters,
-  Actions as CalendarActions
-} from '@/store/modules/calendar/types'
+import { mapGetters } from 'vuex'
+import { Getters as CalendarGetters } from '@/store/modules/calendar/types'
 
 export default {
   methods: {
-    ...mapActions('calendar', [CalendarActions.SET_DATE])
+    switchDay(date) {
+      this.$router.push(`/day/${date}`, () => {})
+    }
   },
   computed: {
     ...mapGetters('calendar', [

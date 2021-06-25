@@ -20,6 +20,11 @@ const routes = [
     path: '/overview',
     name: 'overview',
     component: Overview
+  },
+  {
+    path: '/day/:date',
+    name: 'Day',
+    component: Home
   }
 ]
 

@@ -2,27 +2,83 @@
   <div v-if="editor">
     <div class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative">
       <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
-        <button @click="editor.chain().focus().toggleHighlight().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleHighlight()
+              .run()
+          "
+        >
           <PenIcon />
         </button>
-        <button @click="editor.chain().focus().toggleBold().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleBold()
+              .run()
+          "
+        >
           <BoldIcon />
         </button>
-        <button @click="editor.chain().focus().toggleItalic().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleItalic()
+              .run()
+          "
+        >
           <ItalicIcon />
         </button>
-        <button @click="editor.chain().focus().toggleStrike().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleStrike()
+              .run()
+          "
+        >
           <StrikeThroughIcon />
         </button>
       </bubble-menu>
       <floating-menu class="floating-menu" :editor="editor" v-if="editor">
-        <button @click="editor.chain().focus().toggleTaskList().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleTaskList()
+              .run()
+          "
+        >
           <CheckboxIcon />
         </button>
-        <button @click="editor.chain().focus().toggleBulletList().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleBulletList()
+              .run()
+          "
+        >
           <BulletListIcon />
         </button>
-        <button @click="editor.chain().focus().toggleCodeBlock().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleCodeBlock()
+              .run()
+          "
+        >
           <CodeIcon />
         </button>
       </floating-menu>
@@ -49,23 +105,7 @@ import ItalicIcon from '@/assets/icons/italic.svg'
 import StrikeThroughIcon from '@/assets/icons/strikethrough.svg'
 
 import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
-import Document from '@tiptap/extension-document'
-import Paragraph from '@tiptap/extension-paragraph'
-import Text from '@tiptap/extension-text'
-import TaskList from '@tiptap/extension-task-list'
-import TaskItem from '@tiptap/extension-task-item'
-import Heading from '@tiptap/extension-heading'
-import Highlight from '@tiptap/extension-highlight'
-import CodeBlock from '@tiptap/extension-code-block'
-import BulletList from '@tiptap/extension-bullet-list'
-import ListItem from '@tiptap/extension-list-item'
-import Bold from '@tiptap/extension-bold'
-import Italic from '@tiptap/extension-italic'
-import Image from '@tiptap/extension-image'
-import HorizontalRule from '@tiptap/extension-horizontal-rule'
-import Strike from '@tiptap/extension-strike'
-import Link from '@tiptap/extension-link'
-import History from '@tiptap/extension-history'
+import { extensions } from '@/components/editor-extensions'
 
 export default {
   components: {
@@ -87,37 +127,22 @@ export default {
     }
   },
   methods: {
-    ...mapActions('storage', [StorageActions.SET_CONTENT, StorageActions.SAVE_FILE])
+    ...mapActions('storage', [
+      StorageActions.SET_CONTENT,
+      StorageActions.SAVE_FILE
+    ])
   },
   computed: {
     ...mapGetters('storage', [StorageGetters.GET_CONTENT])
   },
   mounted() {
     this.editor = new Editor({
-      extensions: [
-        Document,
-        Paragraph,
-        Text,
-        TaskList,
-        TaskItem,
-        Heading,
-        Highlight,
-        CodeBlock,
-        BulletList,
-        ListItem,
-        Bold,
-        Italic,
-        Image,
-        HorizontalRule,
-        Strike,
-        Link,
-        History
-      ],
+      extensions,
       content: this.getContent,
       autofocus: true,
       onUpdate: ({ editor }) => {
         this.setContent(editor.getHTML())
-        this.saveFile()
+        //this.saveFile()
       }
     })
   },
@@ -133,8 +158,14 @@ export default {
     }
   },
 
-  beforeDestroy() {
-    this.editor.destroy()
+  async beforeDestroy() {
+    /*console.log(
+      await this.setContent(this.editor.getHTML()),
+      await this.saveFile()
+    )
+    await this.setContent(this.editor.getHTML())
+    await this.saveFile()
+    await this.editor.destroy()*/
   }
 }
 </script>

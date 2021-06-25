@@ -1,5 +1,5 @@
 <template>
-  <router-view />
+  <router-view :key="this.$route.fullPath" />
 </template>
 
 <script>
@@ -76,8 +76,9 @@ export default {
   },
   created() {
     this.fetchFile(this.getCurrentDate)
+    this.$router.push(`/day/${this.getCurrentDate}`, () => {})
 
-    this.$store.subscribe((mutation) => {
+    this.$store.subscribe(mutation => {
       if (mutation.type === `calendar/${CalendarActions.SET_DATE}`) {
         this.fetchFile(this.getCurrentDate)
         this.setCurrentWeek()
