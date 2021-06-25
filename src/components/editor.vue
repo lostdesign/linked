@@ -5,27 +5,83 @@
       @click="_focusEditor"
     >
       <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
-        <button @click="editor.chain().focus().toggleHighlight().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleHighlight()
+              .run()
+          "
+        >
           <PenIcon />
         </button>
-        <button @click="editor.chain().focus().toggleBold().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleBold()
+              .run()
+          "
+        >
           <BoldIcon />
         </button>
-        <button @click="editor.chain().focus().toggleItalic().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleItalic()
+              .run()
+          "
+        >
           <ItalicIcon />
         </button>
-        <button @click="editor.chain().focus().toggleStrike().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleStrike()
+              .run()
+          "
+        >
           <StrikeThroughIcon />
         </button>
       </bubble-menu>
       <floating-menu class="floating-menu" :editor="editor" v-if="editor">
-        <button @click="editor.chain().focus().toggleTaskList().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleTaskList()
+              .run()
+          "
+        >
           <CheckboxIcon />
         </button>
-        <button @click="editor.chain().focus().toggleBulletList().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleBulletList()
+              .run()
+          "
+        >
           <BulletListIcon />
         </button>
-        <button @click="editor.chain().focus().toggleCodeBlock().run()">
+        <button
+          @click="
+            editor
+              .chain()
+              .focus()
+              .toggleCodeBlock()
+              .run()
+          "
+        >
           <CodeIcon />
         </button>
       </floating-menu>
