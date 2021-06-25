@@ -1,6 +1,9 @@
 <template>
   <div v-if="editor">
-    <div class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative">
+    <div
+      class="min-h-screen px-10 mt-5 text-gray-400 dark:text-gray-500 relative"
+      @click="_focusEditor"
+    >
       <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
         <button @click="editor.chain().focus().toggleHighlight().run()">
           <PenIcon />
@@ -87,7 +90,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions('file', [FileActions.SET_CONTENT, FileActions.SAVE_FILE])
+    ...mapActions('file', [FileActions.SET_CONTENT, FileActions.SAVE_FILE]),
+
+    _focusEditor() {
+      this.editor
+        .chain()
+        .focus()
+        .run()
+    }
   },
   computed: {
     ...mapGetters('file', [FileGetters.GET_CONTENT])
