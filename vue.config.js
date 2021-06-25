@@ -21,10 +21,14 @@ module.exports = {
       builderOptions: {
         mac: {
           hardenedRuntime: true,
-          entitlements: './build/entitlements.mac.inherit.plist'
+          entitlements: './build/entitlements.mac.inherit.plist',
+          target: ['dmg']
         },
         linux: {
-          target: ['AppImage']
+          target: ['AppImage', 'deb', 'snap']
+        },
+        win: {
+          target: ['nsis', 'portable']
         },
         publish: ['github'],
         appId: 'design.lost.linked',
