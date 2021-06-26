@@ -1,4 +1,4 @@
-![Bildschirmfoto 2021-05-21 um 09 14 10](https://user-images.githubusercontent.com/5164617/119097398-f526b900-ba14-11eb-8570-d73a3c2533ab.png)
+![linked-german-header-linkedin](https://user-images.githubusercontent.com/5164617/123394709-b8b02500-d59f-11eb-9d2a-5d9a133d4659.png)
 
 ![Project Status](https://img.shields.io/badge/🏷-v1.3.1-green)
 
