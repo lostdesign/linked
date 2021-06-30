@@ -1,93 +1,92 @@
 <template>
-  <div v-if="editor">
-    <div
-      class="min-h-screen px-10 mt-5 text-gray-400 dark:text-gray-500 relative"
-      @click="_focusEditor"
-    >
-      <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
-        <button
-          @click="
-            editor
-              .chain()
-              .focus()
-              .toggleHighlight()
-              .run()
-          "
-        >
-          <PenIcon />
-        </button>
-        <button
-          @click="
-            editor
-              .chain()
-              .focus()
-              .toggleBold()
-              .run()
-          "
-        >
-          <BoldIcon />
-        </button>
-        <button
-          @click="
-            editor
-              .chain()
-              .focus()
-              .toggleItalic()
-              .run()
-          "
-        >
-          <ItalicIcon />
-        </button>
-        <button
-          @click="
-            editor
-              .chain()
-              .focus()
-              .toggleStrike()
-              .run()
-          "
-        >
-          <StrikeThroughIcon />
-        </button>
-      </bubble-menu>
-      <floating-menu class="floating-menu" :editor="editor" v-if="editor">
-        <button
-          @click="
-            editor
-              .chain()
-              .focus()
-              .toggleTaskList()
-              .run()
-          "
-        >
-          <CheckboxIcon />
-        </button>
-        <button
-          @click="
-            editor
-              .chain()
-              .focus()
-              .toggleBulletList()
-              .run()
-          "
-        >
-          <BulletListIcon />
-        </button>
-        <button
-          @click="
-            editor
-              .chain()
-              .focus()
-              .toggleCodeBlock()
-              .run()
-          "
-        >
-          <CodeIcon />
-        </button>
-      </floating-menu>
-      <div class="text-black dark:text-white">
-        <editor-content :editor="editor" v-model="getContent" />
-      </div>
+  <div
+    v-if="editor"
+    class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative"
+    @click="_focusEditor"
+  >
+    <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
+      <button
+        @click="
+          editor
+            .chain()
+            .focus()
+            .toggleHighlight()
+            .run()
+        "
+      >
+        <PenIcon />
+      </button>
+      <button
+        @click="
+          editor
+            .chain()
+            .focus()
+            .toggleBold()
+            .run()
+        "
+      >
+        <BoldIcon />
+      </button>
+      <button
+        @click="
+          editor
+            .chain()
+            .focus()
+            .toggleItalic()
+            .run()
+        "
+      >
+        <ItalicIcon />
+      </button>
+      <button
+        @click="
+          editor
+            .chain()
+            .focus()
+            .toggleStrike()
+            .run()
+        "
+      >
+        <StrikeThroughIcon />
+      </button>
+    </bubble-menu>
+    <floating-menu class="floating-menu" :editor="editor" v-if="editor">
+      <button
+        @click="
+          editor
+            .chain()
+            .focus()
+            .toggleTaskList()
+            .run()
+        "
+      >
+        <CheckboxIcon />
+      </button>
+      <button
+        @click="
+          editor
+            .chain()
+            .focus()
+            .toggleBulletList()
+            .run()
+        "
+      >
+        <BulletListIcon />
+      </button>
+      <button
+        @click="
+          editor
+            .chain()
+            .focus()
+            .toggleCodeBlock()
+            .run()
+        "
+      >
+        <CodeIcon />
+      </button>
+    </floating-menu>
+    <div class="text-black dark:text-white">
+      <editor-content :editor="editor" v-model="getContent" />
     </div>
   </div>
 </template>
