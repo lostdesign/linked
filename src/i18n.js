@@ -3,28 +3,29 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
-function loadLocaleMessages() {
+export const loadLocaleMessages = () => {
   const locales = require.context(
-    '@/locales',
+    './locales',
     true,
     /[A-Za-z0-9-_,\s]+\.json$/i
   )
+
   const messages = {}
-  locales.keys().forEach(key => {
+
+  locales.keys().map(key => {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i)
+
     if (matched && matched.length > 1) {
       const locale = matched[1]
       messages[locale] = locales(key)
     }
   })
+
   return messages
 }
 
-const i18n = new VueI18n({
-  locale: localStorage.lang,
+export default new VueI18n({
+  locale: localStorage.lang || 'en-US',
   fallbackLocale: 'en-US',
   messages: loadLocaleMessages()
 })
-
-export { loadLocaleMessages }
-export default i18n

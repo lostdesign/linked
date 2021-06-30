@@ -58,11 +58,7 @@
         </div>
       </div>
       <h3 class="mt-4">{{ $t('settings.language') }}</h3>
-      <dropdown
-        :languages="languages"
-        :activeLanguage="language"
-        @languageSelect="_handleLanguageChange($event)"
-      />
+      <LanguageDropdown />
       <span
         class="
           fixed
@@ -83,15 +79,10 @@
 <script>
 import { version } from '../../package.json'
 import Layout from './Layout'
-import i18n, { loadLocaleMessages } from '@/locales'
-import { DateTime } from 'luxon'
-import Dropdown from '@/components/dropdown'
+import LanguageDropdown from '@/components/language-dropdown'
 import BackIcon from '@/assets/icons/back.svg'
 import SunIcon from '@/assets/icons/sun.svg'
 import MoonIcon from '@/assets/icons/moon.svg'
-
-import { mapActions } from 'vuex'
-import { Actions as CalendarActions } from '@/store/modules/calendar/types'
 
 const { ipcRenderer } = require('electron')
 
@@ -111,31 +102,12 @@ export default {
         location.reload()
 
         return (localStorage.theme = value)
-      },
-      get languages() {
-        return loadLocaleMessages()
-      },
-      get language() {
-        return localStorage.lang ?? 'en-US'
-      },
-      // eslint-disable-next-line
-      set language(lang) {
-        localStorage.lang = lang
-        DateTime.local().setLocale(lang)
-        return (i18n.locale = lang)
       }
-    }
-  },
-  methods: {
-    ...mapActions('calendar', [CalendarActions.SET_CURRENT_WEEK]),
-    _handleLanguageChange(lang) {
-      this.language = lang
-      this.setCurrentWeek()
     }
   },
   components: {
     BackIcon,
-    Dropdown,
+    LanguageDropdown,
     MoonIcon,
     Layout,
     SunIcon
