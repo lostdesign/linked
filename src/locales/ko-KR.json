@@ -1,0 +1,12 @@
+{
+  "title": "한국어",
+  "home": {
+    "calendarWeek": "주"
+  },
+  "settings": {
+    "back": "이전",
+    "title": "설정",
+    "designMode": "테마",
+    "language": "언어"
+  }
+}
