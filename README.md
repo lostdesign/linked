@@ -1,6 +1,6 @@
 ![linked-german-header-linkedin](https://user-images.githubusercontent.com/5164617/123394709-b8b02500-d59f-11eb-9d2a-5d9a133d4659.png)
 
-![Project Status](https://img.shields.io/badge/🏷-v1.3.1-green)
+![Project Status](https://img.shields.io/badge/🏷-v1.3.2-green)
 
 Linked allows you to write down your thoughts and ideas to link them with days. [Download your free copy now!](https://github.com/lostdesign/linked/releases/latest)
 
