@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <main class="flex-col items-stretch h-full min-h-screen">
+    <main class="flex flex-col items-stretch min-h-screen">
       <app-header />
       <editor />
     </main>

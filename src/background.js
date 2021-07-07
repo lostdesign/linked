@@ -35,10 +35,10 @@ const template = [
       { role: 'about' },
       {
         label: 'Settings',
+        accelerator: 'CommandOrControl + ,',
         click() {
           win.webContents.send('open-settings')
-        },
-        ...(isMacOS ? { accelerator: 'CMD + ,' } : { accelerator: 'CTRL + ,' })
+        }
       },
       { type: 'separator' },
       { role: 'quit' }
@@ -74,7 +74,7 @@ const template = [
         click() {
           win.webContents.send('set-today')
         },
-        accelerator: 'CTRL + SHIFT + ENTER'
+        accelerator: 'CommandOrControl + .'
       },
       { type: 'separator' },
       {
@@ -82,27 +82,29 @@ const template = [
         click() {
           win.webContents.send('previous-day')
         },
-        accelerator: 'CTRL + SHIFT + LEFT'
+        accelerator: 'CommandOrControl + P'
       },
       {
         label: 'Next Day',
         click() {
           win.webContents.send('next-day')
         },
-        accelerator: 'CTRL + SHIFT + RIGHT'
+        accelerator: 'CommandOrControl + N'
       },
       { type: 'separator' },
       {
         label: 'Previous Week',
         click() {
           win.webContents.send('previous-week')
-        }
+        },
+        accelerator: 'CommandOrControl + Shift + P'
       },
       {
         label: 'Next Week',
         click() {
           win.webContents.send('next-week')
-        }
+        },
+        accelerator: 'CommandOrControl + Shift + N'
       },
       { type: 'separator' },
       { role: 'reload' }

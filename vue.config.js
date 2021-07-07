@@ -34,6 +34,12 @@ module.exports = {
         appId: 'design.lost.linked',
         afterSign: './afterSignHook.js'
       }
+    },
+    i18n: {
+      locale: 'en-US',
+      fallbackLocale: 'en-US',
+      localeDir: 'locales',
+      enableInSFC: false
     }
   }
 }

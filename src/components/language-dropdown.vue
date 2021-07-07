@@ -9,7 +9,7 @@
         aria-labelledby="listbox-label"
         @click="open = !open"
       >
-        <span class="block truncate">{{ languages[selected].title }}</span>
+        <span class="block truncate">{{ languages[language].title }}</span>
         <span
           class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
         >
@@ -35,11 +35,7 @@
             id="listbox-option-0"
             role="option"
             :key="index"
-            @click="
-              selected = index
-              open = false
-              $emit('languageSelect', index)
-            "
+            @click="_handleLanguageChange(lang)"
           >
             <span class="font-normal block truncate">{{ lang.title }} </span>
             <span
@@ -58,13 +54,32 @@
 <script>
 import TickIcon from '@/assets/icons/tick.svg'
 import DropdownIcon from '@/assets/icons/dropdown.svg'
+import { DateTime } from 'luxon'
+import { loadLocaleMessages } from '@/i18n'
+import { mapActions } from 'vuex'
+import { Actions as CalendarActions } from '@/store/modules/calendar/types'
 
 export default {
-  props: ['languages', 'activeLanguage'],
   data() {
     return {
       open: false,
-      selected: this.activeLanguage
+      selected: localStorage.lang,
+      language: (this.$i18n.locale = localStorage.lang),
+      languages: loadLocaleMessages()
+    }
+  },
+  methods: {
+    ...mapActions('calendar', [CalendarActions.SET_CURRENT_WEEK]),
+    _handleLanguageChange(lang) {
+      if (this.$i18n.locale === lang.code) return
+
+      this.selected = lang.code
+      this.language = lang.code
+      this.open = false
+      this.$i18n.locale = lang.code
+      localStorage.lang = lang.code
+      this.setCurrentWeek()
+      DateTime.local().setLocale(lang.code)
     }
   },
   components: {
