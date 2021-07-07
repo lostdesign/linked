@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="editor"
-    class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative"
+    class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative flex-grow"
     @click="_focusEditor"
   >
     <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
@@ -140,13 +140,11 @@ export default {
   },
   data() {
     return {
-      keysPressed: {},
       editor: null
     }
   },
   methods: {
     ...mapActions('file', [FileActions.SET_CONTENT, FileActions.SAVE_FILE]),
-
     _focusEditor() {
       this.editor
         .chain()

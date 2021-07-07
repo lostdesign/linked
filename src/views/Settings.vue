@@ -87,6 +87,13 @@ import MoonIcon from '@/assets/icons/moon.svg'
 const { ipcRenderer } = require('electron')
 
 export default {
+  components: {
+    BackIcon,
+    LanguageDropdown,
+    MoonIcon,
+    Layout,
+    SunIcon
+  },
   data() {
     return {
       version,
@@ -105,12 +112,18 @@ export default {
       }
     }
   },
-  components: {
-    BackIcon,
-    LanguageDropdown,
-    MoonIcon,
-    Layout,
-    SunIcon
+  methods: {
+    _handleEscapeKey() {
+      if (event.key !== 'Escape') return
+
+      this.$router.push('/', () => {})
+    }
+  },
+  mounted() {
+    document.addEventListener('keyup', this._handleEscapeKey, true)
+  },
+  beforeDestroy() {
+    document.removeEventListener('keyup', this._handleEscapeKey, true)
   }
 }
 </script>
