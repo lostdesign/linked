@@ -30,7 +30,7 @@ The app will always be opensource and free - if you enjoy the app, please consid
 
 
 ## Contributing
-Please check [Contributing.md](/contributing.md) first before opening a pull request please.
+Please check [Contributing.md](/CONTRIBUTING.md) first before opening a pull request please.
 
 <details>
   <summary>How to run locally</summary>
