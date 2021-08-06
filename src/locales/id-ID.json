@@ -8,6 +8,11 @@
     "back": "Kembali",
     "title": "Pengaturan",
     "designMode": "Mode desain",
-    "language": "Bahasa"
+    "language": "Bahasa",
+    "weektype": "Jenis minggu",
+    "weektypes": {
+      "5": "Minggu kerja",
+      "7": "Pekan"
+    }
   }
 }

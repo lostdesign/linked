@@ -44,7 +44,7 @@ const getCurrentWeekDates = date => {
   let week = []
   const startOfWeek = DateTime.fromISO(date).startOf('week')
 
-  for (let i = 0; i <= 6; i++) {
+  for (let i = 0; i <= localStorage.daysPerWeek-1; i++) {
     let day = startOfWeek
       .plus({ days: i })
       .setLocale(localStorage.lang ?? 'en-US')

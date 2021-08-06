@@ -57,6 +57,8 @@
           <MoonIcon />
         </div>
       </div>
+      <h3 class="mt-4">{{ $t('settings.weektype') }}</h3>
+      <DaysPerWeekDropdown />
       <h3 class="mt-4">{{ $t('settings.language') }}</h3>
       <LanguageDropdown />
       <span
@@ -79,6 +81,7 @@
 <script>
 import { version } from '../../package.json'
 import Layout from './Layout'
+import DaysPerWeekDropdown from '@/components/days-per-week-dropdown'
 import LanguageDropdown from '@/components/language-dropdown'
 import BackIcon from '@/assets/icons/back.svg'
 import SunIcon from '@/assets/icons/sun.svg'
@@ -89,6 +92,7 @@ const { ipcRenderer } = require('electron')
 export default {
   components: {
     BackIcon,
+    DaysPerWeekDropdown,
     LanguageDropdown,
     MoonIcon,
     Layout,
