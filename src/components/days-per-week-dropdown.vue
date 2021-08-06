@@ -6,10 +6,10 @@
         class="relative w-full bg-gray-100 dark:bg-gray-800 rounded-md pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-red-800 focus:border-red-500 sm:text-sm"
         aria-haspopup="listbox"
         aria-expanded="true"
-        id="listbox-language"
+        id="listbox-days-of-week"
         @click="open = !open"
       >
-        <span class="block truncate">{{ languages[language].title }}</span>
+        <span class="block truncate">{{ $t('settings.weektypes.' + selected) }}</span>
         <span
           class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
         >
@@ -25,22 +25,22 @@
         "
         tabindex="-1"
         role="listbox"
-        aria-labelledby="listbox-language"
-        :aria-activedescendant="'listbox-language-option-' + selected"
+        aria-labelledby="listbox-days-of-week"
+        :aria-activedescendant="'listbox-days-of-week-option-' + selected"
         v-if="open"
       >
-        <template v-for="(lang, index) in languages">
+        <template v-for="(option, index) in daysPerWeekOptions">
           <li
             class="cursor-default select-none relative py-2 pl-8 pr-4"
-            :id="'listbox-language-option-' + index"
+            :id="'listbox-days-of-week-option-' + option"
             role="option"
             :key="index"
-            @click="_handleLanguageChange(lang)"
+            @click="_handleDaysPerWeekOptionsChange(option)"
           >
-            <span class="font-normal block truncate">{{ lang.title }} </span>
+            <span class="font-normal block truncate">{{ $t('settings.weektypes.' + option) }} </span>
             <span
               class="text-red-600 absolute inset-y-0 left-0 flex items-center pl-1.5"
-              v-if="selected === index"
+              v-if="selected === option"
             >
               <TickIcon />
             </span>
@@ -54,8 +54,6 @@
 <script>
 import TickIcon from '@/assets/icons/tick.svg'
 import DropdownIcon from '@/assets/icons/dropdown.svg'
-import { DateTime } from 'luxon'
-import { loadLocaleMessages } from '@/i18n'
 import { mapActions } from 'vuex'
 import { Actions as CalendarActions } from '@/store/modules/calendar/types'
 
@@ -63,23 +61,19 @@ export default {
   data() {
     return {
       open: false,
-      selected: localStorage.lang,
-      language: (this.$i18n.locale = localStorage.lang || 'en-US'),
-      languages: loadLocaleMessages()
+      selected: parseInt(localStorage.daysPerWeek) || 7,
+      daysPerWeekOptions: [5, 7]
     }
   },
   methods: {
     ...mapActions('calendar', [CalendarActions.SET_CURRENT_WEEK]),
-    _handleLanguageChange(lang) {
-      if (this.$i18n.locale === lang.code) return
+    _handleDaysPerWeekOptionsChange(option) {
+      if (localStorage.daysPerWeek === option) return
 
-      this.selected = lang.code
-      this.language = lang.code
+      this.selected = option
       this.open = false
-      this.$i18n.locale = lang.code
-      localStorage.lang = lang.code
+      localStorage.daysPerWeek = option
       this.setCurrentWeek()
-      DateTime.local().setLocale(lang.code)
     }
   },
   components: {

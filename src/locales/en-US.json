@@ -8,6 +8,11 @@
     "back": "Back",
     "title": "Settings",
     "designMode": "Design mode",
-    "language": "Language"
+    "language": "Language",
+    "weektype": "Type of week",
+    "weektypes": {
+      "5": "Working week",
+      "7": "Week"
+    }
   }
 }

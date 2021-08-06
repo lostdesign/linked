@@ -8,6 +8,11 @@
     "back": "Zurück",
     "title": "Einstellungen",
     "designMode": "Design Modus",
-    "language": "Sprache"
+    "language": "Sprache",
+    "weektype": "Wochenart",
+    "weektypes": {
+      "5": "Arbeitswoche",
+      "7": "Woche"
+    }
   }
 }

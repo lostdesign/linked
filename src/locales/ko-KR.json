@@ -7,6 +7,11 @@
     "back": "이전",
     "title": "설정",
     "designMode": "테마",
-    "language": "언어"
+    "language": "언어",
+    "weektype": "주의 유형",
+    "weektypes": {
+      "5": "근무 주",
+      "7": "주"
+    }
   }
 }
