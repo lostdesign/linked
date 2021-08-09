@@ -11,6 +11,7 @@ import {
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from 'electron-updater'
+const Store = require('electron-store')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const isWindows = process.platform === 'win32'
@@ -27,6 +28,15 @@ app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
+
+const storage = new Store({
+  watch: true,
+  defaults: {
+    isSetupFinished: false,
+    language: 'en-US',
+    theme: 'dark'
+  }
+})
 
 const template = [
   {
@@ -117,7 +127,7 @@ const template = [
         label: 'Documentation',
         click: async () => {
           const { shell } = require('electron')
-          await shell.openExternal('https://uselinked.com/docs')
+          await shell.openExternal('https://uselinked.com/')
         }
       }
     ]
@@ -130,11 +140,10 @@ Menu.setApplicationMenu(menu)
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 450,
+    width: 470,
     minWidth: 450,
-    maxWidth: 450,
-    height: 1000,
-    minHeight: 500,
+    height: 850,
+    minHeight: 450,
     title: 'linked',
     backgroundColor: '#161616',
     webPreferences: {
@@ -201,7 +210,7 @@ app.on('ready', async () => {
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
   if (isWindows) {
-    process.on('message', data => {
+    process.on('message', (data) => {
       if (data === 'graceful-exit') {
         app.quit()
       }
@@ -213,7 +222,19 @@ if (isDevelopment) {
   }
 }
 
-ipcMain.handle('dark-mode:toggle', (event, mode) => {
+ipcMain.handle('GET_STORAGE_VALUE', (event, key) => {
+  return storage.get(key)
+})
+
+ipcMain.handle('SET_STORAGE_VALUE', (event, key, data) => {
+  return storage.set(key, data)
+})
+
+ipcMain.handle('DELETE_STORAGE_VALUE', (event, key) => {
+  return storage.delete(key)
+})
+
+ipcMain.handle('TOGGLE_THEME', (event, mode) => {
   if (mode === 'light') {
     nativeTheme.themeSource = 'light'
   } else {
@@ -232,13 +253,13 @@ ipcMain.handle('FETCH_FILE', async (event, args) => {
   if (!fs.existsSync(filePath)) {
     file = fs.promises.mkdir(dataPath, { recursive: true }).then(() => {
       return fs.promises.writeFile(filePath, getDefaultData()).then(() => {
-        return fs.promises.readFile(filePath, 'utf-8').then(data => {
+        return fs.promises.readFile(filePath, 'utf-8').then((data) => {
           return JSON.parse(data)
         })
       })
     })
   } else {
-    file = fs.promises.readFile(filePath, 'utf-8').then(data => {
+    file = fs.promises.readFile(filePath, 'utf-8').then((data) => {
       return JSON.parse(data)
     })
   }
@@ -265,7 +286,7 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
  * Construct the base path where files are stored and loaded from
  */
 const basePath = app.getPath('documents')
-const getFilePath = year => {
+const getFilePath = (year) => {
   return `${basePath}/linked/${year}`
 }
 

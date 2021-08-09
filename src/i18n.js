@@ -12,7 +12,7 @@ export const loadLocaleMessages = () => {
 
   const messages = {}
 
-  locales.keys().map(key => {
+  locales.keys().map((key) => {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i)
 
     if (matched && matched.length > 1) {
