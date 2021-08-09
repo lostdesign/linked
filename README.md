@@ -1,4 +1,4 @@
-![Project Status](https://img.shields.io/badge/🏷-v1.3.3-green)
+![Project Status](https://img.shields.io/badge/🏷-v1.3.4-green)
 
 ![linked-german-header-linkedin](https://user-images.githubusercontent.com/5164617/123394709-b8b02500-d59f-11eb-9d2a-5d9a133d4659.png)
 
