@@ -19,44 +19,7 @@
       </router-link>
       <h1 class="mb-4">{{ $t('settings.title') }}</h1>
       <h3>{{ $t('settings.designMode') }}</h3>
-      <div class="flex space-x-5 mb-4">
-        <div
-          @click="themeMode = 'light'"
-          class="
-            w-1/2
-            h-16
-            bg-gray-100
-            rounded-lg
-            flex
-            justify-center
-            items-center
-            align-center
-            text-black
-            hover:opacity-75
-            cursor-pointer
-          "
-        >
-          <SunIcon />
-        </div>
-        <div
-          @click="themeMode = 'dark'"
-          class="
-            w-1/2
-            h-16
-            bg-gray-800
-            rounded-lg
-            flex
-            justify-center
-            items-center
-            align-center
-            text-white
-            hover:opacity-75
-            cursor-pointer
-          "
-        >
-          <MoonIcon />
-        </div>
-      </div>
+      <theme-switcher />
       <h3 class="mt-4">{{ $t('settings.language') }}</h3>
       <LanguageDropdown />
       <span
@@ -81,35 +44,18 @@ import { version } from '../../package.json'
 import Layout from './Layout'
 import LanguageDropdown from '@/components/language-dropdown'
 import BackIcon from '@/assets/icons/back.svg'
-import SunIcon from '@/assets/icons/sun.svg'
-import MoonIcon from '@/assets/icons/moon.svg'
-
-const { ipcRenderer } = require('electron')
+import ThemeSwitcher from '@/components/theme-switcher'
 
 export default {
   components: {
+    ThemeSwitcher,
     BackIcon,
     LanguageDropdown,
-    MoonIcon,
-    Layout,
-    SunIcon
+    Layout
   },
   data() {
     return {
-      version,
-      get themeMode() {
-        const mode = localStorage.theme
-        ipcRenderer.invoke('dark-mode:toggle', mode)
-
-        return mode
-      },
-      // eslint-disable-next-line
-      set themeMode(value) {
-        ipcRenderer.invoke('dark-mode:toggle', value)
-        location.reload()
-
-        return (localStorage.theme = value)
-      }
+      version
     }
   },
   methods: {
