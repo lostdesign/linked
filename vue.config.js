@@ -21,8 +21,7 @@ module.exports = {
       builderOptions: {
         mac: {
           hardenedRuntime: true,
-          entitlements: './build/entitlements.mac.inherit.plist',
-          target: ['dmg']
+          entitlements: './build/entitlements.mac.inherit.plist'
         },
         linux: {
           target: ['AppImage', 'deb', 'snap']
