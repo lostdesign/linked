@@ -9,7 +9,7 @@ const getToday = () => {
  * @param {*} date
  * @returns
  */
-const setDate = date => {
+const setDate = (date) => {
   return DateTime.fromISO(date).toISODate()
 }
 
@@ -20,9 +20,7 @@ const setDate = date => {
  * @returns {string} date
  */
 const shiftDate = (date, days) => {
-  return DateTime.fromISO(date)
-    .plus({ days: days })
-    .toISODate()
+  return DateTime.fromISO(date).plus({ days: days }).toISODate()
 }
 
 /**
@@ -40,7 +38,7 @@ const formatDate = (date, format) => {
 /**
  * Returns an array of date strings in YYYY-mm-dd for the current active week
  */
-const getCurrentWeekDates = date => {
+const getCurrentWeekDates = (date) => {
   let week = []
   const startOfWeek = DateTime.fromISO(date).startOf('week')
   const daysPerWeek = localStorage.daysPerWeek || 7

@@ -1,4 +1,4 @@
-![Project Status](https://img.shields.io/badge/🏷-v1.3.2-green)
+![Project Status](https://img.shields.io/badge/🏷-v1.3.4-green)
 
 ![linked-german-header-linkedin](https://user-images.githubusercontent.com/5164617/123394709-b8b02500-d59f-11eb-9d2a-5d9a133d4659.png)
 
@@ -7,13 +7,16 @@ We needed an app to offload our brain and write down things that we may need for
 
 **[You can download linked here for free!](https://github.com/lostdesign/linked/releases/latest)**
 
+Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to get the latest news about the project or feel free to check [github discussions](https://github.com/lostdesign/linked/discussions).
+
 ## Features
 
 - 📅 Write down anything and as much as you want per day
-- ✍️ support for various text styles as well as todo, list and code blocks
+- ✍️ Support for various text styles as well as todo, list and code blocks
 - 🖼 Linked comes in dark and light mode
 - 💻 Keyboard navigation for maximum productivity
 - 💾 Files are forever yours, you can find them at `~/Documents/linked`
+- 🌐 Multi language support
 
 ### Coming soon
 
@@ -23,6 +26,7 @@ We needed an app to offload our brain and write down things that we may need for
 - 🔗 link days together for references
 - 📶 sync across devices
 - (📱 phone support?)
+- 🏷 tagging for more refined search
 
 ## 💖 Sponsor
 
