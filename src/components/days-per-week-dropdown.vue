@@ -54,8 +54,11 @@
 <script>
 import TickIcon from '@/assets/icons/tick.svg'
 import DropdownIcon from '@/assets/icons/dropdown.svg'
-import { mapActions } from 'vuex'
-import { Actions as CalendarActions } from '@/store/modules/calendar/types'
+import {mapActions, mapGetters} from 'vuex'
+import {
+  Getters as CalendarGetters,
+  Actions as CalendarActions
+} from '@/store/modules/calendar/types'
 
 export default {
   data() {
@@ -67,14 +70,19 @@ export default {
   },
   methods: {
     ...mapActions('calendar', [CalendarActions.SET_CURRENT_WEEK]),
+    ...mapActions('calendar', [CalendarActions.SET_DAYS_PER_WEEK]),
+    
     _handleDaysPerWeekOptionsChange(option) {
-      if (localStorage.daysPerWeek === option) return
+      if (this.selected === option) return
 
       this.selected = option
       this.open = false
-      localStorage.daysPerWeek = option
+      this.setDaysPerWeek(option)
       this.setCurrentWeek()
     }
+  },
+  computed: {
+    ...mapGetters('calendar', [CalendarGetters.GET_DAYS_PER_WEEK])
   },
   components: {
     TickIcon,

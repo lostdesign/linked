@@ -4,6 +4,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { DateTime } from 'luxon'
 
 import {
   Getters as CalendarGetters,
@@ -26,11 +27,17 @@ export default {
       CalendarActions.SET_CURRENT_WEEK
     ]),
     ...mapActions('file', [FileActions.FETCH_FILE]),
-    ...mapActions('app', [AppActions.INIT_APP])
+    ...mapActions('app', [AppActions.INIT_APP]),
+    isWeekDay(weekday) {
+      return DateTime.fromISO(this.getCurrentDate).weekday === weekday
+    }
   },
   computed: {
     ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE]),
-    ...mapGetters('app', [AppGetters.GET_LANGUAGE, AppGetters.GET_THEME])
+    ...mapGetters('app', [AppGetters.GET_LANGUAGE, AppGetters.GET_THEME]),
+    isWorkweek() {
+      return parseInt(localStorage.daysPerWeek) === 5
+    },
   },
   mounted() {
     ipcRenderer.on('open-settings', () => {
@@ -42,11 +49,13 @@ export default {
     })
 
     ipcRenderer.on('previous-day', () => {
-      this.setDayTo(-1)
+      const daysToPrev = (this.isWorkweek() && this.isWeekDay(1))? -3 : -1
+      this.setDayTo(daysToPrev)
     })
 
     ipcRenderer.on('next-day', () => {
-      this.setDayTo(1)
+      const daysToNext = (this.isWorkweek() && this.isWeekDay(5))? 3 : 1
+      this.setDayTo(daysToNext)
     })
 
     ipcRenderer.on('previous-week', () => {

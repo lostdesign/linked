@@ -3,8 +3,8 @@
     class="
       flex
       dark:bg-black
-      justify-between
-      px-10
+      justify-center
+      space-x-4
       z-50
       border-b border-gray-400
       dark:border-gray-800
