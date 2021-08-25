@@ -18,6 +18,16 @@ Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to ge
 - 💾 Files are forever yours, you can find them at `~/Documents/linked`
 - 🌐 Multi language support
 
+## Keyboard Shortcuts
+
+**Tody** <kbd>Cmd or Ctrl</kbd> + <kbd>.</kbd>
+**Next Day** <kbd>Cmd or Ctrl</kbd> + <kbd>N</kbd>
+**Previous Day** <kbd>Cmd or Ctrl</kbd> + <kbd>P</kbd>
+**Next Week** <kbd>Cmd or Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>
+**Previous Week** <kbd>Cmd or Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+**Settings** <kbd>Cmd or Ctrl</kbd> + <kbd>,</kbd>
+**Leave Settings** <kbd>Esc</kbd>
+
 ### Coming soon
 
 - ⭐️ Rate your days
