@@ -20,7 +20,7 @@ Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to ge
 
 ## Keyboard Shortcuts
 
-**Tody** <kbd>Cmd or Ctrl</kbd> + <kbd>.</kbd>
+**Today** <kbd>Cmd or Ctrl</kbd> + <kbd>.</kbd>
 
 **Next Day** <kbd>Cmd or Ctrl</kbd> + <kbd>N</kbd>
 
