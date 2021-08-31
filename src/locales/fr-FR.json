@@ -1,0 +1,13 @@
+{
+  "title": "Français",
+  "code": "fr-FR",
+  "home": {
+    "calendarWeek": "Semaine"
+  },
+  "settings": {
+    "back": "Retourner",
+    "title": "Paramètres",
+    "designMode": "Mode de création",
+    "language": "Langue"
+  }
+}

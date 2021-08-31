@@ -1,0 +1,13 @@
+{
+  "title": "Nederlands",
+  "code": "nl-NL",
+  "home": {
+    "calendarWeek": "Week"
+  },
+  "settings": {
+    "back": "Terug",
+    "title": "Instellingen",
+    "designMode": "Designmodus",
+    "language": "Taal"
+  }
+}
