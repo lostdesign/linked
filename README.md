@@ -1,6 +1,7 @@
 ![Project Status](https://img.shields.io/badge/🏷-v1.3.5-green)
 
-![linked-german-header-linkedin](https://user-images.githubusercontent.com/5164617/123394709-b8b02500-d59f-11eb-9d2a-5d9a133d4659.png)
+![linked-banner](https://user-images.githubusercontent.com/5164617/132354376-44ba85f3-bb21-448e-8c12-4e0fe9af2543.png)
+
 
 Linked allows you to write down your thoughts and ideas to link them with days. The app was originally created as a weekend project for my colleagues at work.
 We needed an app to offload our brain and write down things that we may need for our daily meetings or other scrum events, things that simply did not fit inside a ticket.
