@@ -9,6 +9,8 @@ We needed an app to offload our brain and write down things that we may need for
 
 Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to get the latest news about the project or feel free to check [github discussions](https://github.com/lostdesign/linked/discussions).
 
+### Join the discord at [https://discord.gg/uNjJzZvccr](https://discord.gg/uNjJzZvccr)
+
 ## Features
 
 - 📅 Write down anything and as much as you want per day
