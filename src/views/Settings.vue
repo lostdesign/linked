@@ -20,6 +20,8 @@
       <h1 class="mb-4">{{ $t('settings.title') }}</h1>
       <h3>{{ $t('settings.designMode') }}</h3>
       <theme-switcher />
+      <h3 class="mt-4">{{ $t('settings.weektype') }}</h3>
+      <DaysPerWeekDropdown />
       <h3 class="mt-4">{{ $t('settings.language') }}</h3>
       <LanguageDropdown />
       <span
@@ -42,6 +44,7 @@
 <script>
 import { version } from '../../package.json'
 import Layout from './Layout'
+import DaysPerWeekDropdown from '@/components/days-per-week-dropdown'
 import LanguageDropdown from '@/components/language-dropdown'
 import BackIcon from '@/assets/icons/back.svg'
 import ThemeSwitcher from '@/components/theme-switcher'
@@ -50,6 +53,7 @@ export default {
   components: {
     ThemeSwitcher,
     BackIcon,
+    DaysPerWeekDropdown,
     LanguageDropdown,
     Layout
   },

@@ -8,6 +8,11 @@
     "back": "Natrag",
     "title": "Postavke",
     "designMode": "Tema",
-    "language": "Jezik"
+    "language": "Jezik",
+    "weektype": "A hét típusa",
+    "weektypes": {
+      "5": "Munkahét",
+      "7": "Hét"
+    }
   }
 }

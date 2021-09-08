@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon'
+const { ipcRenderer } = require('electron')
 
 const getToday = () => {
   return DateTime.now().toISODate()
@@ -41,8 +42,9 @@ const formatDate = (date, format) => {
 const getCurrentWeekDates = (date) => {
   let week = []
   const startOfWeek = DateTime.fromISO(date).startOf('week')
+  const daysPerWeek = localStorage.daysPerWeek || 7
 
-  for (let i = 0; i <= 6; i++) {
+  for (let i = 0; i <= daysPerWeek-1; i++) {
     let day = startOfWeek
       .plus({ days: i })
       .setLocale(localStorage.lang ?? 'en-US')
@@ -55,4 +57,13 @@ const getCurrentWeekDates = (date) => {
   return week
 }
 
-export { getToday, setDate, shiftDate, formatDate, getCurrentWeekDates }
+const getDaysPerWeek = async () => {
+  return ipcRenderer.invoke('GET_STORAGE_VALUE', 'daysPerWeek')
+}
+
+const setDaysPerWeek = async (daysPerWeek) => {
+  localStorage.daysPerWeek = daysPerWeek
+  return ipcRenderer.invoke('SET_STORAGE_VALUE', 'daysPerWeek', daysPerWeek)
+}
+
+export { getToday, setDate, shiftDate, formatDate, getCurrentWeekDates, getDaysPerWeek, setDaysPerWeek }

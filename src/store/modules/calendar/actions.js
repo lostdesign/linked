@@ -2,6 +2,8 @@ import { Actions, Mutations, Getters } from '@/store/modules/calendar/types'
 import {
   shiftDate,
   setDate,
+  setDaysPerWeek,
+  // getDaysPerWeek,
   getToday,
   getCurrentWeekDates
 } from '@/store/modules/calendar/helper'
@@ -21,5 +23,11 @@ export default {
       Mutations.SET_CURRENT_WEEK,
       getCurrentWeekDates(context.getters[Getters.GET_CURRENT_DATE])
     )
-  }
+  },
+  [Actions.SET_DAYS_PER_WEEK](context, daysPerWeek) {
+    setDaysPerWeek(daysPerWeek).then(() => {
+      context.commit(Mutations.SET_DAYS_PER_WEEK, daysPerWeek)
+    })
+  },
+
 }

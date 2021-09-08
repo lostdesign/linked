@@ -34,6 +34,7 @@ const storage = new Store({
   defaults: {
     isSetupFinished: false,
     language: 'en-US',
+    daysPerWeek: 7,
     theme: 'dark'
   }
 })

@@ -21,7 +21,7 @@
         "
         aria-haspopup="listbox"
         aria-expanded="true"
-        aria-labelledby="listbox-label"
+        id="listbox-language"
         @click="open = !open"
       >
         <span class="block truncate">{{ languages[language].title }}</span>
@@ -64,14 +64,14 @@
         "
         tabindex="-1"
         role="listbox"
-        aria-labelledby="listbox-label"
-        aria-activedescendant="listbox-option-3"
+        aria-labelledby="listbox-language"
+        :aria-activedescendant="'listbox-language-option-' + selected"
         v-if="open"
       >
         <template v-for="(lang, index) in languages">
           <li
             class="cursor-default select-none relative py-2 pl-8 pr-4"
-            id="listbox-option-0"
+            :id="'listbox-language-option-' + index"
             role="option"
             :key="index"
             @click="_handleLanguageChange(lang)"

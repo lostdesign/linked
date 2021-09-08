@@ -8,6 +8,11 @@
     "back": "Geri",
     "title": "Ayarlar",
     "designMode": "Tasarım modu",
-    "language": "Dil"
+    "language": "Dil",
+    "weektype": "Hafta türü",
+    "weektypes": {
+      "5": "Çalışma haftası",
+      "7": "Hafta"
+    }
   }
 }
