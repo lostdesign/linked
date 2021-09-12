@@ -1,4 +1,3 @@
 export default () => ({
-  content: null,
-  rating: null
+  file: {}
 })

@@ -3,7 +3,8 @@ import {
   shiftDate,
   setDate,
   getToday,
-  getCurrentWeekDates
+  getCurrentWeekDates,
+  getCurrentMonthDates
 } from '@/store/modules/calendar/helper'
 
 export default {
@@ -20,6 +21,12 @@ export default {
     context.commit(
       Mutations.SET_CURRENT_WEEK,
       getCurrentWeekDates(context.getters[Getters.GET_CURRENT_DATE])
+    )
+  },
+  [Actions.SET_CURRENT_MONTH](context) {
+    context.commit(
+      Mutations.SET_CURRENT_MONTH,
+      getCurrentMonthDates(context.getters[Getters.GET_CURRENT_DATE])
     )
   }
 }

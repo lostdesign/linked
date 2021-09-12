@@ -1,5 +1,5 @@
 <template>
-  <router-view />
+  <router-view :key="this.$route.fullPath" />
 </template>
 
 <script>
@@ -34,7 +34,15 @@ export default {
   },
   mounted() {
     ipcRenderer.on('open-settings', () => {
-      this.$router.push('settings', () => {})
+      this.$router.push('/settings', () => {})
+    })
+
+    ipcRenderer.on('open-home', () => {
+      this.$router.push('/', () => {})
+    })
+
+    ipcRenderer.on('open-overview', () => {
+      this.$router.push('/overview', () => {})
     })
 
     ipcRenderer.on('set-today', () => {
@@ -60,8 +68,9 @@ export default {
   created() {
     this.initApp()
     this.fetchFile(this.getCurrentDate)
+    this.$router.push(`/day/${this.getCurrentDate}`, () => {})
 
-    this.$store.subscribe((mutation) => {
+    this.$store.subscribe(mutation => {
       if (mutation.type === `calendar/${CalendarActions.SET_DATE}`) {
         this.fetchFile(this.getCurrentDate)
         this.setCurrentWeek()

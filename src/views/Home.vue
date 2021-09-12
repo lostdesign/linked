@@ -11,12 +11,8 @@
 import Layout from './Layout'
 import AppHeader from '@/components/app-header'
 import Editor from '@/components/editor'
-
-import { mapGetters, mapActions } from 'vuex'
-import {
-  Getters as CalendarGetters,
-  Actions as CalendarActions
-} from '@/store/modules/calendar/types'
+import { mapActions } from 'vuex'
+import { Actions as CalendarActions } from '@/store/modules/calendar/types'
 
 export default {
   components: {
@@ -25,13 +21,27 @@ export default {
     Editor
   },
   methods: {
-    ...mapActions('calendar', [
-      CalendarActions.SET_DATE,
-      CalendarActions.SET_DAY_TO
-    ])
+    ...mapActions('calendar', [CalendarActions.SET_DATE]),
+    setDay() {
+      this.setDate(this.$route.params.date)
+    }
   },
-  computed: {
-    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE])
+  created() {
+    this.setDay()
+  },
+  beforeRouteUpdate(to, from, next) {
+    next()
+    /*const answer = window.confirm(
+      'Do you really want to leave? you have unsaved changes!'
+    )
+    if (answer) {
+      next()
+    } else {
+      next(false)
+    }*/
+  },
+  watch: {
+    $route: 'setDay'
   }
 }
 </script>

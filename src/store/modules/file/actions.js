@@ -6,11 +6,13 @@ export default {
   async [Actions.FETCH_FILE](context, date) {
     const file = await fetchFile(date)
 
-    context.commit(Mutations.SET_CONTENT, file.content)
-    context.commit(Mutations.SET_RATING, file.rating)
+    context.commit(Mutations.SET_FILE, file)
   },
   [Actions.SET_CONTENT](context, content) {
     context.commit(Mutations.SET_CONTENT, content)
+  },
+  [Actions.SET_RATING](context, rating) {
+    context.commit(Mutations.SET_RATING, rating)
   },
   [Actions.SAVE_FILE](context) {
     saveFile(

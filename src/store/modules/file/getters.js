@@ -2,15 +2,15 @@ import { Getters } from '@/store/modules/file/types'
 
 export default {
   [Getters.GET_CONTENT](state) {
-    return state.content
+    return state.file.content
   },
   [Getters.GET_RATING](state) {
-    return state.rating
+    return state.file.rating
   },
   [Getters.GET_FILE](state) {
     return {
-      content: state.content,
-      rating: state.rating
+      content: state.file.content,
+      rating: state.file.rating
     }
   }
 }

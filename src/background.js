@@ -11,16 +11,12 @@ import {
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from 'electron-updater'
+import { isWindows, isMacOS, isDevelopment } from '@/services/helper'
+import { initIndex } from '@/services/search'
 const Store = require('electron-store')
 
-const isDevelopment = process.env.NODE_ENV !== 'production'
-const isWindows = process.platform === 'win32'
-const isMacOS = process.platform === 'darwin'
 const fs = require('fs')
 let win
-
-//import * as Sentry from '@sentry/electron';
-//Sentry.init({ dsn: 'https://f12af54d6a3b4f00a7ec80e69cba835e@o559982.ingest.sentry.io/5695233' });
 
 // Turn off software rasterizer for less resource usage
 app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
@@ -29,6 +25,9 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
+/**
+ * Storage for app settings and meta data
+ */
 const storage = new Store({
   watch: true,
   defaults: {
@@ -80,11 +79,25 @@ const template = [
     label: 'View',
     submenu: [
       {
+        label: 'Home',
+        click() {
+          win.webContents.send('open-home')
+        },
+        accelerator: 'CommandOrControl + H'
+      },
+      {
         label: 'Today',
         click() {
           win.webContents.send('set-today')
         },
         accelerator: 'CommandOrControl + .'
+      },
+      {
+        label: 'Overview',
+        click() {
+          win.webContents.send('open-overview')
+        },
+        accelerator: 'CommandOrControl + K'
       },
       { type: 'separator' },
       {
@@ -137,7 +150,7 @@ const template = [
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
-function createWindow() {
+const createWindow = () => {
   // Create the browser window.
   win = new BrowserWindow({
     width: 470,
@@ -175,29 +188,20 @@ function createWindow() {
   })
 }
 
-// Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (!isMacOS) {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (win === null) {
     createWindow()
   }
 })
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
   if (isDevelopment && !process.env.IS_TEST) {
-    // Install Vue Devtools
     try {
       await installExtension(VUEJS_DEVTOOLS)
     } catch (e) {
@@ -205,9 +209,9 @@ app.on('ready', async () => {
     }
   }
   createWindow()
+  initIndex()
 })
 
-// Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
   if (isWindows) {
     process.on('message', (data) => {
@@ -276,6 +280,7 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
   fs.promises.writeFile(
     filePath,
     JSON.stringify({
+      date: fileName,
       content: content,
       rating: rating
     })

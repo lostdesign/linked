@@ -9,5 +9,9 @@
     "title": "Settings",
     "designMode": "Design mode",
     "language": "Language"
+  },
+  "overview": {
+    "title": "Overview",
+    "placeholder": "Go to day..."
   }
 }
