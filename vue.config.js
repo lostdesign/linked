@@ -24,12 +24,21 @@ module.exports = {
           entitlements: './build/entitlements.mac.inherit.plist'
         },
         linux: {
-          target: ['AppImage']
+          target: ['AppImage', 'deb', 'snap']
+        },
+        win: {
+          target: ['nsis', 'portable']
         },
         publish: ['github'],
         appId: 'design.lost.linked',
         afterSign: './afterSignHook.js'
       }
+    },
+    i18n: {
+      locale: 'en-US',
+      fallbackLocale: 'en-US',
+      localeDir: 'locales',
+      enableInSFC: false
     }
   }
 }

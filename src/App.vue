@@ -10,36 +10,27 @@ import {
   Actions as CalendarActions
 } from '@/store/modules/calendar/types'
 
-import { Actions as StorageActions } from '@/store/modules/storage/types'
+import { Actions as FileActions } from '@/store/modules/file/types'
+import {
+  Getters as AppGetters,
+  Actions as AppActions
+} from '@/store/modules/app/types'
 
 const { ipcRenderer } = require('electron')
 
 export default {
-  data() {
-    return {
-      get themeMode() {
-        const mode = localStorage.theme
-        ipcRenderer.invoke('dark-mode:toggle', mode)
-
-        return mode
-      },
-      // eslint-disable-next-line
-      set themeMode(value) {
-        ipcRenderer.invoke('dark-mode:toggle', value)
-        return (localStorage.theme = value)
-      }
-    }
-  },
   methods: {
     ...mapActions('calendar', [
       CalendarActions.SET_DATE,
       CalendarActions.SET_DAY_TO,
       CalendarActions.SET_CURRENT_WEEK
     ]),
-    ...mapActions('storage', [StorageActions.FETCH_FILE])
+    ...mapActions('file', [FileActions.FETCH_FILE]),
+    ...mapActions('app', [AppActions.INIT_APP])
   },
   computed: {
-    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE])
+    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE]),
+    ...mapGetters('app', [AppGetters.GET_LANGUAGE, AppGetters.GET_THEME])
   },
   mounted() {
     ipcRenderer.on('open-settings', () => {
@@ -75,6 +66,7 @@ export default {
     })
   },
   created() {
+    this.initApp()
     this.fetchFile(this.getCurrentDate)
     this.$router.push(`/day/${this.getCurrentDate}`, () => {})
 
@@ -83,9 +75,17 @@ export default {
         this.fetchFile(this.getCurrentDate)
         this.setCurrentWeek()
       }
+
+      if (mutation.type === `app/${AppActions.SET_THEME}`) {
+        if (this.getTheme === 'dark') {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      }
     })
 
-    if (this.themeMode === 'dark' || !('theme' in localStorage)) {
+    if (this.getTheme === 'dark') {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')

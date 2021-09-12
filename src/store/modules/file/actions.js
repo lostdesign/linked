@@ -1,6 +1,6 @@
-import { Actions, Mutations, Getters } from '@/store/modules/storage/types'
+import { Actions, Mutations, Getters } from '@/store/modules/file/types'
 import { Getters as CalendarGetters } from '@/store/modules/calendar/types'
-import { fetchFile, saveFile } from '@/store/modules/storage/helper'
+import { fetchFile, saveFile } from '@/store/modules/file/helper'
 
 export default {
   async [Actions.FETCH_FILE](context, date) {

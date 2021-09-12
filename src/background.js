@@ -11,15 +11,12 @@ import {
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from 'electron-updater'
-import { template } from './services/menu-template'
 import { isWindows, isMacOS, isDevelopment } from '@/services/helper'
-import { v4 as uuidv4 } from 'uuid'
+import { initIndex } from '@/services/search'
+const Store = require('electron-store')
 
 const fs = require('fs')
 let win
-
-//import * as Sentry from '@sentry/electron';
-//Sentry.init({ dsn: 'https://f12af54d6a3b4f00a7ec80e69cba835e@o559982.ingest.sentry.io/5695233' });
 
 // Turn off software rasterizer for less resource usage
 app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
@@ -28,19 +25,140 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
+/**
+ * Storage for app settings and meta data
+ */
+const storage = new Store({
+  watch: true,
+  defaults: {
+    isSetupFinished: false,
+    language: 'en-US',
+    theme: 'dark'
+  }
+})
+
+const template = [
+  {
+    label: app.name,
+    submenu: [
+      { role: 'about' },
+      {
+        label: 'Settings',
+        accelerator: 'CommandOrControl + ,',
+        click() {
+          win.webContents.send('open-settings')
+        }
+      },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      ...(isMacOS
+        ? [
+            { role: 'delete' },
+            { role: 'selectAll' },
+            { type: 'separator' },
+            {
+              label: 'Speech',
+              submenu: [{ role: 'startSpeaking' }, { role: 'stopSpeaking' }]
+            }
+          ]
+        : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }])
+    ]
+  },
+  {
+    label: 'View',
+    submenu: [
+      {
+        label: 'Home',
+        click() {
+          win.webContents.send('open-home')
+        },
+        accelerator: 'CommandOrControl + H'
+      },
+      {
+        label: 'Today',
+        click() {
+          win.webContents.send('set-today')
+        },
+        accelerator: 'CommandOrControl + .'
+      },
+      {
+        label: 'Overview',
+        click() {
+          win.webContents.send('open-overview')
+        },
+        accelerator: 'CommandOrControl + K'
+      },
+      { type: 'separator' },
+      {
+        label: 'Previous Day',
+        click() {
+          win.webContents.send('previous-day')
+        },
+        accelerator: 'CommandOrControl + P'
+      },
+      {
+        label: 'Next Day',
+        click() {
+          win.webContents.send('next-day')
+        },
+        accelerator: 'CommandOrControl + N'
+      },
+      { type: 'separator' },
+      {
+        label: 'Previous Week',
+        click() {
+          win.webContents.send('previous-week')
+        },
+        accelerator: 'CommandOrControl + Shift + P'
+      },
+      {
+        label: 'Next Week',
+        click() {
+          win.webContents.send('next-week')
+        },
+        accelerator: 'CommandOrControl + Shift + N'
+      },
+      { type: 'separator' },
+      { role: 'reload' }
+    ]
+  },
+  {
+    role: 'help',
+    submenu: [
+      {
+        label: 'Documentation',
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://uselinked.com/')
+        }
+      }
+    ]
+  }
+]
+
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
-function createWindow() {
+const createWindow = () => {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 450,
+    width: 470,
     minWidth: 450,
-    maxWidth: 450,
-    height: 1000,
-    minHeight: 500,
+    height: 850,
+    minHeight: 450,
     title: 'linked',
-    backgroundColor: '#07080a',
+    backgroundColor: '#161616',
     webPreferences: {
       devTools: process.env.NODE_ENV === 'development',
       nodeIntegration: true,
@@ -70,29 +188,20 @@ function createWindow() {
   })
 }
 
-// Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (!isMacOS) {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (win === null) {
     createWindow()
   }
 })
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
   if (isDevelopment && !process.env.IS_TEST) {
-    // Install Vue Devtools
     try {
       await installExtension(VUEJS_DEVTOOLS)
     } catch (e) {
@@ -100,12 +209,12 @@ app.on('ready', async () => {
     }
   }
   createWindow()
+  initIndex()
 })
 
-// Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
   if (isWindows) {
-    process.on('message', data => {
+    process.on('message', (data) => {
       if (data === 'graceful-exit') {
         app.quit()
       }
@@ -117,7 +226,19 @@ if (isDevelopment) {
   }
 }
 
-ipcMain.handle('dark-mode:toggle', (event, mode) => {
+ipcMain.handle('GET_STORAGE_VALUE', (event, key) => {
+  return storage.get(key)
+})
+
+ipcMain.handle('SET_STORAGE_VALUE', (event, key, data) => {
+  return storage.set(key, data)
+})
+
+ipcMain.handle('DELETE_STORAGE_VALUE', (event, key) => {
+  return storage.delete(key)
+})
+
+ipcMain.handle('TOGGLE_THEME', (event, mode) => {
   if (mode === 'light') {
     nativeTheme.themeSource = 'light'
   } else {
@@ -136,13 +257,13 @@ ipcMain.handle('FETCH_FILE', async (event, args) => {
   if (!fs.existsSync(filePath)) {
     file = fs.promises.mkdir(dataPath, { recursive: true }).then(() => {
       return fs.promises.writeFile(filePath, getDefaultData()).then(() => {
-        return fs.promises.readFile(filePath, 'utf-8').then(data => {
+        return fs.promises.readFile(filePath, 'utf-8').then((data) => {
           return JSON.parse(data)
         })
       })
     })
   } else {
-    file = fs.promises.readFile(filePath, 'utf-8').then(data => {
+    file = fs.promises.readFile(filePath, 'utf-8').then((data) => {
       return JSON.parse(data)
     })
   }
@@ -159,7 +280,6 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
   fs.promises.writeFile(
     filePath,
     JSON.stringify({
-      uuid: uuidv4(),
       date: fileName,
       content: content,
       rating: rating
@@ -171,7 +291,7 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
  * Construct the base path where files are stored and loaded from
  */
 const basePath = app.getPath('documents')
-const getFilePath = year => {
+const getFilePath = (year) => {
   return `${basePath}/linked/${year}`
 }
 

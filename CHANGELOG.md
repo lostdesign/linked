@@ -1,3 +1,18 @@
+## [1.3.2](https://github.com/lostdesign/linked/compare/v1.3.1...v1.3.2) - 2021-07-08
+
+- ♻️ fix keyboard shortcuts
+- ♻️ refactor i18n
+- ♻️ format code
+- 🐛 fix editor not focusing on body click
+- ♻️ update screenshot
+- 🌐 add korean translation
+- 👷 fix artifacts
+- 👷 ️fix artifacts not including files
+- 👷 adjust build step only keeping each os artifact
+- 👷 fix wrong windows property -> win, add artifacts
+- 👷‍ fixing build not producing zip file, adding windows portable and more linux extensions
+- 📝 add changelog
+
 ## [1.3.1](https://github.com/lostdesign/linked/compare/v1.3.0...v1.3.1) - 2021-06-14
 
 - 🚑 fix keyboard shortcuts, fix week not switching
