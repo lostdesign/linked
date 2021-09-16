@@ -17,7 +17,7 @@
       "
     >
       <span
-        class="text-red-800 hover:text-red-400 cursor-pointer"
+        class="text-bright-pink hover:text-red-400 cursor-pointer"
         @click="setDayTo(-7)"
       >
         <ArrowLeftIcon />
@@ -29,7 +29,7 @@
         {{ formatDate(getCurrentDate, 'WW') }}</span
       >
       <span
-        class="text-red-800 hover:text-red-400 cursor-pointer"
+        class="text-bright-pink hover:text-red-400 cursor-pointer"
         @click="setDayTo(7)"
       >
         <ArrowRightIcon />

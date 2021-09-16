@@ -7,6 +7,12 @@ module.exports = {
     content: ['./src/**/*.html', './src/**/*.vue', './src/**/*.svg']
   },
   theme: {
+    extend: {
+      colors: {
+        'pink': '#D1014C',
+        'bright-pink': '#FF005C'
+      }
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',

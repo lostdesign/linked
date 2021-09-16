@@ -220,3 +220,11 @@ ul[data-type='taskList'] li > input {
 .bubble-menu button.is-active {
   @apply text-gray-700 dark:text-gray-400;
 }
+
+.ProseMirror a {
+  @apply cursor-pointer text-bright-pink underline;
+}
+
+.ProseMirror a:hover {
+  @apply text-pink;
+}

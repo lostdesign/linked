@@ -19,7 +19,7 @@
         <span
           class="block mb-1 text-xs text-gray-400 dark:text-gray-700"
           :class="{
-            'text-red-400 dark:text-red-500': date.isoDate === getCurrentDate
+            'text-bright-pink dark:text-red-500': date.isoDate === getCurrentDate
           }"
         >
           {{ date.weekDay }}
@@ -39,8 +39,7 @@
             hover:bg-gray-200
             dark:hover:bg-gray-800
             cursor-pointer
-            ring-red-600
-            dark:ring-red-900
+            ring-bright-pink
           "
           :class="{
             'ring-4 text-sm': date.isoDate === getCurrentDate
