@@ -202,7 +202,7 @@ ul[data-type='taskList'] li > input {
 }
 
 .bubble-menu {
-  @apply flex bg-white dark:bg-black;
+  @apply flex bg-white dark:bg-black ring-2 ring-bright-pink;
   padding: 0.3rem;
   margin-bottom: 0.3rem;
   border-radius: 0.5rem;
