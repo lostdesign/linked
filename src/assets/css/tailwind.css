@@ -187,11 +187,11 @@ ul[data-type='taskList'] li > input {
 
 .floating-menu {
   display: flex;
-  background-color: #0d0d0d;
+  background-color: #161616;
   padding: 0.2rem 0;
   border-radius: 0.5rem;
-  margin-top: -0.25rem;
-  margin-left: 0;
+  margin-top: -0.2rem;
+  margin-left: -0.5rem;
   transition: visibility 0.1s ease, opacity 0.1s ease;
 }
 .floating-menu button {
