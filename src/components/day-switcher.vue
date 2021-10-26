@@ -17,7 +17,7 @@
         class="flex-col justify-center items-center self-center text-center"
       >
         <span
-          class="block mb-1 text-xs text-gray-400 dark:text-gray-700"
+          class="block mb-1 text-xs text-gray-400 dark:text-gray-600"
           :class="{
             'text-bright-pink dark:text-red-500': date.isoDate === getCurrentDate
           }"

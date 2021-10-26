@@ -23,7 +23,7 @@
         <ArrowLeftIcon />
       </span>
       <span>
-        <span class="mr-1 text-gray-400 dark:text-gray-700">
+        <span class="mr-1 text-gray-400 dark:text-gray-600">
           {{ $t('home.calendarWeek') }}
         </span>
         {{ formatDate(getCurrentDate, 'WW') }}</span

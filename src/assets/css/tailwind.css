@@ -25,6 +25,10 @@ blockquote p {
   display: inline;
 }
 
+mark {
+  @apply bg-yellow-200;
+}
+
 .editor {
   position: relative;
 }
@@ -148,7 +152,7 @@ pre code .hljs-strong {
 .ProseMirror > ol,
 ul {
   list-style-type: disc !important;
-  margin: 0rem 0.8rem !important;
+  margin: 0 0.8rem !important;
   padding: 0.5rem !important;
 }
 
@@ -183,11 +187,11 @@ ul[data-type='taskList'] li > input {
 
 .floating-menu {
   display: flex;
-  background-color: #0d0d0d 10;
+  background-color: #0d0d0d;
   padding: 0.2rem 0;
   border-radius: 0.5rem;
   margin-top: -0.25rem;
-  margin-left: 0rem;
+  margin-left: 0;
   transition: visibility 0.1s ease, opacity 0.1s ease;
 }
 .floating-menu button {
