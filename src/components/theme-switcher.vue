@@ -15,6 +15,7 @@
         hover:opacity-75
         cursor-pointer
       "
+      :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'light'}"
     >
       <SunIcon />
     </div>
@@ -33,6 +34,7 @@
         hover:opacity-75
         cursor-pointer
       "
+      :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'dark'}"
     >
       <MoonIcon />
     </div>
@@ -42,8 +44,8 @@
 <script>
 import MoonIcon from '@/assets/icons/moon.svg'
 import SunIcon from '@/assets/icons/sun.svg'
-import { mapActions } from 'vuex'
-import { Actions as AppActions } from '@/store/modules/app/types'
+import { mapActions, mapGetters } from 'vuex'
+import { Actions as AppActions, Getters as AppGetters } from '@/store/modules/app/types'
 
 export default {
   components: {
@@ -51,7 +53,8 @@ export default {
     SunIcon
   },
   methods: {
-    ...mapActions('app', [AppActions.SET_THEME])
+    ...mapActions('app', [AppActions.SET_THEME]),
+    ...mapGetters('app', [AppGetters.GET_THEME])
   }
 }
 </script>
