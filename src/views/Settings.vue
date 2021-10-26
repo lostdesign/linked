@@ -8,10 +8,10 @@
           items-center
           align-center
           mb-3
-          hover:text-red-500
+          hover:text-bright-pink
           focus:outline-none
-          focus:ring-1 focus:ring-red-800
-          focus:border-red-500
+          focus:ring-2 focus:ring-bright-pink
+          focus:border-bright-pink
         "
       >
         <span class="mr-1"><BackIcon /></span>

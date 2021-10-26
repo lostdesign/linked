@@ -15,8 +15,8 @@
           text-left
           cursor-default
           focus:outline-none
-          focus:ring-1 focus:ring-red-800
-          focus:border-red-500
+          focus:ring-2 focus:ring-bright-pink
+          focus:border-bright-pink
           sm:text-sm
         "
         aria-haspopup="listbox"
@@ -79,7 +79,7 @@
             <span class="font-normal block truncate">{{ lang.title }} </span>
             <span
               class="
-                text-red-600
+                text-bright-pink
                 absolute
                 inset-y-0
                 left-0

@@ -17,19 +17,19 @@
       "
     >
       <span
-        class="text-red-800 hover:text-red-400 cursor-pointer"
+        class="text-bright-pink hover:text-red-400 cursor-pointer"
         @click="setDayTo(-7)"
       >
         <ArrowLeftIcon />
       </span>
       <span>
-        <span class="mr-1 text-gray-400 dark:text-gray-700">
+        <span class="mr-1 text-gray-400 dark:text-gray-600">
           {{ $t('home.calendarWeek') }}
         </span>
         {{ formatDate(getCurrentDate, 'WW') }}</span
       >
       <span
-        class="text-red-800 hover:text-red-400 cursor-pointer"
+        class="text-bright-pink hover:text-red-400 cursor-pointer"
         @click="setDayTo(7)"
       >
         <ArrowRightIcon />
