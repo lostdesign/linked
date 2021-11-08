@@ -24,7 +24,7 @@ module.exports = {
           entitlements: './build/entitlements.mac.inherit.plist'
         },
         linux: {
-          target: ['AppImage', 'deb', 'snap']
+          target: ['AppImage', 'deb', 'rpm', 'snap']
         },
         win: {
           target: ['nsis', 'portable']
