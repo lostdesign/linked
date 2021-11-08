@@ -11,6 +11,7 @@ import {
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from 'electron-updater'
+import { Document } from 'flexsearch'
 const Store = require('electron-store')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -18,9 +19,6 @@ const isWindows = process.platform === 'win32'
 const isMacOS = process.platform === 'darwin'
 const fs = require('fs')
 let win
-
-//import * as Sentry from '@sentry/electron';
-//Sentry.init({ dsn: 'https://f12af54d6a3b4f00a7ec80e69cba835e@o559982.ingest.sentry.io/5695233' });
 
 // Turn off software rasterizer for less resource usage
 app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
@@ -138,7 +136,6 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
 function createWindow() {
-  // Create the browser window.
   win = new BrowserWindow({
     width: 470,
     minWidth: 450,
@@ -154,13 +151,11 @@ function createWindow() {
     }
   })
 
-  // Load the url of the dev server if in development mode
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
     if (!process.env.IS_TEST) win.webContents.openDevTools()
   } else {
     createProtocol('app')
-    // Load the index.html when not in development
     win.loadURL('app://./index.html')
 
     /**
@@ -175,29 +170,21 @@ function createWindow() {
   })
 }
 
-// Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (!isMacOS) {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (win === null) {
     createWindow()
   }
 })
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+
 app.on('ready', async () => {
   if (isDevelopment && !process.env.IS_TEST) {
-    // Install Vue Devtools
     try {
       await installExtension(VUEJS_DEVTOOLS)
     } catch (e) {
@@ -207,7 +194,6 @@ app.on('ready', async () => {
   createWindow()
 })
 
-// Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
   if (isWindows) {
     process.on('message', (data) => {
@@ -259,9 +245,7 @@ ipcMain.handle('FETCH_FILE', async (event, args) => {
       })
     })
   } else {
-    file = fs.promises.readFile(filePath, 'utf-8').then((data) => {
-      return JSON.parse(data)
-    })
+    file = fs.promises.readFile(filePath, 'utf-8').then(data => JSON.parse(data))
   }
 
   // return the file
@@ -281,6 +265,50 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
     })
   )
 })
+
+ipcMain.handle('SEARCH', (event, search) => {
+  console.log(event, search)
+})
+
+let index = new Document({
+  document: {
+    id: 'date',
+    index: ['content']
+  },
+  tokenize: 'forward'
+})
+
+const searchIndexPath = '/Users/weller/Documents/linked/search-index/'
+
+const exportIndex = () => {
+  index.export(
+    (key, data) => fs.writeFileSync(`${searchIndexPath}${key}.json`, data !== undefined ? data : '')
+  )
+}
+
+const retrieveIndex = () => {
+  const keys = fs
+    .readdirSync(searchIndexPath, { withFileTypes: true })
+    .filter(item => !item.isDirectory())
+    .map(item => item.name.slice(0, -5))
+
+  for (let i = 0, key; i < keys.length; i += 1) {
+    key = keys[i]
+    const data = fs.readFileSync(`${searchIndexPath}${key}.json`, 'utf8')
+    index.import(key, data ?? null)
+  }
+}
+
+/**
+ * Cleans the content from any html elements, as well as deleting any
+ * base64 images and removing duplicates.
+ * @param content
+ * @returns { String }
+ */
+const tokenizer = (content) => {
+  const cleanedHtml = content.match(/(?<=>)([\w\s]+)(?=<\/)/gm)
+  return cleanedHtml.filter((word, index, self) => self.indexOf(word) === index)
+}
 
 /**
  * Construct the base path where files are stored and loaded from

@@ -48,6 +48,7 @@
     "core-js": "3.6.5",
     "electron-store": "6.0.0",
     "electron-updater": "4.3.4",
+    "flexsearch": "^0.7.21",
     "highlight.js": "10.6.0",
     "luxon": "1.26.0",
     "vue": "2.6.11",
