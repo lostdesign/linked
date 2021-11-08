@@ -154,6 +154,8 @@ function createWindow() {
     }
   })
 
+  nativeTheme.themeSource = storage.get('theme')
+
   // Load the url of the dev server if in development mode
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
