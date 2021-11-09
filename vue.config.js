@@ -27,7 +27,7 @@ module.exports = {
           target: ['AppImage', 'deb', 'rpm', 'snap']
         },
         win: {
-          target: ['nsis', 'portable']
+          target: ['nsis', 'portable', 'msi']
         },
         publish: ['github'],
         appId: 'design.lost.linked',

@@ -50,5 +50,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: all-os-built-executables
-          retention-days: 1
-          path: dist_electron
+          retention-days: 3
