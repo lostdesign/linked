@@ -1,4 +1,4 @@
-![Project Status](https://img.shields.io/badge/🏷-v1.3.7-green) ![Project downloads](https://img.shields.io/github/downloads/lostdesign/linked/total) ![discord](https://img.shields.io/discord/884747974859702352?label=discord)
+![Project Status](https://img.shields.io/badge/🏷-v1.3.8-green) ![Project downloads](https://img.shields.io/github/downloads/lostdesign/linked/total) ![discord](https://img.shields.io/discord/884747974859702352?label=discord)
 
 ![linked-banner](https://user-images.githubusercontent.com/5164617/132354376-44ba85f3-bb21-448e-8c12-4e0fe9af2543.png)
 
