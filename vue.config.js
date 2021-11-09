@@ -24,10 +24,10 @@ module.exports = {
           entitlements: './build/entitlements.mac.inherit.plist'
         },
         linux: {
-          target: ['AppImage', 'deb', 'rpm', 'snap']
+          target: ['AppImage', 'deb', 'rpm']
         },
         win: {
-          target: ['nsis', 'portable', 'msi']
+          target: ['nsis', 'portable']
         },
         publish: ['github'],
         appId: 'design.lost.linked',
