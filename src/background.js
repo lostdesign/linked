@@ -17,7 +17,7 @@ const Store = require('electron-store')
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const isWindows = process.platform === 'win32'
 const isMacOS = process.platform === 'darwin'
-const fs = require('fs')
+import * as fs from 'fs'
 let win
 
 // Turn off software rasterizer for less resource usage
@@ -252,10 +252,22 @@ ipcMain.handle('FETCH_FILE', async (event, args) => {
   return file
 })
 
+let searchIndex = new Document({
+  document: {
+    id: 'date',
+    index: ['content']
+  },
+  tokenize: 'forward'
+})
+
 ipcMain.handle('SAVE_FILE', (event, args) => {
   const [year, fileName, content, rating] = args
   const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
+  
+  searchIndex.add({date: fileName, content})
+  
+  console.log(searchIndex.search('cat'))
 
   fs.promises.writeFile(
     filePath,
@@ -270,23 +282,21 @@ ipcMain.handle('SEARCH', (event, search) => {
   console.log(event, search)
 })
 
-let index = new Document({
-  document: {
-    id: 'date',
-    index: ['content']
-  },
-  tokenize: 'forward'
-})
+const searchIndexPath = `${app.getPath('userData')}/search-index/`
 
-const searchIndexPath = '/Users/weller/Documents/linked/search-index/'
+const createSearchIndexFolder = () => {
+  !fs.existsSync(searchIndexPath) && fs.mkdirSync(searchIndexPath, { recursive: true })
+}
 
 const exportIndex = () => {
-  index.export(
+  createSearchIndexFolder()
+  searchIndex.export(
     (key, data) => fs.writeFileSync(`${searchIndexPath}${key}.json`, data !== undefined ? data : '')
   )
 }
 
 const retrieveIndex = () => {
+  createSearchIndexFolder()
   const keys = fs
     .readdirSync(searchIndexPath, { withFileTypes: true })
     .filter(item => !item.isDirectory())
@@ -295,9 +305,11 @@ const retrieveIndex = () => {
   for (let i = 0, key; i < keys.length; i += 1) {
     key = keys[i]
     const data = fs.readFileSync(`${searchIndexPath}${key}.json`, 'utf8')
-    index.import(key, data ?? null)
+    searchIndex.import(key, data === undefined ? null : data)
   }
 }
+
+retrieveIndex()
 
 /**
  * Cleans the content from any html elements, as well as deleting any
