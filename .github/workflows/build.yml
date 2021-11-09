@@ -51,3 +51,4 @@ jobs:
         with:
           name: all-os-built-executables
           retention-days: 3
+          path: dist_electron
