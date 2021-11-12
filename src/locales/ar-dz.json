@@ -1,13 +1,13 @@
 {
-    "title": "العربية",
-    "code": "ar-dz",
-    "home": {
-      "calendarWeek": "الأسبوع"
-    },
-    "settings": {
-      "back": "رجوع",
-      "title": "الإعدادات",
-      "designMode": "المظهر",
-      "language": "اللغة"
-    }
+  "title": "العربية",
+  "code": "ar-dz",
+  "home": {
+    "calendarWeek": "الأسبوع"
+  },
+  "settings": {
+    "back": "رجوع",
+    "title": "الإعدادات",
+    "designMode": "المظهر",
+    "language": "اللغة"
   }
+}
