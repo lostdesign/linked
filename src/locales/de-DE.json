@@ -9,5 +9,8 @@
     "title": "Einstellungen",
     "designMode": "Design Modus",
     "language": "Sprache"
+  },
+  "search": {
+    "placeholder": "Suche nach Katze..."
   }
 }

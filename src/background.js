@@ -84,6 +84,13 @@ const template = [
         },
         accelerator: 'CommandOrControl + .'
       },
+      {
+        label: 'Search',
+        click() {
+          win.webContents.send('set-search')
+        },
+        accelerator: 'CommandOrControl + K'
+      },
       { type: 'separator' },
       {
         label: 'Previous Day',
@@ -260,14 +267,51 @@ let searchIndex = new Document({
   tokenize: 'forward'
 })
 
+const searchIndexPath = `${app.getPath('userData')}/search-index/`
+
+const createSearchIndexFolder = () => {
+  !fs.existsSync(searchIndexPath) && fs.mkdirSync(searchIndexPath, { recursive: true })
+}
+
+const exportIndex = async () => {
+  createSearchIndexFolder()
+  searchIndex.export(
+    (key, data) => fs.writeFileSync(`${searchIndexPath}${key}.json`, data !== undefined ? data : '')
+  )
+}
+
+const retrieveIndex = async () => {
+  console.log('fetchingIndex')
+  createSearchIndexFolder()
+  const keys = fs
+    .readdirSync(searchIndexPath, { withFileTypes: true })
+    .filter(item => !item.isDirectory())
+    .map(item => item.name)
+
+  for (let i = 0, key; i < keys.length; i += 1) {
+    key = keys[i]
+    
+    // TODO: mac sometimes creates this file in the search index folder, which causes the app to exit
+    if (key === '.DS_Store') continue
+    
+    const data = fs.readFileSync(`${searchIndexPath}${key}`, 'utf8')
+    searchIndex.import(key.slice(0, -5), data === undefined ? null : data)
+    console.log(searchIndex)
+  }
+  
+}
+
+
 ipcMain.handle('SAVE_FILE', (event, args) => {
   const [year, fileName, content, rating] = args
   const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
   
-  searchIndex.add({date: fileName, content})
-  
-  console.log(searchIndex.search('cat'))
+  searchIndex.remove(fileName)
+  searchIndex.update({
+    date: fileName, 
+    content: tokenizer(content)
+  })
 
   fs.promises.writeFile(
     filePath,
@@ -276,38 +320,13 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
       rating: rating
     })
   )
+  
+  exportIndex()
 })
 
-ipcMain.handle('SEARCH', (event, search) => {
-  console.log(event, search)
+ipcMain.handle('SEARCH', async (event, search) => {
+  return searchIndex.search(search)
 })
-
-const searchIndexPath = `${app.getPath('userData')}/search-index/`
-
-const createSearchIndexFolder = () => {
-  !fs.existsSync(searchIndexPath) && fs.mkdirSync(searchIndexPath, { recursive: true })
-}
-
-const exportIndex = () => {
-  createSearchIndexFolder()
-  searchIndex.export(
-    (key, data) => fs.writeFileSync(`${searchIndexPath}${key}.json`, data !== undefined ? data : '')
-  )
-}
-
-const retrieveIndex = () => {
-  createSearchIndexFolder()
-  const keys = fs
-    .readdirSync(searchIndexPath, { withFileTypes: true })
-    .filter(item => !item.isDirectory())
-    .map(item => item.name.slice(0, -5))
-
-  for (let i = 0, key; i < keys.length; i += 1) {
-    key = keys[i]
-    const data = fs.readFileSync(`${searchIndexPath}${key}.json`, 'utf8')
-    searchIndex.import(key, data === undefined ? null : data)
-  }
-}
 
 retrieveIndex()
 
