@@ -1,0 +1,14 @@
+{
+  "title": "العربية",
+  "code": "ar-AR",
+  "home": {
+    "calendarWeek": "الأسبوع"
+  },
+  "settings": {
+    "back": "رجوع",
+    "title": "الإعدادات",
+    "designMode": "المظهر",
+    "language": "اللغة"
+  }
+}
+ 
