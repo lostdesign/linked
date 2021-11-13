@@ -1,12 +1,13 @@
 <template>
   <Layout>
-    <main className='px-10 mt-10 text-black dark:text-white'>
-      <div class='flex p-5'>
+    <main class='px-10 mt-10 text-black dark:text-white'>
         <input
+          
           type='text'
           name='search'
           id='search'
           v-model='searchTerm'
+          ref='input'
           class='
           shadow-sm
           focus:ring-red-600
@@ -27,8 +28,12 @@
           :placeholder="$t('search.placeholder')"
           @keydown='_handleSearch'
         />
+      <div v-if='searchResults'>
+        <div class='bg-gray-800 p-2 rounded-lg mt-5' v-for='dates in searchResults' :key='dates.date'>
+          <h3>{{dates.date}}</h3>  
+          <div v-html='dates.content'/>
+        </div>
       </div>
-      <pre>{{result}}</pre>
     </main>
   </Layout>
 </template>
@@ -43,13 +48,13 @@ export default {
   data() {
     return {
       keysPressed: {},
-      searchTerm: null,
-      result: null
+      searchTerm: '',
+      searchResults: null
     }
   },
   methods: {
     async search() {
-      this.result = await ipcRenderer.invoke('SEARCH', this.searchTerm)
+      this.searchResults = await ipcRenderer.invoke('SEARCH', this.searchTerm)
     },
     _handleKeyDown(event) {
       this.keysPressed[event.key] = true
@@ -63,7 +68,6 @@ export default {
   },
   computed: {
     _handleSearch() {
-      console.log('pre debounce')
       return debounce(() => {
           this.search()
         }, 300
@@ -73,6 +77,7 @@ export default {
   mounted() {
     window.addEventListener('keydown', this._handleKeyDown)
     window.addEventListener('keyup', this._handleKeyUp)
+    this.$nextTick(() => this.$refs.input.focus())
   },
   beforeDestroy() {
     window.removeEventListener('keydown', this._handleKeyDown)

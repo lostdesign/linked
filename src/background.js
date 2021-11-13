@@ -238,7 +238,7 @@ ipcMain.handle('TOGGLE_THEME', (event, mode) => {
 
 ipcMain.handle('FETCH_FILE', async (event, args) => {
   const [year, fileName] = args
-  const dataPath = getFilePath(year, fileName)
+  const dataPath = getFilePath(year)
   const filePath = `${dataPath}/${fileName}.json`
   let file
 
@@ -262,7 +262,8 @@ ipcMain.handle('FETCH_FILE', async (event, args) => {
 let searchIndex = new Document({
   document: {
     id: 'date',
-    index: ['content']
+    index: ['content'],
+    store: true
   },
   tokenize: 'forward'
 })
@@ -281,7 +282,6 @@ const exportIndex = async () => {
 }
 
 const retrieveIndex = async () => {
-  console.log('fetchingIndex')
   createSearchIndexFolder()
   const keys = fs
     .readdirSync(searchIndexPath, { withFileTypes: true })
@@ -296,9 +296,7 @@ const retrieveIndex = async () => {
     
     const data = fs.readFileSync(`${searchIndexPath}${key}`, 'utf8')
     searchIndex.import(key.slice(0, -5), data === undefined ? null : data)
-    console.log(searchIndex)
   }
-  
 }
 
 
@@ -325,7 +323,24 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
 })
 
 ipcMain.handle('SEARCH', async (event, search) => {
-  return searchIndex.search(search)
+  const results = searchIndex.search(search)
+
+  if (results.length >= 1 ) {
+    const foo = results[0].result
+    let dataResult = []
+
+    for (const r of foo) {
+      await fs.promises.readFile(`${getFilePath(2021)}/${r}.json`, 'utf-8').then((data) => {
+        dataResult.push({
+          date: r,
+          ...JSON.parse(data)
+        })
+      })
+    }
+
+    return dataResult  
+  }
+  return {}
 })
 
 retrieveIndex()
