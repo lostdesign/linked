@@ -29,6 +29,10 @@ mark {
   @apply bg-yellow-200;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .editor {
   position: relative;
 }

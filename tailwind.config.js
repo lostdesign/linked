@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'pink': '#D1014C',
+        pink: '#D1014C',
         'bright-pink': '#FF005C'
       }
     },
@@ -29,8 +29,13 @@ module.exports = {
       opacity: ['active', 'hover'],
       scale: ['active'],
       border: ['focus'],
-      translate: ['active'],
-      transform: ['active']
+      backgroundColor: ['active'],
+      outline: ['focus'],
+      textColor: ['active'],
+      translate: ['active', 'group-hover'],
+      transform: ['active'],
+      width: ['active'],
+      padding: ['hover', 'focus']
     }
   },
   plugins: []
