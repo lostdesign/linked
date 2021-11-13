@@ -19,7 +19,6 @@ const isWindows = process.platform === 'win32'
 const isMacOS = process.platform === 'darwin'
 const fs = require('fs')
 let win
-let linkWindowOpening = false
 
 //import * as Sentry from '@sentry/electron';
 //Sentry.init({ dsn: 'https://f12af54d6a3b4f00a7ec80e69cba835e@o559982.ingest.sentry.io/5695233' });
@@ -140,10 +139,6 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
 function createWindow() {
-  if (linkWindowOpening) {
-    linkWindowOpening = false
-  }
-
   // Create the browser window.
   win = new BrowserWindow({
     width: 470,
@@ -290,8 +285,7 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
   )
 })
 
-ipcMain.on('asynchronous-message', (event, arg) => {
-  linkWindowOpening = true
+ipcMain.on('openurl', (event, arg) => {
   shell.openExternal(arg)
 })
 

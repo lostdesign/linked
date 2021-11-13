@@ -23,6 +23,9 @@
       <button @click="unlink" ref="unlinkIcon" v-if="canUnlink">
         <UnlinkIcon />
       </button>
+      <button @click="openLink" ref="openLinkIcon" v-if="canUnlink">
+        <OpenLink />
+      </button>
     </bubble-menu>
     <floating-menu class="floating-menu" :editor="editor" v-if="editor">
       <button @click="editor.chain().focus().toggleTaskList().run()">
@@ -38,7 +41,8 @@
     <div class="text-black dark:text-white">
       <editor-content :editor="editor" v-model="getContent" />
     </div>
-    <form @submit.prevent
+    <form
+      @submit.prevent
       class="
         link-modal
         flex
@@ -81,7 +85,7 @@
 </template>
 
 <script>
-// import { ipcRenderer } from 'electron'
+import { ipcRenderer } from 'electron'
 
 import { mapGetters, mapActions } from 'vuex'
 import {
@@ -90,6 +94,7 @@ import {
 } from '@/store/modules/file/types'
 
 import ArrowRightIcon from '@/assets/icons/arrow-right.svg'
+import OpenLink from '@/assets/icons/open-link.svg'
 import UnlinkIcon from '@/assets/icons/unlink.svg'
 import BulletListIcon from '@/assets/icons/bullet-list.svg'
 import CheckboxIcon from '@/assets/icons/checkbox.svg'
@@ -125,6 +130,7 @@ export default {
     FloatingMenu,
     BubbleMenu,
     ArrowRightIcon,
+    OpenLink,
     UnlinkIcon,
     BulletListIcon,
     CheckboxIcon,
@@ -169,6 +175,9 @@ export default {
       this.linkModalOpen = false
       this.$refs.linkInput.value = ''
     },
+    openLink() {
+      ipcRenderer.send('openurl', this.editor.getAttributes('link').href)
+    },
     unlink() {
       this.linkModalOpen = true
       this.$nextTick(() => {
@@ -190,8 +199,6 @@ export default {
         return
       }
 
-      // if (previousUrl !== undefined && previousUrl.length > 0) this.canUnlink = true
-
       if (this.isStringLink(selectedText) == true) {
         this.editor
           .chain()
@@ -207,8 +214,9 @@ export default {
       this.$nextTick(() => {
         this.$refs.linkInput.focus()
       })
-      
-      if(this.canUnlink) this.$refs.linkInput.value = this.editor.getAttributes('link').href
+
+      if (this.canUnlink)
+        this.$refs.linkInput.value = this.editor.getAttributes('link').href
     }
   },
 
@@ -251,8 +259,9 @@ export default {
       },
       onSelectionUpdate({ editor }) {
         let previousLink = editor.getAttributes('link').href
-        self.canUnlink = previousLink !== undefined && previousLink.length > 0 ? true : false
-      },
+        self.canUnlink =
+          previousLink !== undefined && previousLink.length > 0 ? true : false
+      }
     })
   },
   watch: {
