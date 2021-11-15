@@ -23,9 +23,6 @@
       <button @click="unlink" ref="unlinkIcon" v-if="canUnlink">
         <UnlinkIcon />
       </button>
-      <button @click="openLink" ref="openLinkIcon" v-if="canUnlink">
-        <OpenLink />
-      </button>
     </bubble-menu>
     <floating-menu class="floating-menu" :editor="editor" v-if="editor">
       <button @click="editor.chain().focus().toggleTaskList().run()">
@@ -44,6 +41,7 @@
     <form
       @submit.prevent
       class="
+        z-100
         link-modal
         flex
         items-center
@@ -94,7 +92,6 @@ import {
 } from '@/store/modules/file/types'
 
 import ArrowRightIcon from '@/assets/icons/arrow-right.svg'
-import OpenLink from '@/assets/icons/open-link.svg'
 import UnlinkIcon from '@/assets/icons/unlink.svg'
 import BulletListIcon from '@/assets/icons/bullet-list.svg'
 import CheckboxIcon from '@/assets/icons/checkbox.svg'
@@ -130,7 +127,6 @@ export default {
     FloatingMenu,
     BubbleMenu,
     ArrowRightIcon,
-    OpenLink,
     UnlinkIcon,
     BulletListIcon,
     CheckboxIcon,
@@ -149,6 +145,9 @@ export default {
     }
   },
   methods: {
+    test() {
+      console.log(111)
+    },
     ...mapActions('file', [FileActions.SET_CONTENT, FileActions.SAVE_FILE]),
     _focusEditor() {
       if (!this.linkModalOpen) this.editor.chain().focus().run()
@@ -163,6 +162,19 @@ export default {
         string
       )
     },
+    getValidUrl(url = '') {
+      let newUrl = window.decodeURIComponent(url)
+      newUrl = newUrl.trim().replace(/\s/g, '')
+
+      if (/^(:\/\/)/.test(newUrl)) {
+        return `http${newUrl}`
+      }
+      if (!/^(f|ht)tps?:\/\//i.test(newUrl)) {
+        return `http://${newUrl}`
+      }
+
+      return newUrl
+    },
     setLink() {
       this.editor
         .chain()
@@ -175,8 +187,9 @@ export default {
       this.linkModalOpen = false
       this.$refs.linkInput.value = ''
     },
-    openLink() {
-      ipcRenderer.send('openurl', this.editor.getAttributes('link').href)
+    openLink(url) {
+      if (url !== undefined || url !== '')
+        ipcRenderer.send('openurl', String(url))
     },
     unlink() {
       this.linkModalOpen = true
@@ -261,6 +274,20 @@ export default {
         let previousLink = editor.getAttributes('link').href
         self.canUnlink =
           previousLink !== undefined && previousLink.length > 0 ? true : false
+      }
+    })
+    document.addEventListener('click', (element) => {
+      if (element.target !== undefined) {
+        if (element.target.classList.contains('link')) {
+          let lastLink = self.editor.getAttributes('link').href
+
+          if (lastLink) {
+            this.openLink(this.getValidUrl(lastLink))
+            return
+          }
+
+          this.toggleLink()
+        }
       }
     })
   },
