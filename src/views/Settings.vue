@@ -22,6 +22,7 @@
       <theme-switcher />
       <h3 class="mt-4">{{ $t('settings.language') }}</h3>
       <LanguageDropdown />
+      <h3 class="mt-4">Automatic updates</h3>
       <EnableUpdates />
       <UpdateInterval />
       <span
