@@ -4,7 +4,6 @@ import { autoUpdater } from 'electron-updater'
 var updatesAvailableCurrently
 
 // In ms
-const UPDATE_CHECK_INTERVAL = 3_600_000 // 1h
 const DIALOG_OPTS = {
     title: "Check for updates",
     message: "There's a Linked update available. Do you want to update?",
@@ -15,6 +14,7 @@ const DIALOG_OPTS = {
 }
 
 async function askForUpdates() {
+    if (!global.storage.get("enableUpdates")) return
     const updateResult = await autoUpdater.checkForUpdates()
     if (updateResult) {
         const { response } = await dialog.showMessageBox(DIALOG_OPTS)
@@ -27,7 +27,7 @@ async function askForUpdates() {
 
 function setupUpdates() {
     updatesAvailableCurrently = false
-    setInterval(() => askForUpdates(), UPDATE_CHECK_INTERVAL)
+    setInterval(() => askForUpdates(), global.storage.get("updateInterval"))
 }
 
 export default { setupUpdates, askForUpdates, updatesAvailableCurrently }

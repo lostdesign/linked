@@ -29,12 +29,14 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
-const storage = new Store({
+global.storage = new Store({
   watch: true,
   defaults: {
     isSetupFinished: false,
     language: 'en-US',
-    theme: 'dark'
+    theme: 'dark',
+    enableUpdates: true,
+    updateInterval: 3600000 // should be shown as hours to the user
   }
 })
 
@@ -158,7 +160,7 @@ function createWindow() {
     }
   })
 
-  nativeTheme.themeSource = storage.get('theme')
+  nativeTheme.themeSource = global.storage.get('theme')
 
   // Load the url of the dev server if in development mode
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -224,15 +226,15 @@ if (isDevelopment) {
 }
 
 ipcMain.handle('GET_STORAGE_VALUE', (event, key) => {
-  return storage.get(key)
+  return global.storage.get(key)
 })
 
 ipcMain.handle('SET_STORAGE_VALUE', (event, key, data) => {
-  return storage.set(key, data)
+  return global.storage.set(key, data)
 })
 
 ipcMain.handle('DELETE_STORAGE_VALUE', (event, key) => {
-  return storage.delete(key)
+  return global.storage.delete(key)
 })
 
 ipcMain.handle('TOGGLE_THEME', (event, mode) => {
