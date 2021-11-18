@@ -22,6 +22,8 @@
       <theme-switcher />
       <h3 class="mt-4">{{ $t('settings.language') }}</h3>
       <LanguageDropdown />
+      <EnableUpdates />
+      <UpdateInterval />
       <span
         class="
           fixed
@@ -43,6 +45,8 @@
 import { version } from '../../package.json'
 import Layout from './Layout'
 import LanguageDropdown from '@/components/language-dropdown'
+import EnableUpdates from '@/components/enable-updates'
+import UpdateInterval from '@/components/update-interval'
 import BackIcon from '@/assets/icons/back.svg'
 import ThemeSwitcher from '@/components/theme-switcher'
 
@@ -51,7 +55,9 @@ export default {
     ThemeSwitcher,
     BackIcon,
     LanguageDropdown,
-    Layout
+    Layout,
+    EnableUpdates,
+    UpdateInterval
   },
   data() {
     return {
