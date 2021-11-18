@@ -1,0 +1,14 @@
+{
+    "title": "Català",
+    "code": "es-CA",
+    "home": {
+      "calendarWeek": "Setmana"
+    },
+    "settings": {
+      "back": "Tornar",
+      "title": "Configuració",
+      "designMode": "Mode de disseny",
+      "language": "Idioma"
+    }
+  }
+  
