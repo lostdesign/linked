@@ -129,6 +129,10 @@ const template = [
           const { shell } = require('electron')
           await shell.openExternal('https://uselinked.com/')
         }
+      },
+      {
+        label: updater.updatesAvailableCurrently ? 'Download update' : 'Check for updates',
+        click: async () => updater.askForUpdates()
       }
     ]
   }

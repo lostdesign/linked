@@ -1,6 +1,8 @@
 import { dialog } from 'electron'
 import { autoUpdater } from 'electron-updater'
 
+var updatesAvailableCurrently
+
 // In ms
 const UPDATE_CHECK_INTERVAL = 3_600_000 // 1h
 const DIALOG_OPTS = {
@@ -20,10 +22,12 @@ async function askForUpdates() {
             autoUpdater.downloadUpdate(updateResult.cancellationToken)
         }
     }
+    updatesAvailableCurrently = updateResult !== undefined
 }
 
 function setupUpdates() {
+    updatesAvailableCurrently = false
     setInterval(() => askForUpdates(), UPDATE_CHECK_INTERVAL)
 }
 
-export default { setupUpdates }
+export default { setupUpdates, askForUpdates, updatesAvailableCurrently }
