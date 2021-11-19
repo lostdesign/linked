@@ -266,7 +266,7 @@ let searchIndex = new Document({
     index: ['content'],
     store: true
   },
-  tokenize: 'forward'
+  tokenize: storage.get('searchMode')
 })
 
 const searchIndexPath = `${app.getPath('userData')}/search-index/`
@@ -306,8 +306,8 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
   const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
   
-  searchIndex.remove(fileName)
-  searchIndex.update({
+  //searchIndex.remove(fileName)
+  searchIndex.update(fileName, {
     date: fileName, 
     content: tokenizer(content)
   })
