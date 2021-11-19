@@ -4,13 +4,15 @@ import {
   getLanguage,
   getTheme,
   setLanguage,
-  setTheme
+  setTheme, 
+  loadSearchIndex
 } from '@/store/modules/app/helper'
 
 export default {
   async [Actions.INIT_APP](context) {
     const language = await getLanguage()
     const theme = await getTheme()
+    loadSearchIndex()
 
     await context.dispatch('calendar/' + CalendarActions.SET_CURRENT_WEEK, '', {
       root: true

@@ -18,3 +18,7 @@ export const setLanguage = async (language) => {
   localStorage.lang = language
   return ipcRenderer.invoke('SET_STORAGE_VALUE', 'language', language)
 }
+
+export const loadSearchIndex = async () => {
+  await ipcRenderer.invoke('LOAD_SEARCH_INDEX')
+}

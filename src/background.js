@@ -337,13 +337,15 @@ ipcMain.handle('SEARCH', async (event, search) => {
         })
       })
     }
-
     return dataResult  
   }
   return {}
 })
 
-retrieveIndex()
+ipcMain.handle('LOAD_SEARCH_INDEX', async (event) => {
+  return retrieveIndex()
+})
+
 
 /**
  * Cleans the content from any html elements, as well as deleting any
