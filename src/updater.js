@@ -3,7 +3,6 @@ import { autoUpdater } from 'electron-updater'
 
 var updatesAvailableCurrently
 
-// In ms
 const DIALOG_OPTS = {
     title: "Check for updates",
     message: "There's a Linked update available. Do you want to update?",
