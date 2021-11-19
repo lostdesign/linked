@@ -12,10 +12,7 @@ const DIALOG_OPTS = {
     noLink: true
 }
 
-async function askForUpdates() {
-    if (!global.storage.get("enableUpdates")) return
-    await autoUpdater.checkForUpdates()
-}
+autoUpdater.autoDownload = false
 
 function setupUpdates() {
     autoUpdater.on('update-available', async () => {
