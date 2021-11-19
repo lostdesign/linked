@@ -1,8 +1,6 @@
 import { dialog } from 'electron'
 import { autoUpdater } from 'electron-updater'
 
-var updatesAvailableCurrently
-
 const DIALOG_OPTS = {
     title: "Check for updates",
     message: "There's a Linked update available. Do you want to update?",
