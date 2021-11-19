@@ -133,7 +133,7 @@ const template = [
         }
       },
       {
-        label: updater.updatesAvailableCurrently ? 'Download update' : 'Check for updates',
+        label: 'Check for updates',
         click: async () => updater.askForUpdates()
       }
     ]
