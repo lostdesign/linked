@@ -1,4 +1,4 @@
-import { dialog } from 'electron'
+import { app, dialog } from 'electron'
 import { autoUpdater } from 'electron-updater'
 
 var updatesAvailableCurrently
@@ -14,18 +14,24 @@ const DIALOG_OPTS = {
 
 async function askForUpdates() {
     if (!global.storage.get("enableUpdates")) return
-    const updateResult = await autoUpdater.checkForUpdates()
-    if (updateResult) {
-        const { response } = await dialog.showMessageBox(DIALOG_OPTS)
-        if (response === 1) { //ok button has been clicked
-            autoUpdater.downloadUpdate(updateResult.cancellationToken)
-        }
-    }
-    updatesAvailableCurrently = updateResult !== undefined
+    await autoUpdater.checkForUpdates()
 }
 
 function setupUpdates() {
-    updatesAvailableCurrently = false
+    autoUpdater.on('update-available', async () => {
+        updatesAvailableCurrently = true
+        const { response } = await dialog.showMessageBox(DIALOG_OPTS)
+        if (response === 1) { //ok button has been clicked
+            autoUpdater.downloadUpdate()
+        }
+    })
+    autoUpdater.on('update-not-available', () => {
+        updatesAvailableCurrently = false
+    })
+    autoUpdater.on('update-downloaded', async () => {
+        app.quit()
+        app.relaunch()
+    })
     setInterval(() => askForUpdates(), global.storage.get("updateInterval"))
 }
 
