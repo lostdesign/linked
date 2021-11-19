@@ -19,6 +19,13 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
+      
+      - name: Lint
+        uses: wearerequired/lint-action@v1
+        with:
+          eslint: true
+          prettier: true
+          commit_message: 🚨 Lint
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
