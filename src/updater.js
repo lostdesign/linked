@@ -25,7 +25,7 @@ autoUpdater.on('update-not-available', () => {
     updatesAvailableCurrently = false
 })
 autoUpdater.on('update-downloaded', async () => {
-    app.quit()
+    autoUpdater.quitAndInstall()
     app.relaunch()
 })
 
