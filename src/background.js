@@ -32,7 +32,8 @@ const storage = new Store({
   defaults: {
     isSetupFinished: false,
     language: 'en-US',
-    theme: 'dark'
+    theme: 'dark',
+    searchMode: 'forward'
   }
 })
 
