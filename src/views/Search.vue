@@ -8,28 +8,20 @@
           id='search'
           v-model='searchTerm'
           ref='input'
-          class='
-          shadow-sm
-          focus:ring-red-600
-          focus:border-red-600
-          block
-          w-full
-          sm:text-sm
-          border-gray-800
-          rounded-md
-          bg-gray-100
-          text-gray-900
-          dark:text-white
-          dark:bg-gray-900
-          border-2 border-bright-pink
-          outline-none
-          p-2
-        '
+          class="shadow-sm focus:ring-red-600 focus:border-red-600 block w-full sm:text-sm border-gray-800 rounded-md bg-gray-100 text-gray-900 dark:text-white dark:bg-gray-900 border-2 border-bright-pink outline-none p-2"
           :placeholder="$t('search.placeholder')"
           @keydown='_handleSearch'
         />
       <div v-if='searchResults'>
-        <div class='bg-gray-800 p-2 rounded-lg mt-5' v-for='dates in searchResults' :key='dates.date'>
+        <div 
+          class='bg-gray-800 p-2 rounded-md mt-5 ring-2 ring-transparent outline-none hover:ring-bright-pink focus:ring-bright-pink' 
+          v-for='dates in searchResults' 
+          :key='dates.date'
+          @click='_handleSearchResultClicked(dates.date)'
+          @keydown.space='_handleSearchResultClicked(dates.date)'
+          @keydown.enter='_handleSearchResultClicked(dates.date)'
+          tabindex='0'
+        >
           <h3>{{dates.date}}</h3>  
           <div v-html='dates.content'/>
         </div>
@@ -42,6 +34,10 @@
 import Layout from './Layout'
 const { ipcRenderer } = require('electron')
 import { debounce } from 'lodash/function'
+import { mapActions } from 'vuex'
+import {
+  Actions as CalendarActions
+} from '@/store/modules/calendar/types'
 
 export default {
   components: { Layout /* BackIcon */ },
@@ -53,6 +49,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions('calendar', [CalendarActions.SET_DATE]),
     async search() {
       this.searchResults = await ipcRenderer.invoke('SEARCH', this.searchTerm)
     },
@@ -64,6 +61,10 @@ export default {
     },
     _handleKeyUp(event) {
       delete this.keysPressed[event.key]
+    },
+    _handleSearchResultClicked(date) {
+      this.setDate(date)
+      this.$router.push('/')
     }
   },
   computed: {
