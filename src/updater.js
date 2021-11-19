@@ -14,21 +14,27 @@ const DIALOG_OPTS = {
 
 autoUpdater.autoDownload = false
 
+autoUpdater.on('update-available', async () => {
+    updatesAvailableCurrently = true
+    const { response } = await dialog.showMessageBox(DIALOG_OPTS)
+    if (response === 1) { //ok button has been clicked
+        autoUpdater.downloadUpdate()
+    }
+})
+autoUpdater.on('update-not-available', () => {
+    updatesAvailableCurrently = false
+})
+autoUpdater.on('update-downloaded', async () => {
+    app.quit()
+    app.relaunch()
+})
+
+async function askForUpdates() {
+    if (!global.storage.get("enableUpdates")) return
+    await autoUpdater.checkForUpdates()
+}
+
 function setupUpdates() {
-    autoUpdater.on('update-available', async () => {
-        updatesAvailableCurrently = true
-        const { response } = await dialog.showMessageBox(DIALOG_OPTS)
-        if (response === 1) { //ok button has been clicked
-            autoUpdater.downloadUpdate()
-        }
-    })
-    autoUpdater.on('update-not-available', () => {
-        updatesAvailableCurrently = false
-    })
-    autoUpdater.on('update-downloaded', async () => {
-        app.quit()
-        app.relaunch()
-    })
     setInterval(() => askForUpdates(), global.storage.get("updateInterval"))
 }
 
