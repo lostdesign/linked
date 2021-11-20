@@ -2,8 +2,9 @@ import { dialog } from 'electron'
 import { autoUpdater } from 'electron-updater'
 
 const DIALOG_OPTS = {
-    title: "Check for updates",
+    title: "Update available",
     message: "There's a Linked update available. Do you want to update?",
+    detail: "TIP: you can disable automatic updates in the settings.",
     type: "question",
     buttons: ["Remind me later", "OK"],
     defaultId: 1, // ok button
