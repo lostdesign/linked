@@ -53,6 +53,8 @@ The app will always be opensource and free - if you enjoy the app, please consid
   **Settings** <kbd>Cmd or Ctrl</kbd> + <kbd>,</kbd>
 
   **Leave Settings** <kbd>Esc</kbd>
+  
+  **Exit Code Block** <kbd>Cmd or Ctrl</kbd> + <kbd>Enter</kbd>
 </details>
 
 
