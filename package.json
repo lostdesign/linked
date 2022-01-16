@@ -1,0 +1,74 @@
+{
+  "name": "linked",
+  "version": "2.0.0",
+  "description": "Your daily journal.",
+  "author": "André Weller <info@lost.design> (https://lost.design/)",
+  "private": true,
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lostdesign/linked"
+  },
+  "keywords": [
+    "journal",
+    "calendar"
+  ],
+  "engines": {
+    "node": ">=v16.13",
+    "npm": ">=8.1"
+  },
+  "main": "packages/main/dist/index.cjs",
+  "scripts": {
+    "build": "npm run build:main && npm run build:preload && npm run build:renderer",
+    "build:main": "cd ./packages/main && vite build",
+    "build:preload": "cd ./packages/preload && vite build",
+    "build:preload:types": "dts-cb -i packages/preload/src/**/*.ts -o packages/preload/exposedInMainWorld.d.ts",
+    "build:renderer": "cd ./packages/renderer && vite build",
+    "compile": "cross-env MODE=production npm run build && electron-builder build --config .electron-builder.config.js --dir --config.asar=false",
+    "test": "npm run test:main && npm run test:preload && npm run test:renderer && npm run test:e2e",
+    "test:e2e": "npm run build && vitest run",
+    "test:main": "vitest run -r packages/main --passWithNoTests",
+    "test:preload": "vitest run -r packages/preload --passWithNoTests",
+    "test:renderer": "vitest run -r packages/renderer --passWithNoTests",
+    "watch": "node scripts/watch.js",
+    "lint": "eslint . --ext js,ts,vue",
+    "typecheck:main": "tsc --noEmit -p packages/main/tsconfig.json",
+    "typecheck:preload": "tsc --noEmit -p packages/preload/tsconfig.json",
+    "typecheck:renderer": "npm run build:preload:types && vue-tsc --noEmit -p packages/renderer/tsconfig.json",
+    "typecheck": "npm run typecheck:main && npm run typecheck:preload && npm run typecheck:renderer"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.9.1",
+    "@vitejs/plugin-vue": "2.0.1",
+    "@vue/test-utils": "2.0.0-rc.18",
+    "autoprefixer": "^10.4.2",
+    "cross-env": "7.0.3",
+    "dts-for-context-bridge": "0.7.1",
+    "electron": "16.0.7",
+    "electron-builder": "22.14.5",
+    "electron-devtools-installer": "3.2.0",
+    "eslint": "8.6.0",
+    "eslint-plugin-vue": "8.3.0",
+    "happy-dom": "2.25.2",
+    "nano-staged": "0.5.0",
+    "playwright": "1.17.2",
+    "postcss": "^8.4.5",
+    "simple-git-hooks": "2.7.0",
+    "tailwindcss": "^3.0.14",
+    "typescript": "4.5.4",
+    "vite": "2.7.12",
+    "vitest": "0.1.13",
+    "vue-tsc": "0.30.2"
+  },
+  "dependencies": {
+    "@tiptap/extension-document": "^2.0.0-beta.15",
+    "@tiptap/extension-paragraph": "^2.0.0-beta.23",
+    "@tiptap/extension-text": "^2.0.0-beta.15",
+    "@tiptap/vue-3": "^2.0.0-beta.88",
+    "electron-updater": "4.6.5",
+    "luxon": "^2.3.0",
+    "pinia": "^2.0.9",
+    "vue": "3.2.26",
+    "vue-router": "^4.0.12"
+  }
+}
