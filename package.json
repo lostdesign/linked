@@ -50,6 +50,7 @@
     "electron-updater": "4.3.4",
     "highlight.js": "10.6.0",
     "luxon": "1.26.0",
+    "v8-compile-cache": "^2.3.0",
     "vue": "2.6.11",
     "vue-i18n": "8.24.4",
     "vue-router": "3.2.0",

@@ -7,5 +7,9 @@ export default {
 
   [Mutations.SET_THEME](state, theme) {
     state.theme = theme
+  },
+
+  [Mutations.SET_UPDATE_INTERVAL](state, interval) {
+    state.updateInterval = interval
   }
 }

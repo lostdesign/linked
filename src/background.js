@@ -1,5 +1,7 @@
 'use strict'
 
+require('v8-compile-cache')
+
 import {
   app,
   protocol,
@@ -8,15 +10,11 @@ import {
   nativeTheme,
   Menu
 } from 'electron'
-import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
-import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
-import updater from './updater'
-const Store = require('electron-store')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const isWindows = process.platform === 'win32'
 const isMacOS = process.platform === 'darwin'
-const fs = require('fs')
+
 let win
 
 //import * as Sentry from '@sentry/electron';
@@ -29,6 +27,10 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
+export const DAILY = 1000 * 60 * 60 * 24
+export const WEEKLY = DAILY * 7
+
+const Store = require('electron-store')
 global.storage = new Store({
   watch: true,
   defaults: {
@@ -36,9 +38,11 @@ global.storage = new Store({
     language: 'en-US',
     theme: 'dark',
     enableUpdates: true,
-    updateInterval: 3600000 // should be shown as hours to the user
+    updateInterval: DAILY
   }
 })
+
+import updater from './updater'
 
 const template = [
   {
@@ -143,7 +147,10 @@ const template = [
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
-function createWindow() {
+
+
+
+const createWindow = () => {
   // Create the browser window.
   win = new BrowserWindow({
     width: 470,
@@ -160,47 +167,26 @@ function createWindow() {
     }
   })
 
-  nativeTheme.themeSource = global.storage.get('theme')
-
-  // Load the url of the dev server if in development mode
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
     if (!process.env.IS_TEST) win.webContents.openDevTools()
   } else {
+    const { createProtocol } = require('vue-cli-plugin-electron-builder/lib')
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
-    updater.setupUpdates()
+    nativeTheme.themeSource = global.storage.get('theme')
   }
 
-  win.on('closed', () => {
-    win = null
-  })
+  win.on('closed', () => { win = null })
 }
 
-// Quit when all windows are closed.
-app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (!isMacOS) {
-    app.quit()
-  }
-})
+app.on('window-all-closed', () => { if (!isMacOS) app.quit() })
+app.on('activate', () => { if (win === null) createWindow()} )
 
-app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (win === null) {
-    createWindow()
-  }
-})
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 app.on('ready', async () => {
   if (isDevelopment && !process.env.IS_TEST) {
-    // Install Vue Devtools
     try {
       await installExtension(VUEJS_DEVTOOLS)
     } catch (e) {
@@ -208,6 +194,7 @@ app.on('ready', async () => {
     }
   }
   createWindow()
+  updater.setupUpdates()
 })
 
 // Exit cleanly on request from parent process in development mode.
@@ -245,6 +232,8 @@ ipcMain.handle('TOGGLE_THEME', (event, mode) => {
   }
   return nativeTheme.shouldUseDarkColors
 })
+
+const fs = require('fs')
 
 ipcMain.handle('FETCH_FILE', async (event, args) => {
   const [year, fileName] = args

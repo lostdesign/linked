@@ -1,42 +1,48 @@
 import { dialog } from 'electron'
 import { autoUpdater } from 'electron-updater'
-
-const DIALOG_OPTS = {
-    title: "Update available",
-    message: "There's a Linked update available. Do you want to update?",
-    detail: "TIP: you can disable automatic updates in the settings.",
-    type: "question",
-    buttons: ["Remind me later", "OK"],
-    defaultId: 1, // ok button
-    noLink: true
-}
+import { DAILY, WEEKLY } from '@/background'
 
 autoUpdater.autoDownload = false
 
-autoUpdater.on('update-available', async () => {
-    const { response } = await dialog.showMessageBox(DIALOG_OPTS)
-    if (response === 1) { //ok button has been clicked
-        autoUpdater.downloadUpdate()
-    }
+autoUpdater.on('update-available', async (updateInfo) => {
+  const { response } = await dialog.showMessageBox({
+    title: 'Update available',
+    message: `Version ${updateInfo.version} is available, would you like to update now?`,
+    detail: 'The app will download the update and restart once finished.',
+    type: 'question',
+    buttons: ['Remind me later', 'Install'],
+    defaultId: 1,
+    noLink: true
+  })
+  if (response === 1) {
+    global.storage.set('updateInterval', DAILY)
+    await autoUpdater.downloadUpdate()
+  } else {
+    global.storage.set('updateInterval', WEEKLY)
+  }
 })
 autoUpdater.on('update-not-available', async () => {
-    await dialog.showMessageBox({
-        title: 'Updates not available',
-        message: "There isn't any update available. Sorry :(",
-        buttons: ["OK"]
-    })
+  await dialog.showMessageBox({
+    title: 'No updates',
+    message: 'There is no update available.',
+    detail: 'You are already on the latest version of linked.',
+    buttons: ['Close']
+  })
 })
 autoUpdater.on('update-downloaded', async () => {
-    autoUpdater.quitAndInstall()
+  autoUpdater.quitAndInstall()
 })
 
-async function askForUpdates() {
-    if (!global.storage.get("enableUpdates")) return
-    await autoUpdater.checkForUpdates()
+const askForUpdates = async () => {
+  if (!global.storage.get('enableUpdates')) return
+  await autoUpdater.checkForUpdates()
 }
 
-function setupUpdates() {
-    setInterval(() => askForUpdates(), global.storage.get("updateInterval"))
+const setupUpdates = () => {
+  if (parseInt(global.storage.get('updateInterval')) === DAILY) {
+    askForUpdates()
+  }
+  setInterval(() => askForUpdates(), global.storage.get('updateInterval'))
 }
 
 export default { setupUpdates, askForUpdates }

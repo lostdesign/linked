@@ -7,7 +7,19 @@
   "settings": {
     "back": "Zurück",
     "title": "Einstellungen",
-    "designMode": "Design Modus",
-    "language": "Sprache"
+    "designMode": {
+      "title": "Design Modus",
+      "hint": "Welches Design möchtest du nutzen?"
+    },
+    "languages": {
+      "title": "Sprache",
+      "hint": "In welcher Sprache möchtest du linked nutzen?"
+    },
+    "updates": {
+      "title": "Update Intervall",
+      "hint": "Wie oft soll nach Updates gesucht werden?",
+      "daily": "Täglich",
+      "weekly": "Wöchentlich"
+    }
   }
 }
