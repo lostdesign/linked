@@ -7,7 +7,30 @@
   "settings": {
     "back": "Natrag",
     "title": "Postavke",
-    "designMode": "Tema",
-    "language": "Jezik"
+    "designMode": {
+      "title": "Tema",
+      "hint": "Birajte između svijetle ili tamne teme."
+    },
+    "languages": {
+      "title": "Jezik",
+      "hint": "Na kojem jeziku želite koristiti linked?"
+    },
+    "updates": {
+      "title": "interval ažuriranja",
+      "hint": "Koliko često provjeravati nove verzije?",
+      "daily": "Dnevno",
+      "weekly": "Tjedni"
+    },
+    "search": {
+      "placeholder": "Pretražite svoje bilješke...",
+      "no_result": "Nije bilo rezultata za <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Tražite pojedinačne riječi ili izraze, također možete koristiti zamjenske znakove kao što je <em>Volim *</em> ...",
+      "result_amount": "rezultate",
+      "index": {
+        "title": "Indeks baze podataka",
+        "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
+        "start": "Popravi bazu podataka sada"
+      }
+    }
   }
 }

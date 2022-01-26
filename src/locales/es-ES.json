@@ -7,7 +7,30 @@
   "settings": {
     "back": "Volver",
     "title": "Ajustes",
-    "designMode": "Modo de diseño",
-    "language": "Idioma"
+    "designMode": {
+      "title": "Modo de diseño",
+      "hint": "Elige entre un tema claro u oscuro."
+    },
+    "languages": {
+      "title": "Idioma",
+      "hint": "¿En qué idioma le gustaría usar Linked?"
+    },
+    "updates": {
+      "title": "intervalo de actualización",
+      "hint": "¿Con qué frecuencia buscar nuevas versiones?",
+      "daily": "A diario",
+      "weekly": "Semanalmente"
+    },
+    "search": {
+      "placeholder": "Busca en tus notas...",
+      "no_result": "No hubo resultados para <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Busque palabras o frases individuales, también puede usar comodines como <em>Me encanta *</em>...",
+      "result_amount": "resultados",
+      "index": {
+        "title": "índice de la base de datos",
+        "hint": "Al iniciar la indexación, sus días serán escaneados y agregados a la base de datos de búsqueda. Esto solo es necesario para los datos de inventario anteriores a la versión 1.4.0. Puede encontrar más información en el sitio web.",
+        "start": "Reparar base de datos ahora"
+      }
+    }
   }
 }

@@ -5,9 +5,36 @@
     "calendarWeek": "Week"
   },
   "settings": {
-    "back": "Terug",
-    "title": "Instellingen",
     "designMode": "Designmodus",
     "language": "Taal"
+  },
+  "settings": {
+    "back": "Terug",
+    "title": "Instellingen",
+    "designMode": {
+      "title": "Designmodus",
+      "hint": "Kies tussen een licht of donker thema."
+    },
+    "languages": {
+      "title": "Taal",
+      "hint": "In welke taal wil je linked gebruiken?"
+    },
+    "updates": {
+      "title": "Bijwerkingsonderbreking",
+      "hint": "Hoe vaak controleren op nieuwe versies?",
+      "daily": "Dagelijks",
+      "weekly": "Wekelijks"
+    },
+    "search": {
+      "placeholder": "Zoek uw notities...",
+      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
+      "result_amount": "resultaten",
+      "index": {
+        "title": "Database-index",
+        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
+        "start": "Database nu repareren"
+      }
+    }
   }
 }

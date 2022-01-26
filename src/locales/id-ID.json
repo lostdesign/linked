@@ -7,7 +7,30 @@
   "settings": {
     "back": "Kembali",
     "title": "Pengaturan",
-    "designMode": "Mode desain",
-    "language": "Bahasa"
+    "designMode": {
+      "title": "Mode desain",
+      "hint": "Pilih antara tema terang atau gelap."
+    },
+    "languages": {
+      "title": "Bahasa",
+      "hint": "Dalam bahasa apa Anda ingin menggunakan linked?"
+    },
+    "updates": {
+      "title": "Interval pembaruan",
+      "hint": "Seberapa sering memeriksa versi baru?",
+      "daily": "Sehari-hari",
+      "weekly": "Mingguan"
+    },
+    "search": {
+      "placeholder": "Cari catatan Anda...",
+      "no_result": "Tidak ada hasil untuk <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Cari kata atau frasa individual, Anda juga dapat menggunakan karakter pengganti seperti <em>Saya suka *</em> ...",
+      "result_amount": "hasil",
+      "index": {
+        "title": "Indeks basis data",
+        "hint": "Dengan memulai pengindeksan, hari-hari Anda akan dipindai dan ditambahkan ke database pencarian. Ini hanya diperlukan untuk data inventaris sebelum versi 1.4.0. Kunjungi situsnya untuk informasi lebih lanjut.",
+        "start": "Perbaiki database sekarang"
+      }
+    }
   }
 }
