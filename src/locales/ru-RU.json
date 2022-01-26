@@ -1,203 +1,60 @@
 <template>
-  <div
-    v-if="editor"
-    class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative flex-grow"
-    @click="_focusEditor"
-  >
-    <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleHighlight()
-            .run()
-        "
-      >
-        <PenIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleBold()
-            .run()
-        "
-      >
-        <BoldIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleItalic()
-            .run()
-        "
-      >
-        <ItalicIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleStrike()
-            .run()
-        "
-      >
-        <StrikeThroughIcon />
-      </button>
-    </bubble-menu>
-    <floating-menu class="floating-menu" :editor="editor" v-if="editor">
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleTaskList()
-            .run()
-        "
-      >
-        <CheckboxIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleBulletList()
-            .run()
-        "
-      >
-        <BulletListIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleCodeBlock()
-            .run()
-        "
-      >
-        <CodeIcon />
-      </button>
-    </floating-menu>
-    <div class="text-black dark:text-white">
-      <editor-content :editor="editor" v-model="getContent" />
+  <div class="flex space-x-5 mb-4">
+    <div
+      @click="setTheme('light')"
+      class="
+        w-1/2
+        h-16
+        bg-gray-100
+        rounded-lg
+        flex
+        justify-center
+        items-center
+        align-center
+        text-black
+        hover:opacity-75
+        cursor-pointer
+      "
+      :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'light'}"
+    >
+      <SunIcon />
+    </div>
+    <div
+      @click="setTheme('dark')"
+      class="
+        w-1/2
+        h-16
+        bg-gray-800
+        rounded-lg
+        flex
+        justify-center
+        items-center
+        align-center
+        text-white
+        hover:opacity-75
+        cursor-pointer
+      "
+      :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'dark'}"
+    >
+      <MoonIcon />
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import {
-  Getters as FileGetters,
-  Actions as FileActions
-} from '@/store/modules/file/types'
-
-import BulletListIcon from '@/assets/icons/bullet-list.svg'
-import CheckboxIcon from '@/assets/icons/checkbox.svg'
-import CodeIcon from '@/assets/icons/code.svg'
-import PenIcon from '@/assets/icons/pen.svg'
-import BoldIcon from '@/assets/icons/bold.svg'
-import ItalicIcon from '@/assets/icons/italic.svg'
-import StrikeThroughIcon from '@/assets/icons/strikethrough.svg'
-
-import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
-import Document from '@tiptap/extension-document'
-import Paragraph from '@tiptap/extension-paragraph'
-import Text from '@tiptap/extension-text'
-import TaskList from '@tiptap/extension-task-list'
-import TaskItem from '@tiptap/extension-task-item'
-import Heading from '@tiptap/extension-heading'
-import Highlight from '@tiptap/extension-highlight'
-import CodeBlock from '@tiptap/extension-code-block'
-import BulletList from '@tiptap/extension-bullet-list'
-import ListItem from '@tiptap/extension-list-item'
-import Bold from '@tiptap/extension-bold'
-import Italic from '@tiptap/extension-italic'
-import Image from '@tiptap/extension-image'
-import HorizontalRule from '@tiptap/extension-horizontal-rule'
-import Strike from '@tiptap/extension-strike'
-import Link from '@tiptap/extension-link'
-import History from '@tiptap/extension-history'
+import MoonIcon from '@/assets/icons/moon.svg'
+import SunIcon from '@/assets/icons/sun.svg'
+import { mapActions, mapGetters } from 'vuex'
+import { Actions as AppActions, Getters as AppGetters } from '@/store/modules/app/types'
 
 export default {
   components: {
-    EditorContent,
-    FloatingMenu,
-    BubbleMenu,
-    BulletListIcon,
-    CheckboxIcon,
-    CodeIcon,
-    PenIcon,
-    BoldIcon,
-    ItalicIcon,
-    StrikeThroughIcon
-  },
-  data() {
-    return {
-      editor: null
-    }
+    MoonIcon,
+    SunIcon
   },
   methods: {
-    ...mapActions('file', [FileActions.SET_CONTENT, FileActions.SAVE_FILE]),
-    _focusEditor() {
-      this.editor
-        .chain()
-        .focus()
-        .run()
-    }
-  },
-  computed: {
-    ...mapGetters('file', [FileGetters.GET_CONTENT])
-  },
-  mounted() {
-    this.editor = new Editor({
-      extensions: [
-        Document,
-        Paragraph,
-        Text,
-        TaskList,
-        TaskItem,
-        Heading,
-        Highlight,
-        CodeBlock,
-        BulletList,
-        ListItem,
-        Bold,
-        Italic,
-        Image,
-        HorizontalRule,
-        Strike,
-        Link,
-        History
-      ],
-      content: this.getContent,
-      autofocus: true,
-      onUpdate: ({ editor }) => {
-        this.setContent(editor.getHTML())
-        this.saveFile()
-      }
-    })
-  },
-  watch: {
-    getContent(value) {
-      const isSame = this.editor.getHTML() === value
-
-      if (isSame) {
-        return
-      }
-
-      this.editor.commands.setContent(this.getContent, false)
-    }
-  },
-
-  beforeDestroy() {
-    this.editor.destroy()
+    ...mapActions('app', [AppActions.SET_THEME]),
+    ...mapGetters('app', [AppGetters.GET_THEME])
   }
 }
 </script>
