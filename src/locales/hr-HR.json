@@ -1,203 +1,152 @@
 <template>
-  <div
-    v-if="editor"
-    class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative flex-grow"
-    @click="_focusEditor"
-  >
-    <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
+  <div>
+    <div class="mt-1 relative">
       <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleHighlight()
-            .run()
+        type="button"
+        class="
+          relative
+          w-full
+          bg-gray-100
+          dark:bg-gray-800
+          rounded-md
+          pl-3
+          pr-10
+          py-2
+          text-left
+          cursor-default
+          focus:outline-none
+          focus:ring-2 focus:ring-bright-pink
+          focus:border-bright-pink
+          sm:text-sm
         "
+        aria-haspopup="listbox"
+        aria-expanded="true"
+        aria-labelledby="listbox-label"
+        @click="open = !open"
       >
-        <PenIcon />
+        <span class="block truncate">{{ languages[language].title }}</span>
+        <span
+          class="
+            absolute
+            inset-y-0
+            right-0
+            flex
+            items-center
+            pr-2
+            pointer-events-none
+          "
+        >
+          <DropdownIcon />
+        </span>
       </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleBold()
-            .run()
+      <ul
+        class="
+          absolute
+          z-10
+          mt-1
+          w-full
+          bg-gray-100
+          dark:bg-gray-800
+          shadow-lg
+          max-h-60
+          rounded-md
+          py-1
+          text-base
+          ring-1 ring-black ring-opacity-5
+          overflow-auto
+          focus:outline-none
+          sm:text-sm
         "
-      >
-        <BoldIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleItalic()
-            .run()
+        style="
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          margin-top: 0.25rem !important;
         "
+        tabindex="-1"
+        role="listbox"
+        aria-labelledby="listbox-label"
+        aria-activedescendant="listbox-option-3"
+        v-if="open"
       >
-        <ItalicIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleStrike()
-            .run()
-        "
-      >
-        <StrikeThroughIcon />
-      </button>
-    </bubble-menu>
-    <floating-menu class="floating-menu" :editor="editor" v-if="editor">
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleTaskList()
-            .run()
-        "
-      >
-        <CheckboxIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleBulletList()
-            .run()
-        "
-      >
-        <BulletListIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleCodeBlock()
-            .run()
-        "
-      >
-        <CodeIcon />
-      </button>
-    </floating-menu>
-    <div class="text-black dark:text-white">
-      <editor-content :editor="editor" v-model="getContent" />
+        <template v-for="(lang, index) in languages">
+          <li
+            class="cursor-default select-none relative py-2 pl-8 pr-4"
+            id="listbox-option-0"
+            role="option"
+            :key="index"
+            @click="_handleLanguageChange(lang)"
+          >
+            <span class="font-normal block truncate">{{ lang.title }} </span>
+            <span
+              class="
+                text-bright-pink
+                absolute
+                inset-y-0
+                left-0
+                flex
+                items-center
+                pl-1.5
+              "
+              v-if="selected === index"
+            >
+              <TickIcon />
+            </span>
+          </li>
+        </template>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import TickIcon from '@/assets/icons/tick.svg'
+import DropdownIcon from '@/assets/icons/dropdown.svg'
+import { DateTime } from 'luxon'
+import { loadLocaleMessages } from '@/i18n'
+import { mapActions, mapGetters } from 'vuex'
+import { Actions as CalendarActions } from '@/store/modules/calendar/types'
 import {
-  Getters as FileGetters,
-  Actions as FileActions
-} from '@/store/modules/file/types'
-
-import BulletListIcon from '@/assets/icons/bullet-list.svg'
-import CheckboxIcon from '@/assets/icons/checkbox.svg'
-import CodeIcon from '@/assets/icons/code.svg'
-import PenIcon from '@/assets/icons/pen.svg'
-import BoldIcon from '@/assets/icons/bold.svg'
-import ItalicIcon from '@/assets/icons/italic.svg'
-import StrikeThroughIcon from '@/assets/icons/strikethrough.svg'
-
-import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
-import Document from '@tiptap/extension-document'
-import Paragraph from '@tiptap/extension-paragraph'
-import Text from '@tiptap/extension-text'
-import TaskList from '@tiptap/extension-task-list'
-import TaskItem from '@tiptap/extension-task-item'
-import Heading from '@tiptap/extension-heading'
-import Highlight from '@tiptap/extension-highlight'
-import CodeBlock from '@tiptap/extension-code-block'
-import BulletList from '@tiptap/extension-bullet-list'
-import ListItem from '@tiptap/extension-list-item'
-import Bold from '@tiptap/extension-bold'
-import Italic from '@tiptap/extension-italic'
-import Image from '@tiptap/extension-image'
-import HorizontalRule from '@tiptap/extension-horizontal-rule'
-import Strike from '@tiptap/extension-strike'
-import Link from '@tiptap/extension-link'
-import History from '@tiptap/extension-history'
+  Actions as AppActions,
+  Getters as AppGetters
+} from '@/store/modules/app/types'
 
 export default {
-  components: {
-    EditorContent,
-    FloatingMenu,
-    BubbleMenu,
-    BulletListIcon,
-    CheckboxIcon,
-    CodeIcon,
-    PenIcon,
-    BoldIcon,
-    ItalicIcon,
-    StrikeThroughIcon
-  },
   data() {
     return {
-      editor: null
+      open: false,
+      selected: localStorage.lang,
+      language: (this.$i18n.locale = localStorage.lang || 'en-US'),
+      languages: loadLocaleMessages()
     }
   },
   methods: {
-    ...mapActions('file', [FileActions.SET_CONTENT, FileActions.SAVE_FILE]),
-    _focusEditor() {
-      this.editor
-        .chain()
-        .focus()
-        .run()
+    ...mapActions('calendar', [CalendarActions.SET_CURRENT_WEEK]),
+    ...mapActions('app', [AppActions.SET_LANGUAGE]),
+
+    _handleLanguageChange(lang) {
+      /**
+       * TODO / FIXME, should not need to use localStorage
+       * current use of formatDate() and other INTL methods require it since store is not available
+       */
+
+      if (this.$i18n.locale === lang.code) return
+
+      this.selected = lang.code
+      this.language = lang.code
+      this.open = false
+      this.$i18n.locale = lang.code
+      localStorage.lang = lang.code
+
+      this.setCurrentWeek()
+      DateTime.local().setLocale(lang.code)
     }
   },
   computed: {
-    ...mapGetters('file', [FileGetters.GET_CONTENT])
+    ...mapGetters('app', [AppGetters.GET_LANGUAGE])
   },
-  mounted() {
-    this.editor = new Editor({
-      extensions: [
-        Document,
-        Paragraph,
-        Text,
-        TaskList,
-        TaskItem,
-        Heading,
-        Highlight,
-        CodeBlock,
-        BulletList,
-        ListItem,
-        Bold,
-        Italic,
-        Image,
-        HorizontalRule,
-        Strike,
-        Link,
-        History
-      ],
-      content: this.getContent,
-      autofocus: true,
-      onUpdate: ({ editor }) => {
-        this.setContent(editor.getHTML())
-        this.saveFile()
-      }
-    })
-  },
-  watch: {
-    getContent(value) {
-      const isSame = this.editor.getHTML() === value
-
-      if (isSame) {
-        return
-      }
-
-      this.editor.commands.setContent(this.getContent, false)
-    }
-  },
-
-  beforeDestroy() {
-    this.editor.destroy()
+  components: {
+    TickIcon,
+    DropdownIcon
   }
 }
 </script>
