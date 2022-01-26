@@ -1,60 +1,75 @@
 <template>
-  <div class="flex space-x-5 mb-4">
-    <div
-      @click="setTheme('light')"
-      class="
-        w-1/2
-        h-16
-        bg-gray-100
-        rounded-lg
-        flex
-        justify-center
-        items-center
-        align-center
-        text-black
-        hover:opacity-75
-        cursor-pointer
-      "
-      :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'light'}"
-    >
-      <SunIcon />
-    </div>
-    <div
-      @click="setTheme('dark')"
-      class="
-        w-1/2
-        h-16
-        bg-gray-800
-        rounded-lg
-        flex
-        justify-center
-        items-center
-        align-center
-        text-white
-        hover:opacity-75
-        cursor-pointer
-      "
-      :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'dark'}"
-    >
-      <MoonIcon />
-    </div>
+  <div
+    class="
+      flex
+      dark:bg-black
+      justify-center
+      space-x-4
+      z-50
+      border-b border-gray-400
+      dark:border-gray-800
+      py-4
+    "
+  >
+    <template v-for="date in getCurrentWeek">
+      <div
+        :key="date.day"
+        class="flex-col justify-center items-center self-center text-center"
+      >
+        <span
+          class="block mb-1 text-xs text-gray-400 dark:text-gray-600"
+          :class="{
+            'text-bright-pink dark:text-red-500': date.isoDate === getCurrentDate
+          }"
+        >
+          {{ date.weekDay }}
+        </span>
+        <span
+          class="
+            flex
+            justify-center
+            items-center
+            self-center
+            text-center
+            w-10
+            h-10
+            rounded-full
+            font-black
+            text-xs
+            hover:bg-gray-200
+            dark:hover:bg-gray-800
+            cursor-pointer
+            ring-bright-pink
+          "
+          :class="{
+            'ring-4 text-sm': date.isoDate === getCurrentDate
+          }"
+          :key="date.day"
+          @click="setDate(date.isoDate)"
+        >
+          {{ date.day }}
+        </span>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
-import MoonIcon from '@/assets/icons/moon.svg'
-import SunIcon from '@/assets/icons/sun.svg'
-import { mapActions, mapGetters } from 'vuex'
-import { Actions as AppActions, Getters as AppGetters } from '@/store/modules/app/types'
+import { mapGetters, mapActions } from 'vuex'
+import {
+  Getters as CalendarGetters,
+  Actions as CalendarActions
+} from '@/store/modules/calendar/types'
 
 export default {
-  components: {
-    MoonIcon,
-    SunIcon
-  },
   methods: {
-    ...mapActions('app', [AppActions.SET_THEME]),
-    ...mapGetters('app', [AppGetters.GET_THEME])
+    ...mapActions('calendar', [CalendarActions.SET_DATE])
+  },
+  computed: {
+    ...mapGetters('calendar', [
+      CalendarGetters.GET_CURRENT_DATE,
+      CalendarGetters.GET_CURRENT_WEEK
+    ])
   }
 }
 </script>
