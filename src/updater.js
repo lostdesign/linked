@@ -1,4 +1,4 @@
-import { dialog } from 'electron'
+import { dialog, Notification } from 'electron'
 import { autoUpdater } from 'electron-updater'
 import { DAILY, WEEKLY } from '@/background'
 
@@ -22,12 +22,10 @@ autoUpdater.on('update-available', async (updateInfo) => {
   }
 })
 autoUpdater.on('update-not-available', async () => {
-  await dialog.showMessageBox({
+  await new Notification({
     title: 'No updates',
-    message: 'There is no update available.',
-    detail: 'You are already on the latest version of linked.',
-    buttons: ['Close']
-  })
+    body: 'You are already on the latest version of linked'
+  }).show()
 })
 autoUpdater.on('update-downloaded', async () => {
   autoUpdater.quitAndInstall()

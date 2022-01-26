@@ -48,7 +48,9 @@
     "core-js": "3.6.5",
     "electron-store": "6.0.0",
     "electron-updater": "4.3.4",
+    "flexsearch": "^0.7.21",
     "highlight.js": "10.6.0",
+    "lodash": "^4.17.21",
     "luxon": "1.26.0",
     "v8-compile-cache": "^2.3.0",
     "vue": "2.6.11",
@@ -57,7 +59,7 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "2.0.4",
+    "@tailwindcss/postcss7-compat": "2.2.17",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",

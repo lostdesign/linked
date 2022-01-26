@@ -9,17 +9,28 @@
     "title": "Settings",
     "designMode": {
       "title": "Design mode",
-      "hint": "Welches Design möchtest du nutzen?"
+      "hint": "You can choose between a light and dark mode."
     },
     "languages": {
       "title": "Language",
-      "hint": "In welcher Sprache möchtest du linked nutzen?"
+      "hint": "In which language do you prefer to use linked?"
     },
     "updates": {
       "title": "Update Frequency",
       "hint": "How often to check for updates?",
       "daily": "Daily",
       "weekly": "Weekly"
+    },
+    "search": {
+      "placeholder": "Search for your notes ...",
+      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
+      "result_amount": "Results",
+      "index":{
+        "title": "Database Index",
+        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
+        "start": "Repair database now"
+      }
     }
   }
 }

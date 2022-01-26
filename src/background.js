@@ -8,7 +8,8 @@ import {
   BrowserWindow,
   ipcMain,
   nativeTheme,
-  Menu
+  Menu,
+  Notification
 } from 'electron'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -17,11 +18,9 @@ const isMacOS = process.platform === 'darwin'
 
 let win
 
-//import * as Sentry from '@sentry/electron';
-//Sentry.init({ dsn: 'https://f12af54d6a3b4f00a7ec80e69cba835e@o559982.ingest.sentry.io/5695233' });
-
 // Turn off software rasterizer for less resource usage
 app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
+app.setAppUserModelId(process.execPath)
 
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
@@ -37,6 +36,7 @@ global.storage = new Store({
     isSetupFinished: false,
     language: 'en-US',
     theme: 'dark',
+    searchMode: 'forward',
     enableUpdates: true,
     updateInterval: DAILY
   }
@@ -91,6 +91,13 @@ const template = [
           win.webContents.send('set-today')
         },
         accelerator: 'CommandOrControl + .'
+      },
+      {
+        label: 'Search',
+        click() {
+          win.webContents.send('set-search')
+        },
+        accelerator: 'CommandOrControl + K'
       },
       { type: 'separator' },
       {
@@ -151,7 +158,6 @@ Menu.setApplicationMenu(menu)
 
 
 const createWindow = () => {
-  // Create the browser window.
   win = new BrowserWindow({
     width: 470,
     minWidth: 450,
@@ -173,13 +179,18 @@ const createWindow = () => {
   } else {
     const { createProtocol } = require('vue-cli-plugin-electron-builder/lib')
     createProtocol('app')
-    // Load the index.html when not in development
     win.loadURL('app://./index.html')
     nativeTheme.themeSource = global.storage.get('theme')
   }
-
+  
   win.on('closed', () => { win = null })
 }
+
+app.on('window-all-closed', () => {
+  if (!isMacOS) {
+    app.quit()
+  }
+})
 
 app.on('window-all-closed', () => { if (!isMacOS) app.quit() })
 app.on('activate', () => { if (win === null) createWindow()} )
@@ -197,7 +208,6 @@ app.on('ready', async () => {
   updater.setupUpdates()
 })
 
-// Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
   if (isWindows) {
     process.on('message', (data) => {
@@ -237,7 +247,7 @@ const fs = require('fs')
 
 ipcMain.handle('FETCH_FILE', async (event, args) => {
   const [year, fileName] = args
-  const dataPath = getFilePath(year, fileName)
+  const dataPath = getFilePath(year)
   const filePath = `${dataPath}/${fileName}.json`
   let file
 
@@ -251,19 +261,66 @@ ipcMain.handle('FETCH_FILE', async (event, args) => {
       })
     })
   } else {
-    file = fs.promises.readFile(filePath, 'utf-8').then((data) => {
-      return JSON.parse(data)
-    })
+    file = fs.promises.readFile(filePath, 'utf-8').then(data => JSON.parse(data))
   }
 
   // return the file
   return file
 })
 
+import { Document } from 'flexsearch'
+
+let searchIndex = new Document({
+  document: {
+    id: 'date',
+    index: ['content'],
+    store: true
+  },
+  tokenize: global.storage.get('searchMode')
+})
+
+const searchIndexPath = `${app.getPath('userData')}/search-index/`
+
+const createSearchIndexFolder = () => {
+  !fs.existsSync(searchIndexPath) && fs.mkdirSync(searchIndexPath, { recursive: true })
+}
+
+const exportIndex = async () => {
+  createSearchIndexFolder()
+  searchIndex.export(
+    (key, data) => fs.writeFileSync(`${searchIndexPath}${key}.json`, data !== undefined ? data : '')
+  )
+}
+
+const retrieveIndex = async () => {
+  createSearchIndexFolder()
+  const keys = fs
+    .readdirSync(searchIndexPath, { withFileTypes: true })
+    .filter(item => !item.isDirectory())
+    .map(item => item.name)
+
+  for (let i = 0, key; i < keys.length; i += 1) {
+    key = keys[i]
+    
+    // TODO: mac sometimes creates this file in the search index folder, which causes the app to exit
+    if (key === '.DS_Store') continue
+    
+    const data = fs.readFileSync(`${searchIndexPath}${key}`, 'utf8')
+    searchIndex.import(key.slice(0, -5), data === undefined ? null : data)
+  }
+}
+
+
 ipcMain.handle('SAVE_FILE', (event, args) => {
   const [year, fileName, content, rating] = args
   const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
+  
+  //searchIndex.remove(fileName)
+  searchIndex.update(fileName, {
+    date: fileName, 
+    content: tokenizer(content)
+  })
 
   fs.promises.writeFile(
     filePath,
@@ -272,6 +329,97 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
       rating: rating
     })
   )
+  
+  exportIndex()
+})
+
+ipcMain.handle('SEARCH', async (event, search) => {
+  const results = searchIndex.search(search)
+
+  if (results.length >= 1 ) {
+    const dates = results[0].result
+    let dataResult = []
+
+    for (const date of dates) {
+      await fs.promises.readFile(`${getFilePath(date.substring(0,4))}/${date}.json`, 'utf-8').then((data) => {
+        dataResult.push({
+          date: date,
+          ...JSON.parse(data)
+        })
+      })
+    }
+    return dataResult  
+  }
+  return {}
+})
+
+ipcMain.handle('LOAD_SEARCH_INDEX', async () => {
+  return retrieveIndex()
+})
+
+
+/**
+ * Cleans the content from any html elements, as well as deleting any
+ * base64 images and removing duplicates.
+ * @param content
+ * @returns { String }
+ */
+const tokenizer = (content) => {
+  const cleanedHtml = content.replace(/(<([^>]+)>)/gi, "").split(' ')
+  return cleanedHtml.filter((word, index, self) => self.indexOf(word) === index)
+}
+
+ipcMain.handle('REINDEX_ALL', async () => {
+  const isYearFolder = (folder) => /\b\d{4}\b/g.test(folder)
+
+  const getYearFolderFiles = (year) =>
+    fs.promises.readdir(`${basePath}/linked/${year}`)
+      .then((files) => files.map((file) => `${year}/${file}`))
+
+  const years =
+    await fs.promises.readdir(`${basePath}/linked`)
+      .then((folders) => folders.filter(isYearFolder))
+
+  
+  await Promise.all(years.map(getYearFolderFiles))
+    .then((yearFiles) => yearFiles.flat())
+    .then((dirtyFiles) => dirtyFiles.filter(file => file.match(/^(.*\.json$).*$/)))
+    .then((cleanFiles) => 
+      //Promise.all(
+        cleanFiles.map((file) => {
+          return {
+            data: JSON.parse(fs.readFileSync(`${basePath}/linked/${file}`, "utf8")),
+            date: file
+          }
+        })
+      //)
+    )
+    //.then((files) => files.map(JSON.parse))
+    //.then(files => Promise.all(files))
+    .then((files) => 
+      files.forEach((file) => {
+        let fileName = file.date.substring(5)
+        fileName = fileName.slice(0, fileName.length-5)
+        
+        try {
+          searchIndex.update(fileName, {
+            date: fileName,
+            content: tokenizer(file.data.content)
+          })  
+        } catch (e) {
+          console.log('could not index day', fileName, file.data.content)
+        }
+      })
+    )
+    .then(() => exportIndex())
+    .then(() => {
+      new Notification({
+        title: 'Search Index Updated!', 
+        body: 'Your database was success fully indexed! You may now search across all your data.'
+      }).show()
+    })
+  
+  return true
 })
 
 /**

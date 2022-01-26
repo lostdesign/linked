@@ -41,6 +41,10 @@ export default {
       this.setDate()
     })
 
+    ipcRenderer.on('set-search', () => {
+      this.$router.push('search', () => {})
+    })
+
     ipcRenderer.on('previous-day', () => {
       this.setDayTo(-1)
     })

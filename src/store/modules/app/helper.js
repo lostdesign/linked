@@ -26,6 +26,13 @@ export const setLanguage = async (language) => {
   return ipcRenderer.invoke('SET_STORAGE_VALUE', 'language', language)
 }
 
+export const loadSearchIndex = async () => {
+  await ipcRenderer.invoke('LOAD_SEARCH_INDEX')
+}
+
+export const reIndexAll = async () => {
+  await ipcRenderer.invoke('REINDEX_ALL')
+}
 
 export const setUpdateInterval = async (updateInterval) => {
   return ipcRenderer.invoke('SET_STORAGE_VALUE', 'updateInterval', updateInterval === 0 ? DAILY : WEEKLY)
