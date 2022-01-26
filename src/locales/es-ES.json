@@ -1,203 +1,75 @@
-<template>
-  <div
-    v-if="editor"
-    class="px-10 mt-5 text-gray-400 dark:text-gray-500 relative flex-grow"
-    @click="_focusEditor"
-  >
-    <bubble-menu class="bubble-menu" :editor="editor" v-if="editor">
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleHighlight()
-            .run()
+{
+  <Layout>
+    <main class="px-10 mt-10 text-black dark:text-white">
+      <router-link
+        to="/"
+        class="
+          flex
+          items-center
+          align-center
+          mb-3
+          hover:text-bright-pink
+          focus:outline-none
+          focus:ring-2 focus:ring-bright-pink
+          focus:border-bright-pink
         "
       >
-        <PenIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleBold()
-            .run()
+        <span class="mr-1"><BackIcon /></span>
+        "settings": {
+      </router-link>
+      <h1 class="mb-4">{{ $t('settings.title') }}</h1>
+      <h3>{{ $t('settings.designMode') }}</h3>
+      <theme-switcher />
+      <h3 class="mt-4">{{ $t('settings.language') }}</h3>
+      <LanguageDropdown />
+      <span
+        class="
+          fixed
+          bottom-0
+          left-0
+          w-full
+          p-5
+          text-center text-white
+          self-end
+          text-xs text-gray-500
         "
+        >v{{ version }}</span
       >
-        <BoldIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleItalic()
-            .run()
-        "
-      >
-        <ItalicIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleStrike()
-            .run()
-        "
-      >
-        <StrikeThroughIcon />
-      </button>
-    </bubble-menu>
-    <floating-menu class="floating-menu" :editor="editor" v-if="editor">
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleTaskList()
-            .run()
-        "
-      >
-        <CheckboxIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleBulletList()
-            .run()
-        "
-      >
-        <BulletListIcon />
-      </button>
-      <button
-        @click="
-          editor
-            .chain()
-            .focus()
-            .toggleCodeBlock()
-            .run()
-        "
-      >
-        <CodeIcon />
-      </button>
-    </floating-menu>
-    <div class="text-black dark:text-white">
-      <editor-content :editor="editor" v-model="getContent" />
-    </div>
-  </div>
+    </main>
+  </Layout>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import {
-  Getters as FileGetters,
-  Actions as FileActions
-} from '@/store/modules/file/types'
-
-import BulletListIcon from '@/assets/icons/bullet-list.svg'
-import CheckboxIcon from '@/assets/icons/checkbox.svg'
-import CodeIcon from '@/assets/icons/code.svg'
-import PenIcon from '@/assets/icons/pen.svg'
-import BoldIcon from '@/assets/icons/bold.svg'
-import ItalicIcon from '@/assets/icons/italic.svg'
-import StrikeThroughIcon from '@/assets/icons/strikethrough.svg'
-
-import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
-import Document from '@tiptap/extension-document'
-import Paragraph from '@tiptap/extension-paragraph'
-import Text from '@tiptap/extension-text'
-import TaskList from '@tiptap/extension-task-list'
-import TaskItem from '@tiptap/extension-task-item'
-import Heading from '@tiptap/extension-heading'
-import Highlight from '@tiptap/extension-highlight'
-import CodeBlock from '@tiptap/extension-code-block'
-import BulletList from '@tiptap/extension-bullet-list'
-import ListItem from '@tiptap/extension-list-item'
-import Bold from '@tiptap/extension-bold'
-import Italic from '@tiptap/extension-italic'
-import Image from '@tiptap/extension-image'
-import HorizontalRule from '@tiptap/extension-horizontal-rule'
-import Strike from '@tiptap/extension-strike'
-import Link from '@tiptap/extension-link'
-import History from '@tiptap/extension-history'
+import { version } from '../../package.json'
+import Layout from './Layout'
+import LanguageDropdown from '@/components/language-dropdown'
+import BackIcon from '@/assets/icons/back.svg'
+import ThemeSwitcher from '@/components/theme-switcher'
 
 export default {
   components: {
-    EditorContent,
-    FloatingMenu,
-    BubbleMenu,
-    BulletListIcon,
-    CheckboxIcon,
-    CodeIcon,
-    PenIcon,
-    BoldIcon,
-    ItalicIcon,
-    StrikeThroughIcon
+    ThemeSwitcher,
+    BackIcon,
+    LanguageDropdown,
+    Layout
   },
   data() {
     return {
-      editor: null
+      version
     }
   },
   methods: {
-    ...mapActions('file', [FileActions.SET_CONTENT, FileActions.SAVE_FILE]),
-    _focusEditor() {
-      this.editor
-        .chain()
-        .focus()
-        .run()
+    _handleEscapeKey() {
+      if (event.key !== 'Escape') return
+
+      this.$router.push('/', () => {})
     }
-  },
-  computed: {
-    ...mapGetters('file', [FileGetters.GET_CONTENT])
   },
   mounted() {
-    this.editor = new Editor({
-      extensions: [
-        Document,
-        Paragraph,
-        Text,
-        TaskList,
-        TaskItem,
-        Heading,
-        Highlight,
-        CodeBlock,
-        BulletList,
-        ListItem,
-        Bold,
-        Italic,
-        Image,
-        HorizontalRule,
-        Strike,
-        Link,
-        History
-      ],
-      content: this.getContent,
-      autofocus: true,
-      onUpdate: ({ editor }) => {
-        this.setContent(editor.getHTML())
-        this.saveFile()
-      }
-    })
+    document.addEventListener('keyup', this._handleEscapeKey, true)
   },
-  watch: {
-    getContent(value) {
-      const isSame = this.editor.getHTML() === value
-
-      if (isSame) {
-        return
-      }
-
-      this.editor.commands.setContent(this.getContent, false)
-    }
-  },
-
   beforeDestroy() {
-    this.editor.destroy()
+    document.removeEventListener('keyup', this._handleEscapeKey, true)
   }
 }
 </script>
