@@ -1,75 +1,86 @@
 <template>
-  <Layout>
-    <main class="px-10 mt-10 text-black dark:text-white">
-      <router-link
-        to="/"
-        class="
-          flex
-          items-center
-          align-center
-          mb-3
-          hover:text-bright-pink
-          focus:outline-none
-          focus:ring-2 focus:ring-bright-pink
-          focus:border-bright-pink
-        "
-      >
-        <span class="mr-1"><BackIcon /></span>
-        {{ $t('settings.back') }}
-      </router-link>
-      <h1 class="mb-4">{{ $t('settings.title') }}</h1>
-      <h3>{{ $t('settings.designMode') }}</h3>
-      <theme-switcher />
-      <h3 class="mt-4">{{ $t('settings.language') }}</h3>
-      <LanguageDropdown />
-      <span
-        class="
-          fixed
-          bottom-0
-          left-0
-          w-full
-          p-5
-          text-center text-white
-          self-end
-          text-xs text-gray-500
-        "
-        >v{{ version }}</span
-      >
-    </main>
-  </Layout>
+  <router-view />
 </template>
 
 <script>
-import { version } from '../../package.json'
-import Layout from './Layout'
-import LanguageDropdown from '@/components/language-dropdown'
-import BackIcon from '@/assets/icons/back.svg'
-import ThemeSwitcher from '@/components/theme-switcher'
+import { mapGetters, mapActions } from 'vuex'
+
+import {
+  Getters as CalendarGetters,
+  Actions as CalendarActions
+} from '@/store/modules/calendar/types'
+
+import { Actions as FileActions } from '@/store/modules/file/types'
+import {
+  Getters as AppGetters,
+  Actions as AppActions
+} from '@/store/modules/app/types'
+
+const { ipcRenderer } = require('electron')
 
 export default {
-  components: {
-    ThemeSwitcher,
-    BackIcon,
-    LanguageDropdown,
-    Layout
-  },
-  data() {
-    return {
-      version
-    }
-  },
   methods: {
-    _handleEscapeKey() {
-      if (event.key !== 'Escape') return
-
-      this.$router.push('/', () => {})
-    }
+    ...mapActions('calendar', [
+      CalendarActions.SET_DATE,
+      CalendarActions.SET_DAY_TO,
+      CalendarActions.SET_CURRENT_WEEK
+    ]),
+    ...mapActions('file', [FileActions.FETCH_FILE]),
+    ...mapActions('app', [AppActions.INIT_APP])
+  },
+  computed: {
+    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE]),
+    ...mapGetters('app', [AppGetters.GET_LANGUAGE, AppGetters.GET_THEME])
   },
   mounted() {
-    document.addEventListener('keyup', this._handleEscapeKey, true)
+    ipcRenderer.on('open-settings', () => {
+      this.$router.push('settings', () => {})
+    })
+
+    ipcRenderer.on('set-today', () => {
+      this.setDate()
+    })
+
+    ipcRenderer.on('previous-day', () => {
+      this.setDayTo(-1)
+    })
+
+    ipcRenderer.on('next-day', () => {
+      this.setDayTo(1)
+    })
+
+    ipcRenderer.on('previous-week', () => {
+      this.setDayTo(-7)
+    })
+
+    ipcRenderer.on('next-week', () => {
+      this.setDayTo(7)
+    })
   },
-  beforeDestroy() {
-    document.removeEventListener('keyup', this._handleEscapeKey, true)
+  created() {
+    this.initApp()
+    this.fetchFile(this.getCurrentDate)
+
+    this.$store.subscribe((mutation) => {
+      if (mutation.type === `calendar/${CalendarActions.SET_DATE}`) {
+        this.fetchFile(this.getCurrentDate)
+        this.setCurrentWeek()
+      }
+
+      if (mutation.type === `app/${AppActions.SET_THEME}`) {
+        if (this.getTheme === 'dark') {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      }
+    })
+
+    if (this.getTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
   }
 }
 </script>
