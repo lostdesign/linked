@@ -1,6 +1,6 @@
 <template>
-  <div class="flex space-x-5 mb-4">
-    <div
+  <div class="flex space-x-5 mb-4 mt-4">
+    <button
       @click="setTheme('light')"
       class="
         w-1/2
@@ -18,8 +18,8 @@
       :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'light'}"
     >
       <SunIcon />
-    </div>
-    <div
+    </button>
+    <button
       @click="setTheme('dark')"
       class="
         w-1/2
@@ -37,7 +37,7 @@
       :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'dark'}"
     >
       <MoonIcon />
-    </div>
+    </button>
   </div>
 </template>
 

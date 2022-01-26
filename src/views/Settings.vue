@@ -18,10 +18,15 @@
         {{ $t('settings.back') }}
       </router-link>
       <h1 class="mb-4">{{ $t('settings.title') }}</h1>
-      <h3>{{ $t('settings.designMode') }}</h3>
+      <h3 class="mt-8">{{ $t('settings.languages.title') }}</h3>
+      <p class="text-sm leading-5 text-gray-500">{{ $t('settings.languages.hint') }}</p>
+      <language-dropdown />
+      <h3 class="mt-8">{{ $t('settings.designMode.title') }}</h3>
+      <p class="text-sm text-gray-500">{{ $t('settings.designMode.hint') }}</p>
       <theme-switcher />
-      <h3 class="mt-4">{{ $t('settings.language') }}</h3>
-      <LanguageDropdown />
+      <h3 class="mt-8">{{ $t('settings.updates.title') }}</h3>
+      <p class="text-sm text-gray-500">{{ $t('settings.updates.hint') }}</p>
+      <update-dropdown />
       <span
         class="
           fixed
@@ -43,6 +48,7 @@
 import { version } from '../../package.json'
 import Layout from './Layout'
 import LanguageDropdown from '@/components/language-dropdown'
+import UpdateDropdown from '@/components/update-dropdown'
 import BackIcon from '@/assets/icons/back.svg'
 import ThemeSwitcher from '@/components/theme-switcher'
 
@@ -51,7 +57,8 @@ export default {
     ThemeSwitcher,
     BackIcon,
     LanguageDropdown,
-    Layout
+    UpdateDropdown,
+    Layout,
   },
   data() {
     return {
