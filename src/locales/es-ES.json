@@ -1,86 +1,65 @@
 <template>
-  <router-view />
+  <div class="flex justify-between items-center align-center pt-6 px-10 mb-2">
+    <span class="text-center text-3xl font-black">{{
+      formatDate(getCurrentDate, 'MMMM yyyy')
+    }}</span>
+    <!-- Week switcher -->
+    <span
+      class="
+        text-black
+        dark:text-white
+        select-none
+        flex
+        justify-center
+        items-center
+        align-center
+        space-x-1
+      "
+    >
+      <span
+        class="text-bright-pink hover:text-red-400 cursor-pointer"
+        @click="setDayTo(-7)"
+      >
+        <ArrowLeftIcon />
+      </span>
+      <span>
+        <span class="mr-1 text-gray-400 dark:text-gray-600">
+          {{ $t('home.calendarWeek') }}
+        </span>
+        {{ formatDate(getCurrentDate, 'WW') }}</span
+      >
+      <span
+        class="text-bright-pink hover:text-red-400 cursor-pointer"
+        @click="setDayTo(7)"
+      >
+        <ArrowRightIcon />
+      </span>
+    </span>
+  </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import ArrowLeftIcon from '@/assets/icons/arrow-left.svg'
+import ArrowRightIcon from '@/assets/icons/arrow-right.svg'
 
+import { formatDate } from '@/store/modules/calendar/helper'
+import { mapActions, mapGetters } from 'vuex'
 import {
-  Getters as CalendarGetters,
-  Actions as CalendarActions
+  Actions as CalendarActions,
+  Getters as CalendarGetters
 } from '@/store/modules/calendar/types'
 
-import { Actions as FileActions } from '@/store/modules/file/types'
-import {
-  Getters as AppGetters,
-  Actions as AppActions
-} from '@/store/modules/app/types'
-
-const { ipcRenderer } = require('electron')
-
 export default {
+  components: {
+    ArrowLeftIcon,
+    ArrowRightIcon
+  },
   methods: {
-    ...mapActions('calendar', [
-      CalendarActions.SET_DATE,
-      CalendarActions.SET_DAY_TO,
-      CalendarActions.SET_CURRENT_WEEK
-    ]),
-    ...mapActions('file', [FileActions.FETCH_FILE]),
-    ...mapActions('app', [AppActions.INIT_APP])
+    formatDate,
+    ...mapActions('calendar', [CalendarActions.SET_DAY_TO])
   },
   computed: {
-    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE]),
-    ...mapGetters('app', [AppGetters.GET_LANGUAGE, AppGetters.GET_THEME])
-  },
-  mounted() {
-    ipcRenderer.on('open-settings', () => {
-      this.$router.push('settings', () => {})
-    })
-
-    ipcRenderer.on('set-today', () => {
-      this.setDate()
-    })
-
-    ipcRenderer.on('previous-day', () => {
-      this.setDayTo(-1)
-    })
-
-    ipcRenderer.on('next-day', () => {
-      this.setDayTo(1)
-    })
-
-    ipcRenderer.on('previous-week', () => {
-      this.setDayTo(-7)
-    })
-
-    ipcRenderer.on('next-week', () => {
-      this.setDayTo(7)
-    })
-  },
-  created() {
-    this.initApp()
-    this.fetchFile(this.getCurrentDate)
-
-    this.$store.subscribe((mutation) => {
-      if (mutation.type === `calendar/${CalendarActions.SET_DATE}`) {
-        this.fetchFile(this.getCurrentDate)
-        this.setCurrentWeek()
-      }
-
-      if (mutation.type === `app/${AppActions.SET_THEME}`) {
-        if (this.getTheme === 'dark') {
-          document.documentElement.classList.add('dark')
-        } else {
-          document.documentElement.classList.remove('dark')
-        }
-      }
-    })
-
-    if (this.getTheme === 'dark') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
+    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE])
   }
 }
 </script>
