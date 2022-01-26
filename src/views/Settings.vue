@@ -22,6 +22,24 @@
       <theme-switcher />
       <h3 class="mt-4">{{ $t('settings.language') }}</h3>
       <LanguageDropdown />
+      <h3 class="mt-4">{{ $t('search.reindex_title') }}</h3>
+      <button class="
+        bg-gray-100
+        rounded-lg
+        flex
+        justify-center
+        items-center
+        align-center
+        text-black
+        hover:opacity-75
+        cursor-pointer
+        w-full
+        h-12
+        "
+        @click='reIndexAll'
+      >
+        {{ $t('search.start_reindex') }}
+      </button>
       <span
         class="
           fixed
@@ -45,6 +63,7 @@ import Layout from './Layout'
 import LanguageDropdown from '@/components/language-dropdown'
 import BackIcon from '@/assets/icons/back.svg'
 import ThemeSwitcher from '@/components/theme-switcher'
+import { reIndexAll } from '@/store/modules/app/helper'
 
 export default {
   components: {
@@ -59,6 +78,7 @@ export default {
     }
   },
   methods: {
+    reIndexAll,
     _handleEscapeKey() {
       if (event.key !== 'Escape') return
 

@@ -11,6 +11,11 @@
     "language": "Language"
   },
   "search": {
-    "placeholder": "Search for your notes..."
+    "placeholder": "Search for your notes ...",
+    "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
+    "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
+    "result_amount": "results",
+    "reindex_title": "Database Index",
+    "start_reindex": "Start indexing"
   }
 }

@@ -22,3 +22,7 @@ export const setLanguage = async (language) => {
 export const loadSearchIndex = async () => {
   await ipcRenderer.invoke('LOAD_SEARCH_INDEX')
 }
+
+export const reIndexAll = async () => {
+  await ipcRenderer.invoke('REINDEX_ALL')
+}

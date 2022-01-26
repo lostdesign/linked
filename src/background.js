@@ -6,7 +6,8 @@ import {
   BrowserWindow,
   ipcMain,
   nativeTheme,
-  Menu
+  Menu,
+  Notification
 } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
@@ -22,6 +23,7 @@ let win
 
 // Turn off software rasterizer for less resource usage
 app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
+app.setAppUserModelId(process.execPath)
 
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
@@ -190,7 +192,6 @@ app.on('activate', () => {
   }
 })
 
-
 app.on('ready', async () => {
   if (isDevelopment && !process.env.IS_TEST) {
     try {
@@ -327,13 +328,13 @@ ipcMain.handle('SEARCH', async (event, search) => {
   const results = searchIndex.search(search)
 
   if (results.length >= 1 ) {
-    const foo = results[0].result
+    const dates = results[0].result
     let dataResult = []
 
-    for (const r of foo) {
-      await fs.promises.readFile(`${getFilePath(2021)}/${r}.json`, 'utf-8').then((data) => {
+    for (const date of dates) {
+      await fs.promises.readFile(`${getFilePath(date.substring(0,4))}/${date}.json`, 'utf-8').then((data) => {
         dataResult.push({
-          date: r,
+          date: date,
           ...JSON.parse(data)
         })
       })
@@ -343,7 +344,7 @@ ipcMain.handle('SEARCH', async (event, search) => {
   return {}
 })
 
-ipcMain.handle('LOAD_SEARCH_INDEX', async (event) => {
+ipcMain.handle('LOAD_SEARCH_INDEX', async () => {
   return retrieveIndex()
 })
 
@@ -355,9 +356,62 @@ ipcMain.handle('LOAD_SEARCH_INDEX', async (event) => {
  * @returns { String }
  */
 const tokenizer = (content) => {
-  const cleanedHtml = content.match(/(?<=>)([\w\s]+)(?=<\/)/gm)
+  const cleanedHtml = content.replace(/(<([^>]+)>)/gi, "").split(' ')
   return cleanedHtml.filter((word, index, self) => self.indexOf(word) === index)
 }
+
+ipcMain.handle('REINDEX_ALL', async () => {
+  const isYearFolder = (folder) => /\b\d{4}\b/g.test(folder)
+
+  const getYearFolderFiles = (year) =>
+    fs.promises.readdir(`${basePath}/linked/${year}`)
+      .then((files) => files.map((file) => `${year}/${file}`))
+
+  const years =
+    await fs.promises.readdir(`${basePath}/linked`)
+      .then((folders) => folders.filter(isYearFolder))
+
+  
+  await Promise.all(years.map(getYearFolderFiles))
+    .then((yearFiles) => yearFiles.flat())
+    .then((dirtyFiles) => dirtyFiles.filter(file => file.match(/^(.*\.json$).*$/)))
+    .then((cleanFiles) => 
+      //Promise.all(
+        cleanFiles.map((file) => {
+          return {
+            data: JSON.parse(fs.readFileSync(`${basePath}/linked/${file}`, "utf8")),
+            date: file
+          }
+        })
+      //)
+    )
+    //.then((files) => files.map(JSON.parse))
+    //.then(files => Promise.all(files))
+    .then((files) => 
+      files.forEach((file) => {
+        let fileName = file.date.substring(5)
+        fileName = fileName.slice(0, fileName.length-5)
+        
+        try {
+          searchIndex.update(fileName, {
+            date: fileName,
+            content: tokenizer(file.data.content)
+          })  
+        } catch (e) {
+          console.log('could not index day', fileName, file.data.content)
+        }
+      })
+    )
+    .then(() => exportIndex())
+    .then(() => {
+      new Notification({
+        title: 'Search Index Updated!', 
+        body: 'Your database was success fully indexed! You may now search across all your data.'
+      }).show()
+    })
+  
+  return true
+})
 
 /**
  * Construct the base path where files are stored and loaded from
