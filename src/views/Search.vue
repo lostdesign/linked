@@ -84,7 +84,16 @@ export default {
   methods: {
     ...mapActions('calendar', [CalendarActions.SET_DATE]),
     async search() {
-      this.searchResults =  await ipcRenderer.invoke('SEARCH', this.searchTerm)
+      const result = await ipcRenderer.invoke('SEARCH', this.searchTerm)
+      
+      this.searchResults = result.sort((a, b) => {
+        let keyA = new Date(a.date), keyB = new Date(b.date)
+
+        if (keyA < keyB) return 1
+        if (keyA > keyB) return -1
+        
+        return 0
+      })
     },
     _handleKeyDown(event) {
       this.keysPressed[event.key] = true
