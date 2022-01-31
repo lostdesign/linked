@@ -59,6 +59,7 @@
   </Layout>
 </template>
 
+
 <script>
 import Layout from './Layout'
 const { ipcRenderer } = require('electron')
@@ -84,16 +85,7 @@ export default {
   methods: {
     ...mapActions('calendar', [CalendarActions.SET_DATE]),
     async search() {
-      const result = await ipcRenderer.invoke('SEARCH', this.searchTerm)
-      
-      this.searchResults = result.sort((a, b) => {
-        let keyA = new Date(a.date), keyB = new Date(b.date)
-
-        if (keyA < keyB) return 1
-        if (keyA > keyB) return -1
-        
-        return 0
-      })
+      this.searchResults = await ipcRenderer.invoke('SEARCH', this.searchTerm)
     },
     _handleKeyDown(event) {
       this.keysPressed[event.key] = true
@@ -111,18 +103,15 @@ export default {
     _formatDate(date) {
       return formatDate(date,  'dd. MMM yyyy')
     },
-    /*highlight(content) {
+    highlight(content) {
       if(!this.searchTerm) {
-        console.log('no search term')
         return content;
       }
 
-      //return content.replace(query, '<span class="highlight">' + query + '</span>')
       return content.replace(new RegExp(this.searchTerm, "gi"), match => {
-        console.log(content, match, this.searchTerm)
         return '<mark class="p-1 font-medium underline">' + match + '</mark>';
       });
-    }*/
+    }
   },
   computed: {
     _handleSearch() {

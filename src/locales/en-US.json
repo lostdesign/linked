@@ -15,6 +15,11 @@
       "title": "Language",
       "hint": "In which language do you prefer to use linked?"
     },
+    "data": {
+      "title": "Datapath",
+      "hint": "Where should your data be stored? Currently stored at: ",
+      "choose": "Choose new location"
+    },
     "updates": {
       "title": "Update Frequency",
       "hint": "How often to check for updates?",

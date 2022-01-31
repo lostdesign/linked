@@ -15,6 +15,11 @@
       "title": "Sprache",
       "hint": "In welcher Sprache möchtest du linked nutzen?"
     },
+    "data": {
+      "title": "Datenpfad",
+      "hint": "Wo sollen deine Daten gespeichert werden? Aktueller Speicherort: ",
+      "choose": "Neuen Ort auswählen"
+    },
     "updates": {
       "title": "Update Intervall",
       "hint": "Wie oft soll nach neuen Versionen gesucht werden?",

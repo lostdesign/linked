@@ -15,6 +15,10 @@ export const getUpdateInterval = async () => {
   return updateInterval === DAILY ? 0 : 1
 }
 
+export const getDataPath = () => {
+  return ipcRenderer.invoke('GET_STORAGE_VALUE', 'dataPath')
+}
+
 export const setTheme = async (theme) => {
   return ipcRenderer.invoke('SET_STORAGE_VALUE', 'theme', theme).then(() => {
     ipcRenderer.invoke('TOGGLE_THEME', theme)
@@ -31,9 +35,13 @@ export const loadSearchIndex = async () => {
 }
 
 export const reIndexAll = async () => {
-  await ipcRenderer.invoke('REINDEX_ALL')
+  return await ipcRenderer.invoke('REINDEX_ALL')
 }
 
 export const setUpdateInterval = async (updateInterval) => {
   return ipcRenderer.invoke('SET_STORAGE_VALUE', 'updateInterval', updateInterval === 0 ? DAILY : WEEKLY)
+}
+
+export const setDataPath = () => {
+  return ipcRenderer.invoke('SET_DATA_PATH')
 }

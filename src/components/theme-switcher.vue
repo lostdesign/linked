@@ -12,7 +12,8 @@
         items-center
         align-center
         text-black
-        hover:opacity-75
+        hover:bg-gray-200
+        dark:hover:bg-gray-300
         cursor-pointer
       "
       :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'light'}"
@@ -31,7 +32,7 @@
         items-center
         align-center
         text-white
-        hover:opacity-75
+        hover:bg-gray-700
         cursor-pointer
       "
       :class="{'ring-2 ring-bright-pink' : this.getTheme() === 'dark'}"

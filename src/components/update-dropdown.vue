@@ -18,6 +18,7 @@
           focus:ring-2 focus:ring-bright-pink
           focus:border-bright-pink
           sm:text-sm
+          cursor-pointer
         "
         aria-haspopup="listbox"
         aria-expanded="true"
@@ -114,7 +115,6 @@ export default {
     ...mapActions('app', [AppActions.SET_UPDATE_INTERVAL, AppActions.SYNC_UPDATE_INTERVAL]),
     
     _handleOptionChange(option) {
-      console.log(option)
       this.setUpdateInterval(option)
       this.open = false
     }

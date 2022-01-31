@@ -9,7 +9,8 @@ import {
   ipcMain,
   nativeTheme,
   Menu,
-  Notification
+  Notification,
+  dialog
 } from 'electron'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -28,6 +29,7 @@ protocol.registerSchemesAsPrivileged([
 
 export const DAILY = 1000 * 60 * 60 * 24
 export const WEEKLY = DAILY * 7
+const basePath = `${app.getPath('documents')}/linked`
 
 const Store = require('electron-store')
 global.storage = new Store({
@@ -38,7 +40,8 @@ global.storage = new Store({
     theme: 'dark',
     searchMode: 'forward',
     enableUpdates: true,
-    updateInterval: DAILY
+    updateInterval: DAILY,
+    dataPath: basePath
   }
 })
 
@@ -154,9 +157,6 @@ const template = [
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
-
-
-
 const createWindow = () => {
   win = new BrowserWindow({
     width: 470,
@@ -233,6 +233,63 @@ ipcMain.handle('SET_STORAGE_VALUE', (event, key, data) => {
 ipcMain.handle('DELETE_STORAGE_VALUE', (event, key) => {
   return global.storage.delete(key)
 })
+
+const newPathNotification = (newPath) => {
+  new Notification({
+    title: 'Successfully set new path!',
+    body: `Your data now is being read from ${newPath}.`
+  }).show()
+}
+
+ipcMain.handle('SET_DATA_PATH', async () => {
+  const currentPath = global.storage.get('dataPath')
+  const result = await dialog.showOpenDialog(win, {
+    properties: ['openDirectory', 'createDirectory']
+  })
+  
+  if (result.canceled === true) {
+    new Notification({
+      title: 'Action aborted',
+      body: 'Your previous settings still apply.'
+    }).show()
+    
+    return currentPath
+  }
+
+  const newPath = result.filePaths.length > 0
+    ? result.filePaths[0]
+    : basePath
+
+  searchIndex = new Document({
+    document: {
+      id: 'date',
+      index: ['content'],
+      store: true
+    },
+    tokenize: global.storage.get('searchMode')
+  })
+
+  if (fs.readdirSync(newPath).length !== 0) {
+    new Notification({
+      title: 'Destination not empty!',
+      body: `Could not move data, please select an empty path.`
+    }).show()
+
+    return global.storage.get('dataPath')
+  }
+
+  fs.renameSync(currentPath, newPath)
+  global.storage.set('dataPath', newPath)
+  await repairSearchDatabase()
+
+  new Notification({
+    title: 'Successfully set new path!',
+    body: `Your data now is being read from ${newPath}.`
+  }).show()
+
+  return global.storage.get('dataPath')
+})
+
 
 ipcMain.handle('TOGGLE_THEME', (event, mode) => {
   if (mode === 'light') {
@@ -348,7 +405,15 @@ ipcMain.handle('SEARCH', async (event, search) => {
         })
       })
     }
-    return dataResult  
+    
+    return dataResult.sort((a, b) => {
+      let keyA = new Date(a.date), keyB = new Date(b.date)
+
+      if (keyA < keyB) return 1
+      if (keyA > keyB) return -1
+
+      return 0
+    })
   }
   return {}
 })
@@ -357,7 +422,6 @@ ipcMain.handle('LOAD_SEARCH_INDEX', async () => {
   return retrieveIndex()
 })
 
-
 /**
  * Cleans the content from any html elements, as well as deleting any
  * base64 images and removing duplicates.
@@ -365,47 +429,46 @@ ipcMain.handle('LOAD_SEARCH_INDEX', async () => {
  * @returns { String }
  */
 const tokenizer = (content) => {
-  const cleanedHtml = content.replace(/(<([^>]+)>)/gi, "").split(' ')
+  const cleanedHtml = content.replace(/(<([^>]+)>)/gi, ' ').split(' ')
   return cleanedHtml.filter((word, index, self) => self.indexOf(word) === index)
 }
 
-ipcMain.handle('REINDEX_ALL', async () => {
+ipcMain.handle('REINDEX_ALL', async () => repairSearchDatabase())
+
+const repairSearchDatabase = async () => {
   const isYearFolder = (folder) => /\b\d{4}\b/g.test(folder)
+  const dataPath = global.storage.get('dataPath')
 
   const getYearFolderFiles = (year) =>
-    fs.promises.readdir(`${basePath}/linked/${year}`)
+    fs.promises.readdir(getFilePath(year))
       .then((files) => files.map((file) => `${year}/${file}`))
 
   const years =
-    await fs.promises.readdir(`${basePath}/linked`)
+    await fs.promises.readdir(`${dataPath}`)
       .then((folders) => folders.filter(isYearFolder))
 
-  
+
   await Promise.all(years.map(getYearFolderFiles))
     .then((yearFiles) => yearFiles.flat())
     .then((dirtyFiles) => dirtyFiles.filter(file => file.match(/^(.*\.json$).*$/)))
-    .then((cleanFiles) => 
-      //Promise.all(
-        cleanFiles.map((file) => {
-          return {
-            data: JSON.parse(fs.readFileSync(`${basePath}/linked/${file}`, "utf8")),
-            date: file
-          }
-        })
-      //)
+    .then((cleanFiles) =>
+      cleanFiles.map((file) => {
+        return {
+          data: JSON.parse(fs.readFileSync(`${dataPath}/${file}`, "utf8")),
+          date: file
+        }
+      })
     )
-    //.then((files) => files.map(JSON.parse))
-    //.then(files => Promise.all(files))
-    .then((files) => 
+    .then((files) =>
       files.forEach((file) => {
         let fileName = file.date.substring(5)
         fileName = fileName.slice(0, fileName.length-5)
-        
+
         try {
           searchIndex.update(fileName, {
             date: fileName,
             content: tokenizer(file.data.content)
-          })  
+          })
         } catch (e) {
           console.log('could not index day', fileName, file.data.content)
         }
@@ -414,20 +477,19 @@ ipcMain.handle('REINDEX_ALL', async () => {
     .then(() => exportIndex())
     .then(() => {
       new Notification({
-        title: 'Search Index Updated!', 
-        body: 'Your database was success fully indexed! You may now search across all your data.'
+        title: 'Search Index Updated!',
+        body: 'Your database was successfully indexed! You may now search across all your data.'
       }).show()
     })
-  
+
   return true
-})
+}
 
 /**
  * Construct the base path where files are stored and loaded from
  */
-const basePath = app.getPath('documents')
 const getFilePath = (year) => {
-  return `${basePath}/linked/${year}`
+  return `${global.storage.get('dataPath')}/${year}`
 }
 
 const getDefaultData = () => {

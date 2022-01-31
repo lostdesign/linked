@@ -18,6 +18,7 @@
           focus:ring-2 focus:ring-bright-pink
           focus:border-bright-pink
           sm:text-sm
+          cursor-pointer
         "
         aria-haspopup="listbox"
         aria-expanded="true"

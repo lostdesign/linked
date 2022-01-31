@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   darkMode: 'class',
   purge: {
-    enabled: true,
+    enabled: false,
     content: ['./src/**/*.html', './src/**/*.vue', './src/**/*.svg']
   },
   theme: {
@@ -33,7 +33,8 @@ module.exports = {
       scale: ['active'],
       border: ['focus'],
       translate: ['active'],
-      transform: ['active']
+      transform: ['active'],
+      dark: ['hover']
     }
   },
   plugins: []
