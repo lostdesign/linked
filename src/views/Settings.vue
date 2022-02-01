@@ -79,7 +79,8 @@
       </button>
       <span
         class="
-          bg-black
+          bg-white
+          dark:bg-black
           fixed
           bottom-0
           left-0

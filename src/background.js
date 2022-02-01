@@ -27,9 +27,10 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
+const path = require('path')
 export const DAILY = 1000 * 60 * 60 * 24
 export const WEEKLY = DAILY * 7
-const basePath = `${app.getPath('documents')}/linked`
+const basePath = path.join(app.getPath('documents'), 'linked')
 
 const Store = require('electron-store')
 global.storage = new Store({
