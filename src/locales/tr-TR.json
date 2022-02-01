@@ -15,6 +15,11 @@
       "title": "Dil",
       "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
     },
+    "data": {
+      "title": "Veri yolu",
+      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
+      "choose": "Yeni konum seçin"
+    },
     "updates": {
       "title": "Güncelleme aralığı",
       "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",

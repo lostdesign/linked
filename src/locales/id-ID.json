@@ -15,6 +15,11 @@
       "title": "Bahasa",
       "hint": "Dalam bahasa apa Anda ingin menggunakan linked?"
     },
+    "data": {
+      "title": "Jalur data",
+      "hint": "Di mana data Anda harus disimpan? Lokasi saat ini: ",
+      "choose": "Pilih lokasi baru"
+    },
     "updates": {
       "title": "Interval pembaruan",
       "hint": "Seberapa sering memeriksa versi baru?",

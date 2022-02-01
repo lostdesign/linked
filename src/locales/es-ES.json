@@ -15,6 +15,11 @@
       "title": "Idioma",
       "hint": "¿En qué idioma le gustaría usar Linked?"
     },
+    "data": {
+      "title": "Ruta de dades",
+      "hint": "¿Dónde deben almacenarse sus datos? Ubicación actual: ",
+      "choose": "Seleccionar nueva ubicación"
+    },
     "updates": {
       "title": "intervalo de actualización",
       "hint": "¿Con qué frecuencia buscar nuevas versiones?",

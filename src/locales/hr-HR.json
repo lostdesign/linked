@@ -15,6 +15,11 @@
       "title": "Jezik",
       "hint": "Na kojem jeziku želite koristiti linked?"
     },
+    "data": {
+      "title": "Put podataka",
+      "hint": "Gdje bi trebali biti pohranjeni vaši podaci? Trenutna lokacija: ",
+      "choose": "Odaberite novu lokaciju"
+    },
     "updates": {
       "title": "interval ažuriranja",
       "hint": "Koliko često provjeravati nove verzije?",
