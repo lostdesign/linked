@@ -1,3 +1,78 @@
+## [1.4.0](https://github.com/lostdesign/linked/compare/v1.3.11...v1.4.0) - 2022-02-01- 
+
+- 🐛 fix color and path
+- ✨ custom file location+migration
+- ♻️ bump node version
+- 🔥delete brazil translation 
+- 🌐 update translations
+- ✨add reindex method
+- ✨ add keyboard shortcuts and search result selection
+- ♻️ update tailwind
+- ✨ Add check for updates menu option
+- ✨ Improve updates system
+- 🌐 Add catalan language
+- ♻️ change US translation for search placeholder
+
+## [1.3.12](https://github.com/lostdesign/linked/compare/v1.3.11...v1.3.12) - 2021-11-13
+
+- 🚑 hotfix, Korean translation broke the app due to a missing code property
+
+## [1.3.11](https://github.com/lostdesign/linked/compare/v1.3.10...v1.3.11) - 2021-11-12
+- 💬 Added arabic translation by @ViNoS-ab in #107
+### New Contributors
+@ViNoS-ab made their first contribution in #107
+
+## [1.3.10](https://github.com/lostdesign/linked/compare/v1.3.9...v1.3.10) - 2021-11-09
+
+- 🐛 fixes #105
+  - latest-linux.yml now back, providing autoupdate for .AppImage
+  - .deb & .rpm now automatically attaching to a release, previously were missing due to failing .snap build
+- ♻️ removes .msi since it did not work
+
+## [1.3.9](https://github.com/lostdesign/linked/compare/v1.3.7...v1.3.9) - 2021-11-09
+
+- ♻️ added .rpm by @KorbsStudio
+- ♻️ added .msi(needs to be fixed in one of the next release, it failed)
+
+## [1.3.8](https://github.com/lostdesign/linked/compare/v1.3.7...v1.3.8) - 2021-11-09
+Pipeline failed, skipping this version.
+
+
+## [1.3.7](https://github.com/lostdesign/linked/compare/v1.3.6...v1.3.7) - 2021-11-08
+
+- 🐛 fixed a UI bug where the app would have its shell would use the OS thememode and the app itself would use the set thememode
+
+## [1.3.6](https://github.com/lostdesign/linked/compare/v1.3.5...v1.3.6) - 2021-10-27
+
+- 💄 tiny ui refinements
+  - bubble menu received a border
+  - selected theme now has active state
+  - primary color has more ✨ pop ✨
+  - marking text has been desaturated
+  - links now are visible as such lostdesign/linked
+- 🐛 code block now can simply be deleted if its empty, by using backspace #99 (reported by @Ryaaahs)
+- ♻️ refactored code
+
+### PR's merged
+
+- 🐛 collapse keyboard shortcuts by @lostdesign in #97
+- 🚧 ui fixes by @lostdesign in #100
+
+## [1.3.5](https://github.com/lostdesign/linked/compare/v1.3.4...v1.3.5) - 2021-08-31
+
+- 🌐 add Dutch and French translations by @JonasPardon
+
+## [1.3.4](https://github.com/lostdesign/linked/compare/v1.3.3...v1.3.4) - 2021-08-10
+
+- 🐛 fix broken releases
+- 📝 update readme
+
+## [1.3.3](https://github.com/lostdesign/linked/compare/v1.3.2...v1.3.3) - 2021-08-09
+
+- ♻️ add themeswitcher component, add app store module, refactor theme …
+- ♻️ reformat code
+- ✨ add electron-storage
+
 ## [1.3.2](https://github.com/lostdesign/linked/compare/v1.3.1...v1.3.2) - 2021-07-08
 
 - ♻️ fix keyboard shortcuts
