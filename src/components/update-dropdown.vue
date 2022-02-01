@@ -25,7 +25,7 @@
         aria-labelledby="listbox-label"
         @click="open = !open"
       >
-        <span class="block truncate">{{ languages[language].title }}</span>
+        <span class="block truncate">{{ selected }}</span>
         <span
           class="
             absolute
@@ -69,15 +69,15 @@
         aria-activedescendant="listbox-option-3"
         v-if="open"
       >
-        <template v-for="(lang, index) in languages">
+        <template v-for="(option, index) in options">
           <li
             class="cursor-default select-none relative py-2 pl-8 pr-4"
             id="listbox-option-0"
             role="option"
             :key="index"
-            @click="_handleLanguageChange(lang)"
+            @click="_handleOptionChange(index)"
           >
-            <span class="font-normal block truncate">{{ lang.title }} </span>
+            <span class="font-normal block truncate">{{ option }} </span>
             <span
               class="
                 text-bright-pink
@@ -88,7 +88,7 @@
                 items-center
                 pl-1.5
               "
-              v-if="selected === index"
+              v-if="selected === option"
             >
               <TickIcon />
             </span>
@@ -102,48 +102,34 @@
 <script>
 import TickIcon from '@/assets/icons/tick.svg'
 import DropdownIcon from '@/assets/icons/dropdown.svg'
-import { DateTime } from 'luxon'
-import { loadLocaleMessages } from '@/i18n'
 import { mapActions, mapGetters } from 'vuex'
-import { Actions as CalendarActions } from '@/store/modules/calendar/types'
-import {
-  Actions as AppActions,
-  Getters as AppGetters
-} from '@/store/modules/app/types'
+import { Actions as AppActions, Getters as AppGetters } from '@/store/modules/app/types'
 
 export default {
   data() {
     return {
       open: false,
-      selected: localStorage.lang,
-      language: (this.$i18n.locale = localStorage.lang || 'en-US'),
-      languages: loadLocaleMessages()
     }
   },
   methods: {
-    ...mapActions('calendar', [CalendarActions.SET_CURRENT_WEEK]),
-    ...mapActions('app', [AppActions.SET_LANGUAGE]),
-
-    _handleLanguageChange(lang) {
-      /**
-       * TODO / FIXME, should not need to use localStorage
-       * current use of formatDate() and other INTL methods require it since store is not available
-       */
-
-      if (this.$i18n.locale === lang.code) return
-
-      this.selected = lang.code
-      this.language = lang.code
+    ...mapActions('app', [AppActions.SET_UPDATE_INTERVAL, AppActions.SYNC_UPDATE_INTERVAL]),
+    
+    _handleOptionChange(option) {
+      this.setUpdateInterval(option)
       this.open = false
-      this.$i18n.locale = lang.code
-      localStorage.lang = lang.code
-
-      this.setCurrentWeek()
-      DateTime.local().setLocale(lang.code)
     }
   },
   computed: {
-    ...mapGetters('app', [AppGetters.GET_LANGUAGE])
+    ...mapGetters('app', [AppGetters.GET_UPDATE_INTERVAL]),
+    options() {
+      return [this.$t('settings.updates.daily'), this.$t('settings.updates.weekly')]
+    },
+    selected() {
+      return this.options[this.getUpdateInterval]
+    }
+  },
+  created() {
+    this.syncUpdateInterval()
   },
   components: {
     TickIcon,

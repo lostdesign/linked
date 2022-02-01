@@ -7,5 +7,13 @@ export default {
 
   [Getters.GET_THEME](state) {
     return state.theme
+  },
+
+  [Getters.GET_UPDATE_INTERVAL](state) {
+    return state.updateInterval
+  },
+
+  [Getters.GET_DATA_PATH](state) {
+    return state.dataPath
   }
 }

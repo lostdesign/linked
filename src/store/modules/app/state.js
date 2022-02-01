@@ -1,4 +1,6 @@
 export default () => ({
   language: null,
-  theme: null
+  theme: null,
+  updateInterval: null,
+  dataPath: null
 })

@@ -10,13 +10,14 @@ module.exports = {
     extend: {
       colors: {
         'pink': '#D1014C',
-        'bright-pink': '#FF005C'
+        'bright-pink': '#FF005C',
+        'secondary-black': '#111'
       }
     },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: '#161616',
+      black: '#141414',
       white: '#ffffff',
       gray: colors.gray,
       indigo: colors.indigo,
@@ -25,12 +26,15 @@ module.exports = {
     }
   },
   variants: {
-    extends: {
+    extend: {
+      ringWidth: ['hover'],
+      ringColor: ['hover'],
       opacity: ['active', 'hover'],
       scale: ['active'],
       border: ['focus'],
       translate: ['active'],
-      transform: ['active']
+      transform: ['active'],
+      dark: ['hover']
     }
   },
   plugins: []

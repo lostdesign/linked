@@ -3,21 +3,38 @@ import { Actions as CalendarActions } from '@/store/modules/calendar/types'
 import {
   getLanguage,
   getTheme,
+  getUpdateInterval,
   setLanguage,
-  setTheme
+  setTheme,
+  loadSearchIndex,
+  setUpdateInterval,
+  getDataPath,
+  setDataPath, 
 } from '@/store/modules/app/helper'
 
 export default {
   async [Actions.INIT_APP](context) {
-    const language = await getLanguage()
     const theme = await getTheme()
+    context.commit(Mutations.SET_THEME, theme)
+    
+    const language = await getLanguage()
+    context.commit(Mutations.SET_LANGUAGE, language)
+    
 
     await context.dispatch('calendar/' + CalendarActions.SET_CURRENT_WEEK, '', {
       root: true
     })
+    
+    await loadSearchIndex()
+    
+    await getDataPath().then((path) => {
+      context.commit(Mutations.SET_DATA_PATH, path)
+    })
+  },
 
-    context.commit(Mutations.SET_LANGUAGE, language)
-    context.commit(Mutations.SET_THEME, theme)
+  async [Actions.SYNC_UPDATE_INTERVAL](context) {
+    const updateInterval = await getUpdateInterval()
+    context.commit(Mutations.SET_UPDATE_INTERVAL, updateInterval)
   },
 
   async [Actions.SET_LANGUAGE](context, language) {
@@ -29,6 +46,18 @@ export default {
   async [Actions.SET_THEME](context, theme) {
     setTheme(theme).then(() => {
       context.commit(Mutations.SET_THEME, theme)
+    })
+  },
+
+  async [Actions.SET_UPDATE_INTERVAL](context, interval) {
+    setUpdateInterval(interval).then(() => {
+      context.commit(Mutations.SET_UPDATE_INTERVAL, interval)
+    })
+  },
+  
+  async [Actions.SET_DATA_PATH](context) {
+    setDataPath().then((path) => {
+      context.commit(Mutations.SET_DATA_PATH, path)
     })
   }
 }

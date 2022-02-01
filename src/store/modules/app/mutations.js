@@ -7,5 +7,13 @@ export default {
 
   [Mutations.SET_THEME](state, theme) {
     state.theme = theme
+  },
+
+  [Mutations.SET_UPDATE_INTERVAL](state, interval) {
+    state.updateInterval = interval
+  },
+
+  [Mutations.SET_DATA_PATH](state, path) {
+    state.dataPath = path
   }
 }
