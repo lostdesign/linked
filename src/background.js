@@ -279,7 +279,10 @@ ipcMain.handle('SET_DATA_PATH', async () => {
     return global.storage.get('dataPath')
   }
 
-  fs.renameSync(currentPath, newPath)
+  //fs.renameSync(currentPath, newPath)
+  
+  const fsEx = require('fs-extra')
+  fsEx.moveSync(currentPath, newPath, { overwrite: true})
   global.storage.set('dataPath', newPath)
   await repairSearchDatabase()
 

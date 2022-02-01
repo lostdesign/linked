@@ -49,6 +49,7 @@
     "electron-store": "6.0.0",
     "electron-updater": "4.3.4",
     "flexsearch": "^0.7.21",
+    "fs-extra": "^10.0.0",
     "highlight.js": "10.6.0",
     "lodash": "^4.17.21",
     "luxon": "1.26.0",
