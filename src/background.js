@@ -269,18 +269,21 @@ ipcMain.handle('SET_DATA_PATH', async () => {
     },
     tokenize: global.storage.get('searchMode')
   })
-
-  if (fs.readdirSync(newPath).length !== 0) {
-    new Notification({
-      title: 'Destination not empty!',
-      body: `Could not move data, please select an empty path.`
-    }).show()
+  
+  if ((await fs.promises.readdir(newPath)).length !== 0) {
+    await dialog.showMessageBox(win, {
+      message: 'Directory not empty!',
+      detail: `${newPath} is not empty, please choose another directory or add an empty directory at the desired location first.`,
+      type: 'error',
+      buttons: ['Close'],
+      defaultId: 1,
+      noLink: true
+    })
 
     return global.storage.get('dataPath')
   }
   
   const fsEx = require('fs-extra')
-  fsEx.moveSync(currentPath, newPath, { overwrite: true})
   
   global.storage.set('dataPath', newPath)
   await repairSearchDatabase()
@@ -376,7 +379,6 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
   const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
   
-  //searchIndex.remove(fileName)
   searchIndex.update(fileName, {
     date: fileName, 
     content: tokenizer(content)
