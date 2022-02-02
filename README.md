@@ -1,4 +1,4 @@
-![Project Status](https://img.shields.io/badge/🏷-v1.3.12-green) ![Project downloads](https://img.shields.io/github/downloads/lostdesign/linked/total) ![discord](https://img.shields.io/discord/884747974859702352?label=discord)
+![Project Status](https://img.shields.io/badge/🏷-v1.4.1-green) ![Project downloads](https://img.shields.io/github/downloads/lostdesign/linked/total) ![discord](https://img.shields.io/discord/884747974859702352?label=discord)
 
 ![linked-banner](https://user-images.githubusercontent.com/5164617/132354376-44ba85f3-bb21-448e-8c12-4e0fe9af2543.png)
 
@@ -15,6 +15,7 @@ Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to ge
 ## Features
 
 - 📅 Write down anything and as much as you want per day
+- 🔍 Search across all days
 - ✍️ Support for various text styles as well as todo, list and code blocks
 - 🖼 Linked comes in dark and light mode
 - 💻 Keyboard navigation for maximum productivity
@@ -23,7 +24,6 @@ Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to ge
 
 ### Coming soon
 
-- 🔍 Search across all days (active)
 - 🔗 link days together for references (next)
 - 🗓 Month overview (next)
 - ⭐️ Rate your days
@@ -39,6 +39,8 @@ The app will always be opensource and free - if you enjoy the app, please consid
 
 <details>
   <summary>Keyboard Shortcuts</summary>
+
+  **Search** <kbd>Cmd or Ctrl</kbd> + <kbd>K.</kbd>
 
   **Today** <kbd>Cmd or Ctrl</kbd> + <kbd>.</kbd>
 
