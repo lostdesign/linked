@@ -43,7 +43,7 @@
       <div v-else>
         <div 
           ref='results'
-          class='bg-gray-200 dark:bg-gray-900 px-4 py-4 rounded-md mt-5 mb-5 ring-2 ring-transparent outline-none hover:ring-bright-pink focus:ring-bright-pink overflow-hidden' 
+          class='bg-gray-200 dark:bg-secondary-black max-h-64 overflow-hidden px-4 py-4 rounded-md mt-5 mb-5 ring-2 ring-transparent outline-none hover:ring-bright-pink focus:ring-bright-pink overflow-hidden' 
           v-for='dates in searchResults' 
           :key='dates.date'
           @click='_handleSearchResultClicked(dates.date)'

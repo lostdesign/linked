@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         'pink': '#D1014C',
         'bright-pink': '#FF005C',
-        'secondary-black': '#111'
+        'secondary-black': '#222'
       }
     },
     colors: {
