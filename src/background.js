@@ -284,6 +284,7 @@ ipcMain.handle('SET_DATA_PATH', async () => {
   }
   
   const fsEx = require('fs-extra')
+  fsEx.moveSync(currentPath, newPath)
   
   global.storage.set('dataPath', newPath)
   await repairSearchDatabase()
