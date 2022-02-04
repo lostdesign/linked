@@ -197,7 +197,8 @@ app.on('window-all-closed', () => { if (!isMacOS) app.quit() })
 app.on('activate', () => { if (win === null) createWindow()} )
 
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
-app.on('ready', async () => {
+
+app.whenReady().then(async () => {
   if (isDevelopment && !process.env.IS_TEST) {
     try {
       await installExtension(VUEJS_DEVTOOLS)
@@ -282,9 +283,21 @@ ipcMain.handle('SET_DATA_PATH', async () => {
 
     return global.storage.get('dataPath')
   }
-  
+
   const fsEx = require('fs-extra')
-  fsEx.moveSync(currentPath, newPath)
+  try {
+    await fsEx.move(currentPath, newPath, { overwrite: true })
+  } catch (e) {
+    await dialog.showMessageBox(win, {
+      message: 'An error occured!',
+      detail: e.toString(),
+      type: 'error',
+      buttons: ['Close'],
+      defaultId: 1,
+      noLink: true
+    })
+    return global.storage.get('dataPath')
+  }
   
   global.storage.set('dataPath', newPath)
   await repairSearchDatabase()
@@ -442,6 +455,15 @@ const tokenizer = (content) => {
 ipcMain.handle('REINDEX_ALL', async () => repairSearchDatabase())
 
 const repairSearchDatabase = async () => {
+  searchIndex = new Document({
+    document: {
+      id: 'date',
+      index: ['content'],
+      store: true
+    },
+    tokenize: global.storage.get('searchMode')
+  })
+  
   const isYearFolder = (folder) => /\b\d{4}\b/g.test(folder)
   const dataPath = global.storage.get('dataPath')
 
