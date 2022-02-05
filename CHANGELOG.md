@@ -1,3 +1,7 @@
+## [1.4.8](https://github.com/lostdesign/linked/compare/v1.4.7...v1.4.8) - 2022-02-05
+
+- 🐛 fix app-header
+
 ## [1.4.7](https://github.com/lostdesign/linked/compare/v1.4.6...v1.4.7) - 2022-02-05
 
 - ⬆️ upgrade tiptap & electron
