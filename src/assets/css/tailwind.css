@@ -52,37 +52,11 @@ li[data-type='todo_item'] {
   display: flex;
   flex-direction: row;
 }
-.todo-checkbox {
-  border: 2px solid black;
-  height: 0.9em;
-  width: 0.9em;
-  box-sizing: border-box;
-  margin-right: 10px;
-  margin-top: 0.3rem;
+ul[data-type='taskList'] input[type='checkbox'] {
+  margin-right: 0.5rem;
   user-select: none;
   -webkit-user-select: none;
   cursor: pointer;
-  border-radius: 0.2em;
-  background-color: transparent;
-  transition: 0.4s background;
-}
-.todo-content {
-  flex: 1;
-}
-.todo-content > p:last-of-type {
-  margin-bottom: 0;
-}
-.todo-content > ul[data-type='todo_list'] {
-  margin: 0.5rem 0;
-}
-li[data-done='true'] > .todo-content > p {
-  text-decoration: line-through;
-}
-li[data-done='true'] > .todo-checkbox {
-  background-color: black;
-}
-li[data-done='false'] {
-  text-decoration: none;
 }
 
 .menubar__button {
@@ -207,7 +181,6 @@ ul[data-type='taskList'] li > input {
   margin-bottom: 0.3rem;
   border-radius: 0.5rem;
   transition: visibility 0.1s ease, opacity 0.1s ease;
-  z-index: 60 !important;
   z-index: 10;
 }
 
