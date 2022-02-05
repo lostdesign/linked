@@ -9,6 +9,7 @@
       dark:bg-black
       dark:text-white
       select-none
+      z-50
     "
   >
     <week-switcher />
