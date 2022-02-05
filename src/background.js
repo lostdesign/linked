@@ -57,7 +57,7 @@ const template = [
         label: 'Settings',
         accelerator: 'CommandOrControl + ,',
         click() {
-          win.webContents.send('open-settings')
+          reopenWindowAndSendWebContents('open-settings')
         }
       },
       { type: 'separator' },
@@ -92,14 +92,14 @@ const template = [
       {
         label: 'Today',
         click() {
-          win.webContents.send('set-today')
+          reopenWindowAndSendWebContents('set-today')
         },
         accelerator: 'CommandOrControl + .'
       },
       {
         label: 'Search',
         click() {
-          win.webContents.send('set-search')
+          reopenWindowAndSendWebContents('set-search')
         },
         accelerator: 'CommandOrControl + K'
       },
@@ -107,14 +107,14 @@ const template = [
       {
         label: 'Previous Day',
         click() {
-          win.webContents.send('previous-day')
+          reopenWindowAndSendWebContents('previous-day')
         },
         accelerator: 'CommandOrControl + P'
       },
       {
         label: 'Next Day',
         click() {
-          win.webContents.send('next-day')
+          reopenWindowAndSendWebContents('next-day')
         },
         accelerator: 'CommandOrControl + N'
       },
@@ -122,14 +122,14 @@ const template = [
       {
         label: 'Previous Week',
         click() {
-          win.webContents.send('previous-week')
+          reopenWindowAndSendWebContents('previous-week')
         },
         accelerator: 'CommandOrControl + Shift + P'
       },
       {
         label: 'Next Week',
         click() {
-          win.webContents.send('next-week')
+          reopenWindowAndSendWebContents('next-week')
         },
         accelerator: 'CommandOrControl + Shift + N'
       },
@@ -224,6 +224,22 @@ if (isDevelopment) {
   }
 }
 
+const reopenWindowAndSendWebContents = (message) => {
+  if (!win) {
+    createWindow()
+    app.whenReady().then(() => {
+      setTimeout(() => {
+        win.webContents.send(message)
+      }, 300)
+    })
+  }
+  win.webContents.send(message)
+}
+
+/* 
+ * IPC MAIN COMMUNICATION
+ */
+
 ipcMain.handle('GET_STORAGE_VALUE', (event, key) => {
   return global.storage.get(key)
 })
@@ -235,13 +251,6 @@ ipcMain.handle('SET_STORAGE_VALUE', (event, key, data) => {
 ipcMain.handle('DELETE_STORAGE_VALUE', (event, key) => {
   return global.storage.delete(key)
 })
-
-const newPathNotification = (newPath) => {
-  new Notification({
-    title: 'Successfully set new path!',
-    body: `Your data now is being read from ${newPath}.`
-  }).show()
-}
 
 ipcMain.handle('SET_DATA_PATH', async () => {
   const currentPath = global.storage.get('dataPath')
