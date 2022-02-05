@@ -208,6 +208,7 @@ ul[data-type='taskList'] li > input {
   border-radius: 0.5rem;
   transition: visibility 0.1s ease, opacity 0.1s ease;
   z-index: 60 !important;
+  z-index: 10;
 }
 
 .bubble-menu button {

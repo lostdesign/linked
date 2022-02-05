@@ -8,7 +8,6 @@
       bg-white
       dark:bg-black
       dark:text-white
-      z-50
       select-none
     "
   >
@@ -25,3 +24,9 @@ export default {
   components: { DaySwitcher, WeekSwitcher }
 }
 </script>
+
+<style scoped>
+header {
+  z-index: 99999;
+}
+</style>
