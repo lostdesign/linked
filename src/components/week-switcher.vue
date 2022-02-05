@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-between items-center align-center pt-6 px-10 mb-2">
-    <span class="text-center text-3xl font-black">{{
+    <span class="text-center text-2xl font-black">{{
       formatDate(getCurrentDate, 'MMMM yyyy')
     }}</span>
     <!-- Week switcher -->
