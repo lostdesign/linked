@@ -1,3 +1,7 @@
+## [1.4.5](https://github.com/lostdesign/linked/compare/v1.4.4...v1.4.5) - 2022-02-05
+
+- 🐛 fixes #87
+
 ## [1.4.4](https://github.com/lostdesign/linked/compare/v1.4.3...v1.4.4) - 2022-02-05
 
 - 🐛 fixes #96
