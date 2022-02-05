@@ -24,9 +24,3 @@ export default {
   components: { DaySwitcher, WeekSwitcher }
 }
 </script>
-
-<style scoped>
-header {
-  z-index: 99999;
-}
-</style>
