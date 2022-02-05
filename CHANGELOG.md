@@ -1,3 +1,7 @@
+## [1.4.6](https://github.com/lostdesign/linked/compare/v1.4.5...v1.4.6) - 2022-02-05
+
+- 🐛 fix bubble menu
+
 ## [1.4.5](https://github.com/lostdesign/linked/compare/v1.4.4...v1.4.5) - 2022-02-05
 
 - 🐛 fixes #87
