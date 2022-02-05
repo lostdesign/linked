@@ -1,4 +1,22 @@
-## [1.4.0](https://github.com/lostdesign/linked/compare/v1.3.11...v1.4.0) - 2022-02-01- 
+## [1.4.3](https://github.com/lostdesign/linked/compare/v1.4.2...v1.4.3) - 2022-02-05
+
+- 🐛 fix checkbox spacing
+- 🐛 fixes #81
+
+## [1.4.2](https://github.com/lostdesign/linked/compare/v1.4.1...v1.4.2) - 2022-02-04
+
+- 🐛 fix file migration
+- 🐛 fix search index reset on file migration
+
+## [1.4.1](https://github.com/lostdesign/linked/compare/v1.4.0...v1.4.1) - 2022-02-02
+
+- 📄 update readme
+- 💄fix search result ui
+- 🐛 remove overwrite option on move
+- ♻️ replace notification with dialog
+
+
+## [1.4.0](https://github.com/lostdesign/linked/compare/v1.3.11...v1.4.0) - 2022-02-01 
 
 - 🐛 fix color and path
 - ✨ custom file location+migration
