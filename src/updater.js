@@ -4,6 +4,9 @@ import { DAILY, WEEKLY } from '@/background'
 
 autoUpdater.autoDownload = false
 
+// autoUpdater.allowPrerelease = GET FROM STORE IF TRUE
+// autoUpdater.allowDowngrade = PROBABLY SHOULD BE TRUE, BUT HOW DOES IT WORK
+
 autoUpdater.on('update-available', async (updateInfo) => {
   const { response } = await dialog.showMessageBox({
     title: 'Update available',

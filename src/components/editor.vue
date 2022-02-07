@@ -69,6 +69,8 @@ import HorizontalRule from '@tiptap/extension-horizontal-rule'
 import Strike from '@tiptap/extension-strike'
 import Link from '@tiptap/extension-link'
 import History from '@tiptap/extension-history'
+import Commands from '@/components/slash-commands/commands'
+import suggestion from '@/components/slash-commands/suggestions'
 
 export default {
   components: {
@@ -119,7 +121,10 @@ export default {
         HorizontalRule,
         Strike,
         Link,
-        History
+        History,
+        Commands.configure({
+          suggestion,
+        }),
       ],
       content: this.getContent,
       autofocus: true,
