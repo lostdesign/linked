@@ -6,78 +6,75 @@ export default {
   items: ({ query }) => {
     return [
       {
-        title: 'Heading 1',
+        title: 'Heading H1',
         description: 'First level heading',
         command: ({ editor, range }) => {
-          editor
-            .chain()
-            .focus()
-            .deleteRange(range)
-            .setNode('heading', { level: 1 })
-            .run()
+          editor.chain().focus().deleteRange(range).setNode('heading', { level: 1 }).run()
         },
       },
       {
-        title: 'Heading 2',
-        description: 'Second level heading',
+        title: 'Heading H2',
+        description: 'commands.no_result',
         command: ({ editor, range }) => {
-          editor
-            .chain()
-            .focus()
-            .deleteRange(range)
-            .setNode('heading', { level: 2 })
-            .run()
+          editor.chain().focus().deleteRange(range).setNode('heading', { level: 2 }).run()
         },
       },
       {
-        title: 'bold',
+        title: 'Heading H3',
+        description: 'Third level heading',
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).setNode('heading', { level: 3 }).run()
+        },
+      },
+      {
+        title: 'Bold',
         description: 'Write your text in bold',
         command: ({ editor, range }) => {
-          editor
-            .chain()
-            .focus()
-            .deleteRange(range)
-            .setMark('bold')
-            .run()
+          editor.chain().focus().deleteRange(range).setMark('bold').run()
         },
       },
       {
         title: 'Italic',
         description: 'Write your text in italic',
         command: ({ editor, range }) => {
-          editor
-            .chain()
-            .focus()
-            .deleteRange(range)
-            .setMark('italic')
-            .run()
+          editor.chain().focus().deleteRange(range).setMark('italic').run()
         },
       },
       {
         title: 'Code Block',
         description: 'Inserts a generic code block',
         command: ({ editor, range }) => {
-          editor
-            .chain()
-            .focus()
-            .deleteRange(range)
-            .setCodeBlock()
-            .run()
+          editor.chain().focus().deleteRange(range).setCodeBlock().run()
         },
       },
       {
         title: 'Unordered List',
         description: 'Adds a unordered list',
         command: ({ editor, range }) => {
-          editor
-            .chain()
-            .focus()
-            .deleteRange(range)
-            .toggleBulletList()
-            .run()
+          editor.chain().focus().deleteRange(range).toggleBulletList().run()
         },
+      },
+      {
+        title: 'Task List',
+        description: 'Adds a Task List',
+        command: ({editor, range}) => {
+          editor.chain().focus().deleteRange(range).toggleTaskList().run()
+        }
+        
+      },
+      {
+        title: 'Detail Block',
+        description: 'Adds a detail block',
+        command: ({editor, range}) => {
+          editor.chain().focus().deleteRange(range).setDetails().run()
+        }
       }
-    ].filter(item => item.title.toLowerCase().startsWith(query.toLowerCase())).slice(0, 10)
+    ].filter(item => {
+      return (
+        item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.description.toLowerCase().includes(query.toLowerCase())
+      )
+    }).slice(0, 10)
   },
 
   render: () => {

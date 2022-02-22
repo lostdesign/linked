@@ -1,15 +1,15 @@
 <template>
-  <div class="items w-64 dark:bg-secondary-black dark:text-white text-black bg-gray-300 p-2 rounded-lg">
+  <div class="items w-64 dark:bg-secondary-black dark:text-white text-black bg-gray-300 p-2 rounded-lg h-auto overflow-scroll shadow-2xl border-2 border-gray-700">
     <div v-if="items.length" >
       <template v-for="(item, index) in items">
-        <div class='item' :key="index" :class="{ 'is-selected': index === selectedIndex }" @click="selectItem(index)">
-          <p>{{ item.title }}</p>
-          <span class="text-xs text-gray-500"> {{ item.description }}</span>
+        <div class='item px-2 py-2 dark:hover:bg-gray-700 hover:bg-gray-400' :key="index" :class="{ 'is-selected': index === selectedIndex }" @click="selectItem(index)">
+          <p class='text-sm'>{{ item.title }}</p>
+          <p class="text-xs text-gray-500 mt-0.5"> {{ item.description }}</p>
         </div>
       </template>
     </div>
     <div class="item" v-else>
-      No result
+      {{ $trans('commands.no_result') }}
     </div>
   </div>
 </template>
@@ -92,7 +92,6 @@ export default {
   background: transparent;
   border-radius: 0.4rem;
   border: 1px solid transparent;
-  padding: 0.2rem 0.4rem;
 }
 .item.is-selected {
   @apply dark:bg-gray-700 bg-gray-400

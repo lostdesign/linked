@@ -36,6 +36,21 @@
         "hint": "Durch das starten der Indizierung werden deine Tage gescannt und der Suchdatenbank hinzugefügt. Dies ist nur notwendig für Bestandsdaten vor der Version 1.4.0. Mehr Infos findest du auf der Website.",
         "start": "Datenbank jetzt reparieren"
       }
+    },
+    "allowPrerelease": {
+      "title": "Prerelease Versionen testen",
+      "hint": "Mit dieser Option kannst du unveröffentlichte Versionen von linked testen. EIN PRERELEASE KANN ZU DATEN VERLUS FÜHREN." ,
+      "enabled": "Prerelease ist eingeschalten",
+      "disabled": "Prerelease ist ausgeschalten"
     }
+  },
+  "commands": {
+    "blocks": {
+      "h1_heading": {
+        "title": "H1 Heading",
+        "description": "Fügt eine H1 Überschrift hinzu"
+      }
+    },
+    "no_result": "Kein passender Befehl gefunden"
   }
 }

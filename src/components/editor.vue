@@ -71,6 +71,10 @@ import Link from '@tiptap/extension-link'
 import History from '@tiptap/extension-history'
 import Commands from '@/components/slash-commands/commands'
 import suggestion from '@/components/slash-commands/suggestions'
+import { Details } from '@tiptap-pro/extension-details'
+import { DetailsSummary } from '@tiptap-pro/extension-details-summary'
+import { DetailsContent } from '@tiptap-pro/extension-details-content'
+import { Placeholder } from '@tiptap/extension-placeholder'
 
 export default {
   components: {
@@ -124,6 +128,24 @@ export default {
         History,
         Commands.configure({
           suggestion,
+        }),
+        Details.configure({
+          persist: true,
+          HTMLAttributes: {
+            class: 'details',
+          },
+        }),
+        DetailsSummary,
+        DetailsContent,
+        Placeholder.configure({
+          includeChildren: true,
+          placeholder: ({ node }) => {
+            if (node.type.name === 'detailsSummary') {
+              return 'Summary'
+            }
+
+            return null
+          },
         }),
       ],
       content: this.getContent,

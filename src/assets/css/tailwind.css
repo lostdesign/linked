@@ -176,7 +176,7 @@ ul[data-type='taskList'] li > input {
 }
 
 .bubble-menu {
-  @apply flex bg-white dark:bg-black ring-2 ring-bright-pink;
+  @apply flex bg-white dark:bg-secondary-black ring-2 ring-gray-700;
   padding: 0.3rem;
   margin-bottom: 0.3rem;
   border-radius: 0.5rem;
@@ -205,3 +205,42 @@ ul[data-type='taskList'] li > input {
 .ProseMirror a:hover {
   @apply text-pink;
 }
+
+.ProseMirror .details {
+  display: flex;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+.ProseMirror .details > button {
+  display: flex;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.ProseMirror .details > button::before {
+  content: '\25B6';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5em;
+  height: 1.5em;
+}
+.ProseMirror .details.is-open > button::before {
+  content: '\25BC';
+}
+.ProseMirror .details > div {
+  flex: 1 1 auto;
+}
+.ProseMirror .details :last-child {
+  margin-bottom: 0;
+}
+
+summary {
+  display:block;
+}
+
+div[data-type=detailsContent] {
+  margin-top: 0.5rem;
+}
+ 

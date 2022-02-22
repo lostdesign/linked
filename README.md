@@ -1,11 +1,8 @@
-![Project Status](https://img.shields.io/badge/🏷-v1.4.8-green) ![Project downloads](https://img.shields.io/github/downloads/lostdesign/linked/total) ![discord](https://img.shields.io/discord/884747974859702352?label=discord)
+![project status badge](https://img.shields.io/badge/🏷-v1.4.8-green) ![Project download count](https://img.shields.io/github/downloads/lostdesign/linked/total) ![discord online count](https://img.shields.io/discord/884747974859702352?label=discord)
 
-![linked-banner](https://user-images.githubusercontent.com/5164617/132354376-44ba85f3-bb21-448e-8c12-4e0fe9af2543.png)
+![linked banner image](https://user-images.githubusercontent.com/5164617/132354376-44ba85f3-bb21-448e-8c12-4e0fe9af2543.png)
 
-
-Linked allows you to write down your thoughts and ideas to link them with days. The app was originally created as a weekend project for my colleagues at work.
-We needed an app to offload our brain and write down things that we may need for our daily meetings or other scrum events, things that simply did not fit inside a ticket.
-**[You can download linked here for free!](https://github.com/lostdesign/linked/releases/latest)**
+Linked allows you to write down your thoughts and ideas to link them with days. **[You can download linked here for free!](https://github.com/lostdesign/linked/releases/latest)**
 
 Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to get the latest news about the project or feel free to check [github discussions](https://github.com/lostdesign/linked/discussions).
 
@@ -18,16 +15,23 @@ Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to ge
 - ✍️ Support for various text styles as well as todo, list and code blocks
 - 🖼 Linked comes in dark and light mode
 - 💻 Keyboard navigation for maximum productivity
-- 💾 Files are forever yours, you can find them at `~/Documents/linked`
+- 💾 Files are forever yours, you can find them at `~/Documents/linked` or move them anywhere you want
 - 🌐 Multi language support
 
-### Coming soon
+<details>
+  <summary>Planned features</summary>
 
-- 🔗 link days together for references (next)
-- 🗓 Month overview (next)
-- ⭐️ Rate your days
-- 📶 sync across devices
-- (📱 phone support?)
+  - 🔗 link days together for references (next)
+
+  - 🗓 Month overview
+
+  - ⭐️ Rate your days
+
+  - 📶 sync across devices
+
+  - (📱 phone support?)
+</details>
+
 
 ## 💖 Sponsor
 

@@ -71,12 +71,12 @@
         w-full
         h-12
         mt-4
-        mb-24
         "
         @click='reIndexAll'
       >
         {{ $t('settings.search.index.start') }}
       </button>
+      <allow-prerelease class='mb-24' />
       <span
         class="
           bg-white
@@ -106,9 +106,11 @@ import ThemeSwitcher from '@/components/theme-switcher'
 import { reIndexAll } from '@/store/modules/app/helper'
 import { mapActions, mapGetters } from 'vuex'
 import { Actions as AppActions, Getters as AppGetters } from '@/store/modules/app/types'
+import AllowPrerelease from '@/components/settings/allow-prerelease'
 
 export default {
   components: {
+    AllowPrerelease,
     ThemeSwitcher,
     BackIcon,
     LanguageDropdown,

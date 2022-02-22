@@ -36,6 +36,15 @@
         "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
         "start": "Repair database now"
       }
+    },
+    "allowPrerelease": {
+      "title": "Use prerelease version",
+      "hint": "Enable beta versions of linked, ..." ,
+      "enabled": "enabled",
+      "disabled": "disabled"
     }
+  },
+  "commands": {
+    "no_result": "No matching command found"
   }
 }

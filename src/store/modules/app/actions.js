@@ -10,6 +10,8 @@ import {
   setUpdateInterval,
   getDataPath,
   setDataPath, 
+  setAllowPrerelease, 
+  getAllowPrerelease
 } from '@/store/modules/app/helper'
 
 export default {
@@ -27,9 +29,11 @@ export default {
     
     await loadSearchIndex()
     
-    await getDataPath().then((path) => {
-      context.commit(Mutations.SET_DATA_PATH, path)
-    })
+    const dataPath = await getDataPath()
+    context.commit(Mutations.SET_DATA_PATH, dataPath)
+    
+    const allowPrerelease = await getAllowPrerelease() 
+    context.commit(Mutations.SET_ALLOW_PRERELEASE, allowPrerelease)
   },
 
   async [Actions.SYNC_UPDATE_INTERVAL](context) {
@@ -58,6 +62,12 @@ export default {
   async [Actions.SET_DATA_PATH](context) {
     setDataPath().then((path) => {
       context.commit(Mutations.SET_DATA_PATH, path)
+    })
+  },
+
+  async [Actions.SET_ALLOW_PRERELEASE](context, allowPrerelease) {
+    setAllowPrerelease(allowPrerelease).then((allowPrerelease) => {
+      context.commit(Mutations.SET_ALLOW_PRERELEASE, allowPrerelease)
     })
   }
 }

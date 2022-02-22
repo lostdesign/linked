@@ -2,11 +2,6 @@ import { dialog, Notification } from 'electron'
 import { autoUpdater } from 'electron-updater'
 import { DAILY, WEEKLY } from '@/background'
 
-autoUpdater.autoDownload = false
-
-// autoUpdater.allowPrerelease = GET FROM STORE IF TRUE
-// autoUpdater.allowDowngrade = PROBABLY SHOULD BE TRUE, BUT HOW DOES IT WORK
-
 autoUpdater.on('update-available', async (updateInfo) => {
   const { response } = await dialog.showMessageBox({
     title: 'Update available',
@@ -24,18 +19,25 @@ autoUpdater.on('update-available', async (updateInfo) => {
     global.storage.set('updateInterval', WEEKLY)
   }
 })
+
 autoUpdater.on('update-not-available', async () => {
   await new Notification({
-    title: 'No updates',
-    body: 'You are already on the latest version of linked'
+    title: 'No updates found.',
+    body: 'You are already on the latest version of linked.'
   }).show()
 })
+
 autoUpdater.on('update-downloaded', async () => {
   autoUpdater.quitAndInstall()
 })
 
 const askForUpdates = async () => {
   if (!global.storage.get('enableUpdates')) return
+
+  autoUpdater.autoDownload = false
+  autoUpdater.allowPrerelease = global.storage.get('allowPrerelease')
+  autoUpdater.allowDowngrade = true
+  
   await autoUpdater.checkForUpdates()
 }
 

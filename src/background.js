@@ -42,7 +42,8 @@ global.storage = new Store({
     searchMode: 'forward',
     enableUpdates: true,
     updateInterval: DAILY,
-    dataPath: basePath
+    dataPath: basePath,
+    allowPrerelease: false
   }
 })
 

@@ -15,5 +15,9 @@ export default {
 
   [Mutations.SET_DATA_PATH](state, path) {
     state.dataPath = path
+  },
+
+  [Mutations.SET_ALLOW_PRERELEASE](state, allowPrerelease) {
+    state.allowPrerelease = allowPrerelease
   }
 }
