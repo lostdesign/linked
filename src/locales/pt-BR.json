@@ -30,7 +30,7 @@
       "placeholder": "Procurar por suas notas ...",
       "no_result": "Não houveram resultados para <br> <strong>{searchTerm}</strong>.",
       "start_searching": "Procure por palavras, sentenças ou mesmo use curingas avançados como <em>Eu amo *</em> ...",
-      "result_amount": "Resulados",
+      "result_amount": "Resultados",
       "index": {
         "title": "Índice do Banco de Dados",
         "hint": "Para começar a indexação, linked vai escanear seus dias e adicioná-los para o índice de pesquisa. Isso só é necessário uma vez depois de atualizar para v1.4.0. Descubra mais em nosso Website.",
