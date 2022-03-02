@@ -16,6 +16,7 @@ import {
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const isWindows = process.platform === 'win32'
 const isMacOS = process.platform === 'darwin'
+const isLinux = process.platform === 'linux'
 
 let win
 
@@ -52,7 +53,21 @@ const template = [
   {
     label: app.name,
     submenu: [
-      { role: 'about' },
+      {
+        role: 'about',
+        async click() {
+          if (isLinux) {
+            const version = require("../package.json").version;
+            dialog.showMessageBox({
+              message: "linked",
+              detail: "Version " + version + " (" + version + ")\nCopyright © 2022 André Weller",
+              type: "info",
+              title: "About",
+              icon: "../appIcon/icon.png"
+            });
+          }
+        }
+      },
       {
         label: 'Settings',
         accelerator: 'CommandOrControl + ,',
@@ -75,14 +90,14 @@ const template = [
       { role: 'paste' },
       ...(isMacOS
         ? [
-            { role: 'delete' },
-            { role: 'selectAll' },
-            { type: 'separator' },
-            {
-              label: 'Speech',
-              submenu: [{ role: 'startSpeaking' }, { role: 'stopSpeaking' }]
-            }
-          ]
+          { role: 'delete' },
+          { role: 'selectAll' },
+          { type: 'separator' },
+          {
+            label: 'Speech',
+            submenu: [{ role: 'startSpeaking' }, { role: 'stopSpeaking' }]
+          }
+        ]
         : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }])
     ]
   },
@@ -183,7 +198,7 @@ const createWindow = () => {
     win.loadURL('app://./index.html')
     nativeTheme.themeSource = global.storage.get('theme')
   }
-  
+
   win.on('closed', () => { win = null })
 }
 
@@ -194,7 +209,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('window-all-closed', () => { if (!isMacOS) app.quit() })
-app.on('activate', () => { if (win === null) createWindow()} )
+app.on('activate', () => { if (win === null) createWindow() })
 
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 
@@ -257,13 +272,13 @@ ipcMain.handle('SET_DATA_PATH', async () => {
   const result = await dialog.showOpenDialog(win, {
     properties: ['openDirectory', 'createDirectory']
   })
-  
+
   if (result.canceled === true) {
     new Notification({
       title: 'Action aborted',
       body: 'Your previous settings still apply.'
     }).show()
-    
+
     return currentPath
   }
 
@@ -279,7 +294,7 @@ ipcMain.handle('SET_DATA_PATH', async () => {
     },
     tokenize: global.storage.get('searchMode')
   })
-  
+
   if ((await fs.promises.readdir(newPath)).length !== 0) {
     await dialog.showMessageBox(win, {
       message: 'Directory not empty!',
@@ -307,7 +322,7 @@ ipcMain.handle('SET_DATA_PATH', async () => {
     })
     return global.storage.get('dataPath')
   }
-  
+
   global.storage.set('dataPath', newPath)
   await repairSearchDatabase()
 
@@ -355,6 +370,7 @@ ipcMain.handle('FETCH_FILE', async (event, args) => {
 })
 
 import { Document } from 'flexsearch'
+import { electron } from 'process'
 
 let searchIndex = new Document({
   document: {
@@ -387,10 +403,10 @@ const retrieveIndex = async () => {
 
   for (let i = 0, key; i < keys.length; i += 1) {
     key = keys[i]
-    
+
     // TODO: mac sometimes creates this file in the search index folder, which causes the app to exit
     if (key === '.DS_Store') continue
-    
+
     const data = fs.readFileSync(`${searchIndexPath}${key}`, 'utf8')
     searchIndex.import(key.slice(0, -5), data === undefined ? null : data)
   }
@@ -401,9 +417,9 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
   const [year, fileName, content, rating] = args
   const dataPath = getFilePath(year, fileName)
   const filePath = `${dataPath}/${fileName}.json`
-  
+
   searchIndex.update(fileName, {
-    date: fileName, 
+    date: fileName,
     content: tokenizer(content)
   })
 
@@ -414,26 +430,26 @@ ipcMain.handle('SAVE_FILE', (event, args) => {
       rating: rating
     })
   )
-  
+
   exportIndex()
 })
 
 ipcMain.handle('SEARCH', async (event, search) => {
   const results = searchIndex.search(search)
 
-  if (results.length >= 1 ) {
+  if (results.length >= 1) {
     const dates = results[0].result
     let dataResult = []
 
     for (const date of dates) {
-      await fs.promises.readFile(`${getFilePath(date.substring(0,4))}/${date}.json`, 'utf-8').then((data) => {
+      await fs.promises.readFile(`${getFilePath(date.substring(0, 4))}/${date}.json`, 'utf-8').then((data) => {
         dataResult.push({
           date: date,
           ...JSON.parse(data)
         })
       })
     }
-    
+
     return dataResult.sort((a, b) => {
       let keyA = new Date(a.date), keyB = new Date(b.date)
 
@@ -472,7 +488,7 @@ const repairSearchDatabase = async () => {
     },
     tokenize: global.storage.get('searchMode')
   })
-  
+
   const isYearFolder = (folder) => /\b\d{4}\b/g.test(folder)
   const dataPath = global.storage.get('dataPath')
 
@@ -499,7 +515,7 @@ const repairSearchDatabase = async () => {
     .then((files) =>
       files.forEach((file) => {
         let fileName = file.date.substring(5)
-        fileName = fileName.slice(0, fileName.length-5)
+        fileName = fileName.slice(0, fileName.length - 5)
 
         try {
           searchIndex.update(fileName, {
