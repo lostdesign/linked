@@ -54,8 +54,8 @@ const template = [
     label: app.name,
     submenu: [
       { 
-	      role: 'about',
-	      async click() {
+        role: 'about',
+        async click() {
           if (isLinux) {
             const version = require("../package.json").version;
             const name = require("../package.json").name;
