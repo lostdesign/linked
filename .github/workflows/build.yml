@@ -11,10 +11,12 @@ on:
 jobs:
   release:
     runs-on: ${{ matrix.os }}
+    env:
+      TIPTAP_PRO_TOKEN: ${{ secrets.TIPTAP_PRO_TOKEN }}
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ macos-latest, ubuntu-latest, windows-latest, archlinux ]
 
     steps:
       - name: Check out Git repository
