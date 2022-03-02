@@ -29,7 +29,7 @@ jobs:
       
       - name: Install pacman dependencies
         if: startsWith(matrix.os, 'ubuntu')
-        run: sudo apt-get install -y bsdtar libarchive-tools 
+        run: sudo apt-get install -y libarchive-tools 
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
