@@ -21,14 +21,21 @@ module.exports = {
       builderOptions: {
         mac: {
           hardenedRuntime: true,
-          entitlements: './build/entitlements.mac.inherit.plist'
+          entitlements: './build/entitlements.mac.inherit.plist',
+          target: {
+            target: 'default',
+            arch: ['arm64', 'x64']
+          }
         },
         linux: {
-          target: ['AppImage', 'deb', 'rpm']
+          target: [
+            'deb',
+            'rpm',
+            'pacman',
+            'AppImage'
+          ]
         },
-        win: {
-          target: ['nsis', 'portable']
-        },
+        win: { target: ['nsis', 'portable'] },
         publish: ['github'],
         appId: 'design.lost.linked',
         afterSign: './afterSignHook.js'
