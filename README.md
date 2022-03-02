@@ -2,14 +2,12 @@
 
 ![linked-banner](https://user-images.githubusercontent.com/5164617/132354376-44ba85f3-bb21-448e-8c12-4e0fe9af2543.png)
 
+# Daily journaling without distraction
+An easy, distraction-free way to record your thoughts, declutter your mind and keep the things you want to remember. We all only have so much room in our brains for things. Let Linked be the place to put something you want to remember and let you free up space for deeper thinking.
 
-Linked allows you to write down your thoughts and ideas to link them with days. The app was originally created as a weekend project for my colleagues at work.
-We needed an app to offload our brain and write down things that we may need for our daily meetings or other scrum events, things that simply did not fit inside a ticket.
 **[You can download linked here for free!](https://github.com/lostdesign/linked/releases/latest)**
 
-Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to get the latest news about the project or feel free to check [github discussions](https://github.com/lostdesign/linked/discussions).
-
-### Join the discord at [https://discord.gg/uNjJzZvccr](https://discord.gg/uNjJzZvccr)
+**Join the discord at [https://discord.gg/uNjJzZvccr](https://discord.gg/uNjJzZvccr)**
 
 ## Features
 
@@ -21,10 +19,10 @@ Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to ge
 - 💾 Files are forever yours, you can find them at `~/Documents/linked`
 - 🌐 Multi language support
 
-### Coming soon
+### Upcoming
 
-- 🔗 link days together for references (next)
-- 🗓 Month overview (next)
+- 🔗 link days together for references
+- 🗓 Month overview
 - ⭐️ Rate your days
 - 📶 sync across devices
 - (📱 phone support?)
@@ -89,3 +87,5 @@ Please check [Contributing.md](/CONTRIBUTING.md) first before opening a pull req
   yarn electron:serve
   ```
 </details>
+
+Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to get the latest news about the project or feel free to check [github discussions](https://github.com/lostdesign/linked/discussions).
