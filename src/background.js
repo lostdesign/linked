@@ -16,6 +16,7 @@ import {
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const isWindows = process.platform === 'win32'
 const isMacOS = process.platform === 'darwin'
+const isLinux = process.platform === 'linux'
 
 let win
 
@@ -52,7 +53,21 @@ const template = [
   {
     label: app.name,
     submenu: [
-      { role: 'about' },
+      { 
+	role: 'about',
+	async click() {
+          if (isLinux) {
+            const version = require("../package.json").version;
+            dialog.showMessageBox({
+              message: "linked",
+              detail: "Version " + version + " (" + version + ")\nCopyright © 2022 André Weller",
+              type: "info",
+              title: "About",
+              icon: "../appIcon/icon.png"
+            });
+          }
+        }
+      },
       {
         label: 'Settings',
         accelerator: 'CommandOrControl + ,',
