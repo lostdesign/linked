@@ -54,12 +54,13 @@ const template = [
     label: app.name,
     submenu: [
       { 
-	role: 'about',
-	async click() {
+	      role: 'about',
+	      async click() {
           if (isLinux) {
             const version = require("../package.json").version;
+            const name = require("../package.json").name;
             dialog.showMessageBox({
-              message: "linked",
+              message: name,
               detail: "Version " + version + " (" + version + ")\nCopyright © 2022 André Weller",
               type: "info",
               title: "About",
