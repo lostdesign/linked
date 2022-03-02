@@ -32,22 +32,10 @@ module.exports = {
             'deb',
             'rpm',
             'pacman',
-            {
-              target: 'AppImage',
-              arch: ['x64', 'armv7l', 'arm64']
-            }
+            'AppImage'
           ]
         },
-        win: {
-          target: [
-            'nsis',
-            'portable',
-            {
-              target: 'zip',
-              arch: ['x64', 'arm64']
-            }
-          ]
-        },
+        win: { target: ['nsis', 'portable'] },
         publish: ['github'],
         appId: 'design.lost.linked',
         afterSign: './afterSignHook.js'
