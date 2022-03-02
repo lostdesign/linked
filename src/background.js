@@ -64,7 +64,7 @@ const template = [
               detail: "Version " + version + " (" + version + ")\nCopyright © 2022 André Weller",
               type: "info",
               title: "About",
-              icon: "../appIcon/icon.png"
+              icon: path.join(__dirname, '..', "appIcon/icon.png")
             });
           }
         }
