@@ -35,7 +35,10 @@ module.exports = {
             'AppImage'
           ]
         },
-        win: { target: ['nsis', 'portable'] },
+        win: {
+          icon: '/build/icons/256x256.png',
+          target: ['nsis', 'portable']
+        },
         publish: ['github'],
         appId: 'design.lost.linked',
         afterSign: './afterSignHook.js'
