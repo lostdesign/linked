@@ -22,10 +22,11 @@ module.exports = {
         mac: {
           hardenedRuntime: true,
           entitlements: './build/entitlements.mac.inherit.plist',
-          target: {
-            target: 'default',
-            arch: ['arm64', 'x64']
-          }
+          // Disabled m1 due to it messing with the auto updating
+          //target: {
+          //  target: 'default',
+          //  arch: ['arm64', 'x64']
+          //}
         },
         linux: {
           target: [
