@@ -63,6 +63,7 @@ Please check [Contributing.md](/CONTRIBUTING.md) first before opening a pull req
 <details>
   <summary>How to run locally</summary>
 
+  
   1. Check your node version, it must be v15 or newer
   
   ```
