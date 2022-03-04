@@ -1,6 +1,6 @@
 {
   "name": "linked",
-  "version": "1.4.10",
+  "version": "1.4.12",
   "private": true,
   "description": "Link your thoughts to days.",
   "author": "André Weller <info@lost.design> (https://lost.design/)",
@@ -47,7 +47,7 @@
     "@tiptap/vue-2": "2.0.0-beta.77",
     "core-js": "^3.20.3",
     "electron-store": "8.0.1",
-    "electron-updater": "4.3.4",
+    "electron-updater": "4.6.5",
     "flexsearch": "^0.7.21",
     "fs-extra": "^10.0.0",
     "highlight.js": "10.6.0",
