@@ -63,25 +63,32 @@ Please check [Contributing.md](/CONTRIBUTING.md) first before opening a pull req
 <details>
   <summary>How to run locally</summary>
 
+  
   1. Check your node version, it must be v15 or newer
   
   ```
   node --version
   ```
   
-  2. Clone the repository
+  2. Clone the repository (make sure you have git installed)
   
   ```
   git clone https://github.com/lostdesign/linked.git
   ```
   
-  3. Install project dependencies
+  3. Change to the newly downloaded directory
+  
+  ```
+  cd linked/
+  ```
+  
+  4. Install project dependencies
   
   ```
   yarn
   ```
   
-  4. Start the application
+  5. Start the application
   
   ```
   yarn electron:serve
