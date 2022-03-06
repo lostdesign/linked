@@ -1,0 +1,41 @@
+{
+  "title": "Slovenščina",
+  "code": "sl-SI",
+  "home": {
+    "calendarWeek": "Teden"
+  },
+  "settings": {
+    "back": "Nazaj",
+    "title": "Nastavitve",
+    "designMode": {
+      "title": "Tema",
+      "hint": "Izbirate lahko med svetlim in temnim načinom"
+    },
+    "languages": {
+      "title": "Jezik",
+      "hint": "V katerem jeziku najraje uporabljate linked?"
+    },
+    "data": {
+      "title": "Pot do podatkov",
+      "hint": "Kje naj bodo shranjeni vaši podatki? Trenutno shranjeno na:",
+      "choose": "Izberite novo lokacijo"
+    },
+    "updates": {
+      "title": "Pogostost preverjanja posodobitev",
+      "hint": "Kako pogosto preverjati posodobitve?",
+      "daily": "Dnevno",
+      "weekly": "Tedensko"
+    },
+    "search": {
+      "placeholder": "Poiščite svoje zapiske...",
+      "no_result": "Ni bilo nobenega rezultata za <br> <strong>{searchTerm}</strong>",
+      "start_searching": "Iščite besede, stavke ali celo uporabite napredne nadomestne znake, kot je <em>Kupi * jabolka</em>...",
+      "result_amount": "Rezultatov",
+      "index": {
+        "title": "Indeks baze podatkov",
+        "hint": "Z začetkom indeksiranja bo linked skeniral vaše dneve in jih dodal v iskalni indeks. To je potrebno le enkrat po posodobitvi na v1.4.0. Več o tem na naši spletni strani",
+        "start": "Popravi bazo podatkov"
+      }
+    }
+  }
+}
