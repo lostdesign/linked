@@ -21,19 +21,19 @@
       "choose": "Wybierz nową lokalizację"
     },
     "updates": {
-      "title": "Frekwencja aktualizacji",
-      "hint": "Jak często będą aktualizacje?",
-      "daily": "Dziennie",
-      "weekly": "Tygodniowo"
+      "title": "Częstotliwość aktualizacji",
+      "hint": "Jak często będą wyszukiwane nowe aktualizacje?",
+      "daily": "Codziennie",
+      "weekly": "Co tydzień"
     },
     "search": {
-      "placeholder": "Wyszukaj swoje notatki...",
+      "placeholder": "Przeszukaj swoje notatki...",
       "no_result": "Nie znaleziono wyników dla <br> <strong>{searchTerm}</strong>.",
       "start_searching": "Szukaj słów, zdań albo nawet użyj zaawansowanych symboli wieloznacznych jak <em>Kocham *</em> ...",
-      "result_amount": "Rezultaty",
+      "result_amount": "Wyniki",
       "index":{
         "title": "Indeks bazy danych",
-        "hint": "Po uruchomieniu indeksowania link przeskanuje Twoje dni i doda je do indeksu wyszukiwania. Jest to konieczne tylko raz po aktualizacji do wersji 1.4.0. Dowiedz się więcej na naszej stronie internetowej.",
+        "hint": "Po uruchomieniu indeksowania linked przeskanuje Twoje dni i doda je do indeksu wyszukiwania. Jest to konieczne tylko raz po aktualizacji do wersji 1.4.0. Dowiedz się więcej na naszej stronie internetowej.",
         "start": "Napraw bazę danych"
       }
     }
