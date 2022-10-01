@@ -1,40 +1,40 @@
 {
-  "title": "Polski",
-  "code": "pl-PL",
+  "title": "Italiano",
+  "code": "it-IT",
   "home": {
-    "calendarWeek": "Tydzień"
+    "calendarWeek": "Settimana"
   },
   "settings": {
-    "back": "Powrót",
-    "title": "Ustawienia",
+    "back": "Indietro",
+    "title": "Impostazioni",
     "designMode": {
-      "title": "Tryb designera",
-      "hint": "Możesz wybrać pomiędzy jasnym i ciemnym motywem"
+      "title": "Modalità design",
+      "hint": "Puoi scegliere tra una modalità chiara e scura."
     },
     "languages": {
-      "title": "Język",
-      "hint": "W jakim języku preferujesz używania linked?"
+      "title": "Lingua",
+      "hint": "In quale lingua preferisci usare linked?"
     },
     "data": {
-      "title": "Ścieżka danych",
-      "hint": "Gdzie powinny być przechowyane dane aplikacji? Teraz przychowywane są w: ",
-      "choose": "Wybierz nową lokalizację"
+      "title": "Percorso dati",
+      "hint": "Dove dovrebbero essere memorizzati i tuoi dati? Attualmente memorizzati in: ",
+      "choose": "Scegli una nuova posizione"
     },
     "updates": {
-      "title": "Częstotliwość aktualizacji",
-      "hint": "Jak często będą wyszukiwane nowe aktualizacje?",
-      "daily": "Codziennie",
-      "weekly": "Co tydzień"
+      "title": "Frequenza di aggiornamento",
+      "hint": "Con quale frequenza controllare gli aggiornamenti?",
+      "daily": "Ogni giorno",
+      "weekly": "Ogni settimana"
     },
     "search": {
-      "placeholder": "Przeszukaj swoje notatki...",
-      "no_result": "Nie znaleziono wyników dla <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Szukaj słów, zdań albo nawet użyj zaawansowanych symboli wieloznacznych jak <em>Kocham *</em> ...",
-      "result_amount": "Wyniki",
+      "placeholder": "Cerca le tue note ...",
+      "no_result": "Nessun risultato per <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Cerca parole, frasi o usa anche caratteri jolly avanzati come <em>Io amo *</em> ...",
+      "result_amount": "Risultati",
       "index": {
-        "title": "Indeks bazy danych",
-        "hint": "Po uruchomieniu indeksowania linked przeskanuje Twoje dni i doda je do indeksu wyszukiwania. Jest to konieczne tylko raz po aktualizacji do wersji 1.4.0. Dowiedz się więcej na naszej stronie internetowej.",
-        "start": "Napraw bazę danych"
+        "title": "Indice del Database",
+        "hint": "Avviando l'indicizzazione, linked analizzerà i tuoi giorni e li aggiungerà all'indice di ricerca. Questo è necessario solo una volta dopo l'aggiornamento alla versione v1.4.0. Scopri di più sul nostro sito web.",
+        "start": "Ripara il database ora"
       }
     }
   }
