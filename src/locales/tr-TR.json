@@ -1,40 +1,40 @@
 {
-  "title": "Türkçe",
-  "code": "tr-TR",
+  "title": "العربية",
+  "code": "ar-AR",
   "home": {
-    "calendarWeek": "Hafta"
+    "calendarWeek": "الأسبوع"
   },
   "settings": {
-    "back": "Geri",
-    "title": "Ayarlar",
+    "back": "رجوع",
+    "title": "الإعدادات",
     "designMode": {
-      "title": "Tasarım modu",
-      "hint": "Açık veya koyu bir tema arasında seçim yapın."
+      "title": "المظهر",
+      "hint": "اختر بين موضوع فاتح أو داكن."
     },
     "languages": {
-      "title": "Dil",
-      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
+      "title": "اللغة",
+      "hint": "ما هي اللغة التي تريد استخدامها؟"
     },
     "data": {
-      "title": "Veri yolu",
-      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
-      "choose": "Yeni konum seçin"
+      "title": "مسار البيانات",
+      "hint": "أين يجب تخزين بياناتك؟ الموقع الحالي:",
+      "choose": "حدد موقعًا جديدًا"
     },
     "updates": {
-      "title": "Güncelleme aralığı",
-      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
-      "daily": "Günlük",
-      "weekly": "Haftalık"
+      "title": "الفاصل الزمني للتحديث",
+      "hint": "كم مرة للتحقق من الإصدارات الجديدة؟",
+      "daily": "اليومي",
+      "weekly": "أسبوعي"
     },
     "search": {
-      "placeholder": "Notlarınızı arayın...",
-      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
-      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
-      "result_amount": "Sonuçlar",
+      "placeholder": "ابحث في ملاحظاتك ...",
+      "no_result": "لا توجد نتائج لـ <br> <strong> {searchTerm} </strong>.",
+      "start_searching": "ابحث عن كلمات أو عبارات فردية ، كما يمكنك استخدام أحرف البدل مثل <em> أحب * </ em> ...",
+      "result_amount": "النتائج",
       "index": {
-        "title": "Veritabanı dizini",
-        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
-        "start": "Veritabanını şimdi onar"
+        "title": "فهرس قاعدة البيانات",
+        "hint": "ببدء الفهرسة ، سيتم مسح أيامك وإضافتها إلى قاعدة بيانات البحث. هذا ضروري فقط لبيانات المخزون قبل الإصدار 1.4.0. يمكنك العثور على مزيد من المعلومات على الموقع.",
+        "start": "إصلاح قاعدة البيانات الآن"
       }
     }
   }
