@@ -1,42 +1,41 @@
 {
-    "title": "Català",
-    "code": "ca-ES",
-    "home": {
-      "calendarWeek": "Setmana"
+  "title": "Ελληνικά",
+  "code": "el-GR",
+  "home": {
+    "calendarWeek": "Εβδομάδα"
+  },
+  "settings": {
+    "back": "Επιστροφή",
+    "title": "Ρυθμίσεις",
+    "designMode": {
+      "title": "Εμφάνιση",
+      "hint": "Μπορείτε να διαλέξετε μεταξύ ανοιχτόχρωμης ή σκούρας εμφάνισης."
     },
-    "settings": {
-      "back": "Tornar",
-      "title": "Configuració",
-      "designMode": {
-        "title": "Mode de disseny",
-        "hint": "Trieu entre un tema clar o fosc."
-      },
-      "languages": {
-        "title": "Idioma",
-        "hint": "En quina llengua t'agradaria utilitzar linked?"
-      },
-      "data": {
-        "title": "Ruta de dades",
-        "hint": "On s'han d'emmagatzemar les teves dades? Localització actual: ",
-        "choose": "Seleccioneu una nova ubicació"
-      },
-      "updates": {
-        "title": "Interval d'actualització",
-        "hint": "Amb quina freqüència cal comprovar si hi ha noves versions?",
-        "daily": "Diàriament",
-        "weekly": "Setmanalment"
-      },
-      "search": {
-        "placeholder": "Cerca les teves notes...",
-        "no_result": "No hi ha cap resultat per a <br> <strong>{searchTerm}</strong>.",
-        "start_searching": "Cerqueu paraules o frases individuals, també podeu utilitzar comodins com ara <em>M'encanta *</em>...",
-        "result_amount": "resultats",
-        "index": {
-          "title": "índex de base de dades",
-          "hint": "En començar la indexació, els vostres dies s'escanejaran i s'afegiran a la base de dades de cerca. Això només és necessari per a les dades d'inventari anteriors a la versió 1.4.0. Podeu trobar més informació al web.",
-          "start": "Repareu la base de dades ara"
-        }
+    "languages": {
+      "title": "Γλώσσα",
+      "hint": "Σε ποιά γλώσσα επιθυμείτε να χρησιμοποιείτε το linked;"
+    },
+    "data": {
+      "title": "Τοποθεσία Δεδομένων",
+      "hint": "Πού επιθυμείτε να αποθηκεύσετε τα δεδομένα σας; Ενεργή τοποθεσία: ",
+      "choose": "Επιλέξτε καινούργια τοποθεσία"
+    },
+    "updates": {
+      "title": "Συχνότητα Ενημερώσεων",
+      "hint": "Πόσο συχνά επιθυμείτε τον έλεγχο διαθέσιμων ενημερώσεων;",
+      "daily": "Ημερησίως",
+      "weekly": "Εβδομαδιαίως"
+    },
+    "search": {
+      "placeholder": "Εύρεση Σημειώσεων...",
+      "no_result": "Κανένα αποτέλεσμα για <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Χρησιμοποιείστε λέξεις, προτάσεις ή ακόμη και μεταχαρακτήρες όπως <em>Μ'αρέσει το *</em>...",
+      "result_amount": "Αποτελέσματα",
+      "index": {
+        "title": "Κατάταξη Βάσης Δεδομένων",
+        "hint": "Ξεκινώντας την διαδικασία κατάταξης δεδομένων, το linked θα σαρώσει τις ημέρες και θα τις προσθέσει στη βάση εύρεσης δεδομένων. Αυτή η ενέργεια είναι απαραίτητη μόνο κατόπιν αναβάθμισης της εφαρμογής στην έκδοση v1.4.0. Μάθετε περισσότερα στη σελίδα μας.",
+        "start": "Αποκατάσταση Βάσης Δεδομένων"
       }
     }
   }
-  
+}
