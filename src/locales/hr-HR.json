@@ -1,40 +1,40 @@
 {
-  "title": "Український",
-  "code": "uk-UA",
+  "title": "Hrvatski",
+  "code": "hr-HR",
   "home": {
-    "calendarWeek": "Тиждень"
+    "calendarWeek": "Tjedan"
   },
   "settings": {
-    "back": "Назад",
-    "title": "Налаштування",
+    "back": "Natrag",
+    "title": "Postavke",
     "designMode": {
-      "title": "Тема",
-      "hint": "Ви можете вибрати між світлим та темним режимом"
+      "title": "Tema",
+      "hint": "Birajte između svijetle ili tamne teme."
     },
     "languages": {
-      "title": "Мова",
-      "hint": "Якій мові ви віддаєте перевагу під час використання linked?"
+      "title": "Jezik",
+      "hint": "Na kojem jeziku želite koristiti linked?"
     },
     "data": {
-      "title": "Шлях до даних",
-      "hint": "Де повинні зберігатися ваші дані? На даний момент зберігається:",
-      "choose": "Виберіть нове місце розташування"
+      "title": "Put podataka",
+      "hint": "Gdje bi trebali biti pohranjeni vaši podaci? Trenutna lokacija: ",
+      "choose": "Odaberite novu lokaciju"
     },
     "updates": {
-      "title": "Частота оновлення",
-      "hint": "Як часто перевіряти наявність оновлень?",
-      "daily": "Щоденно",
-      "weekly": "Щотижня"
+      "title": "interval ažuriranja",
+      "hint": "Koliko često provjeravati nove verzije?",
+      "daily": "Dnevno",
+      "weekly": "Tjedni"
     },
     "search": {
-      "placeholder": "Пошукайте свої записи...",
-      "no_result": "Не було результату для <br> <strong>{searchTerm}</strong>",
-      "start_searching": "Шукайте слова, речення або навіть використовуйте розширені символи підстановки, як <em> Купити зелені * </em>...",
-      "result_amount": "Результати",
+      "placeholder": "Pretražite svoje bilješke...",
+      "no_result": "Nije bilo rezultata za <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Tražite pojedinačne riječi ili izraze, također možete koristiti zamjenske znakove kao što je <em>Volim *</em> ...",
+      "result_amount": "rezultate",
       "index": {
-        "title": "Індекс бази даних",
-        "hint": "Починаючи індексацію, linked сканує ваші дні та додасть їх до індексу пошуку. Це необхідно лише один раз після оновлення до v1.4.0. Дізнайтеся більше на нашому веб-сайті.",
-        "start": "Ремонт бази даних"
+        "title": "Indeks baze podataka",
+        "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
+        "start": "Popravi bazu podataka sada"
       }
     }
   }
