@@ -1,40 +1,40 @@
 {
-  "title": "English (US)",
-  "code": "en-US",
+  "title": "Nederlands",
+  "code": "nl-NL",
   "home": {
     "calendarWeek": "Week"
   },
   "settings": {
-    "back": "Back",
-    "title": "Settings",
+    "back": "Terug",
+    "title": "Instellingen",
     "designMode": {
-      "title": "Design mode",
-      "hint": "You can choose between a light and dark mode."
+      "title": "Designmodus",
+      "hint": "Kies tussen een licht of donker thema."
     },
     "languages": {
-      "title": "Language",
-      "hint": "In which language do you prefer to use linked?"
+      "title": "Taal",
+      "hint": "In welke taal wil je linked gebruiken?"
     },
     "data": {
-      "title": "Datapath",
-      "hint": "Where should your data be stored? Currently stored at: ",
-      "choose": "Choose new location"
+      "title": "Gegevenspad",
+      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
+      "choose": "Selecteer nieuwe locatie"
     },
     "updates": {
-      "title": "Update Frequency",
-      "hint": "How often to check for updates?",
-      "daily": "Daily",
-      "weekly": "Weekly"
+      "title": "Bijwerkingsonderbreking",
+      "hint": "Hoe vaak controleren op nieuwe versies?",
+      "daily": "Dagelijks",
+      "weekly": "Wekelijks"
     },
     "search": {
-      "placeholder": "Search for your notes ...",
-      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
-      "result_amount": "Results",
+      "placeholder": "Zoek uw notities...",
+      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
+      "result_amount": "resultaten",
       "index": {
-        "title": "Database Index",
-        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
-        "start": "Repair database now"
+        "title": "Database-index",
+        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
+        "start": "Database nu repareren"
       }
     }
   }
