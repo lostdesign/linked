@@ -1,41 +1,41 @@
 {
-    "title": "Català",
-    "code": "ca-ES",
-    "home": {
-        "calendarWeek": "Setmana"
+  "title": "English (US)",
+  "code": "en-US",
+  "home": {
+    "calendarWeek": "Week"
+  },
+  "settings": {
+    "back": "Back",
+    "title": "Settings",
+    "designMode": {
+      "title": "Design mode",
+      "hint": "You can choose between a light and dark mode."
     },
-    "settings": {
-        "back": "Tornar",
-        "title": "Configuració",
-        "designMode": {
-            "title": "Mode de disseny",
-            "hint": "Trieu entre un tema clar o fosc."
-        },
-        "languages": {
-            "title": "Idioma",
-            "hint": "En quina llengua t'agradaria utilitzar linked?"
-        },
-        "data": {
-            "title": "Ruta de dades",
-            "hint": "On s'han d'emmagatzemar les teves dades? Localització actual: ",
-            "choose": "Seleccioneu una nova ubicació"
-        },
-        "updates": {
-            "title": "Interval d'actualització",
-            "hint": "Amb quina freqüència cal comprovar si hi ha noves versions?",
-            "daily": "Diàriament",
-            "weekly": "Setmanalment"
-        },
-        "search": {
-            "placeholder": "Cerca les teves notes...",
-            "no_result": "No hi ha cap resultat per a <br> <strong>{searchTerm}</strong>.",
-            "start_searching": "Cerqueu paraules o frases individuals, també podeu utilitzar comodins com ara <em>M'encanta *</em>...",
-            "result_amount": "resultats",
-            "index": {
-                "title": "índex de base de dades",
-                "hint": "En començar la indexació, els vostres dies s'escanejaran i s'afegiran a la base de dades de cerca. Això només és necessari per a les dades d'inventari anteriors a la versió 1.4.0. Podeu trobar més informació al web.",
-                "start": "Repareu la base de dades ara"
-            }
-        }
+    "languages": {
+      "title": "Language",
+      "hint": "In which language do you prefer to use linked?"
+    },
+    "data": {
+      "title": "Datapath",
+      "hint": "Where should your data be stored? Currently stored at: ",
+      "choose": "Choose new location"
+    },
+    "updates": {
+      "title": "Update Frequency",
+      "hint": "How often to check for updates?",
+      "daily": "Daily",
+      "weekly": "Weekly"
+    },
+    "search": {
+      "placeholder": "Search for your notes ...",
+      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
+      "result_amount": "Results",
+      "index": {
+        "title": "Database Index",
+        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
+        "start": "Repair database now"
+      }
     }
+  }
 }
