@@ -1,40 +1,40 @@
 {
-  "title": "Slovenščina",
-  "code": "sl-SI",
+  "title": "Русский",
+  "code": "ru-RU",
   "home": {
-    "calendarWeek": "Teden"
+    "calendarWeek": "Неделя"
   },
   "settings": {
-    "back": "Nazaj",
-    "title": "Nastavitve",
+    "back": "Назад",
+    "title": "Настройки",
     "designMode": {
-      "title": "Tema",
-      "hint": "Izbirate lahko med svetlim in temnim načinom"
+      "title": "Режим Дизайна",
+      "hint": "Выберите между светлой или темной темой."
     },
     "languages": {
-      "title": "Jezik",
-      "hint": "V katerem jeziku najraje uporabljate linked?"
+      "title": "Язык",
+      "hint": "На каком языке вы хотели бы использовать ссылку?"
     },
     "data": {
-      "title": "Pot do podatkov",
-      "hint": "Kje naj bodo shranjeni vaši podatki? Trenutno shranjeno na:",
-      "choose": "Izberite novo lokacijo"
+      "title": "путь к данным",
+      "hint": "Где должны храниться ваши данные? Текущее местоположение: ",
+      "choose": "Выберите новое местоположение"
     },
     "updates": {
-      "title": "Pogostost preverjanja posodobitev",
-      "hint": "Kako pogosto preverjati posodobitve?",
-      "daily": "Dnevno",
-      "weekly": "Tedensko"
+      "title": "интервал обновления",
+      "hint": "Как часто проверять наличие новых версий?",
+      "daily": "Ежедневно",
+      "weekly": "Еженедельно"
     },
     "search": {
-      "placeholder": "Poiščite svoje zapiske...",
-      "no_result": "Ni bilo nobenega rezultata za <br> <strong>{searchTerm}</strong>",
-      "start_searching": "Iščite besede, stavke ali celo uporabite napredne nadomestne znake, kot je <em>Kupi * jabolka</em>...",
-      "result_amount": "Rezultatov",
+      "placeholder": "Поиск в заметках...",
+      "no_result": "Не найдено результатов для <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Ищите отдельные слова или фразы, вы также можете использовать подстановочные знаки, такие как <em>I love *</em> ...",
+      "result_amount": "Результаты",
       "index": {
-        "title": "Indeks baze podatkov",
-        "hint": "Z začetkom indeksiranja bo linked skeniral vaše dneve in jih dodal v iskalni indeks. To je potrebno le enkrat po posodobitvi na v1.4.0. Več o tem na naši spletni strani",
-        "start": "Popravi bazo podatkov"
+        "title": "индекс базы данных",
+        "hint": "Запустив индексацию, ваши дни будут просканированы и добавлены в базу поиска. Это необходимо только для данных инвентаризации до версии 1.4.0. Дополнительную информацию вы можете найти на веб-сайте.",
+        "start": "Восстановить базу данных сейчас"
       }
     }
   }
