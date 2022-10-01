@@ -36,7 +36,6 @@ const askForUpdates = async () => {
 
   autoUpdater.autoDownload = false
   autoUpdater.allowPrerelease = global.storage.get('allowPrerelease')
-  autoUpdater.allowDowngrade = true
   
   await autoUpdater.checkForUpdates()
 }
