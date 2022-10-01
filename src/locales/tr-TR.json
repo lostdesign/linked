@@ -1,40 +1,40 @@
 {
-  "title": "English (US)",
-  "code": "en-US",
+  "title": "Türkçe",
+  "code": "tr-TR",
   "home": {
-    "calendarWeek": "Week"
+    "calendarWeek": "Hafta"
   },
   "settings": {
-    "back": "Back",
-    "title": "Settings",
+    "back": "Geri",
+    "title": "Ayarlar",
     "designMode": {
-      "title": "Design mode",
-      "hint": "You can choose between a light and dark mode."
+      "title": "Tasarım modu",
+      "hint": "Açık veya koyu bir tema arasında seçim yapın."
     },
     "languages": {
-      "title": "Language",
-      "hint": "In which language do you prefer to use linked?"
+      "title": "Dil",
+      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
     },
     "data": {
-      "title": "Datapath",
-      "hint": "Where should your data be stored? Currently stored at: ",
-      "choose": "Choose new location"
+      "title": "Veri yolu",
+      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
+      "choose": "Yeni konum seçin"
     },
     "updates": {
-      "title": "Update Frequency",
-      "hint": "How often to check for updates?",
-      "daily": "Daily",
-      "weekly": "Weekly"
+      "title": "Güncelleme aralığı",
+      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
+      "daily": "Günlük",
+      "weekly": "Haftalık"
     },
     "search": {
-      "placeholder": "Search for your notes ...",
-      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
-      "result_amount": "Results",
+      "placeholder": "Notlarınızı arayın...",
+      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
+      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
+      "result_amount": "Sonuçlar",
       "index": {
-        "title": "Database Index",
-        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
-        "start": "Repair database now"
+        "title": "Veritabanı dizini",
+        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
+        "start": "Veritabanını şimdi onar"
       }
     }
   }
