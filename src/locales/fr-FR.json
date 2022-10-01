@@ -1,40 +1,40 @@
 {
-  "title": "हिन्दी",
-  "code": "hi-IN",
+  "title": "Français",
+  "code": "fr-FR",
   "home": {
-    "calendarWeek": "सप्ताह"
+    "calendarWeek": "Semaine"
   },
   "settings": {
-    "back": "वापस",
-    "title": "सेटिंग्स",
+    "back": "Retour",
+    "title": "Paramètres",
     "designMode": {
-      "title": "डिज़ाइन मोड",
-      "hint": "आप लाइट और डार्क मोड के बीच चयन कर सकते हैं।"
+      "title": "Thème",
+      "hint": "Choisissez un thème clair ou sombre."
     },
     "languages": {
-      "title": "भाषा",
-      "hint": "आप किस भाषा में लिंक्ड का उपयोग करना पसंद करते हैं?"
+      "title": "Langue",
+      "hint": "Dans quelle langue souhaitez-vous utiliser linked ?"
     },
     "data": {
-      "title": "डेटा पथ",
-      "hint": "आपका डेटा कहाँ संग्रहीत किया जाना चाहिए? वर्तमान में यहां संग्रहीत: ",
-      "choose": "नया स्थान चुनें"
+      "title": "Chemin de stockage",
+      "hint": "Où vos données doivent-elles être stockées ? Localisation actuelle : ",
+      "choose": "Sélectionnez un nouvel emplacement"
     },
     "updates": {
-      "title": "अपडेट आवृत्ति",
-      "hint": "अपडेट के लिए कितनी बार जांचना है?",
-      "daily": "रोज",
-      "weekly": "साप्ताहिक"
+      "title": "Intervalle de mise à jour",
+      "hint": "À quelle fréquence vérifier les nouvelles versions ?",
+      "daily": "Tous les jours",
+      "weekly": "Toutes les semaines"
     },
     "search": {
-      "placeholder": "अपने नोट्स खोजें ...",
-      "no_result": "<br> <strong>{searchTerm}</strong> के लिए कोई परिणाम नहीं था।",
-      "start_searching": "शब्दों, वाक्यों की खोज करें या यहां तक ​​कि उन्नत वाइल्डकार्ड का उपयोग करें जैसे <em> मुझे पसंद *</em> ...",
-      "result_amount": "परिणाम",
+      "placeholder": "Cherchez dans vos notes...",
+      "no_result": "Aucun résultat pour <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Recherchez des mots, des phrases, ou utilisez des caractères génériques tels que <em>J'aime *</em> ...",
+      "result_amount": "résultats",
       "index": {
-        "title": "डेटाबेस अनुक्रमणिका",
-        "hint": "अनुक्रमण शुरू करके, लिंक्ड आपके दिनों को स्कैन करेगा और उन्हें खोज अनुक्रमणिका में जोड़ देगा। यह केवल एक बार v1.4.0 में अद्यतन करने के बाद आवश्यक है। हमारी वेबसाइट पर और जानें।",
-        "start": "अब डेटाबेस की मरम्मत करें"
+        "title": "Indice de base de données",
+        "hint": "En commençant l'indexation, vos journées seront scannées et ajoutées à la base de données de recherche. Cela n'est nécessaire que pour les données d'inventaire antérieures à la version 1.4.0. Vous pouvez trouver plus d'informations sur le site Web.",
+        "start": "Réparer la base de données maintenant"
       }
     }
   }
