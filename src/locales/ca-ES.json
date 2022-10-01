@@ -1,40 +1,40 @@
 {
-  "title": "Deutsch",
-  "code": "de-DE",
+  "title": "العربية",
+  "code": "ar-AR",
   "home": {
-    "calendarWeek": "Woche"
+    "calendarWeek": "الأسبوع"
   },
   "settings": {
-    "back": "Zurück",
-    "title": "Einstellungen",
+    "back": "رجوع",
+    "title": "الإعدادات",
     "designMode": {
-      "title": "Design Modus",
-      "hint": "Wähle zwischen einem hellen oder dunklen Design."
+      "title": "المظهر",
+      "hint": "اختر بين موضوع فاتح أو داكن."
     },
     "languages": {
-      "title": "Sprache",
-      "hint": "In welcher Sprache möchtest du linked nutzen?"
+      "title": "اللغة",
+      "hint": "ما هي اللغة التي تريد استخدامها؟"
     },
     "data": {
-      "title": "Datenpfad",
-      "hint": "Wo sollen deine Daten gespeichert werden? Aktueller Speicherort: ",
-      "choose": "Neuen Ort auswählen"
+      "title": "مسار البيانات",
+      "hint": "أين يجب تخزين بياناتك؟ الموقع الحالي:",
+      "choose": "حدد موقعًا جديدًا"
     },
     "updates": {
-      "title": "Update Intervall",
-      "hint": "Wie oft soll nach neuen Versionen gesucht werden?",
-      "daily": "Täglich",
-      "weekly": "Wöchentlich"
+      "title": "الفاصل الزمني للتحديث",
+      "hint": "كم مرة للتحقق من الإصدارات الجديدة؟",
+      "daily": "اليومي",
+      "weekly": "أسبوعي"
     },
     "search": {
-      "placeholder": "Suche in deinen Notizen...",
-      "no_result": "Es gab kein Ergebnis für <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Such nach einzelnen Wörtern oder Sätzen, du kannst dabei auch Wildcards nutzen wie z.B. <em>Ich liebe *</em> ...",
-      "result_amount": "Ergebnisse",
+      "placeholder": "ابحث في ملاحظاتك ...",
+      "no_result": "لا توجد نتائج لـ <br> <strong> {searchTerm} </strong>.",
+      "start_searching": "ابحث عن كلمات أو عبارات فردية ، كما يمكنك استخدام أحرف البدل مثل <em> أحب * </ em> ...",
+      "result_amount": "النتائج",
       "index": {
-        "title": "Datenbank Index",
-        "hint": "Durch das starten der Indizierung werden deine Tage gescannt und der Suchdatenbank hinzugefügt. Dies ist nur notwendig für Bestandsdaten vor der Version 1.4.0. Mehr Infos findest du auf der Website.",
-        "start": "Datenbank jetzt reparieren"
+        "title": "فهرس قاعدة البيانات",
+        "hint": "ببدء الفهرسة ، سيتم مسح أيامك وإضافتها إلى قاعدة بيانات البحث. هذا ضروري فقط لبيانات المخزون قبل الإصدار 1.4.0. يمكنك العثور على مزيد من المعلومات على الموقع.",
+        "start": "إصلاح قاعدة البيانات الآن"
       }
     }
   }
