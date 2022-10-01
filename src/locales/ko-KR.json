@@ -1,41 +1,41 @@
 {
-  "title": "Deutsch",
-  "code": "de-DE",
-  "home": {
-    "calendarWeek": "Woche"
-  },
-  "settings": {
-    "back": "Zurück",
-    "title": "Einstellungen",
-    "designMode": {
-      "title": "Design Modus",
-      "hint": "Wähle zwischen einem hellen oder dunklen Design."
+    "title": "Català",
+    "code": "ca-ES",
+    "home": {
+        "calendarWeek": "Setmana"
     },
-    "languages": {
-      "title": "Sprache",
-      "hint": "In welcher Sprache möchtest du linked nutzen?"
-    },
-    "data": {
-      "title": "Datenpfad",
-      "hint": "Wo sollen deine Daten gespeichert werden? Aktueller Speicherort: ",
-      "choose": "Neuen Ort auswählen"
-    },
-    "updates": {
-      "title": "Update Intervall",
-      "hint": "Wie oft soll nach neuen Versionen gesucht werden?",
-      "daily": "Täglich",
-      "weekly": "Wöchentlich"
-    },
-    "search": {
-      "placeholder": "Suche in deinen Notizen...",
-      "no_result": "Es gab kein Ergebnis für <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Such nach einzelnen Wörtern oder Sätzen, du kannst dabei auch Wildcards nutzen wie z.B. <em>Ich liebe *</em> ...",
-      "result_amount": "Ergebnisse",
-      "index": {
-        "title": "Datenbank Index",
-        "hint": "Durch das starten der Indizierung werden deine Tage gescannt und der Suchdatenbank hinzugefügt. Dies ist nur notwendig für Bestandsdaten vor der Version 1.4.0. Mehr Infos findest du auf der Website.",
-        "start": "Datenbank jetzt reparieren"
-      }
+    "settings": {
+        "back": "Tornar",
+        "title": "Configuració",
+        "designMode": {
+            "title": "Mode de disseny",
+            "hint": "Trieu entre un tema clar o fosc."
+        },
+        "languages": {
+            "title": "Idioma",
+            "hint": "En quina llengua t'agradaria utilitzar linked?"
+        },
+        "data": {
+            "title": "Ruta de dades",
+            "hint": "On s'han d'emmagatzemar les teves dades? Localització actual: ",
+            "choose": "Seleccioneu una nova ubicació"
+        },
+        "updates": {
+            "title": "Interval d'actualització",
+            "hint": "Amb quina freqüència cal comprovar si hi ha noves versions?",
+            "daily": "Diàriament",
+            "weekly": "Setmanalment"
+        },
+        "search": {
+            "placeholder": "Cerca les teves notes...",
+            "no_result": "No hi ha cap resultat per a <br> <strong>{searchTerm}</strong>.",
+            "start_searching": "Cerqueu paraules o frases individuals, també podeu utilitzar comodins com ara <em>M'encanta *</em>...",
+            "result_amount": "resultats",
+            "index": {
+                "title": "índex de base de dades",
+                "hint": "En començar la indexació, els vostres dies s'escanejaran i s'afegiran a la base de dades de cerca. Això només és necessari per a les dades d'inventari anteriors a la versió 1.4.0. Podeu trobar més informació al web.",
+                "start": "Repareu la base de dades ara"
+            }
+        }
     }
-  }
 }
