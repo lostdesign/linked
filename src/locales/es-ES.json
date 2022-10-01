@@ -1,40 +1,40 @@
 {
-  "title": "Español",
-  "code": "es-ES",
+  "title": "English (US)",
+  "code": "en-US",
   "home": {
-    "calendarWeek": "Semana"
+    "calendarWeek": "Week"
   },
   "settings": {
-    "back": "Volver",
-    "title": "Ajustes",
+    "back": "Back",
+    "title": "Settings",
     "designMode": {
-      "title": "Modo de diseño",
-      "hint": "Elige entre un tema claro u oscuro."
+      "title": "Design mode",
+      "hint": "You can choose between a light and dark mode."
     },
     "languages": {
-      "title": "Idioma",
-      "hint": "¿En qué idioma le gustaría usar Linked?"
+      "title": "Language",
+      "hint": "In which language do you prefer to use linked?"
     },
     "data": {
-      "title": "Ruta de dades",
-      "hint": "¿Dónde deben almacenarse sus datos? Ubicación actual: ",
-      "choose": "Seleccionar nueva ubicación"
+      "title": "Datapath",
+      "hint": "Where should your data be stored? Currently stored at: ",
+      "choose": "Choose new location"
     },
     "updates": {
-      "title": "intervalo de actualización",
-      "hint": "¿Con qué frecuencia buscar nuevas versiones?",
-      "daily": "A diario",
-      "weekly": "Semanalmente"
+      "title": "Update Frequency",
+      "hint": "How often to check for updates?",
+      "daily": "Daily",
+      "weekly": "Weekly"
     },
     "search": {
-      "placeholder": "Busca en tus notas...",
-      "no_result": "No hubo resultados para <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Busque palabras o frases individuales, también puede usar comodines como <em>Me encanta *</em>...",
-      "result_amount": "resultados",
+      "placeholder": "Search for your notes ...",
+      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
+      "result_amount": "Results",
       "index": {
-        "title": "índice de la base de datos",
-        "hint": "Al iniciar la indexación, sus días serán escaneados y agregados a la base de datos de búsqueda. Esto solo es necesario para los datos de inventario anteriores a la versión 1.4.0. Puede encontrar más información en el sitio web.",
-        "start": "Reparar base de datos ahora"
+        "title": "Database Index",
+        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
+        "start": "Repair database now"
       }
     }
   }
