@@ -1,40 +1,40 @@
 {
-  "title": "Türkçe",
-  "code": "tr-TR",
+  "title": "Slovenščina",
+  "code": "sl-SI",
   "home": {
-    "calendarWeek": "Hafta"
+    "calendarWeek": "Teden"
   },
   "settings": {
-    "back": "Geri",
-    "title": "Ayarlar",
+    "back": "Nazaj",
+    "title": "Nastavitve",
     "designMode": {
-      "title": "Tasarım modu",
-      "hint": "Açık veya koyu bir tema arasında seçim yapın."
+      "title": "Tema",
+      "hint": "Izbirate lahko med svetlim in temnim načinom"
     },
     "languages": {
-      "title": "Dil",
-      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
+      "title": "Jezik",
+      "hint": "V katerem jeziku najraje uporabljate linked?"
     },
     "data": {
-      "title": "Veri yolu",
-      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
-      "choose": "Yeni konum seçin"
+      "title": "Pot do podatkov",
+      "hint": "Kje naj bodo shranjeni vaši podatki? Trenutno shranjeno na:",
+      "choose": "Izberite novo lokacijo"
     },
     "updates": {
-      "title": "Güncelleme aralığı",
-      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
-      "daily": "Günlük",
-      "weekly": "Haftalık"
+      "title": "Pogostost preverjanja posodobitev",
+      "hint": "Kako pogosto preverjati posodobitve?",
+      "daily": "Dnevno",
+      "weekly": "Tedensko"
     },
     "search": {
-      "placeholder": "Notlarınızı arayın...",
-      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
-      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
-      "result_amount": "Sonuçlar",
+      "placeholder": "Poiščite svoje zapiske...",
+      "no_result": "Ni bilo nobenega rezultata za <br> <strong>{searchTerm}</strong>",
+      "start_searching": "Iščite besede, stavke ali celo uporabite napredne nadomestne znake, kot je <em>Kupi * jabolka</em>...",
+      "result_amount": "Rezultatov",
       "index": {
-        "title": "Veritabanı dizini",
-        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
-        "start": "Veritabanını şimdi onar"
+        "title": "Indeks baze podatkov",
+        "hint": "Z začetkom indeksiranja bo linked skeniral vaše dneve in jih dodal v iskalni indeks. To je potrebno le enkrat po posodobitvi na v1.4.0. Več o tem na naši spletni strani",
+        "start": "Popravi bazo podatkov"
       }
     }
   }
