@@ -1,40 +1,40 @@
 {
-  "title": "한국어",
-  "code": "ko-KR",
+  "title": "English (US)",
+  "code": "en-US",
   "home": {
-    "calendarWeek": "주"
+    "calendarWeek": "Week"
   },
   "settings": {
-    "back": "이전",
-    "title": "설정",
+    "back": "Back",
+    "title": "Settings",
     "designMode": {
-      "title": "테마",
-      "hint": "밝은 테마 또는 어두운 테마 중에서 선택합니다."
+      "title": "Design mode",
+      "hint": "You can choose between a light and dark mode."
     },
     "languages": {
-      "title": "언어",
-      "hint": "연결된 언어를 어떤 언어로 사용하시겠습니까?"
+      "title": "Language",
+      "hint": "In which language do you prefer to use linked?"
     },
     "data": {
-      "title": "데이터 경로",
-      "hint": "데이터를 어디에 저장해야 합니까? 현재 위치: ",
-      "choose": "새 위치 선택"
+      "title": "Datapath",
+      "hint": "Where should your data be stored? Currently stored at: ",
+      "choose": "Choose new location"
     },
     "updates": {
-      "title": "업데이트 간격",
-      "hint": "얼마나 자주 새 버전을 확인합니까?",
-      "daily": "일일",
-      "weekly": "주간"
+      "title": "Update Frequency",
+      "hint": "How often to check for updates?",
+      "daily": "Daily",
+      "weekly": "Weekly"
     },
     "search": {
-      "placeholder": "메모 검색...",
-      "no_result": "<br> <strong>{searchTerm}</strong>에 대한 검색결과가 없습니다.",
-      "start_searching": "개별 단어나 구를 검색하고 <em>I love *</em> ...와 같은 와일드카드를 사용할 수도 있습니다.",
-      "result_amount": "결과",
+      "placeholder": "Search for your notes ...",
+      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
+      "result_amount": "Results",
       "index": {
-        "title": "데이터베이스",
-        "hint": "인덱싱을 시작하면 귀하의 날짜가 스캔되어 검색 데이터베이스에 추가됩니다. 이는 버전 1.4.0 이전의 인벤토리 데이터에만 필요합니다. 자세한 내용은 웹 사이트를 방문하십시오.",
-        "start": "지금 데이터베이스 복구"
+        "title": "Database Index",
+        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
+        "start": "Repair database now"
       }
     }
   }
