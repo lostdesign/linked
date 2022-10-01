@@ -1,40 +1,40 @@
 {
-  "title": "Türkçe",
-  "code": "tr-TR",
+  "title": "한국어",
+  "code": "ko-KR",
   "home": {
-    "calendarWeek": "Hafta"
+    "calendarWeek": "주"
   },
   "settings": {
-    "back": "Geri",
-    "title": "Ayarlar",
+    "back": "이전",
+    "title": "설정",
     "designMode": {
-      "title": "Tasarım modu",
-      "hint": "Açık veya koyu bir tema arasında seçim yapın."
+      "title": "테마",
+      "hint": "밝은 테마 또는 어두운 테마 중에서 선택합니다."
     },
     "languages": {
-      "title": "Dil",
-      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
+      "title": "언어",
+      "hint": "연결된 언어를 어떤 언어로 사용하시겠습니까?"
     },
     "data": {
-      "title": "Veri yolu",
-      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
-      "choose": "Yeni konum seçin"
+      "title": "데이터 경로",
+      "hint": "데이터를 어디에 저장해야 합니까? 현재 위치: ",
+      "choose": "새 위치 선택"
     },
     "updates": {
-      "title": "Güncelleme aralığı",
-      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
-      "daily": "Günlük",
-      "weekly": "Haftalık"
+      "title": "업데이트 간격",
+      "hint": "얼마나 자주 새 버전을 확인합니까?",
+      "daily": "일일",
+      "weekly": "주간"
     },
     "search": {
-      "placeholder": "Notlarınızı arayın...",
-      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
-      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
-      "result_amount": "Sonuçlar",
+      "placeholder": "메모 검색...",
+      "no_result": "<br> <strong>{searchTerm}</strong>에 대한 검색결과가 없습니다.",
+      "start_searching": "개별 단어나 구를 검색하고 <em>I love *</em> ...와 같은 와일드카드를 사용할 수도 있습니다.",
+      "result_amount": "결과",
       "index": {
-        "title": "Veritabanı dizini",
-        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
-        "start": "Veritabanını şimdi onar"
+        "title": "데이터베이스",
+        "hint": "인덱싱을 시작하면 귀하의 날짜가 스캔되어 검색 데이터베이스에 추가됩니다. 이는 버전 1.4.0 이전의 인벤토리 데이터에만 필요합니다. 자세한 내용은 웹 사이트를 방문하십시오.",
+        "start": "지금 데이터베이스 복구"
       }
     }
   }
