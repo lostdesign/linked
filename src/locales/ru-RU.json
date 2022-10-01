@@ -1,40 +1,40 @@
 {
-  "title": "Deutsch",
-  "code": "de-DE",
+  "title": "English (US)",
+  "code": "en-US",
   "home": {
-    "calendarWeek": "Woche"
+    "calendarWeek": "Week"
   },
   "settings": {
-    "back": "Zurück",
-    "title": "Einstellungen",
+    "back": "Back",
+    "title": "Settings",
     "designMode": {
-      "title": "Design Modus",
-      "hint": "Wähle zwischen einem hellen oder dunklen Design."
+      "title": "Design mode",
+      "hint": "You can choose between a light and dark mode."
     },
     "languages": {
-      "title": "Sprache",
-      "hint": "In welcher Sprache möchtest du linked nutzen?"
+      "title": "Language",
+      "hint": "In which language do you prefer to use linked?"
     },
     "data": {
-      "title": "Datenpfad",
-      "hint": "Wo sollen deine Daten gespeichert werden? Aktueller Speicherort: ",
-      "choose": "Neuen Ort auswählen"
+      "title": "Datapath",
+      "hint": "Where should your data be stored? Currently stored at: ",
+      "choose": "Choose new location"
     },
     "updates": {
-      "title": "Update Intervall",
-      "hint": "Wie oft soll nach neuen Versionen gesucht werden?",
-      "daily": "Täglich",
-      "weekly": "Wöchentlich"
+      "title": "Update Frequency",
+      "hint": "How often to check for updates?",
+      "daily": "Daily",
+      "weekly": "Weekly"
     },
     "search": {
-      "placeholder": "Suche in deinen Notizen...",
-      "no_result": "Es gab kein Ergebnis für <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Such nach einzelnen Wörtern oder Sätzen, du kannst dabei auch Wildcards nutzen wie z.B. <em>Ich liebe *</em> ...",
-      "result_amount": "Ergebnisse",
+      "placeholder": "Search for your notes ...",
+      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
+      "result_amount": "Results",
       "index": {
-        "title": "Datenbank Index",
-        "hint": "Durch das starten der Indizierung werden deine Tage gescannt und der Suchdatenbank hinzugefügt. Dies ist nur notwendig für Bestandsdaten vor der Version 1.4.0. Mehr Infos findest du auf der Website.",
-        "start": "Datenbank jetzt reparieren"
+        "title": "Database Index",
+        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
+        "start": "Repair database now"
       }
     }
   }
