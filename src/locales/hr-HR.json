@@ -1,40 +1,40 @@
 {
-  "title": "Hrvatski",
-  "code": "hr-HR",
+  "title": "Ελληνικά",
+  "code": "el-GR",
   "home": {
-    "calendarWeek": "Tjedan"
+    "calendarWeek": "Εβδομάδα"
   },
   "settings": {
-    "back": "Natrag",
-    "title": "Postavke",
+    "back": "Επιστροφή",
+    "title": "Ρυθμίσεις",
     "designMode": {
-      "title": "Tema",
-      "hint": "Birajte između svijetle ili tamne teme."
+      "title": "Εμφάνιση",
+      "hint": "Μπορείτε να διαλέξετε μεταξύ ανοιχτόχρωμης ή σκούρας εμφάνισης."
     },
     "languages": {
-      "title": "Jezik",
-      "hint": "Na kojem jeziku želite koristiti linked?"
+      "title": "Γλώσσα",
+      "hint": "Σε ποιά γλώσσα επιθυμείτε να χρησιμοποιείτε το linked;"
     },
     "data": {
-      "title": "Put podataka",
-      "hint": "Gdje bi trebali biti pohranjeni vaši podaci? Trenutna lokacija: ",
-      "choose": "Odaberite novu lokaciju"
+      "title": "Τοποθεσία Δεδομένων",
+      "hint": "Πού επιθυμείτε να αποθηκεύσετε τα δεδομένα σας; Ενεργή τοποθεσία: ",
+      "choose": "Επιλέξτε καινούργια τοποθεσία"
     },
     "updates": {
-      "title": "interval ažuriranja",
-      "hint": "Koliko često provjeravati nove verzije?",
-      "daily": "Dnevno",
-      "weekly": "Tjedni"
+      "title": "Συχνότητα Ενημερώσεων",
+      "hint": "Πόσο συχνά επιθυμείτε τον έλεγχο διαθέσιμων ενημερώσεων;",
+      "daily": "Ημερησίως",
+      "weekly": "Εβδομαδιαίως"
     },
     "search": {
-      "placeholder": "Pretražite svoje bilješke...",
-      "no_result": "Nije bilo rezultata za <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Tražite pojedinačne riječi ili izraze, također možete koristiti zamjenske znakove kao što je <em>Volim *</em> ...",
-      "result_amount": "rezultate",
+      "placeholder": "Εύρεση Σημειώσεων...",
+      "no_result": "Κανένα αποτέλεσμα για <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Χρησιμοποιείστε λέξεις, προτάσεις ή ακόμη και μεταχαρακτήρες όπως <em>Μ'αρέσει το *</em>...",
+      "result_amount": "Αποτελέσματα",
       "index": {
-        "title": "Indeks baze podataka",
-        "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
-        "start": "Popravi bazu podataka sada"
+        "title": "Κατάταξη Βάσης Δεδομένων",
+        "hint": "Ξεκινώντας την διαδικασία κατάταξης δεδομένων, το linked θα σαρώσει τις ημέρες και θα τις προσθέσει στη βάση εύρεσης δεδομένων. Αυτή η ενέργεια είναι απαραίτητη μόνο κατόπιν αναβάθμισης της εφαρμογής στην έκδοση v1.4.0. Μάθετε περισσότερα στη σελίδα μας.",
+        "start": "Αποκατάσταση Βάσης Δεδομένων"
       }
     }
   }
