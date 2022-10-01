@@ -1,40 +1,40 @@
 {
-  "title": "Español",
-  "code": "es-ES",
+  "title": "العربية",
+  "code": "ar-AR",
   "home": {
-    "calendarWeek": "Semana"
+    "calendarWeek": "الأسبوع"
   },
   "settings": {
-    "back": "Volver",
-    "title": "Ajustes",
+    "back": "رجوع",
+    "title": "الإعدادات",
     "designMode": {
-      "title": "Modo de diseño",
-      "hint": "Elige entre un tema claro u oscuro."
+      "title": "المظهر",
+      "hint": "اختر بين موضوع فاتح أو داكن."
     },
     "languages": {
-      "title": "Idioma",
-      "hint": "¿En qué idioma le gustaría usar Linked?"
+      "title": "اللغة",
+      "hint": "ما هي اللغة التي تريد استخدامها؟"
     },
     "data": {
-      "title": "Ruta de dades",
-      "hint": "¿Dónde deben almacenarse sus datos? Ubicación actual: ",
-      "choose": "Seleccionar nueva ubicación"
+      "title": "مسار البيانات",
+      "hint": "أين يجب تخزين بياناتك؟ الموقع الحالي:",
+      "choose": "حدد موقعًا جديدًا"
     },
     "updates": {
-      "title": "intervalo de actualización",
-      "hint": "¿Con qué frecuencia buscar nuevas versiones?",
-      "daily": "A diario",
-      "weekly": "Semanalmente"
+      "title": "الفاصل الزمني للتحديث",
+      "hint": "كم مرة للتحقق من الإصدارات الجديدة؟",
+      "daily": "اليومي",
+      "weekly": "أسبوعي"
     },
     "search": {
-      "placeholder": "Busca en tus notas...",
-      "no_result": "No hubo resultados para <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Busque palabras o frases individuales, también puede usar comodines como <em>Me encanta *</em>...",
-      "result_amount": "resultados",
+      "placeholder": "ابحث في ملاحظاتك ...",
+      "no_result": "لا توجد نتائج لـ <br> <strong> {searchTerm} </strong>.",
+      "start_searching": "ابحث عن كلمات أو عبارات فردية ، كما يمكنك استخدام أحرف البدل مثل <em> أحب * </ em> ...",
+      "result_amount": "النتائج",
       "index": {
-        "title": "índice de la base de datos",
-        "hint": "Al iniciar la indexación, sus días serán escaneados y agregados a la base de datos de búsqueda. Esto solo es necesario para los datos de inventario anteriores a la versión 1.4.0. Puede encontrar más información en el sitio web.",
-        "start": "Reparar base de datos ahora"
+        "title": "فهرس قاعدة البيانات",
+        "hint": "ببدء الفهرسة ، سيتم مسح أيامك وإضافتها إلى قاعدة بيانات البحث. هذا ضروري فقط لبيانات المخزون قبل الإصدار 1.4.0. يمكنك العثور على مزيد من المعلومات على الموقع.",
+        "start": "إصلاح قاعدة البيانات الآن"
       }
     }
   }
