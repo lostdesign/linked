@@ -1,40 +1,40 @@
 {
-  "title": "Español",
-  "code": "es-ES",
+  "title": "Hrvatski",
+  "code": "hr-HR",
   "home": {
-    "calendarWeek": "Semana"
+    "calendarWeek": "Tjedan"
   },
   "settings": {
-    "back": "Volver",
-    "title": "Ajustes",
+    "back": "Natrag",
+    "title": "Postavke",
     "designMode": {
-      "title": "Modo de diseño",
-      "hint": "Elige entre un tema claro u oscuro."
+      "title": "Tema",
+      "hint": "Birajte između svijetle ili tamne teme."
     },
     "languages": {
-      "title": "Idioma",
-      "hint": "¿En qué idioma le gustaría usar Linked?"
+      "title": "Jezik",
+      "hint": "Na kojem jeziku želite koristiti linked?"
     },
     "data": {
-      "title": "Ruta de dades",
-      "hint": "¿Dónde deben almacenarse sus datos? Ubicación actual: ",
-      "choose": "Seleccionar nueva ubicación"
+      "title": "Put podataka",
+      "hint": "Gdje bi trebali biti pohranjeni vaši podaci? Trenutna lokacija: ",
+      "choose": "Odaberite novu lokaciju"
     },
     "updates": {
-      "title": "intervalo de actualización",
-      "hint": "¿Con qué frecuencia buscar nuevas versiones?",
-      "daily": "A diario",
-      "weekly": "Semanalmente"
+      "title": "interval ažuriranja",
+      "hint": "Koliko često provjeravati nove verzije?",
+      "daily": "Dnevno",
+      "weekly": "Tjedni"
     },
     "search": {
-      "placeholder": "Busca en tus notas...",
-      "no_result": "No hubo resultados para <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Busque palabras o frases individuales, también puede usar comodines como <em>Me encanta *</em>...",
-      "result_amount": "resultados",
+      "placeholder": "Pretražite svoje bilješke...",
+      "no_result": "Nije bilo rezultata za <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Tražite pojedinačne riječi ili izraze, također možete koristiti zamjenske znakove kao što je <em>Volim *</em> ...",
+      "result_amount": "rezultate",
       "index": {
-        "title": "índice de la base de datos",
-        "hint": "Al iniciar la indexación, sus días serán escaneados y agregados a la base de datos de búsqueda. Esto solo es necesario para los datos de inventario anteriores a la versión 1.4.0. Puede encontrar más información en el sitio web.",
-        "start": "Reparar base de datos ahora"
+        "title": "Indeks baze podataka",
+        "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
+        "start": "Popravi bazu podataka sada"
       }
     }
   }
