@@ -1,40 +1,40 @@
 {
-  "title": "Polski",
-  "code": "pl-PL",
+  "title": "Slovenščina",
+  "code": "sl-SI",
   "home": {
-    "calendarWeek": "Tydzień"
+    "calendarWeek": "Teden"
   },
   "settings": {
-    "back": "Powrót",
-    "title": "Ustawienia",
+    "back": "Nazaj",
+    "title": "Nastavitve",
     "designMode": {
-      "title": "Tryb designera",
-      "hint": "Możesz wybrać pomiędzy jasnym i ciemnym motywem"
+      "title": "Tema",
+      "hint": "Izbirate lahko med svetlim in temnim načinom"
     },
     "languages": {
-      "title": "Język",
-      "hint": "W jakim języku preferujesz używania linked?"
+      "title": "Jezik",
+      "hint": "V katerem jeziku najraje uporabljate linked?"
     },
     "data": {
-      "title": "Ścieżka danych",
-      "hint": "Gdzie powinny być przechowyane dane aplikacji? Teraz przychowywane są w: ",
-      "choose": "Wybierz nową lokalizację"
+      "title": "Pot do podatkov",
+      "hint": "Kje naj bodo shranjeni vaši podatki? Trenutno shranjeno na:",
+      "choose": "Izberite novo lokacijo"
     },
     "updates": {
-      "title": "Częstotliwość aktualizacji",
-      "hint": "Jak często będą wyszukiwane nowe aktualizacje?",
-      "daily": "Codziennie",
-      "weekly": "Co tydzień"
+      "title": "Pogostost preverjanja posodobitev",
+      "hint": "Kako pogosto preverjati posodobitve?",
+      "daily": "Dnevno",
+      "weekly": "Tedensko"
     },
     "search": {
-      "placeholder": "Przeszukaj swoje notatki...",
-      "no_result": "Nie znaleziono wyników dla <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Szukaj słów, zdań albo nawet użyj zaawansowanych symboli wieloznacznych jak <em>Kocham *</em> ...",
-      "result_amount": "Wyniki",
+      "placeholder": "Poiščite svoje zapiske...",
+      "no_result": "Ni bilo nobenega rezultata za <br> <strong>{searchTerm}</strong>",
+      "start_searching": "Iščite besede, stavke ali celo uporabite napredne nadomestne znake, kot je <em>Kupi * jabolka</em>...",
+      "result_amount": "Rezultatov",
       "index": {
-        "title": "Indeks bazy danych",
-        "hint": "Po uruchomieniu indeksowania linked przeskanuje Twoje dni i doda je do indeksu wyszukiwania. Jest to konieczne tylko raz po aktualizacji do wersji 1.4.0. Dowiedz się więcej na naszej stronie internetowej.",
-        "start": "Napraw bazę danych"
+        "title": "Indeks baze podatkov",
+        "hint": "Z začetkom indeksiranja bo linked skeniral vaše dneve in jih dodal v iskalni indeks. To je potrebno le enkrat po posodobitvi na v1.4.0. Več o tem na naši spletni strani",
+        "start": "Popravi bazo podatkov"
       }
     }
   }
