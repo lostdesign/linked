@@ -1,40 +1,40 @@
 {
-  "title": "Nederlands",
-  "code": "nl-NL",
+  "title": "한국어",
+  "code": "ko-KR",
   "home": {
-    "calendarWeek": "Week"
+    "calendarWeek": "주"
   },
   "settings": {
-    "back": "Terug",
-    "title": "Instellingen",
+    "back": "이전",
+    "title": "설정",
     "designMode": {
-      "title": "Designmodus",
-      "hint": "Kies tussen een licht of donker thema."
+      "title": "테마",
+      "hint": "밝은 테마 또는 어두운 테마 중에서 선택합니다."
     },
     "languages": {
-      "title": "Taal",
-      "hint": "In welke taal wil je linked gebruiken?"
+      "title": "언어",
+      "hint": "연결된 언어를 어떤 언어로 사용하시겠습니까?"
     },
     "data": {
-      "title": "Gegevenspad",
-      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
-      "choose": "Selecteer nieuwe locatie"
+      "title": "데이터 경로",
+      "hint": "데이터를 어디에 저장해야 합니까? 현재 위치: ",
+      "choose": "새 위치 선택"
     },
     "updates": {
-      "title": "Bijwerkingsonderbreking",
-      "hint": "Hoe vaak controleren op nieuwe versies?",
-      "daily": "Dagelijks",
-      "weekly": "Wekelijks"
+      "title": "업데이트 간격",
+      "hint": "얼마나 자주 새 버전을 확인합니까?",
+      "daily": "일일",
+      "weekly": "주간"
     },
     "search": {
-      "placeholder": "Zoek uw notities...",
-      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
-      "result_amount": "resultaten",
+      "placeholder": "메모 검색...",
+      "no_result": "<br> <strong>{searchTerm}</strong>에 대한 검색결과가 없습니다.",
+      "start_searching": "개별 단어나 구를 검색하고 <em>I love *</em> ...와 같은 와일드카드를 사용할 수도 있습니다.",
+      "result_amount": "결과",
       "index": {
-        "title": "Database-index",
-        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
-        "start": "Database nu repareren"
+        "title": "데이터베이스",
+        "hint": "인덱싱을 시작하면 귀하의 날짜가 스캔되어 검색 데이터베이스에 추가됩니다. 이는 버전 1.4.0 이전의 인벤토리 데이터에만 필요합니다. 자세한 내용은 웹 사이트를 방문하십시오.",
+        "start": "지금 데이터베이스 복구"
       }
     }
   }
