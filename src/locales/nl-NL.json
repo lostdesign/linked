@@ -1,40 +1,40 @@
 {
-  "title": "Nederlands",
-  "code": "nl-NL",
+  "title": "العربية",
+  "code": "ar-AR",
   "home": {
-    "calendarWeek": "Week"
+    "calendarWeek": "الأسبوع"
   },
   "settings": {
-    "back": "Terug",
-    "title": "Instellingen",
+    "back": "رجوع",
+    "title": "الإعدادات",
     "designMode": {
-      "title": "Designmodus",
-      "hint": "Kies tussen een licht of donker thema."
+      "title": "المظهر",
+      "hint": "اختر بين موضوع فاتح أو داكن."
     },
     "languages": {
-      "title": "Taal",
-      "hint": "In welke taal wil je linked gebruiken?"
+      "title": "اللغة",
+      "hint": "ما هي اللغة التي تريد استخدامها؟"
     },
     "data": {
-      "title": "Gegevenspad",
-      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
-      "choose": "Selecteer nieuwe locatie"
+      "title": "مسار البيانات",
+      "hint": "أين يجب تخزين بياناتك؟ الموقع الحالي:",
+      "choose": "حدد موقعًا جديدًا"
     },
     "updates": {
-      "title": "Bijwerkingsonderbreking",
-      "hint": "Hoe vaak controleren op nieuwe versies?",
-      "daily": "Dagelijks",
-      "weekly": "Wekelijks"
+      "title": "الفاصل الزمني للتحديث",
+      "hint": "كم مرة للتحقق من الإصدارات الجديدة؟",
+      "daily": "اليومي",
+      "weekly": "أسبوعي"
     },
     "search": {
-      "placeholder": "Zoek uw notities...",
-      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
-      "result_amount": "resultaten",
+      "placeholder": "ابحث في ملاحظاتك ...",
+      "no_result": "لا توجد نتائج لـ <br> <strong> {searchTerm} </strong>.",
+      "start_searching": "ابحث عن كلمات أو عبارات فردية ، كما يمكنك استخدام أحرف البدل مثل <em> أحب * </ em> ...",
+      "result_amount": "النتائج",
       "index": {
-        "title": "Database-index",
-        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
-        "start": "Database nu repareren"
+        "title": "فهرس قاعدة البيانات",
+        "hint": "ببدء الفهرسة ، سيتم مسح أيامك وإضافتها إلى قاعدة بيانات البحث. هذا ضروري فقط لبيانات المخزون قبل الإصدار 1.4.0. يمكنك العثور على مزيد من المعلومات على الموقع.",
+        "start": "إصلاح قاعدة البيانات الآن"
       }
     }
   }
