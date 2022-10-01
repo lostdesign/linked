@@ -57,6 +57,5 @@ export const setDataPath = () => {
 }
 
 export const setAllowPrerelease = async (value) => {
-  console.log('value in helper',value)
   return ipcRenderer.invoke('SET_STORAGE_VALUE', 'allowPrerelease', value)
 }
