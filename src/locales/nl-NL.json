@@ -1,40 +1,40 @@
 {
-  "title": "Русский",
-  "code": "ru-RU",
+  "title": "Nederlands",
+  "code": "nl-NL",
   "home": {
-    "calendarWeek": "Неделя"
+    "calendarWeek": "Week"
   },
   "settings": {
-    "back": "Назад",
-    "title": "Настройки",
+    "back": "Terug",
+    "title": "Instellingen",
     "designMode": {
-      "title": "Режим Дизайна",
-      "hint": "Выберите между светлой или темной темой."
+      "title": "Designmodus",
+      "hint": "Kies tussen een licht of donker thema."
     },
     "languages": {
-      "title": "Язык",
-      "hint": "На каком языке вы хотели бы использовать ссылку?"
+      "title": "Taal",
+      "hint": "In welke taal wil je linked gebruiken?"
     },
     "data": {
-      "title": "путь к данным",
-      "hint": "Где должны храниться ваши данные? Текущее местоположение: ",
-      "choose": "Выберите новое местоположение"
+      "title": "Gegevenspad",
+      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
+      "choose": "Selecteer nieuwe locatie"
     },
     "updates": {
-      "title": "интервал обновления",
-      "hint": "Как часто проверять наличие новых версий?",
-      "daily": "Ежедневно",
-      "weekly": "Еженедельно"
+      "title": "Bijwerkingsonderbreking",
+      "hint": "Hoe vaak controleren op nieuwe versies?",
+      "daily": "Dagelijks",
+      "weekly": "Wekelijks"
     },
     "search": {
-      "placeholder": "Поиск в заметках...",
-      "no_result": "Не найдено результатов для <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Ищите отдельные слова или фразы, вы также можете использовать подстановочные знаки, такие как <em>I love *</em> ...",
-      "result_amount": "Результаты",
+      "placeholder": "Zoek uw notities...",
+      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
+      "result_amount": "resultaten",
       "index": {
-        "title": "индекс базы данных",
-        "hint": "Запустив индексацию, ваши дни будут просканированы и добавлены в базу поиска. Это необходимо только для данных инвентаризации до версии 1.4.0. Дополнительную информацию вы можете найти на веб-сайте.",
-        "start": "Восстановить базу данных сейчас"
+        "title": "Database-index",
+        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
+        "start": "Database nu repareren"
       }
     }
   }
