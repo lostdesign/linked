@@ -1,40 +1,40 @@
 {
-  "title": "Nederlands",
-  "code": "nl-NL",
+  "title": "Türkçe",
+  "code": "tr-TR",
   "home": {
-    "calendarWeek": "Week"
+    "calendarWeek": "Hafta"
   },
   "settings": {
-    "back": "Terug",
-    "title": "Instellingen",
+    "back": "Geri",
+    "title": "Ayarlar",
     "designMode": {
-      "title": "Designmodus",
-      "hint": "Kies tussen een licht of donker thema."
+      "title": "Tasarım modu",
+      "hint": "Açık veya koyu bir tema arasında seçim yapın."
     },
     "languages": {
-      "title": "Taal",
-      "hint": "In welke taal wil je linked gebruiken?"
+      "title": "Dil",
+      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
     },
     "data": {
-      "title": "Gegevenspad",
-      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
-      "choose": "Selecteer nieuwe locatie"
+      "title": "Veri yolu",
+      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
+      "choose": "Yeni konum seçin"
     },
     "updates": {
-      "title": "Bijwerkingsonderbreking",
-      "hint": "Hoe vaak controleren op nieuwe versies?",
-      "daily": "Dagelijks",
-      "weekly": "Wekelijks"
+      "title": "Güncelleme aralığı",
+      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
+      "daily": "Günlük",
+      "weekly": "Haftalık"
     },
     "search": {
-      "placeholder": "Zoek uw notities...",
-      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
-      "result_amount": "resultaten",
+      "placeholder": "Notlarınızı arayın...",
+      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
+      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
+      "result_amount": "Sonuçlar",
       "index": {
-        "title": "Database-index",
-        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
-        "start": "Database nu repareren"
+        "title": "Veritabanı dizini",
+        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
+        "start": "Veritabanını şimdi onar"
       }
     }
   }
