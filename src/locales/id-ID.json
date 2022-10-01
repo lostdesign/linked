@@ -1,40 +1,40 @@
 {
-  "title": "Türkçe",
-  "code": "tr-TR",
+  "title": "Bahasa Indonesia",
+  "code": "id-ID",
   "home": {
-    "calendarWeek": "Hafta"
+    "calendarWeek": "MINGGU"
   },
   "settings": {
-    "back": "Geri",
-    "title": "Ayarlar",
+    "back": "Kembali",
+    "title": "Pengaturan",
     "designMode": {
-      "title": "Tasarım modu",
-      "hint": "Açık veya koyu bir tema arasında seçim yapın."
+      "title": "Mode desain",
+      "hint": "Pilih antara tema terang atau gelap."
     },
     "languages": {
-      "title": "Dil",
-      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
+      "title": "Bahasa",
+      "hint": "Dalam bahasa apa Anda ingin menggunakan linked?"
     },
     "data": {
-      "title": "Veri yolu",
-      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
-      "choose": "Yeni konum seçin"
+      "title": "Jalur data",
+      "hint": "Di mana data Anda harus disimpan? Lokasi saat ini: ",
+      "choose": "Pilih lokasi baru"
     },
     "updates": {
-      "title": "Güncelleme aralığı",
-      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
-      "daily": "Günlük",
-      "weekly": "Haftalık"
+      "title": "Interval pembaruan",
+      "hint": "Seberapa sering memeriksa versi baru?",
+      "daily": "Sehari-hari",
+      "weekly": "Mingguan"
     },
     "search": {
-      "placeholder": "Notlarınızı arayın...",
-      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
-      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
-      "result_amount": "Sonuçlar",
+      "placeholder": "Cari catatan Anda...",
+      "no_result": "Tidak ada hasil untuk <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Cari kata atau frasa individual, Anda juga dapat menggunakan karakter pengganti seperti <em>Saya suka *</em> ...",
+      "result_amount": "hasil",
       "index": {
-        "title": "Veritabanı dizini",
-        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
-        "start": "Veritabanını şimdi onar"
+        "title": "Indeks basis data",
+        "hint": "Dengan memulai pengindeksan, hari-hari Anda akan dipindai dan ditambahkan ke database pencarian. Ini hanya diperlukan untuk data inventaris sebelum versi 1.4.0. Kunjungi situsnya untuk informasi lebih lanjut.",
+        "start": "Perbaiki database sekarang"
       }
     }
   }
