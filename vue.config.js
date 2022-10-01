@@ -18,6 +18,7 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       nodeIntegration: true,
+      generateUpdatesFilesForAllChannels: true,
       builderOptions: {
         mac: {
           hardenedRuntime: true,
