@@ -76,7 +76,7 @@
       >
         {{ $t('settings.search.index.start') }}
       </button>
-      <allow-prerelease class='mb-24' />
+      <allow-prerelease class='mb-16' />
       <span
         class="
           bg-white
