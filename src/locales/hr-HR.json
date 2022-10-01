@@ -1,40 +1,40 @@
 {
-  "title": "English (US)",
-  "code": "en-US",
+  "title": "हिन्दी",
+  "code": "hi-IN",
   "home": {
-    "calendarWeek": "Week"
+    "calendarWeek": "सप्ताह"
   },
   "settings": {
-    "back": "Back",
-    "title": "Settings",
+    "back": "वापस",
+    "title": "सेटिंग्स",
     "designMode": {
-      "title": "Design mode",
-      "hint": "You can choose between a light and dark mode."
+      "title": "डिज़ाइन मोड",
+      "hint": "आप लाइट और डार्क मोड के बीच चयन कर सकते हैं।"
     },
     "languages": {
-      "title": "Language",
-      "hint": "In which language do you prefer to use linked?"
+      "title": "भाषा",
+      "hint": "आप किस भाषा में लिंक्ड का उपयोग करना पसंद करते हैं?"
     },
     "data": {
-      "title": "Datapath",
-      "hint": "Where should your data be stored? Currently stored at: ",
-      "choose": "Choose new location"
+      "title": "डेटा पथ",
+      "hint": "आपका डेटा कहाँ संग्रहीत किया जाना चाहिए? वर्तमान में यहां संग्रहीत: ",
+      "choose": "नया स्थान चुनें"
     },
     "updates": {
-      "title": "Update Frequency",
-      "hint": "How often to check for updates?",
-      "daily": "Daily",
-      "weekly": "Weekly"
+      "title": "अपडेट आवृत्ति",
+      "hint": "अपडेट के लिए कितनी बार जांचना है?",
+      "daily": "रोज",
+      "weekly": "साप्ताहिक"
     },
     "search": {
-      "placeholder": "Search for your notes ...",
-      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
-      "result_amount": "Results",
+      "placeholder": "अपने नोट्स खोजें ...",
+      "no_result": "<br> <strong>{searchTerm}</strong> के लिए कोई परिणाम नहीं था।",
+      "start_searching": "शब्दों, वाक्यों की खोज करें या यहां तक ​​कि उन्नत वाइल्डकार्ड का उपयोग करें जैसे <em> मुझे पसंद *</em> ...",
+      "result_amount": "परिणाम",
       "index": {
-        "title": "Database Index",
-        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
-        "start": "Repair database now"
+        "title": "डेटाबेस अनुक्रमणिका",
+        "hint": "अनुक्रमण शुरू करके, लिंक्ड आपके दिनों को स्कैन करेगा और उन्हें खोज अनुक्रमणिका में जोड़ देगा। यह केवल एक बार v1.4.0 में अद्यतन करने के बाद आवश्यक है। हमारी वेबसाइट पर और जानें।",
+        "start": "अब डेटाबेस की मरम्मत करें"
       }
     }
   }
