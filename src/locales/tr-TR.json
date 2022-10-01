@@ -1,40 +1,40 @@
 {
-  "title": "Nederlands",
-  "code": "nl-NL",
+  "title": "Italiano",
+  "code": "it-IT",
   "home": {
-    "calendarWeek": "Week"
+    "calendarWeek": "Settimana"
   },
   "settings": {
-    "back": "Terug",
-    "title": "Instellingen",
+    "back": "Indietro",
+    "title": "Impostazioni",
     "designMode": {
-      "title": "Designmodus",
-      "hint": "Kies tussen een licht of donker thema."
+      "title": "Modalità design",
+      "hint": "Puoi scegliere tra una modalità chiara e scura."
     },
     "languages": {
-      "title": "Taal",
-      "hint": "In welke taal wil je linked gebruiken?"
+      "title": "Lingua",
+      "hint": "In quale lingua preferisci usare linked?"
     },
     "data": {
-      "title": "Gegevenspad",
-      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
-      "choose": "Selecteer nieuwe locatie"
+      "title": "Percorso dati",
+      "hint": "Dove dovrebbero essere memorizzati i tuoi dati? Attualmente memorizzati in: ",
+      "choose": "Scegli una nuova posizione"
     },
     "updates": {
-      "title": "Bijwerkingsonderbreking",
-      "hint": "Hoe vaak controleren op nieuwe versies?",
-      "daily": "Dagelijks",
-      "weekly": "Wekelijks"
+      "title": "Frequenza di aggiornamento",
+      "hint": "Con quale frequenza controllare gli aggiornamenti?",
+      "daily": "Ogni giorno",
+      "weekly": "Ogni settimana"
     },
     "search": {
-      "placeholder": "Zoek uw notities...",
-      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
-      "result_amount": "resultaten",
+      "placeholder": "Cerca le tue note ...",
+      "no_result": "Nessun risultato per <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Cerca parole, frasi o usa anche caratteri jolly avanzati come <em>Io amo *</em> ...",
+      "result_amount": "Risultati",
       "index": {
-        "title": "Database-index",
-        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
-        "start": "Database nu repareren"
+        "title": "Indice del Database",
+        "hint": "Avviando l'indicizzazione, linked analizzerà i tuoi giorni e li aggiungerà all'indice di ricerca. Questo è necessario solo una volta dopo l'aggiornamento alla versione v1.4.0. Scopri di più sul nostro sito web.",
+        "start": "Ripara il database ora"
       }
     }
   }
