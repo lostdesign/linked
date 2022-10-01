@@ -1,40 +1,40 @@
 {
-  "title": "Català",
-  "code": "ca-ES",
+  "title": "Hrvatski",
+  "code": "hr-HR",
   "home": {
-    "calendarWeek": "Setmana"
+    "calendarWeek": "Tjedan"
   },
   "settings": {
-    "back": "Tornar",
-    "title": "Configuració",
+    "back": "Natrag",
+    "title": "Postavke",
     "designMode": {
-      "title": "Mode de disseny",
-      "hint": "Trieu entre un tema clar o fosc."
+      "title": "Tema",
+      "hint": "Birajte između svijetle ili tamne teme."
     },
     "languages": {
-      "title": "Idioma",
-      "hint": "En quina llengua t'agradaria utilitzar linked?"
+      "title": "Jezik",
+      "hint": "Na kojem jeziku želite koristiti linked?"
     },
     "data": {
-      "title": "Ruta de dades",
-      "hint": "On s'han d'emmagatzemar les teves dades? Localització actual: ",
-      "choose": "Seleccioneu una nova ubicació"
+      "title": "Put podataka",
+      "hint": "Gdje bi trebali biti pohranjeni vaši podaci? Trenutna lokacija: ",
+      "choose": "Odaberite novu lokaciju"
     },
     "updates": {
-      "title": "Interval d'actualització",
-      "hint": "Amb quina freqüència cal comprovar si hi ha noves versions?",
-      "daily": "Diàriament",
-      "weekly": "Setmanalment"
+      "title": "interval ažuriranja",
+      "hint": "Koliko često provjeravati nove verzije?",
+      "daily": "Dnevno",
+      "weekly": "Tjedni"
     },
     "search": {
-      "placeholder": "Cerca les teves notes...",
-      "no_result": "No hi ha cap resultat per a <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Cerqueu paraules o frases individuals, també podeu utilitzar comodins com ara <em>M'encanta *</em>...",
-      "result_amount": "resultats",
+      "placeholder": "Pretražite svoje bilješke...",
+      "no_result": "Nije bilo rezultata za <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Tražite pojedinačne riječi ili izraze, također možete koristiti zamjenske znakove kao što je <em>Volim *</em> ...",
+      "result_amount": "rezultate",
       "index": {
-        "title": "índex de base de dades",
-        "hint": "En començar la indexació, els vostres dies s'escanejaran i s'afegiran a la base de dades de cerca. Això només és necessari per a les dades d'inventari anteriors a la versió 1.4.0. Podeu trobar més informació al web.",
-        "start": "Repareu la base de dades ara"
+        "title": "Indeks baze podataka",
+        "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
+        "start": "Popravi bazu podataka sada"
       }
     }
   }
