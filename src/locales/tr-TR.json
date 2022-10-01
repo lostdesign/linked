@@ -1,40 +1,40 @@
 {
-  "title": "Türkçe",
-  "code": "tr-TR",
+  "title": "Український",
+  "code": "uk-UA",
   "home": {
-    "calendarWeek": "Hafta"
+    "calendarWeek": "Тиждень"
   },
   "settings": {
-    "back": "Geri",
-    "title": "Ayarlar",
+    "back": "Назад",
+    "title": "Налаштування",
     "designMode": {
-      "title": "Tasarım modu",
-      "hint": "Açık veya koyu bir tema arasında seçim yapın."
+      "title": "Тема",
+      "hint": "Ви можете вибрати між світлим та темним режимом"
     },
     "languages": {
-      "title": "Dil",
-      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
+      "title": "Мова",
+      "hint": "Якій мові ви віддаєте перевагу під час використання linked?"
     },
     "data": {
-      "title": "Veri yolu",
-      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
-      "choose": "Yeni konum seçin"
+      "title": "Шлях до даних",
+      "hint": "Де повинні зберігатися ваші дані? На даний момент зберігається:",
+      "choose": "Виберіть нове місце розташування"
     },
     "updates": {
-      "title": "Güncelleme aralığı",
-      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
-      "daily": "Günlük",
-      "weekly": "Haftalık"
+      "title": "Частота оновлення",
+      "hint": "Як часто перевіряти наявність оновлень?",
+      "daily": "Щоденно",
+      "weekly": "Щотижня"
     },
     "search": {
-      "placeholder": "Notlarınızı arayın...",
-      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
-      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
-      "result_amount": "Sonuçlar",
+      "placeholder": "Пошукайте свої записи...",
+      "no_result": "Не було результату для <br> <strong>{searchTerm}</strong>",
+      "start_searching": "Шукайте слова, речення або навіть використовуйте розширені символи підстановки, як <em> Купити зелені * </em>...",
+      "result_amount": "Результати",
       "index": {
-        "title": "Veritabanı dizini",
-        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
-        "start": "Veritabanını şimdi onar"
+        "title": "Індекс бази даних",
+        "hint": "Починаючи індексацію, linked сканує ваші дні та додасть їх до індексу пошуку. Це необхідно лише один раз після оновлення до v1.4.0. Дізнайтеся більше на нашому веб-сайті.",
+        "start": "Ремонт бази даних"
       }
     }
   }
