@@ -1,40 +1,40 @@
 {
-  "title": "Français",
-  "code": "fr-FR",
+  "title": "العربية",
+  "code": "ar-AR",
   "home": {
-    "calendarWeek": "Semaine"
+    "calendarWeek": "الأسبوع"
   },
   "settings": {
-    "back": "Retour",
-    "title": "Paramètres",
+    "back": "رجوع",
+    "title": "الإعدادات",
     "designMode": {
-      "title": "Thème",
-      "hint": "Choisissez un thème clair ou sombre."
+      "title": "المظهر",
+      "hint": "اختر بين موضوع فاتح أو داكن."
     },
     "languages": {
-      "title": "Langue",
-      "hint": "Dans quelle langue souhaitez-vous utiliser linked ?"
+      "title": "اللغة",
+      "hint": "ما هي اللغة التي تريد استخدامها؟"
     },
     "data": {
-      "title": "Chemin de stockage",
-      "hint": "Où vos données doivent-elles être stockées ? Localisation actuelle : ",
-      "choose": "Sélectionnez un nouvel emplacement"
+      "title": "مسار البيانات",
+      "hint": "أين يجب تخزين بياناتك؟ الموقع الحالي:",
+      "choose": "حدد موقعًا جديدًا"
     },
     "updates": {
-      "title": "Intervalle de mise à jour",
-      "hint": "À quelle fréquence vérifier les nouvelles versions ?",
-      "daily": "Tous les jours",
-      "weekly": "Toutes les semaines"
+      "title": "الفاصل الزمني للتحديث",
+      "hint": "كم مرة للتحقق من الإصدارات الجديدة؟",
+      "daily": "اليومي",
+      "weekly": "أسبوعي"
     },
     "search": {
-      "placeholder": "Cherchez dans vos notes...",
-      "no_result": "Aucun résultat pour <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Recherchez des mots, des phrases, ou utilisez des caractères génériques tels que <em>J'aime *</em> ...",
-      "result_amount": "résultats",
+      "placeholder": "ابحث في ملاحظاتك ...",
+      "no_result": "لا توجد نتائج لـ <br> <strong> {searchTerm} </strong>.",
+      "start_searching": "ابحث عن كلمات أو عبارات فردية ، كما يمكنك استخدام أحرف البدل مثل <em> أحب * </ em> ...",
+      "result_amount": "النتائج",
       "index": {
-        "title": "Indice de base de données",
-        "hint": "En commençant l'indexation, vos journées seront scannées et ajoutées à la base de données de recherche. Cela n'est nécessaire que pour les données d'inventaire antérieures à la version 1.4.0. Vous pouvez trouver plus d'informations sur le site Web.",
-        "start": "Réparer la base de données maintenant"
+        "title": "فهرس قاعدة البيانات",
+        "hint": "ببدء الفهرسة ، سيتم مسح أيامك وإضافتها إلى قاعدة بيانات البحث. هذا ضروري فقط لبيانات المخزون قبل الإصدار 1.4.0. يمكنك العثور على مزيد من المعلومات على الموقع.",
+        "start": "إصلاح قاعدة البيانات الآن"
       }
     }
   }
