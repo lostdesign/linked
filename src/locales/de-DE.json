@@ -1,40 +1,40 @@
 {
-  "title": "Ελληνικά",
-  "code": "el-GR",
+  "title": "Deutsch",
+  "code": "de-DE",
   "home": {
-    "calendarWeek": "Εβδομάδα"
+    "calendarWeek": "Woche"
   },
   "settings": {
-    "back": "Επιστροφή",
-    "title": "Ρυθμίσεις",
+    "back": "Zurück",
+    "title": "Einstellungen",
     "designMode": {
-      "title": "Εμφάνιση",
-      "hint": "Μπορείτε να διαλέξετε μεταξύ ανοιχτόχρωμης ή σκούρας εμφάνισης."
+      "title": "Design Modus",
+      "hint": "Wähle zwischen einem hellen oder dunklen Design."
     },
     "languages": {
-      "title": "Γλώσσα",
-      "hint": "Σε ποιά γλώσσα επιθυμείτε να χρησιμοποιείτε το linked;"
+      "title": "Sprache",
+      "hint": "In welcher Sprache möchtest du linked nutzen?"
     },
     "data": {
-      "title": "Τοποθεσία Δεδομένων",
-      "hint": "Πού επιθυμείτε να αποθηκεύσετε τα δεδομένα σας; Ενεργή τοποθεσία: ",
-      "choose": "Επιλέξτε καινούργια τοποθεσία"
+      "title": "Datenpfad",
+      "hint": "Wo sollen deine Daten gespeichert werden? Aktueller Speicherort: ",
+      "choose": "Neuen Ort auswählen"
     },
     "updates": {
-      "title": "Συχνότητα Ενημερώσεων",
-      "hint": "Πόσο συχνά επιθυμείτε τον έλεγχο διαθέσιμων ενημερώσεων;",
-      "daily": "Ημερησίως",
-      "weekly": "Εβδομαδιαίως"
+      "title": "Update Intervall",
+      "hint": "Wie oft soll nach neuen Versionen gesucht werden?",
+      "daily": "Täglich",
+      "weekly": "Wöchentlich"
     },
     "search": {
-      "placeholder": "Εύρεση Σημειώσεων...",
-      "no_result": "Κανένα αποτέλεσμα για <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Χρησιμοποιείστε λέξεις, προτάσεις ή ακόμη και μεταχαρακτήρες όπως <em>Μ'αρέσει το *</em>...",
-      "result_amount": "Αποτελέσματα",
+      "placeholder": "Suche in deinen Notizen...",
+      "no_result": "Es gab kein Ergebnis für <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Such nach einzelnen Wörtern oder Sätzen, du kannst dabei auch Wildcards nutzen wie z.B. <em>Ich liebe *</em> ...",
+      "result_amount": "Ergebnisse",
       "index": {
-        "title": "Κατάταξη Βάσης Δεδομένων",
-        "hint": "Ξεκινώντας την διαδικασία κατάταξης δεδομένων, το linked θα σαρώσει τις ημέρες και θα τις προσθέσει στη βάση εύρεσης δεδομένων. Αυτή η ενέργεια είναι απαραίτητη μόνο κατόπιν αναβάθμισης της εφαρμογής στην έκδοση v1.4.0. Μάθετε περισσότερα στη σελίδα μας.",
-        "start": "Αποκατάσταση Βάσης Δεδομένων"
+        "title": "Datenbank Index",
+        "hint": "Durch das starten der Indizierung werden deine Tage gescannt und der Suchdatenbank hinzugefügt. Dies ist nur notwendig für Bestandsdaten vor der Version 1.4.0. Mehr Infos findest du auf der Website.",
+        "start": "Datenbank jetzt reparieren"
       }
     }
   }
