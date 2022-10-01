@@ -1,40 +1,40 @@
 {
-  "title": "English (US)",
-  "code": "en-US",
+  "title": "Hrvatski",
+  "code": "hr-HR",
   "home": {
-    "calendarWeek": "Week"
+    "calendarWeek": "Tjedan"
   },
   "settings": {
-    "back": "Back",
-    "title": "Settings",
+    "back": "Natrag",
+    "title": "Postavke",
     "designMode": {
-      "title": "Design mode",
-      "hint": "You can choose between a light and dark mode."
+      "title": "Tema",
+      "hint": "Birajte između svijetle ili tamne teme."
     },
     "languages": {
-      "title": "Language",
-      "hint": "In which language do you prefer to use linked?"
+      "title": "Jezik",
+      "hint": "Na kojem jeziku želite koristiti linked?"
     },
     "data": {
-      "title": "Datapath",
-      "hint": "Where should your data be stored? Currently stored at: ",
-      "choose": "Choose new location"
+      "title": "Put podataka",
+      "hint": "Gdje bi trebali biti pohranjeni vaši podaci? Trenutna lokacija: ",
+      "choose": "Odaberite novu lokaciju"
     },
     "updates": {
-      "title": "Update Frequency",
-      "hint": "How often to check for updates?",
-      "daily": "Daily",
-      "weekly": "Weekly"
+      "title": "interval ažuriranja",
+      "hint": "Koliko često provjeravati nove verzije?",
+      "daily": "Dnevno",
+      "weekly": "Tjedni"
     },
     "search": {
-      "placeholder": "Search for your notes ...",
-      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
-      "result_amount": "Results",
+      "placeholder": "Pretražite svoje bilješke...",
+      "no_result": "Nije bilo rezultata za <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Tražite pojedinačne riječi ili izraze, također možete koristiti zamjenske znakove kao što je <em>Volim *</em> ...",
+      "result_amount": "rezultate",
       "index": {
-        "title": "Database Index",
-        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
-        "start": "Repair database now"
+        "title": "Indeks baze podataka",
+        "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
+        "start": "Popravi bazu podataka sada"
       }
     }
   }
