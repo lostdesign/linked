@@ -1,40 +1,40 @@
 {
-  "title": "Español",
-  "code": "es-ES",
+  "title": "Français",
+  "code": "fr-FR",
   "home": {
-    "calendarWeek": "Semana"
+    "calendarWeek": "Semaine"
   },
   "settings": {
-    "back": "Volver",
-    "title": "Ajustes",
+    "back": "Retour",
+    "title": "Paramètres",
     "designMode": {
-      "title": "Modo de diseño",
-      "hint": "Elige entre un tema claro u oscuro."
+      "title": "Thème",
+      "hint": "Choisissez un thème clair ou sombre."
     },
     "languages": {
-      "title": "Idioma",
-      "hint": "¿En qué idioma le gustaría usar Linked?"
+      "title": "Langue",
+      "hint": "Dans quelle langue souhaitez-vous utiliser linked ?"
     },
     "data": {
-      "title": "Ruta de dades",
-      "hint": "¿Dónde deben almacenarse sus datos? Ubicación actual: ",
-      "choose": "Seleccionar nueva ubicación"
+      "title": "Chemin de stockage",
+      "hint": "Où vos données doivent-elles être stockées ? Localisation actuelle : ",
+      "choose": "Sélectionnez un nouvel emplacement"
     },
     "updates": {
-      "title": "intervalo de actualización",
-      "hint": "¿Con qué frecuencia buscar nuevas versiones?",
-      "daily": "A diario",
-      "weekly": "Semanalmente"
+      "title": "Intervalle de mise à jour",
+      "hint": "À quelle fréquence vérifier les nouvelles versions ?",
+      "daily": "Tous les jours",
+      "weekly": "Toutes les semaines"
     },
     "search": {
-      "placeholder": "Busca en tus notas...",
-      "no_result": "No hubo resultados para <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Busque palabras o frases individuales, también puede usar comodines como <em>Me encanta *</em>...",
-      "result_amount": "resultados",
+      "placeholder": "Cherchez dans vos notes...",
+      "no_result": "Aucun résultat pour <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Recherchez des mots, des phrases, ou utilisez des caractères génériques tels que <em>J'aime *</em> ...",
+      "result_amount": "résultats",
       "index": {
-        "title": "índice de la base de datos",
-        "hint": "Al iniciar la indexación, sus días serán escaneados y agregados a la base de datos de búsqueda. Esto solo es necesario para los datos de inventario anteriores a la versión 1.4.0. Puede encontrar más información en el sitio web.",
-        "start": "Reparar base de datos ahora"
+        "title": "Indice de base de données",
+        "hint": "En commençant l'indexation, vos journées seront scannées et ajoutées à la base de données de recherche. Cela n'est nécessaire que pour les données d'inventaire antérieures à la version 1.4.0. Vous pouvez trouver plus d'informations sur le site Web.",
+        "start": "Réparer la base de données maintenant"
       }
     }
   }
