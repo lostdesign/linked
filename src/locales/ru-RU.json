@@ -1,41 +1,41 @@
 {
-    "title": "नेपाली",
-    "code": "ne-NE",
-    "home": {
-        "calendarWeek": "हप्ता"
+  "title": "Nederlands",
+  "code": "nl-NL",
+  "home": {
+    "calendarWeek": "Week"
+  },
+  "settings": {
+    "back": "Terug",
+    "title": "Instellingen",
+    "designMode": {
+      "title": "Designmodus",
+      "hint": "Kies tussen een licht of donker thema."
     },
-    "settings": {
-        "back": "फिर्ता",
-        "title": "सेटिंग्स",
-        "designMode": {
-            "title": "डिजाइन मोड",
-            "hint": "तपाईं लाइट कि डार्क मोडबिच छनोट गर्न सक्नुहुन्छ।"
-        },
-        "languages": {
-            "title": "भाषा",
-            "hint": "तपाईंलाई कुन भाषा प्रयोग गर्न चाहनु हुन्छ?"
-        },
-        "data": {
-            "title": "डेटा पाथ",
-            "hint": "तपाईंको डेटा कहाँ संग्रह गर्न चाहनु हुन्छ? अहिले यहां संग्रहीत छ: ",
-            "choose": "नयाँ स्थान छान्नुहोस्"
-        },
-        "updates": {
-            "title": "अपडेट आवृत्ति",
-            "hint": "अपडेटको लागि कति पटक जाँच्न चाहनु हुन्छ?",
-            "daily": "हरेक दिन",
-            "weekly": "हरेक हप्ता"
-        },
-        "search": {
-            "placeholder": "आफ्नो नोट्स खोज्नुहोस् ...",
-            "no_result": "<br> <strong>{searchTerm}</strong> को लागि केही परिणाम भेटिएन।",
-            "start_searching": "शब्द, वाक्य खोज गर्नुहोस् या वाइल्डकार्ड प्रयोग गर्नुहोस् जस्तै <em> मलाई मन पर्यो *</em> ...",
-            "result_amount": "परिणाम",
-            "index": {
-                "title": "डेटाबेस अनुक्रमणिका",
-                "hint": "अनुक्रमण शुरू गरेर, लिंक्ड तपाईंको दिनहरु को स्क्यान गरेर त्यासलाई खोज अनुक्रमणिकामा जोडिदिन्छ। यो केवल v1.4.0 मा अपडेट गरेपछि एक पटक मात्र आवश्यक छ। थप जानकारीको लागि हाम्रो वेबसाइट हेर्नुहोला।",
-                "start": "अब डेटाबेसको मर्मत गर्नुहोस्"
-            }
-        }
+    "languages": {
+      "title": "Taal",
+      "hint": "In welke taal wil je linked gebruiken?"
+    },
+    "data": {
+      "title": "Gegevenspad",
+      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
+      "choose": "Selecteer nieuwe locatie"
+    },
+    "updates": {
+      "title": "Bijwerkingsonderbreking",
+      "hint": "Hoe vaak controleren op nieuwe versies?",
+      "daily": "Dagelijks",
+      "weekly": "Wekelijks"
+    },
+    "search": {
+      "placeholder": "Zoek uw notities...",
+      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
+      "result_amount": "resultaten",
+      "index": {
+        "title": "Database-index",
+        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
+        "start": "Database nu repareren"
+      }
     }
+  }
 }
