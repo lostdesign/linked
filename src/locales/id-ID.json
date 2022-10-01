@@ -1,40 +1,40 @@
 {
-  "title": "Bahasa Indonesia",
-  "code": "id-ID",
+  "title": "Deutsch",
+  "code": "de-DE",
   "home": {
-    "calendarWeek": "MINGGU"
+    "calendarWeek": "Woche"
   },
   "settings": {
-    "back": "Kembali",
-    "title": "Pengaturan",
+    "back": "Zurück",
+    "title": "Einstellungen",
     "designMode": {
-      "title": "Mode desain",
-      "hint": "Pilih antara tema terang atau gelap."
+      "title": "Design Modus",
+      "hint": "Wähle zwischen einem hellen oder dunklen Design."
     },
     "languages": {
-      "title": "Bahasa",
-      "hint": "Dalam bahasa apa Anda ingin menggunakan linked?"
+      "title": "Sprache",
+      "hint": "In welcher Sprache möchtest du linked nutzen?"
     },
     "data": {
-      "title": "Jalur data",
-      "hint": "Di mana data Anda harus disimpan? Lokasi saat ini: ",
-      "choose": "Pilih lokasi baru"
+      "title": "Datenpfad",
+      "hint": "Wo sollen deine Daten gespeichert werden? Aktueller Speicherort: ",
+      "choose": "Neuen Ort auswählen"
     },
     "updates": {
-      "title": "Interval pembaruan",
-      "hint": "Seberapa sering memeriksa versi baru?",
-      "daily": "Sehari-hari",
-      "weekly": "Mingguan"
+      "title": "Update Intervall",
+      "hint": "Wie oft soll nach neuen Versionen gesucht werden?",
+      "daily": "Täglich",
+      "weekly": "Wöchentlich"
     },
     "search": {
-      "placeholder": "Cari catatan Anda...",
-      "no_result": "Tidak ada hasil untuk <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Cari kata atau frasa individual, Anda juga dapat menggunakan karakter pengganti seperti <em>Saya suka *</em> ...",
-      "result_amount": "hasil",
+      "placeholder": "Suche in deinen Notizen...",
+      "no_result": "Es gab kein Ergebnis für <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Such nach einzelnen Wörtern oder Sätzen, du kannst dabei auch Wildcards nutzen wie z.B. <em>Ich liebe *</em> ...",
+      "result_amount": "Ergebnisse",
       "index": {
-        "title": "Indeks basis data",
-        "hint": "Dengan memulai pengindeksan, hari-hari Anda akan dipindai dan ditambahkan ke database pencarian. Ini hanya diperlukan untuk data inventaris sebelum versi 1.4.0. Kunjungi situsnya untuk informasi lebih lanjut.",
-        "start": "Perbaiki database sekarang"
+        "title": "Datenbank Index",
+        "hint": "Durch das starten der Indizierung werden deine Tage gescannt und der Suchdatenbank hinzugefügt. Dies ist nur notwendig für Bestandsdaten vor der Version 1.4.0. Mehr Infos findest du auf der Website.",
+        "start": "Datenbank jetzt reparieren"
       }
     }
   }
