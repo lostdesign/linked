@@ -1,40 +1,40 @@
 {
-  "title": "Русский",
-  "code": "ru-RU",
+  "title": "English (US)",
+  "code": "en-US",
   "home": {
-    "calendarWeek": "Неделя"
+    "calendarWeek": "Week"
   },
   "settings": {
-    "back": "Назад",
-    "title": "Настройки",
+    "back": "Back",
+    "title": "Settings",
     "designMode": {
-      "title": "Режим Дизайна",
-      "hint": "Выберите между светлой или темной темой."
+      "title": "Design mode",
+      "hint": "You can choose between a light and dark mode."
     },
     "languages": {
-      "title": "Язык",
-      "hint": "На каком языке вы хотели бы использовать ссылку?"
+      "title": "Language",
+      "hint": "In which language do you prefer to use linked?"
     },
     "data": {
-      "title": "путь к данным",
-      "hint": "Где должны храниться ваши данные? Текущее местоположение: ",
-      "choose": "Выберите новое местоположение"
+      "title": "Datapath",
+      "hint": "Where should your data be stored? Currently stored at: ",
+      "choose": "Choose new location"
     },
     "updates": {
-      "title": "интервал обновления",
-      "hint": "Как часто проверять наличие новых версий?",
-      "daily": "Ежедневно",
-      "weekly": "Еженедельно"
+      "title": "Update Frequency",
+      "hint": "How often to check for updates?",
+      "daily": "Daily",
+      "weekly": "Weekly"
     },
     "search": {
-      "placeholder": "Поиск в заметках...",
-      "no_result": "Не найдено результатов для <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Ищите отдельные слова или фразы, вы также можете использовать подстановочные знаки, такие как <em>I love *</em> ...",
-      "result_amount": "Результаты",
+      "placeholder": "Search for your notes ...",
+      "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
+      "result_amount": "Results",
       "index": {
-        "title": "индекс базы данных",
-        "hint": "Запустив индексацию, ваши дни будут просканированы и добавлены в базу поиска. Это необходимо только для данных инвентаризации до версии 1.4.0. Дополнительную информацию вы можете найти на веб-сайте.",
-        "start": "Восстановить базу данных сейчас"
+        "title": "Database Index",
+        "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0. Find out more on our Website.",
+        "start": "Repair database now"
       }
     }
   }
