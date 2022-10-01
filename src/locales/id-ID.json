@@ -1,40 +1,40 @@
 {
-  "title": "Hrvatski",
-  "code": "hr-HR",
+  "title": "Nederlands",
+  "code": "nl-NL",
   "home": {
-    "calendarWeek": "Tjedan"
+    "calendarWeek": "Week"
   },
   "settings": {
-    "back": "Natrag",
-    "title": "Postavke",
+    "back": "Terug",
+    "title": "Instellingen",
     "designMode": {
-      "title": "Tema",
-      "hint": "Birajte između svijetle ili tamne teme."
+      "title": "Designmodus",
+      "hint": "Kies tussen een licht of donker thema."
     },
     "languages": {
-      "title": "Jezik",
-      "hint": "Na kojem jeziku želite koristiti linked?"
+      "title": "Taal",
+      "hint": "In welke taal wil je linked gebruiken?"
     },
     "data": {
-      "title": "Put podataka",
-      "hint": "Gdje bi trebali biti pohranjeni vaši podaci? Trenutna lokacija: ",
-      "choose": "Odaberite novu lokaciju"
+      "title": "Gegevenspad",
+      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
+      "choose": "Selecteer nieuwe locatie"
     },
     "updates": {
-      "title": "interval ažuriranja",
-      "hint": "Koliko često provjeravati nove verzije?",
-      "daily": "Dnevno",
-      "weekly": "Tjedni"
+      "title": "Bijwerkingsonderbreking",
+      "hint": "Hoe vaak controleren op nieuwe versies?",
+      "daily": "Dagelijks",
+      "weekly": "Wekelijks"
     },
     "search": {
-      "placeholder": "Pretražite svoje bilješke...",
-      "no_result": "Nije bilo rezultata za <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Tražite pojedinačne riječi ili izraze, također možete koristiti zamjenske znakove kao što je <em>Volim *</em> ...",
-      "result_amount": "rezultate",
+      "placeholder": "Zoek uw notities...",
+      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
+      "result_amount": "resultaten",
       "index": {
-        "title": "Indeks baze podataka",
-        "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
-        "start": "Popravi bazu podataka sada"
+        "title": "Database-index",
+        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
+        "start": "Database nu repareren"
       }
     }
   }
