@@ -1,40 +1,40 @@
 {
-  "title": "Türkçe",
-  "code": "tr-TR",
+  "title": "Català",
+  "code": "ca-ES",
   "home": {
-    "calendarWeek": "Hafta"
+    "calendarWeek": "Setmana"
   },
   "settings": {
-    "back": "Geri",
-    "title": "Ayarlar",
+    "back": "Tornar",
+    "title": "Configuració",
     "designMode": {
-      "title": "Tasarım modu",
-      "hint": "Açık veya koyu bir tema arasında seçim yapın."
+      "title": "Mode de disseny",
+      "hint": "Trieu entre un tema clar o fosc."
     },
     "languages": {
-      "title": "Dil",
-      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
+      "title": "Idioma",
+      "hint": "En quina llengua t'agradaria utilitzar linked?"
     },
     "data": {
-      "title": "Veri yolu",
-      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
-      "choose": "Yeni konum seçin"
+      "title": "Ruta de dades",
+      "hint": "On s'han d'emmagatzemar les teves dades? Localització actual: ",
+      "choose": "Seleccioneu una nova ubicació"
     },
     "updates": {
-      "title": "Güncelleme aralığı",
-      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
-      "daily": "Günlük",
-      "weekly": "Haftalık"
+      "title": "Interval d'actualització",
+      "hint": "Amb quina freqüència cal comprovar si hi ha noves versions?",
+      "daily": "Diàriament",
+      "weekly": "Setmanalment"
     },
     "search": {
-      "placeholder": "Notlarınızı arayın...",
-      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
-      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
-      "result_amount": "Sonuçlar",
+      "placeholder": "Cerca les teves notes...",
+      "no_result": "No hi ha cap resultat per a <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Cerqueu paraules o frases individuals, també podeu utilitzar comodins com ara <em>M'encanta *</em>...",
+      "result_amount": "resultats",
       "index": {
-        "title": "Veritabanı dizini",
-        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
-        "start": "Veritabanını şimdi onar"
+        "title": "índex de base de dades",
+        "hint": "En començar la indexació, els vostres dies s'escanejaran i s'afegiran a la base de dades de cerca. Això només és necessari per a les dades d'inventari anteriors a la versió 1.4.0. Podeu trobar més informació al web.",
+        "start": "Repareu la base de dades ara"
       }
     }
   }
