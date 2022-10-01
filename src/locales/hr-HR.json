@@ -1,40 +1,40 @@
 {
-  "title": "Türkçe",
-  "code": "tr-TR",
+  "title": "Português Brasil",
+  "code": "pt-BR",
   "home": {
-    "calendarWeek": "Hafta"
+    "calendarWeek": "Semana"
   },
   "settings": {
-    "back": "Geri",
-    "title": "Ayarlar",
+    "back": "Voltar",
+    "title": "Configurações",
     "designMode": {
-      "title": "Tasarım modu",
-      "hint": "Açık veya koyu bir tema arasında seçim yapın."
+      "title": "Modo Design",
+      "hint": "Você pode escolher entre o modo claro e o modo escuro."
     },
     "languages": {
-      "title": "Dil",
-      "hint": "Bağlantıyı hangi dilde kullanmak istersiniz?"
+      "title": "Idioma",
+      "hint": "Em qual idioma você prefere usar o linked?"
     },
     "data": {
-      "title": "Veri yolu",
-      "hint": "Verileriniz nerede saklanmalı? Mevcut konum: ",
-      "choose": "Yeni konum seçin"
+      "title": "Local dos Dados",
+      "hint": "Onde seus dados devem ser guardados? Atualmente são guardados em: ",
+      "choose": "Escolha um novo local"
     },
     "updates": {
-      "title": "Güncelleme aralığı",
-      "hint": "Yeni sürümler ne sıklıkla kontrol edilir?",
-      "daily": "Günlük",
-      "weekly": "Haftalık"
+      "title": "Frequência de Atualizações",
+      "hint": "Com qual frequência checar por atualizações?",
+      "daily": "Diária",
+      "weekly": "Semanal"
     },
     "search": {
-      "placeholder": "Notlarınızı arayın...",
-      "no_result": "<br> <strong>{searchTerm}</strong> için sonuç bulunamadı.",
-      "start_searching": "Tek tek kelimeleri veya kelime öbeklerini arayın, ayrıca <em>I love *</em> ... gibi joker karakterler de kullanabilirsiniz",
-      "result_amount": "Sonuçlar",
+      "placeholder": "Procurar por suas notas ...",
+      "no_result": "Não houveram resultados para <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Procure por palavras, sentenças ou mesmo use curingas avançados como <em>Eu amo *</em> ...",
+      "result_amount": "Resulados",
       "index": {
-        "title": "Veritabanı dizini",
-        "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
-        "start": "Veritabanını şimdi onar"
+        "title": "Índice do Banco de Dados",
+        "hint": "Para começar a indexação, linked vai escanear seus dias e adicioná-los para o índice de pesquisa. Isso só é necessário uma vez depois de atualizar para v1.4.0. Descubra mais em nosso Website.",
+        "start": "Reparar banco de dados agora"
       }
     }
   }
