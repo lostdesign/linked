@@ -1,41 +1,41 @@
 {
-  "title": "Hrvatski",
-  "code": "hr-HR",
-  "home": {
-    "calendarWeek": "Tjedan"
-  },
-  "settings": {
-    "back": "Natrag",
-    "title": "Postavke",
-    "designMode": {
-      "title": "Tema",
-      "hint": "Birajte između svijetle ili tamne teme."
+    "title": "नेपाली",
+    "code": "ne-NE",
+    "home": {
+        "calendarWeek": "हप्ता"
     },
-    "languages": {
-      "title": "Jezik",
-      "hint": "Na kojem jeziku želite koristiti linked?"
-    },
-    "data": {
-      "title": "Put podataka",
-      "hint": "Gdje bi trebali biti pohranjeni vaši podaci? Trenutna lokacija: ",
-      "choose": "Odaberite novu lokaciju"
-    },
-    "updates": {
-      "title": "interval ažuriranja",
-      "hint": "Koliko često provjeravati nove verzije?",
-      "daily": "Dnevno",
-      "weekly": "Tjedni"
-    },
-    "search": {
-      "placeholder": "Pretražite svoje bilješke...",
-      "no_result": "Nije bilo rezultata za <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Tražite pojedinačne riječi ili izraze, također možete koristiti zamjenske znakove kao što je <em>Volim *</em> ...",
-      "result_amount": "rezultate",
-      "index": {
-        "title": "Indeks baze podataka",
-        "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
-        "start": "Popravi bazu podataka sada"
-      }
+    "settings": {
+        "back": "फिर्ता",
+        "title": "सेटिंग्स",
+        "designMode": {
+            "title": "डिजाइन मोड",
+            "hint": "तपाईं लाइट कि डार्क मोडबिच छनोट गर्न सक्नुहुन्छ।"
+        },
+        "languages": {
+            "title": "भाषा",
+            "hint": "तपाईंलाई कुन भाषा प्रयोग गर्न चाहनु हुन्छ?"
+        },
+        "data": {
+            "title": "डेटा पाथ",
+            "hint": "तपाईंको डेटा कहाँ संग्रह गर्न चाहनु हुन्छ? अहिले यहां संग्रहीत छ: ",
+            "choose": "नयाँ स्थान छान्नुहोस्"
+        },
+        "updates": {
+            "title": "अपडेट आवृत्ति",
+            "hint": "अपडेटको लागि कति पटक जाँच्न चाहनु हुन्छ?",
+            "daily": "हरेक दिन",
+            "weekly": "हरेक हप्ता"
+        },
+        "search": {
+            "placeholder": "आफ्नो नोट्स खोज्नुहोस् ...",
+            "no_result": "<br> <strong>{searchTerm}</strong> को लागि केही परिणाम भेटिएन।",
+            "start_searching": "शब्द, वाक्य खोज गर्नुहोस् या वाइल्डकार्ड प्रयोग गर्नुहोस् जस्तै <em> मलाई मन पर्यो *</em> ...",
+            "result_amount": "परिणाम",
+            "index": {
+                "title": "डेटाबेस अनुक्रमणिका",
+                "hint": "अनुक्रमण शुरू गरेर, लिंक्ड तपाईंको दिनहरु को स्क्यान गरेर त्यासलाई खोज अनुक्रमणिकामा जोडिदिन्छ। यो केवल v1.4.0 मा अपडेट गरेपछि एक पटक मात्र आवश्यक छ। थप जानकारीको लागि हाम्रो वेबसाइट हेर्नुहोला।",
+                "start": "अब डेटाबेसको मर्मत गर्नुहोस्"
+            }
+        }
     }
-  }
 }
