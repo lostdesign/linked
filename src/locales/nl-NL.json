@@ -1,40 +1,40 @@
 {
-  "title": "Nederlands",
-  "code": "nl-NL",
+  "title": "Ελληνικά",
+  "code": "el-GR",
   "home": {
-    "calendarWeek": "Week"
+    "calendarWeek": "Εβδομάδα"
   },
   "settings": {
-    "back": "Terug",
-    "title": "Instellingen",
+    "back": "Επιστροφή",
+    "title": "Ρυθμίσεις",
     "designMode": {
-      "title": "Designmodus",
-      "hint": "Kies tussen een licht of donker thema."
+      "title": "Εμφάνιση",
+      "hint": "Μπορείτε να διαλέξετε μεταξύ ανοιχτόχρωμης ή σκούρας εμφάνισης."
     },
     "languages": {
-      "title": "Taal",
-      "hint": "In welke taal wil je linked gebruiken?"
+      "title": "Γλώσσα",
+      "hint": "Σε ποιά γλώσσα επιθυμείτε να χρησιμοποιείτε το linked;"
     },
     "data": {
-      "title": "Gegevenspad",
-      "hint": "Waar moeten uw gegevens worden opgeslagen? Huidige locatie: ",
-      "choose": "Selecteer nieuwe locatie"
+      "title": "Τοποθεσία Δεδομένων",
+      "hint": "Πού επιθυμείτε να αποθηκεύσετε τα δεδομένα σας; Ενεργή τοποθεσία: ",
+      "choose": "Επιλέξτε καινούργια τοποθεσία"
     },
     "updates": {
-      "title": "Bijwerkingsonderbreking",
-      "hint": "Hoe vaak controleren op nieuwe versies?",
-      "daily": "Dagelijks",
-      "weekly": "Wekelijks"
+      "title": "Συχνότητα Ενημερώσεων",
+      "hint": "Πόσο συχνά επιθυμείτε τον έλεγχο διαθέσιμων ενημερώσεων;",
+      "daily": "Ημερησίως",
+      "weekly": "Εβδομαδιαίως"
     },
     "search": {
-      "placeholder": "Zoek uw notities...",
-      "no_result": "Er was geen resultaat voor <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Zoek naar afzonderlijke woorden of woordgroepen, u kunt ook jokertekens gebruiken zoals <em>I love *</em> ...",
-      "result_amount": "resultaten",
+      "placeholder": "Εύρεση Σημειώσεων...",
+      "no_result": "Κανένα αποτέλεσμα για <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Χρησιμοποιείστε λέξεις, προτάσεις ή ακόμη και μεταχαρακτήρες όπως <em>Μ'αρέσει το *</em>...",
+      "result_amount": "Αποτελέσματα",
       "index": {
-        "title": "Database-index",
-        "hint": "Door te beginnen met indexeren, worden uw dagen gescand en toegevoegd aan de zoekdatabase. Dit is alleen nodig voor inventarisgegevens ouder dan versie 1.4.0. Bezoek de website voor meer informatie.",
-        "start": "Database nu repareren"
+        "title": "Κατάταξη Βάσης Δεδομένων",
+        "hint": "Ξεκινώντας την διαδικασία κατάταξης δεδομένων, το linked θα σαρώσει τις ημέρες και θα τις προσθέσει στη βάση εύρεσης δεδομένων. Αυτή η ενέργεια είναι απαραίτητη μόνο κατόπιν αναβάθμισης της εφαρμογής στην έκδοση v1.4.0. Μάθετε περισσότερα στη σελίδα μας.",
+        "start": "Αποκατάσταση Βάσης Δεδομένων"
       }
     }
   }
