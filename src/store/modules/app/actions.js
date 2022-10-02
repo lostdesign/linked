@@ -66,7 +66,7 @@ export default {
   },
 
   async [Actions.SET_ALLOW_PRERELEASE](context, allowPrerelease) {
-    setAllowPrerelease(allowPrerelease).then((allowPrerelease) => {
+    setAllowPrerelease(allowPrerelease).then(() => {
       context.commit(Mutations.SET_ALLOW_PRERELEASE, allowPrerelease)
     })
   }
