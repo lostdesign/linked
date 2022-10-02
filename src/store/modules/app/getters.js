@@ -15,5 +15,9 @@ export default {
 
   [Getters.GET_DATA_PATH](state) {
     return state.dataPath
+  },
+
+  [Getters.GET_ALLOW_PRERELEASE](state) {
+    return state.allowPrerelease
   }
 }

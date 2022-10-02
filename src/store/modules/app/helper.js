@@ -2,6 +2,9 @@ const { ipcRenderer } = require('electron')
 const DAILY = 1000 * 60 * 60 * 24
 const WEEKLY = DAILY * 7
 
+/*
+ * Electron Storage Getters
+ */
 export const getLanguage = async () => {
   return ipcRenderer.invoke('GET_STORAGE_VALUE', 'language')
 }
@@ -19,6 +22,13 @@ export const getDataPath = () => {
   return ipcRenderer.invoke('GET_STORAGE_VALUE', 'dataPath')
 }
 
+export const getAllowPrerelease = async () => {
+  return ipcRenderer.invoke('GET_STORAGE_VALUE', 'allowPrerelease')
+}
+
+/* 
+ * Electron Storage Setters
+ */
 export const setTheme = async (theme) => {
   return ipcRenderer.invoke('SET_STORAGE_VALUE', 'theme', theme).then(() => {
     ipcRenderer.invoke('TOGGLE_THEME', theme)
@@ -44,4 +54,8 @@ export const setUpdateInterval = async (updateInterval) => {
 
 export const setDataPath = () => {
   return ipcRenderer.invoke('SET_DATA_PATH')
+}
+
+export const setAllowPrerelease = async (value) => {
+  return ipcRenderer.invoke('SET_STORAGE_VALUE', 'allowPrerelease', value)
 }

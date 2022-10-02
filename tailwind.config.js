@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   darkMode: 'class',
   purge: {
-    enabled: true,
+    enabled: false,
     content: ['./src/**/*.html', './src/**/*.vue', './src/**/*.svg']
   },
   theme: {
@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         'pink': '#D1014C',
         'bright-pink': '#FF005C',
-        'secondary-black': '#222'
+        'secondary-black': '#1f1f1f'
       }
     },
     colors: {

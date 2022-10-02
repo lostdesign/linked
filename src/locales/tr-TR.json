@@ -36,6 +36,49 @@
         "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
         "start": "Veritabanını şimdi onar"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
+    }
+  },
+  "commands": {
+    "no_result": "No matching command found",
+    "type_slash": "Type / for blocks",
+    "blocks": {
+      "h1": {
+        "title": "Heading 1",
+        "description": "A level one heading."
+      },
+      "h2": {
+        "title": "Heading 2",
+        "description": "A level two heading."
+      },
+      "h3": {
+        "title": "Heading 3",
+        "description": "A level three heading."
+      },
+      "bold":{
+        "title": "Bold",
+        "description": "Writing your text bold."
+      },
+      "italic": {
+        "title": "Italic",
+        "description": "Writing your text italic."
+      },
+      "task": {
+        "title": "Todo",
+        "description": "Adds a todo checkbox."
+      },
+      "unorderedList": {
+        "title": "Bullet list",
+        "description": "A unordered bullet list."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Adds a codeblock."
+      }
     }
   }
 }
