@@ -44,40 +44,40 @@
     }
   },
   "commands": {
-    "no_result": "No matching command found",
-    "type_slash": "Type / for blocks",
+    "no_result": "No se encontró ningún comando coincidente",
+    "type_slash": "Tipo / para bloques",
     "blocks": {
       "h1": {
-        "title": "Heading 1",
-        "description": "A level one heading."
+        "title": "Título 1",
+        "description": "Un encabezado de nivel uno."
       },
       "h2": {
-        "title": "Heading 2",
-        "description": "A level two heading."
+        "title": "Título 2",
+        "description": "Un encabezado de nivel dos."
       },
       "h3": {
-        "title": "Heading 3",
-        "description": "A level three heading."
+        "title": "Título 3",
+        "description": "Un encabezado de nivel tres."
       },
       "bold": {
-        "title": "Bold",
-        "description": "Writing your text bold."
+        "title": "Negrita",
+        "description": "Escribir su texto en negrita."
       },
       "italic": {
-        "title": "Italic",
-        "description": "Writing your text italic."
+        "title": "Cursiva",
+        "description": "Escribir su texto en cursiva."
       },
       "task": {
-        "title": "Todo",
-        "description": "Adds a todo checkbox."
+        "title": "Que hacer",
+        "description": "Agrega una casilla de verificación de tareas pendientes."
       },
       "unorderedList": {
-        "title": "Bullet list",
-        "description": "A unordered bullet list."
+        "title": "Lista",
+        "description": "Una lista desordenada."
       },
       "codeBlock": {
-        "title": "Code",
-        "description": "Adds a codeblock."
+        "title": "Código",
+        "description": "Agrega un bloque de código."
       }
     }
   }
