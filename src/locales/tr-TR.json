@@ -36,6 +36,11 @@
         "hint": "İndekslemeye başladığınızda günleriniz taranacak ve arama veritabanına eklenecektir. Bu yalnızca 1.4.0 sürümünden önceki envanter verileri için gereklidir. Daha fazla bilgi için web sitesini ziyaret edin.",
         "start": "Veritabanını şimdi onar"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {

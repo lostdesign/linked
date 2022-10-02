@@ -36,6 +36,11 @@
         "hint": "Početkom indeksiranja, vaši će dani biti skenirani i dodati u bazu podataka pretraživanja. Ovo je potrebno samo za podatke inventara prije verzije 1.4.0. Posjetite web stranicu za više informacija.",
         "start": "Popravi bazu podataka sada"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {

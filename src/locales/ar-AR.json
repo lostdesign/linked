@@ -38,10 +38,9 @@
       }
     },
     "allowPrerelease": {
-      "title": "MISSING_TRANSLATION",
-      "hint": "MISSING_TRANSLATION",
-      "enabled": "MISSING_TRANSLATION",
-      "disabled": "MISSING_TRANSLATION"
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {

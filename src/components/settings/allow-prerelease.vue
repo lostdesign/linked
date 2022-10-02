@@ -2,7 +2,7 @@
   <div>
     <h3 class='mt-8'>{{ $t('settings.allowPrerelease.title') }}</h3>
     <p class='text-sm text-gray-500'>{{ $t('settings.allowPrerelease.hint') }}</p>
-    <div class='flex'>
+    <div class='flex items-center space-x-2 mt-2'>
       <input v-model='allowPrerelease' type='checkbox' />
       <span>{{ $t('settings.allowPrerelease.enabled') }}</span>
     </div>

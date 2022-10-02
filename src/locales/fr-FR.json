@@ -36,6 +36,11 @@
         "hint": "En commençant l'indexation, vos journées seront scannées et ajoutées à la base de données de recherche. Cela n'est nécessaire que pour les données d'inventaire antérieures à la version 1.4.0. Vous pouvez trouver plus d'informations sur le site Web.",
         "start": "Réparer la base de données maintenant"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {

@@ -36,6 +36,11 @@
         "hint": "En començar la indexació, els vostres dies s'escanejaran i s'afegiran a la base de dades de cerca. Això només és necessari per a les dades d'inventari anteriors a la versió 1.4.0. Podeu trobar més informació al web.",
         "start": "Repareu la base de dades ara"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {

@@ -36,6 +36,11 @@
         "hint": "Al iniciar la indexación, sus días serán escaneados y agregados a la base de datos de búsqueda. Esto solo es necesario para los datos de inventario anteriores a la versión 1.4.0. Puede encontrar más información en el sitio web.",
         "start": "Reparar base de datos ahora"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {

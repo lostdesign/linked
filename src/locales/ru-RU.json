@@ -36,6 +36,11 @@
         "hint": "Запустив индексацию, ваши дни будут просканированы и добавлены в базу поиска. Это необходимо только для данных инвентаризации до версии 1.4.0. Дополнительную информацию вы можете найти на веб-сайте.",
         "start": "Восстановить базу данных сейчас"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {

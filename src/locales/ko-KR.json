@@ -36,6 +36,11 @@
         "hint": "인덱싱을 시작하면 귀하의 날짜가 스캔되어 검색 데이터베이스에 추가됩니다. 이는 버전 1.4.0 이전의 인벤토리 데이터에만 필요합니다. 자세한 내용은 웹 사이트를 방문하십시오.",
         "start": "지금 데이터베이스 복구"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {

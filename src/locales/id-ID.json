@@ -36,6 +36,11 @@
         "hint": "Dengan memulai pengindeksan, hari-hari Anda akan dipindai dan ditambahkan ke database pencarian. Ini hanya diperlukan untuk data inventaris sebelum versi 1.4.0. Kunjungi situsnya untuk informasi lebih lanjut.",
         "start": "Perbaiki database sekarang"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
     }
   },
   "commands": {
