@@ -1,6 +1,13 @@
-![Project Status](https://img.shields.io/badge/🏷-v1.5.3-beta-green) ![Project downloads](https://img.shields.io/github/downloads/lostdesign/linked/total) ![discord](https://img.shields.io/discord/884747974859702352?label=discord)
-
-![linked-banner](https://user-images.githubusercontent.com/5164617/132354376-44ba85f3-bb21-448e-8c12-4e0fe9af2543.png)
+<div align=center>
+  <h1>Linked
+    </br>
+    <img alt="Project downloads" src="https://img.shields.io/github/downloads/lostdesign/linked/total"/>
+    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/lostdesign/linked">
+    <img alt="Discord" src="https://img.shields.io/discord/884747974859702352?label=discord"/>
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/lostdesign/linked">
+  </h1>
+  <img width=90% src="https://user-images.githubusercontent.com/5164617/132354376-44ba85f3-bb21-448e-8c12-4e0fe9af2543.png" alt="Promotional Image"/>
+</div>
 
 # Daily journaling without distraction
 An easy, distraction-free way to record your thoughts, declutter your mind and keep the things you want to remember. We all only have so much room in our brains for things. Let Linked be the place to put something you want to remember and let you free up space for deeper thinking.
