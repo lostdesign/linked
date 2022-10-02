@@ -18,20 +18,8 @@
         <StrikeThroughIcon />
       </button>
     </bubble-menu>
-    <floating-menu class='floating-menu' :editor='editor' v-if='editor'>
-      <button
-        @click='editor.chain().focus().toggleTaskList().run()'>
-        <CheckboxIcon />
-      </button>
-      <button @click='editor.chain().focus().toggleBulletList().run()'>
-        <BulletListIcon />
-      </button>
-      <button @click='editor.chain().focus().toggleCodeBlock().run()'>
-        <CodeIcon />
-      </button>
-    </floating-menu>
     <div class='text-black dark:text-white'>
-      <editor-content :editor='editor' v-model='getContent' />
+      <editor-content class='pb-10' :editor='editor' v-model='getContent' />
     </div>
   </div>
 </template>
@@ -43,15 +31,12 @@ import {
   Actions as FileActions
 } from '@/store/modules/file/types'
 
-import BulletListIcon from '@/assets/icons/bullet-list.svg'
-import CheckboxIcon from '@/assets/icons/checkbox.svg'
-import CodeIcon from '@/assets/icons/code.svg'
-import PenIcon from '@/assets/icons/pen.svg'
-import BoldIcon from '@/assets/icons/bold.svg'
-import ItalicIcon from '@/assets/icons/italic.svg'
-import StrikeThroughIcon from '@/assets/icons/strikethrough.svg'
+import PenIcon from '@/assets/icons/editor/pen.svg'
+import BoldIcon from '@/assets/icons/editor/bold.svg'
+import ItalicIcon from '@/assets/icons/editor/italic.svg'
+import StrikeThroughIcon from '@/assets/icons/editor/strikethrough.svg'
 
-import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
+import { Editor, EditorContent, BubbleMenu } from '@tiptap/vue-2'
 import Document from '@tiptap/extension-document'
 import Paragraph from '@tiptap/extension-paragraph'
 import Text from '@tiptap/extension-text'
@@ -71,19 +56,14 @@ import Link from '@tiptap/extension-link'
 import History from '@tiptap/extension-history'
 import Commands from '@/components/slash-commands/commands'
 import suggestion from '@/components/slash-commands/suggestions'
-import { Details } from '@tiptap-pro/extension-details'
-import { DetailsSummary } from '@tiptap-pro/extension-details-summary'
-import { DetailsContent } from '@tiptap-pro/extension-details-content'
 import { Placeholder } from '@tiptap/extension-placeholder'
+import { Gapcursor } from '@tiptap/extension-gapcursor'
+import { CharacterCount } from '@tiptap/extension-character-count'
 
 export default {
   components: {
     EditorContent,
-    FloatingMenu,
     BubbleMenu,
-    BulletListIcon,
-    CheckboxIcon,
-    CodeIcon,
     PenIcon,
     BoldIcon,
     ItalicIcon,
@@ -129,24 +109,16 @@ export default {
         Commands.configure({
           suggestion,
         }),
-        Details.configure({
-          persist: true,
-          HTMLAttributes: {
-            class: 'details',
-          },
-        }),
-        DetailsSummary,
-        DetailsContent,
         Placeholder.configure({
           includeChildren: true,
           placeholder: ({ node }) => {
-            if (node.type.name === 'detailsSummary') {
-              return 'Summary'
-            }
-
-            return null
+            return {
+              'paragraph': this.$t('commands.type_slash')
+            }[node.type.name] ?? ''
           },
         }),
+        Gapcursor,
+        CharacterCount
       ],
       content: this.getContent,
       autofocus: true,
@@ -158,12 +130,7 @@ export default {
   },
   watch: {
     getContent(value) {
-      const isSame = this.editor.getHTML() === value
-
-      if (isSame) {
-        return
-      }
-
+      if (this.editor.getHTML() === value) return
       this.editor.commands.setContent(this.getContent, false)
     }
   },

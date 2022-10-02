@@ -1,78 +1,73 @@
 import tippy from 'tippy.js'
 import { VueRenderer } from '@tiptap/vue-2'
 import CommandsList from './CommandsList.vue'
+import { translate } from '../../translation'
 
 export default {
-  items: ({ query }) => {
+  items: async ({ query }) => {
+    const translationKey = 'commands.blocks'
+    
     return [
       {
-        title: 'Heading H1',
-        description: 'First level heading',
+        title: await translate(`${translationKey}.h1.title`),
+        icon: 'heading-one',
         command: ({ editor, range }) => {
           editor.chain().focus().deleteRange(range).setNode('heading', { level: 1 }).run()
         },
       },
       {
-        title: 'Heading H2',
-        description: 'commands.no_result',
+        title: await translate(`${translationKey}.h2.title`),
+        icon: 'heading-two',
         command: ({ editor, range }) => {
           editor.chain().focus().deleteRange(range).setNode('heading', { level: 2 }).run()
         },
       },
       {
-        title: 'Heading H3',
-        description: 'Third level heading',
+        title: await translate(`${translationKey}.h3.title`),
+        icon: 'heading-three',
         command: ({ editor, range }) => {
           editor.chain().focus().deleteRange(range).setNode('heading', { level: 3 }).run()
         },
       },
       {
-        title: 'Bold',
-        description: 'Write your text in bold',
+        title: await translate(`${translationKey}.bold.title`),
+        icon: 'bold',
         command: ({ editor, range }) => {
           editor.chain().focus().deleteRange(range).setMark('bold').run()
         },
       },
       {
-        title: 'Italic',
-        description: 'Write your text in italic',
+        title: await translate(`${translationKey}.italic.title`),
+        icon: 'italic',
         command: ({ editor, range }) => {
           editor.chain().focus().deleteRange(range).setMark('italic').run()
         },
       },
       {
-        title: 'Code Block',
-        description: 'Inserts a generic code block',
-        command: ({ editor, range }) => {
-          editor.chain().focus().deleteRange(range).setCodeBlock().run()
-        },
-      },
-      {
-        title: 'Unordered List',
-        description: 'Adds a unordered list',
+        title: await translate(`${translationKey}.unorderedList.title`),
+        icon: 'bullet-list',
         command: ({ editor, range }) => {
           editor.chain().focus().deleteRange(range).toggleBulletList().run()
         },
       },
       {
-        title: 'Task List',
-        description: 'Adds a Task List',
+        title: await translate(`${translationKey}.task.title`),
+        icon: 'check-box',
         command: ({editor, range}) => {
           editor.chain().focus().deleteRange(range).toggleTaskList().run()
         }
-        
       },
       {
-        title: 'Detail Block',
-        description: 'Adds a detail block',
-        command: ({editor, range}) => {
-          editor.chain().focus().deleteRange(range).setDetails().run()
-        }
+        title: await translate(`${translationKey}.codeBlock.title`),
+        icon: 'code-block',
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).setCodeBlock().run()
+        },
       }
     ].filter(item => {
       return (
-        item.title.toLowerCase().includes(query.toLowerCase()) ||
-        item.description.toLowerCase().includes(query.toLowerCase())
+        item.title?.toLowerCase().includes(query.toLowerCase())
+        || item.description?.toLowerCase().includes(query.toLowerCase())
       )
     }).slice(0, 10)
   },

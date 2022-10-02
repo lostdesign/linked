@@ -33,24 +33,52 @@
       "result_amount": "Ergebnisse",
       "index": {
         "title": "Datenbank Index",
-        "hint": "Durch das starten der Indizierung werden deine Tage gescannt und der Suchdatenbank hinzugefügt. Dies ist nur notwendig für Bestandsdaten vor der Version 1.4.0. Mehr Infos findest du auf der Website.",
+        "hint": "Durch das starten der Indizierung werden deine Tage gescannt und der Suchdatenbank hinzugefügt. Dies ist nur notwendig für Bestandsdaten vor der Version 1.4.0.",
         "start": "Datenbank jetzt reparieren"
       }
     },
     "allowPrerelease": {
-      "title": "Prerelease Versionen testen",
-      "hint": "Mit dieser Option kannst du unveröffentlichte Versionen von linked testen. EIN PRERELEASE KANN ZU DATEN VERLUS FÜHREN." ,
-      "enabled": "Prerelease ist eingeschalten",
-      "disabled": "Prerelease ist ausgeschalten"
+      "title": "Beta Test Programm",
+      "hint": "Wenn die Checkbox ausgewählt ist, erhälst du Test Versionen von linked bevor diese veröffentlicht werden." ,
+      "enabled": "Beta Versionen nutzen"
     }
   },
   "commands": {
+    "no_result": "Kein Ergebnis.",
+    "type_slash": "Tippe / für Aktionen",
     "blocks": {
-      "h1_heading": {
-        "title": "H1 Heading",
-        "description": "Fügt eine H1 Überschrift hinzu"
+      "h1": {
+        "title": "Überschrift 1",
+        "description": "Eine Überschrift mit Level 1."
+      },
+      "h2": {
+        "title": "Überschrift 2",
+        "description": "Eine Überschrift mit Level 2."
+      },
+      "h3": {
+        "title": "Überschrift 3",
+        "description": "Eine Überschrift mit Level 3."
+      },
+      "bold":{
+        "title": "Fett",
+        "description": "Schreibt deinen Text in fett."
+      },
+      "italic": {
+        "title": "Kursiv",
+        "description": "Schreibt deinen Text in kursiv."
+      },
+      "task": {
+        "title": "Aufgabe",
+        "description": "Eine Checkbox zum abhaken."
+      },
+      "unorderedList": {
+        "title": "Liste",
+        "description": "Eine unsortierte Liste."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Ein Codeblock."
       }
-    },
-    "no_result": "Kein passender Befehl gefunden"
+    }
   }
 }
