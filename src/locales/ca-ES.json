@@ -38,9 +38,9 @@
       }
     },
     "allowPrerelease": {
-      "title": "Beta Test Program",
-      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
-      "enabled": "Use beta versions"
+      "title": "Programa de pruebas beta",
+      "hint": "Al activar la casilla, recibirá compilaciones de prueba de los enlaces antes de su publicación." ,
+      "enabled": "Utilizar versiones beta"
     }
   },
   "commands": {
