@@ -38,46 +38,46 @@
       }
     },
     "allowPrerelease": {
-      "title": "Beta Test Program",
-      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
-      "enabled": "Use beta versions"
+      "title": "Programme de test bêta",
+      "hint": "En cochant cette case, vous recevrez des versions de test des liens avant leur publication." ,
+      "enabled": "Utiliser les versions bêta"
     }
   },
   "commands": {
-    "no_result": "No matching command found",
-    "type_slash": "Type / for blocks",
+    "no_result": "Aucune commande correspondante trouvée",
+    "type_slash": "Type / pour blocs",
     "blocks": {
       "h1": {
-        "title": "Heading 1",
-        "description": "A level one heading."
+        "title": "Titre 1",
+        "description": "Une rubrique de niveau 1."
       },
       "h2": {
-        "title": "Heading 2",
-        "description": "A level two heading."
+        "title": "Titre 2",
+        "description": "Une rubrique de niveau 2."
       },
       "h3": {
-        "title": "Heading 3",
-        "description": "A level three heading."
+        "title": "Titre 3",
+        "description": "Une rubrique de niveau 3."
       },
       "bold":{
-        "title": "Bold",
-        "description": "Writing your text bold."
+        "title": "Gras",
+        "description": "Écrire votre texte en gras."
       },
       "italic": {
-        "title": "Italic",
-        "description": "Writing your text italic."
+        "title": "Italiques",
+        "description": "Écrire votre texte en italique."
       },
       "task": {
         "title": "Todo",
-        "description": "Adds a todo checkbox."
+        "description": "Ajoute une case à cocher pour les tâches à accomplir."
       },
       "unorderedList": {
-        "title": "Bullet list",
-        "description": "A unordered bullet list."
+        "title": "Liste à puces",
+        "description": "Une liste à puces non ordonnée."
       },
       "codeBlock": {
         "title": "Code",
-        "description": "Adds a codeblock."
+        "description": "Ajoute un bloc de code."
       }
     }
   }
