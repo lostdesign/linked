@@ -22,12 +22,23 @@ module.exports = {
       builderOptions: {
         mac: {
           hardenedRuntime: true,
-          entitlements: './build/entitlements.mac.inherit.plist'
+          entitlements: './build/entitlements.mac.inherit.plist',
+          // Disabled m1 due to it messing with the auto updating
+          //target: {
+          //  target: 'default',
+          //  arch: ['arm64', 'x64']
+          //}
         },
         linux: {
-          target: ['AppImage', 'deb', 'rpm']
+          target: [
+            'deb',
+            'rpm',
+            'pacman',
+            'AppImage'
+          ]
         },
         win: {
+          icon: '/build/icons/256x256.png',
           target: ['nsis', 'portable']
         },
         publish: ['github'],

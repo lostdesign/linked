@@ -1,0 +1,41 @@
+{
+  "title": "Polski",
+  "code": "pl-PL",
+  "home": {
+    "calendarWeek": "Tydzień"
+  },
+  "settings": {
+    "back": "Powrót",
+    "title": "Ustawienia",
+    "designMode": {
+      "title": "Tryb designera",
+      "hint": "Możesz wybrać pomiędzy jasnym i ciemnym motywem"
+    },
+    "languages": {
+      "title": "Język",
+      "hint": "W jakim języku preferujesz używania linked?"
+    },
+    "data": {
+      "title": "Ścieżka danych",
+      "hint": "Gdzie powinny być przechowyane dane aplikacji? Teraz przychowywane są w: ",
+      "choose": "Wybierz nową lokalizację"
+    },
+    "updates": {
+      "title": "Częstotliwość aktualizacji",
+      "hint": "Jak często będą wyszukiwane nowe aktualizacje?",
+      "daily": "Codziennie",
+      "weekly": "Co tydzień"
+    },
+    "search": {
+      "placeholder": "Przeszukaj swoje notatki...",
+      "no_result": "Nie znaleziono wyników dla <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Szukaj słów, zdań albo nawet użyj zaawansowanych symboli wieloznacznych jak <em>Kocham *</em> ...",
+      "result_amount": "Wyniki",
+      "index":{
+        "title": "Indeks bazy danych",
+        "hint": "Po uruchomieniu indeksowania linked przeskanuje Twoje dni i doda je do indeksu wyszukiwania. Jest to konieczne tylko raz po aktualizacji do wersji 1.4.0. Dowiedz się więcej na naszej stronie internetowej.",
+        "start": "Napraw bazę danych"
+      }
+    }
+  }
+}

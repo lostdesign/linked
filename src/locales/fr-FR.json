@@ -5,31 +5,31 @@
     "calendarWeek": "Semaine"
   },
   "settings": {
-    "back": "Retourner",
+    "back": "Retour",
     "title": "Paramètres",
     "designMode": {
-      "title": "Mode de création",
+      "title": "Thème",
       "hint": "Choisissez un thème clair ou sombre."
     },
     "languages": {
       "title": "Langue",
-      "hint": "Choisissez entre un thème clair ou foncé. Dans quelle langue souhaitez-vous utiliser le lien?"
+      "hint": "Dans quelle langue souhaitez-vous utiliser linked ?"
     },
     "data": {
-      "title": "Chemin de données",
-      "hint": "Où vos données doivent-elles être stockées ? Localisation actuelle: ",
+      "title": "Chemin de stockage",
+      "hint": "Où vos données doivent-elles être stockées ? Localisation actuelle : ",
       "choose": "Sélectionnez un nouvel emplacement"
     },
     "updates": {
       "title": "Intervalle de mise à jour",
       "hint": "À quelle fréquence vérifier les nouvelles versions ?",
-      "daily": "Du quotidien",
-      "weekly": "Hebdomadaire"
+      "daily": "Tous les jours",
+      "weekly": "Toutes les semaines"
     },
     "search": {
       "placeholder": "Cherchez dans vos notes...",
-      "no_result": "Il n'y a pas eu de résultat pour <br> <strong>{searchTerm}</strong>.",
-      "start_searching": "Recherchez des mots ou des phrases individuels, vous pouvez également utiliser des caractères génériques tels que <em>J'aime *</em> ...",
+      "no_result": "Aucun résultat pour <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Recherchez des mots, des phrases, ou utilisez des caractères génériques tels que <em>J'aime *</em> ...",
       "result_amount": "résultats",
       "index": {
         "title": "Indice de base de données",

@@ -1,0 +1,41 @@
+{
+  "title": "Italiano",
+  "code": "it-IT",
+  "home": {
+    "calendarWeek": "Settimana"
+  },
+  "settings": {
+    "back": "Indietro",
+    "title": "Impostazioni",
+    "designMode": {
+      "title": "Modalità design",
+      "hint": "Puoi scegliere tra una modalità chiara e scura."
+    },
+    "languages": {
+      "title": "Lingua",
+      "hint": "In quale lingua preferisci usare linked?"
+    },
+    "data": {
+      "title": "Percorso dati",
+      "hint": "Dove dovrebbero essere memorizzati i tuoi dati? Attualmente memorizzati in: ",
+      "choose": "Scegli una nuova posizione"
+    },
+    "updates": {
+      "title": "Frequenza di aggiornamento",
+      "hint": "Con quale frequenza controllare gli aggiornamenti?",
+      "daily": "Ogni giorno",
+      "weekly": "Ogni settimana"
+    },
+    "search": {
+      "placeholder": "Cerca le tue note ...",
+      "no_result": "Nessun risultato per <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Cerca parole, frasi o usa anche caratteri jolly avanzati come <em>Io amo *</em> ...",
+      "result_amount": "Risultati",
+      "index":{
+        "title": "Indice del Database",
+        "hint": "Avviando l'indicizzazione, linked analizzerà i tuoi giorni e li aggiungerà all'indice di ricerca. Questo è necessario solo una volta dopo l'aggiornamento alla versione v1.4.0. Scopri di più sul nostro sito web.",
+        "start": "Ripara il database ora"
+      }
+    }
+  }
+}
