@@ -36,6 +36,49 @@
         "hint": "인덱싱을 시작하면 귀하의 날짜가 스캔되어 검색 데이터베이스에 추가됩니다. 이는 버전 1.4.0 이전의 인벤토리 데이터에만 필요합니다. 자세한 내용은 웹 사이트를 방문하십시오.",
         "start": "지금 데이터베이스 복구"
       }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "enabled": "Use beta versions"
+    }
+  },
+  "commands": {
+    "no_result": "No matching command found",
+    "type_slash": "Type / for blocks",
+    "blocks": {
+      "h1": {
+        "title": "Heading 1",
+        "description": "A level one heading."
+      },
+      "h2": {
+        "title": "Heading 2",
+        "description": "A level two heading."
+      },
+      "h3": {
+        "title": "Heading 3",
+        "description": "A level three heading."
+      },
+      "bold":{
+        "title": "Bold",
+        "description": "Writing your text bold."
+      },
+      "italic": {
+        "title": "Italic",
+        "description": "Writing your text italic."
+      },
+      "task": {
+        "title": "Todo",
+        "description": "Adds a todo checkbox."
+      },
+      "unorderedList": {
+        "title": "Bullet list",
+        "description": "A unordered bullet list."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Adds a codeblock."
+      }
     }
   }
 }

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import store from '@/store'
+import {Translations} from '@/translation'
+
 
 import App from './App.vue'
 import router from './router'
@@ -13,6 +15,7 @@ window.mainStorage = new Storage({
 })
 
 Vue.config.productionTip = false
+Vue.use(Translations)
 
 new Vue({
   router,

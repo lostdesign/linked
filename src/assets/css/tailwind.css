@@ -176,7 +176,7 @@ ul[data-type='taskList'] li > input {
 }
 
 .bubble-menu {
-  @apply flex bg-white dark:bg-black ring-2 ring-bright-pink;
+  @apply flex bg-gray-100 dark:bg-secondary-black ring-2 ring-gray-400 dark:ring-gray-700 shadow-2xl;
   padding: 0.3rem;
   margin-bottom: 0.3rem;
   border-radius: 0.5rem;
@@ -185,17 +185,17 @@ ul[data-type='taskList'] li > input {
 }
 
 .bubble-menu button {
-  @apply dark:text-gray-600;
+  @apply text-gray-600 dark:text-gray-500 px-2 py-1 rounded-lg;
   border: none;
   background: none;
   font-size: 0.85rem;
   font-weight: 500;
-  padding: 0 0.2rem;
 }
 
+.bubble-menu button:focus,
 .bubble-menu button:hover,
 .bubble-menu button.is-active {
-  @apply text-gray-700 dark:text-gray-400;
+  @apply text-white bg-gray-400 dark:bg-gray-700 focus:bg-gray-700 outline-none;
 }
 
 .ProseMirror a {
@@ -204,4 +204,18 @@ ul[data-type='taskList'] li > input {
 
 .ProseMirror a:hover {
   @apply text-pink;
+}
+
+
+/* Placeholder styles */
+.ProseMirror .is-empty:first-child::before {
+  @apply text-gray-600 font-normal;
+  content: attr(data-placeholder);
+  float: left;
+  pointer-events: none;
+  height: 0;
+}
+/* Reset placeholder text for codeblocks */
+.ProseMirror pre[data-placeholder="Type / for blocks"]::before {
+  content: '' !important;
 }
