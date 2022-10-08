@@ -123,7 +123,9 @@ export default {
       content: this.getContent,
       autofocus: true,
       onUpdate: ({ editor }) => {
-        this.setContent(editor.getHTML())
+        var aux = editor.getHTML();
+        this.editor.commands.clearContent()
+        this.setContent(aux)
         this.saveFile()
       }
     })
