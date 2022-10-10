@@ -100,5 +100,3 @@ Please check [Contributing.md](/CONTRIBUTING.md) first before opening a pull req
 
 Make sure to follow [@uselinked](https://twitter.com/uselinked) on twitter to get the latest news about the project or feel free to check [github discussions](https://github.com/lostdesign/linked/discussions).
 
-
-### This is a request from the Bengali translator of this app to all the Bharatiya users using this project, if you can or have the knowledge of your language or Sanskrit, please let me know. So, that we together can make better terms for every Technical word. Tag me as @soumyatheman in github, and open an issue to connect with me.
