@@ -172,7 +172,8 @@ const createWindow = () => {
       devTools: process.env.NODE_ENV === 'development',
       nodeIntegration: true,
       contextIsolation: false,
-      enableRemoteModule: true
+      enableRemoteModule: true,
+      spellcheck: false
     }
   })
 
