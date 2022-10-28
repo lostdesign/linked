@@ -63,6 +63,13 @@ export default {
         command: ({ editor, range }) => {
           editor.chain().focus().deleteRange(range).setCodeBlock().run()
         },
+      },
+      {
+        title: await translate(`${translationKey}.divider.title`),
+        icon: 'divider',
+        command: ({ editor, range }) => {
+          editor.chain().focus().deleteRange(range).setHorizontalRule().run()
+        },
       }
     ].filter(item => {
       return (

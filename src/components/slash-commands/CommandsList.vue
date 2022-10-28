@@ -30,6 +30,7 @@ import CodeBlock from '@/assets/icons/editor/code.svg'
 import BulletList from '@/assets/icons/editor/bullet-list.svg'
 import CheckBox from '@/assets/icons/editor/checkbox.svg'
 import Detail from '@/assets/icons/editor/detail.svg'
+import Divider from '@/assets/icons/editor/divider.svg'
 
 export default {
   components: {
@@ -41,7 +42,8 @@ export default {
     CodeBlock,
     BulletList,
     CheckBox,
-    Detail
+    Detail,
+    Divider
   },
   
   props: {
@@ -118,7 +120,8 @@ export default {
         'italic': Italic,
         'code-block': CodeBlock,
         'bullet-list': BulletList,
-        'check-box': CheckBox
+        'check-box': CheckBox,
+        'divider': Divider
       }[iconKey]
     },
   },

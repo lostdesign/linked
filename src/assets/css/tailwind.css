@@ -219,3 +219,7 @@ ul[data-type='taskList'] li > input {
 .ProseMirror pre[data-placeholder="Type / for blocks"]::before {
   content: '' !important;
 }
+
+hr {
+  @apply border-t border-gray-400 dark:border-gray-500 my-3;
+}
