@@ -14,7 +14,7 @@ export const translate = async (identifier, locale = localStorage.lang, data = {
 
 export const Translations = {
   locale: localStorage.lang ?? 'en-US',
-  translationStrings: import(`./locales/${this.locale || 'en-US'}.json`),
+  translationStrings: import(`./locales/${this?.locale || 'en-US'}.json`),
   install(VueInstance) {
     VueInstance.prototype.$setLocale = function (locale) {
       this.locale = locale;
