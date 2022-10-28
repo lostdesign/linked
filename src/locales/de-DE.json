@@ -39,7 +39,7 @@
     },
     "allowPrerelease": {
       "title": "Beta Test Programm",
-      "hint": "Wenn die Checkbox ausgewählt ist, erhälst du Test Versionen von linked bevor diese veröffentlicht werden." ,
+      "hint": "Wenn die Checkbox ausgewählt ist, erhälst du Test Versionen von linked bevor diese veröffentlicht werden.",
       "enabled": "Beta Versionen nutzen"
     }
   },
@@ -59,7 +59,7 @@
         "title": "Überschrift 3",
         "description": "Eine Überschrift mit Level 3."
       },
-      "bold":{
+      "bold": {
         "title": "Fett",
         "description": "Schreibt deinen Text in fett."
       },
@@ -78,6 +78,10 @@
       "codeBlock": {
         "title": "Code",
         "description": "Ein Codeblock."
+      },
+      "divider": {
+        "title": "Horizontale Linie",
+        "description": "Eine horizontale Linie."
       }
     }
   }

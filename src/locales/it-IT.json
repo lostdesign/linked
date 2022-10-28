@@ -31,10 +31,57 @@
       "no_result": "Nessun risultato per <br> <strong>{searchTerm}</strong>.",
       "start_searching": "Cerca parole, frasi o usa anche caratteri jolly avanzati come <em>Io amo *</em> ...",
       "result_amount": "Risultati",
-      "index":{
+      "index": {
         "title": "Indice del Database",
         "hint": "Avviando l'indicizzazione, linked analizzerà i tuoi giorni e li aggiungerà all'indice di ricerca. Questo è necessario solo una volta dopo l'aggiornamento alla versione v1.4.0. Scopri di più sul nostro sito web.",
         "start": "Ripara il database ora"
+      }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release.",
+      "enabled": "Use beta versions"
+    }
+  },
+  "commands": {
+    "no_result": "No matching command found",
+    "type_slash": "Type / for blocks",
+    "blocks": {
+      "h1": {
+        "title": "Heading 1",
+        "description": "A level one heading."
+      },
+      "h2": {
+        "title": "Heading 2",
+        "description": "A level two heading."
+      },
+      "h3": {
+        "title": "Heading 3",
+        "description": "A level three heading."
+      },
+      "bold": {
+        "title": "Bold",
+        "description": "Writing your text bold."
+      },
+      "italic": {
+        "title": "Italic",
+        "description": "Writing your text italic."
+      },
+      "task": {
+        "title": "Todo",
+        "description": "Adds a todo checkbox."
+      },
+      "unorderedList": {
+        "title": "Bullet list",
+        "description": "A unordered bullet list."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Adds a codeblock."
+      },
+      "divider": {
+        "title": "Horizontal Divider",
+        "description": "Adds a horizontal divider."
       }
     }
   }

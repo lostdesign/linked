@@ -31,10 +31,57 @@
       "no_result": "没有找到结果： <br> <strong>{searchTerm}</strong>.",
       "start_searching": "查找单词、句子，或者使用高级通配符，像这样 <em>我爱*</em> ……",
       "result_amount": "查找结果",
-      "index":{
+      "index": {
         "title": "数据库索引",
         "hint": "通过建立索引，linked 将会扫描你的每一天，然后添加到搜索索引。只有更新到 v1.4.0 后这才是必须的。在我们的网站可以查看更多信息。",
         "start": "立即修复索引数据库"
+      }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release.",
+      "enabled": "Use beta versions"
+    }
+  },
+  "commands": {
+    "no_result": "No matching command found",
+    "type_slash": "Type / for blocks",
+    "blocks": {
+      "h1": {
+        "title": "Heading 1",
+        "description": "A level one heading."
+      },
+      "h2": {
+        "title": "Heading 2",
+        "description": "A level two heading."
+      },
+      "h3": {
+        "title": "Heading 3",
+        "description": "A level three heading."
+      },
+      "bold": {
+        "title": "Bold",
+        "description": "Writing your text bold."
+      },
+      "italic": {
+        "title": "Italic",
+        "description": "Writing your text italic."
+      },
+      "task": {
+        "title": "Todo",
+        "description": "Adds a todo checkbox."
+      },
+      "unorderedList": {
+        "title": "Bullet list",
+        "description": "A unordered bullet list."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Adds a codeblock."
+      },
+      "divider": {
+        "title": "Horizontal Divider",
+        "description": "Adds a horizontal divider."
       }
     }
   }

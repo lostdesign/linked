@@ -39,7 +39,7 @@
     },
     "allowPrerelease": {
       "title": "Beta Test Program",
-      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release.",
       "enabled": "Use beta versions"
     }
   },
@@ -78,6 +78,10 @@
       "codeBlock": {
         "title": "Code",
         "description": "Adds a codeblock."
+      },
+      "divider": {
+        "title": "Horizontal Divider",
+        "description": "Adds a horizontal divider."
       }
     }
   }

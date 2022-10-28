@@ -39,7 +39,7 @@
     },
     "allowPrerelease": {
       "title": "Programa de pruebas beta",
-      "hint": "Al activar la casilla, recibirá compilaciones de prueba de los enlaces antes de su publicación." ,
+      "hint": "Al activar la casilla, recibirá compilaciones de prueba de los enlaces antes de su publicación.",
       "enabled": "Utilizar versiones beta"
     }
   },
@@ -78,6 +78,10 @@
       "codeBlock": {
         "title": "Código",
         "description": "Agrega un bloque de código."
+      },
+      "divider": {
+        "title": "Divisor horizontal",
+        "description": "Añade un divisor horizontal."
       }
     }
   }

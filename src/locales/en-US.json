@@ -31,7 +31,7 @@
       "no_result": "There was no result for <br> <strong>{searchTerm}</strong>.",
       "start_searching": "Search for words, sentences or even use advanced wildcards like <em>I love *</em> ...",
       "result_amount": "Results",
-      "index":{
+      "index": {
         "title": "Database Index",
         "hint": "By starting the indexing, linked will scan your days and add them to the search index. This is only necessary once after updating to v1.4.0.",
         "start": "Repair database now"
@@ -39,7 +39,7 @@
     },
     "allowPrerelease": {
       "title": "Beta Test Program",
-      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release.",
       "enabled": "Use beta versions"
     }
   },
@@ -59,7 +59,7 @@
         "title": "Heading 3",
         "description": "A level three heading."
       },
-      "bold":{
+      "bold": {
         "title": "Bold",
         "description": "Writing your text bold."
       },
@@ -78,6 +78,10 @@
       "codeBlock": {
         "title": "Code",
         "description": "Adds a codeblock."
+      },
+      "divider": {
+        "title": "Horizontal Divider",
+        "description": "Adds a horizontal divider."
       }
     }
   }

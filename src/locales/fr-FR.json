@@ -39,7 +39,7 @@
     },
     "allowPrerelease": {
       "title": "Programme de test bêta",
-      "hint": "En cochant cette case, vous recevrez des versions de test des liens avant leur publication." ,
+      "hint": "En cochant cette case, vous recevrez des versions de test des liens avant leur publication.",
       "enabled": "Utiliser les versions bêta"
     }
   },
@@ -59,7 +59,7 @@
         "title": "Titre 3",
         "description": "Une rubrique de niveau 3."
       },
-      "bold":{
+      "bold": {
         "title": "Gras",
         "description": "Écrire votre texte en gras."
       },
@@ -78,6 +78,10 @@
       "codeBlock": {
         "title": "Code",
         "description": "Ajoute un bloc de code."
+      },
+      "divider": {
+        "title": "Diviseur horizontal",
+        "description": "Ajoute un séparateur horizontal."
       }
     }
   }

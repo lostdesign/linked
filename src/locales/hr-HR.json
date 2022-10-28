@@ -38,46 +38,50 @@
       }
     },
     "allowPrerelease": {
-      "title": "Beta Test Program",
-      "hint": "By enabling the checkbox, you will receive test builds of linked before their release." ,
-      "enabled": "Use beta versions"
+      "title": "Program beta testiranja",
+      "hint": "Omogućavanjem potvrdnog okvira primit ćete testne verzije povezanih prije njihove objave.",
+      "enabled": "Koristite beta verzije"
     }
   },
   "commands": {
-    "no_result": "No matching command found",
-    "type_slash": "Type / for blocks",
+    "no_result": "Nije pronađena odgovarajuća naredba",
+    "type_slash": "Tip / za blokove",
     "blocks": {
       "h1": {
-        "title": "Heading 1",
-        "description": "A level one heading."
+        "title": "Naslov 1",
+        "description": "Naslov prve razine."
       },
       "h2": {
-        "title": "Heading 2",
-        "description": "A level two heading."
+        "title": "Naslov 2",
+        "description": "Naslov druge razine."
       },
       "h3": {
-        "title": "Heading 3",
-        "description": "A level three heading."
+        "title": "Naslov 3",
+        "description": "Naslov treće razine."
       },
-      "bold":{
-        "title": "Bold",
-        "description": "Writing your text bold."
+      "bold": {
+        "title": "Podebljani",
+        "description": "Pisanje teksta podebljano."
       },
       "italic": {
-        "title": "Italic",
-        "description": "Writing your text italic."
+        "title": "Kurziv",
+        "description": "Pisanje teksta kurzivom."
       },
       "task": {
-        "title": "Todo",
-        "description": "Adds a todo checkbox."
+        "title": "Zadatak",
+        "description": "Dodaje okvir za izbor obaveza."
       },
       "unorderedList": {
-        "title": "Bullet list",
-        "description": "A unordered bullet list."
+        "title": "Popis nabrajanja",
+        "description": "Neuređeni popis s nabrajanim oznakama."
       },
       "codeBlock": {
-        "title": "Code",
-        "description": "Adds a codeblock."
+        "title": "Kodirati",
+        "description": "Dodaje blok koda."
+      },
+      "divider": {
+        "title": "Horizontalni razdjelnik",
+        "description": "Dodaje vodoravni razdjelnik."
       }
     }
   }
