@@ -135,7 +135,8 @@ const template = [
         accelerator: 'CommandOrControl + Shift + N'
       },
       { type: 'separator' },
-      { role: 'reload' }
+      { role: 'reload' },
+      { role: 'minimize' }
     ]
   },
   {
