@@ -1,0 +1,88 @@
+{
+  "title": "فارسی (ایران)",
+  "code": "fa-IR",
+  "home": {
+    "calendarWeek": "هفته"
+  },
+  "settings": {
+    "back": "بازگشت",
+    "title": "تنظیمات",
+    "designMode": {
+      "title": "حالت نمایش",
+      "hint": "شما می‌توانید از میان تاریک و روشن انتخاب کنید."
+    },
+    "languages": {
+      "title": "زبان",
+      "hint": "می‌خواهید لینکد را با چه زبانی استفاده کنید؟"
+    },
+    "data": {
+      "title": "مسیر دیتا",
+      "hint": "دیتای برنامه کجا ذخیره شود؟ در حال حاظر اینجاست: ",
+      "choose": "مسیر خود را انتخاب کنید"
+    },
+    "updates": {
+      "title": "بازه‌ی بروزرسانی",
+      "hint": "بروزرسانی هرچند وقت انجام شود؟",
+      "daily": "روزانه",
+      "weekly": "هفتگی"
+    },
+    "search": {
+      "placeholder": "جستجو برای نوشته‌ها ...",
+      "no_result": "هیچ نتیجه‌ای برای <br> <strong>{searchTerm}</strong> پیدا نشد.",
+      "start_searching": "جستجو برای کلمات، جمله‌ها و یا حتی عبارات شرطی مانند <em>I love *</em> ...",
+      "result_amount": "نتایج",
+      "index": {
+        "title": "ایندکس کردن دیتابیس",
+        "hint": "با شروع ایندکس کردن، لینکد اطلاعات روزها برای جستجوی سریع‌تر را ایندکس می‌کند. این کار فقط یک بار پس از آپدیت به نسخه‌ی 1.4.0 الزامی است.",
+        "start": "بازسازی پایگاه داده"
+      }
+    },
+    "allowPrerelease": {
+      "title": "تست نسخه‌ی بتا",
+      "hint": "با فعال کردن این گزینه، شما نسخه‌های بتا را پیش از انتشار دریافت خواهید کرد.",
+      "enabled": "استفاده از نسخه‌های بتا"
+    }
+  },
+  "commands": {
+    "no_result": "No matching command found",
+    "type_slash": "Type / for blocks",
+    "blocks": {
+      "h1": {
+        "title": "Heading 1",
+        "description": "A level one heading."
+      },
+      "h2": {
+        "title": "Heading 2",
+        "description": "A level two heading."
+      },
+      "h3": {
+        "title": "Heading 3",
+        "description": "A level three heading."
+      },
+      "bold": {
+        "title": "Bold",
+        "description": "Writing your text bold."
+      },
+      "italic": {
+        "title": "Italic",
+        "description": "Writing your text italic."
+      },
+      "task": {
+        "title": "Todo",
+        "description": "Adds a todo checkbox."
+      },
+      "unorderedList": {
+        "title": "Bullet list",
+        "description": "A unordered bullet list."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Adds a codeblock."
+      },
+      "divider": {
+        "title": "Horizontal Divider",
+        "description": "Adds a horizontal divider."
+      }
+    }
+  }
+}
