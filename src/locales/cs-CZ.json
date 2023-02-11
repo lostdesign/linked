@@ -1,0 +1,88 @@
+{
+  "title": "Čeština",
+  "code": "cs-CZ",
+  "home": {
+    "calendarWeek": "Týden"
+  },
+  "settings": {
+    "back": "Zpět",
+    "title": "Nastavení",
+    "designMode": {
+      "title": "Vzhled",
+      "hint": "Můžete si vybrat mezi světlým a tmavým režimem."
+    },
+    "languages": {
+      "title": "Jazyk",
+      "hint": "V jakém jazyce preferujete používat linked?"
+    },
+    "data": {
+      "title": "Cesta k datovému úložišti",
+      "hint": "Kde by měla být vaše data uložena? V současné době jsou uložena v:",
+      "choose": "Vyberte nové umístění"
+    },
+    "updates": {
+      "title": "Četnost aktualizací",
+      "hint": "Jak dlouho kontrolovat aktualizace?",
+      "daily": "Denně",
+      "weekly": "Týdně"
+    },
+    "search": {
+      "placeholder": "Prohledejte své poznámky...",
+      "no_result": "Nic nenalezeno pro <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Hledejte slova, věty, nebo dokonce můžete použít i pokročilé zástupné znaky jako například <em>Mám rád *</em> ...",
+      "result_amount": "Výsledky",
+      "index": {
+        "title": "Databázový index",
+        "hint": "Spuštěním indexování linked prohledá vaše dny a přidá je do vyhledávacího indexu. Toto je nutné provést pouze jednou po aktualizaci na verzi 1.4.0.",
+        "start": "Opravit databázi nyní"
+      }
+    },
+    "allowPrerelease": {
+      "title": "Beta testovací program",
+      "hint": "Zaškrtnutím políčka budete dostávat testovací verze linked předtím, než budou vydány oficiálně.",
+      "enabled": "Použít beta verze"
+    }
+  },
+  "commands": {
+    "no_result": "Nebyl nalezen žádný odpovídající příkaz",
+    "type_slash": "Zadejte / pro bloky",
+    "blocks": {
+      "h1": {
+        "title": "Nadpis 1",
+        "description": "Nadpis první úrovně."
+      },
+      "h2": {
+        "title": "Nadpis 2",
+        "description": "Nadpis druhé úrovně."
+      },
+      "h3": {
+        "title": "Nadpis 3",
+        "description": "Nadpis třetí úrovně."
+      },
+      "bold": {
+        "title": "Tučně",
+        "description": "Psaní textu tučně."
+      },
+      "italic": {
+        "title": "Kurzíva",
+        "description": "Psaní textu kurzívou."
+      },
+      "task": {
+        "title": "Úkol",
+        "description": "Přidá zaškrtávací políčko pro úkol."
+      },
+      "unorderedList": {
+        "title": "Seznam s odrážkami",
+        "description": "Nečíslovaný seznam s odrážkami."
+      },
+      "codeBlock": {
+        "title": "Kód",
+        "description": "Přidá blok pro zápis zdrojového kódu."
+      },
+      "divider": {
+        "title": "Horizontální rozdělovač",
+        "description": "Přidá horizontální rozdělovač."
+      }
+    }
+  }
+}
