@@ -1,29 +1,21 @@
-const colors = require('tailwindcss/colors')
+/** @type {import('tailwindcss').Config} */
 
-module.exports = {
+export default {
   darkMode: 'class',
-  purge: {
-    enabled: false,
-    content: ['./src/**/*.html', './src/**/*.vue', './src/**/*.svg']
-  },
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
-        'pink': '#D1014C',
-        'bright-pink': '#FF005C',
-        'secondary-black': '#1f1f1f'
+        surface: {
+          'pink': '#D1014C',
+          'bright-pink': '#FF005C',
+          'secondary-black': '#1f1f1f'
+        }
       }
     },
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      black: '#141414',
-      white: '#ffffff',
-      gray: colors.gray,
-      indigo: colors.indigo,
-      red: colors.rose,
-      yellow: colors.amber
-    }
   },
   variants: {
     extend: {
@@ -37,5 +29,6 @@ module.exports = {
       dark: ['hover']
     }
   },
-  plugins: []
+  plugins: [],
 }
+
