@@ -1,5 +1,5 @@
-export const translate = async (identifier, locale = localStorage.lang, data = {}) => {
-  const language = await import(`./locales/${locale}.json`)
+export const translate = async (identifier, data = {}) => {
+  const language = await import(`./locales/${localStorage.lang ?? 'en-US'}.json`)
   
   let string = identifier
     .split('.')
