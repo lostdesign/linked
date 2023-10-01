@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ ! -n "$DISABLE_WAYLAND" && -n "$WAYLAND_DISPLAY" ]]; then
+  FLAGS="$FLAGS --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
+    if [ -c /dev/nvidia0 ]; then
+      FLAGS="$FLAGS --disable-gpu-sandbox"
+    fi
+fi
+
+
+exec "$SNAP/opt/linked/linked" --use-tray-icon --no-sandbox --disable-seccomp-filter-sandbox $FLAGS "$@"
