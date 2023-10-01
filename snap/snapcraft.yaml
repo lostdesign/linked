@@ -1,0 +1,47 @@
+name: linked
+base: core22 
+version: '1.5.2'
+icon: appIcon/icon.png
+summary: linked - daily journaling without distraction
+description: |
+  An easy, distraction-free way to record your thoughts, declutter your mind and keep the things you want to remember. We all only have so much room in our brains for th  ings. Let Linked be the place to put something you want to remember and let you free up space for deeper thinking.
+
+contact: https://discord.gg/uNjJzZvccr
+source-code: https://github.com/lostdesign/linked
+issues: https://github.com/lostdesign/linked/issues
+
+grade: stable
+confinement: strict
+
+parts:
+  launcher:
+    source: launcher
+    plugin: dump
+    override-build: |
+      cp launcher $CRAFT_PART_INSTALL/
+
+  linked:
+    plugin: dump
+    source: https://github.com/lostdesign/linked/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/linked_${SNAPCRAFT_PROJECT_VERSION}_amd64.deb
+    prime:
+      - -opt/linked/chrome-sandbox
+      - -opt/linked/chrome_crashpad_handler
+      - -usr/share/doc
+
+plugs:
+  shmem:
+    interface: shared-memory
+    private: true
+
+apps:
+  linked:
+    command: launcher
+    extensions: [ gnome ]
+    environment:
+      TMPDIR: $XDG_RUNTIME_DIR
+    plugs:
+      - home
+      - unity7
+      - shmem
+      - network-bind
+      - network
