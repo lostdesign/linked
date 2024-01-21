@@ -38,50 +38,50 @@
       }
     },
     "allowPrerelease": {
-      "title": "Programa de pruebas beta",
-      "hint": "Al activar la casilla, recibirá compilaciones de prueba de los enlaces antes de su publicación.",
-      "enabled": "Utilizar versiones beta"
+      "title": "Programa de versions de proves",
+      "hint": "En activar la casella, rebreu versions de prova del linked abans de la seva publicació.",
+      "enabled": "Utilitza versions de proves"
     }
   },
   "commands": {
-    "no_result": "No se encontró ningún comando coincidente",
-    "type_slash": "Tipo / para bloques",
+    "no_result": "No s'ha trobat cap ordre coincident",
+    "type_slash": "Tipus / per als blocs",
     "blocks": {
       "h1": {
-        "title": "Título 1",
-        "description": "Un encabezado de nivel uno."
+        "title": "Encapçalament 1",
+        "description": "Un encapçalament de nivell u."
       },
       "h2": {
-        "title": "Título 2",
-        "description": "Un encabezado de nivel dos."
+        "title": "Encapçalament 2",
+        "description": "Un encapçalament de nivell dos."
       },
       "h3": {
-        "title": "Título 3",
-        "description": "Un encabezado de nivel tres."
+        "title": "Encapçalament 3",
+        "description": "Un encapçalament de nivell tres."
       },
       "bold": {
-        "title": "Negrita",
-        "description": "Escribir su texto en negrita."
+        "title": "Negreta",
+        "description": "Escriu el text en negreta."
       },
       "italic": {
         "title": "Cursiva",
-        "description": "Escribir su texto en cursiva."
+        "description": "Escriu el text en cursiva."
       },
       "task": {
-        "title": "Que hacer",
-        "description": "Agrega una casilla de verificación de tareas pendientes."
+        "title": "Per fer",
+        "description": "Afegeix una casella que indica tasca a fer"
       },
       "unorderedList": {
-        "title": "Lista",
-        "description": "Una lista desordenada."
+        "title": "Llista",
+        "description": "Una llista desordenada."
       },
       "codeBlock": {
-        "title": "Código",
-        "description": "Agrega un bloque de código."
+        "title": "Codi",
+        "description": "Afegeix un bloc de codi."
       },
       "divider": {
-        "title": "Divisor horizontal",
-        "description": "Añade un divisor horizontal."
+        "title": "Divisor horitzontal",
+        "description": "Afegeix un divisor horitzontal."
       }
     }
   }
