@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+    @apply text-4xl font-bold mb-2;
+}
+
+h2 {
+    @apply text-2xl font-bold mb-2;
+}
+
+h3 {
+    @apply text-xl font-bold mb-2;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+blockquote {
+    @apply border-l-4 border-gray-600 text-gray-400 py-4 pl-4 m-2 italic;
+}
+blockquote p {
+    display: inline;
+}
+
+mark {
+    @apply bg-yellow-200;
+}
+
+.editor {
+    position: relative;
+}
+.editor__floating-menu {
+    position: absolute;
+    z-index: 1;
+    margin-top: -0.25rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s, visibility 0.2s;
+}
+.editor__floating-menu.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+ul[data-type='todo_list'] {
+    padding-left: 0;
+}
+li[data-type='todo_item'] {
+    display: flex;
+    flex-direction: row;
+}
+ul[data-type='taskList'] input[type='checkbox'] {
+    margin-right: 0.5rem;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+.menubar__button {
+    @apply text-gray-800 py-2 px-3 rounded-sm text-xs font-black;
+}
+
+code {
+    @apply bg-gray-800 dark:text-gray-100 text-gray-200 p-2 rounded-lg block box-border text-xs;
+}
+
+pre::before {
+    content: attr(data-language);
+    text-transform: uppercase;
+    display: block;
+    text-align: right;
+    font-weight: bold;
+    font-size: 0.6rem;
+}
+pre code .hljs-comment,
+pre code .hljs-quote {
+    color: #999;
+}
+pre code .hljs-variable,
+pre code .hljs-template-variable,
+pre code .hljs-attribute,
+pre code .hljs-tag,
+pre code .hljs-name,
+pre code .hljs-regexp,
+pre code .hljs-link,
+pre code .hljs-name,
+pre code .hljs-selector-id,
+pre code .hljs-selector-class {
+    color: #f2777a;
+}
+pre code .hljs-number,
+pre code .hljs-meta,
+pre code .hljs-built_in,
+pre code .hljs-builtin-name,
+pre code .hljs-literal,
+pre code .hljs-type,
+pre code .hljs-params {
+    color: #f99157;
+}
+pre code .hljs-string,
+pre code .hljs-symbol,
+pre code .hljs-bullet {
+    color: #9c9;
+}
+pre code .hljs-title,
+pre code .hljs-section {
+    color: #fc6;
+}
+pre code .hljs-keyword,
+pre code .hljs-selector-tag {
+    color: #69c;
+}
+pre code .hljs-emphasis {
+    font-style: italic;
+}
+pre code .hljs-strong {
+    font-weight: 700;
+}
+.ProseMirror:focus {
+    outline: none;
+}
+
+.ProseMirror > ol,
+ul {
+    list-style-type: disc !important;
+    margin: 0 0.8rem !important;
+    padding: 0.5rem !important;
+}
+
+ul[data-type='taskList'] {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+ul[data-type='taskList'] li {
+    display: flex;
+    align-items: center;
+}
+ul[data-type='taskList'] li > input {
+    flex: 0 0 auto;
+    margin-right: 0.5rem;
+}
+ul[data-type='taskList'] input[type='checkbox'] {
+    cursor: pointer;
+}
+ul[data-type='taskList'] {
+    list-style: none;
+    padding: 0;
+}
+ul[data-type='taskList'] li {
+    display: flex;
+    align-items: center;
+}
+ul[data-type='taskList'] li > input {
+    flex: 0 0 auto;
+    margin-right: 0.5rem;
+}
+
+.floating-menu {
+    display: flex;
+    padding: 0.2rem 0;
+    border-radius: 0.5rem;
+    margin-top: -0.2rem;
+    margin-left: -0.5rem;
+    transition: visibility 0.1s ease, opacity 0.1s ease;
+}
+.floating-menu button {
+    @apply px-1 dark:text-gray-600;
+}
+.floating-menu button:hover,
+.floating-menu button.is-active {
+    @apply text-gray-700 dark:text-gray-400;
+}
+
+.bubble-menu {
+    @apply flex bg-gray-100 dark:bg-secondary-black ring-2 ring-gray-400 dark:ring-gray-700 shadow-2xl;
+    padding: 0.3rem;
+    margin-bottom: 0.3rem;
+    border-radius: 0.5rem;
+    transition: visibility 0.1s ease, opacity 0.1s ease;
+    z-index: 10;
+}
+
+.bubble-menu button {
+    @apply text-gray-600 dark:text-gray-500 px-2 py-1 rounded-lg;
+    border: none;
+    background: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.bubble-menu button:focus,
+.bubble-menu button:hover,
+.bubble-menu button.is-active {
+    @apply text-white bg-gray-400 dark:bg-gray-700 focus:bg-gray-700 outline-none;
+}
+
+.ProseMirror a {
+    @apply cursor-pointer text-bright-pink underline;
+}
+
+.ProseMirror a:hover {
+    @apply text-pink;
+}
+
+
+/* Placeholder styles */
+.ProseMirror .is-empty:first-child::before {
+    @apply text-gray-600 font-normal;
+    content: attr(data-placeholder);
+    float: left;
+    pointer-events: none;
+    height: 0;
+}
+/* Reset placeholder text for codeblocks */
+.ProseMirror pre[data-placeholder="Type / for blocks"]::before {
+    content: '' !important;
+}
+
+hr {
+    @apply border-t border-gray-400 dark:border-gray-500 my-3;
+}
