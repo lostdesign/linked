@@ -193,9 +193,12 @@ ul[data-type='taskList'] li > input {
 }
 
 .bubble-menu button:focus,
-.bubble-menu button:hover,
-.bubble-menu button.is-active {
+.bubble-menu button:hover {
   @apply text-white bg-gray-400 dark:bg-gray-700 focus:bg-gray-700 outline-none;
+}
+
+.bubble-menu button.is-active {
+  @apply text-bright-pink focus:bg-gray-700 outline-none;
 }
 
 .ProseMirror a {
