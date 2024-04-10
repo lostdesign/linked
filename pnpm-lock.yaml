@@ -38,6 +38,9 @@ dependencies:
   '@tiptap/extension-history':
     specifier: ^2.2.4
     version: 2.2.4(@tiptap/core@2.2.4)(@tiptap/pm@2.2.4)
+  '@tiptap/extension-horizontal-rule':
+    specifier: ^2.3.0
+    version: 2.3.0(@tiptap/core@2.2.4)(@tiptap/pm@2.2.4)
   '@tiptap/extension-italic':
     specifier: ^2.2.4
     version: 2.2.4(@tiptap/core@2.2.4)
@@ -50,6 +53,9 @@ dependencies:
   '@tiptap/extension-paragraph':
     specifier: ^2.2.4
     version: 2.2.4(@tiptap/core@2.2.4)
+  '@tiptap/extension-strike':
+    specifier: ^2.3.0
+    version: 2.3.0(@tiptap/core@2.2.4)
   '@tiptap/extension-task-item':
     specifier: ^2.2.4
     version: 2.2.4(@tiptap/core@2.2.4)(@tiptap/pm@2.2.4)
@@ -832,8 +838,8 @@ packages:
       '@tiptap/pm': 2.2.4
     dev: false
 
-  /@tiptap/extension-horizontal-rule@2.2.4(@tiptap/core@2.2.4)(@tiptap/pm@2.2.4):
-    resolution: {integrity: sha512-iCRHjFQQHApWg3R4fkKkJQhWEOdu1Fdc4YEAukdOXPSg3fg36IwjvsMXjt9SYBtVZ+iio3rORCZGXyMvgCH9uw==}
+  /@tiptap/extension-horizontal-rule@2.3.0(@tiptap/core@2.2.4)(@tiptap/pm@2.2.4):
+    resolution: {integrity: sha512-4DB8GU3uuDzzyqUmONIb3CHXcQ6Nuy4mHHkFSmUyEjg1i5eMQU5H7S6mNvZbltcJB2ImgCSwSMlj1kVN3MLIPg==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
       '@tiptap/pm': ^2.0.0
@@ -885,8 +891,8 @@ packages:
       '@tiptap/core': 2.2.4(@tiptap/pm@2.2.4)
     dev: false
 
-  /@tiptap/extension-strike@2.2.4(@tiptap/core@2.2.4):
-    resolution: {integrity: sha512-/a2EwQgA+PpG17V2tVRspcrIY0SN3blwcgM7lxdW4aucGkqSKnf7+91dkhQEwCZ//o8kv9mBCyRoCUcGy6S5Xg==}
+  /@tiptap/extension-strike@2.3.0(@tiptap/core@2.2.4):
+    resolution: {integrity: sha512-gOW4ALeH8gkJiUGGXVy/AOd5lAPTX0bzoOW1+sCLcTA7t8dluBW7M2ngNYxTEtlKqyv7aLfrgsYSiqucmmfSLw==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
     dependencies:
@@ -957,12 +963,12 @@ packages:
       '@tiptap/extension-hard-break': 2.2.4(@tiptap/core@2.2.4)
       '@tiptap/extension-heading': 2.2.4(@tiptap/core@2.2.4)
       '@tiptap/extension-history': 2.2.4(@tiptap/core@2.2.4)(@tiptap/pm@2.2.4)
-      '@tiptap/extension-horizontal-rule': 2.2.4(@tiptap/core@2.2.4)(@tiptap/pm@2.2.4)
+      '@tiptap/extension-horizontal-rule': 2.3.0(@tiptap/core@2.2.4)(@tiptap/pm@2.2.4)
       '@tiptap/extension-italic': 2.2.4(@tiptap/core@2.2.4)
       '@tiptap/extension-list-item': 2.2.4(@tiptap/core@2.2.4)
       '@tiptap/extension-ordered-list': 2.2.4(@tiptap/core@2.2.4)
       '@tiptap/extension-paragraph': 2.2.4(@tiptap/core@2.2.4)
-      '@tiptap/extension-strike': 2.2.4(@tiptap/core@2.2.4)
+      '@tiptap/extension-strike': 2.3.0(@tiptap/core@2.2.4)
       '@tiptap/extension-text': 2.2.4(@tiptap/core@2.2.4)
     transitivePeerDependencies:
       - '@tiptap/pm'
