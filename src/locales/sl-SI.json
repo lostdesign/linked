@@ -1,0 +1,88 @@
+{
+  "title": "Slovenščina",
+  "code": "sl-SI",
+  "home": {
+    "calendarWeek": "Teden"
+  },
+  "settings": {
+    "back": "Nazaj",
+    "title": "Nastavitve",
+    "designMode": {
+      "title": "Tema",
+      "hint": "Izbirate lahko med svetlim in temnim načinom"
+    },
+    "languages": {
+      "title": "Jezik",
+      "hint": "V katerem jeziku najraje uporabljate linked?"
+    },
+    "data": {
+      "title": "Pot do podatkov",
+      "hint": "Kje naj bodo shranjeni vaši podatki? Trenutno shranjeno na:",
+      "choose": "Izberite novo lokacijo"
+    },
+    "updates": {
+      "title": "Pogostost preverjanja posodobitev",
+      "hint": "Kako pogosto preverjati posodobitve?",
+      "daily": "Dnevno",
+      "weekly": "Tedensko"
+    },
+    "search": {
+      "placeholder": "Poiščite svoje zapiske...",
+      "no_result": "Ni bilo nobenega rezultata za <br> <strong>{searchTerm}</strong>",
+      "start_searching": "Iščite besede, stavke ali celo uporabite napredne nadomestne znake, kot je <em>Kupi * jabolka</em>...",
+      "result_amount": "Rezultatov",
+      "index": {
+        "title": "Indeks baze podatkov",
+        "hint": "Z začetkom indeksiranja bo linked skeniral vaše dneve in jih dodal v iskalni indeks. To je potrebno le enkrat po posodobitvi na v1.4.0. Več o tem na naši spletni strani",
+        "start": "Popravi bazo podatkov"
+      }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release.",
+      "enabled": "Use beta versions"
+    }
+  },
+  "commands": {
+    "no_result": "No matching command found",
+    "type_slash": "Type / for blocks",
+    "blocks": {
+      "h1": {
+        "title": "Heading 1",
+        "description": "A level one heading."
+      },
+      "h2": {
+        "title": "Heading 2",
+        "description": "A level two heading."
+      },
+      "h3": {
+        "title": "Heading 3",
+        "description": "A level three heading."
+      },
+      "bold": {
+        "title": "Bold",
+        "description": "Writing your text bold."
+      },
+      "italic": {
+        "title": "Italic",
+        "description": "Writing your text italic."
+      },
+      "task": {
+        "title": "Todo",
+        "description": "Adds a todo checkbox."
+      },
+      "unorderedList": {
+        "title": "Bullet list",
+        "description": "A unordered bullet list."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Adds a codeblock."
+      },
+      "divider": {
+        "title": "Horizontal Divider",
+        "description": "Adds a horizontal divider."
+      }
+    }
+  }
+}

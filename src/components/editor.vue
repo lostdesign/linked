@@ -22,8 +22,6 @@ import {Strike} from "@tiptap/extension-strike";
 import {Document} from "@tiptap/extension-document";
 import {Text} from "@tiptap/extension-text";
 import {History} from "@tiptap/extension-history";
-import Commands from "@/components/slash-commands/commands.ts";
-import suggestion from "@/components/slash-commands/suggestion.ts";
 
 const store = useCalendarStore()
 const editor = ref()
@@ -31,7 +29,7 @@ const content = ref('')
 
 onMounted(async () => {
   editor.value = new Editor({
-    autofocus: true,
+    autofocus: 'end',
     content: await fetchContent(store.currentDate) as string,
     editable: true,
     extensions: [
@@ -51,10 +49,7 @@ onMounted(async () => {
       Strike,
       Link,
       History,
-      /*Commands.configure({
-        suggestion,
-      }),
-      Image,
+      /*Image,
       Placeholder.configure({
         includeChildren: true,
         placeholder: ({ node }) => {

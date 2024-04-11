@@ -1,0 +1,88 @@
+{
+  "title": "Bahasa Indonesia",
+  "code": "id-ID",
+  "home": {
+    "calendarWeek": "MINGGU"
+  },
+  "settings": {
+    "back": "Kembali",
+    "title": "Pengaturan",
+    "designMode": {
+      "title": "Mode desain",
+      "hint": "Pilih antara tema terang atau gelap."
+    },
+    "languages": {
+      "title": "Bahasa",
+      "hint": "Dalam bahasa apa Anda ingin menggunakan linked?"
+    },
+    "data": {
+      "title": "Jalur data",
+      "hint": "Di mana data Anda harus disimpan? Lokasi saat ini: ",
+      "choose": "Pilih lokasi baru"
+    },
+    "updates": {
+      "title": "Interval pembaruan",
+      "hint": "Seberapa sering memeriksa versi baru?",
+      "daily": "Sehari-hari",
+      "weekly": "Mingguan"
+    },
+    "search": {
+      "placeholder": "Cari catatan Anda...",
+      "no_result": "Tidak ada hasil untuk <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Cari kata atau frasa individual, Anda juga dapat menggunakan karakter pengganti seperti <em>Saya suka *</em> ...",
+      "result_amount": "hasil",
+      "index": {
+        "title": "Indeks basis data",
+        "hint": "Dengan memulai pengindeksan, hari-hari Anda akan dipindai dan ditambahkan ke database pencarian. Ini hanya diperlukan untuk data inventaris sebelum versi 1.4.0. Kunjungi situsnya untuk informasi lebih lanjut.",
+        "start": "Perbaiki database sekarang"
+      }
+    },
+    "allowPrerelease": {
+      "title": "Beta Test Program",
+      "hint": "By enabling the checkbox, you will receive test builds of linked before their release.",
+      "enabled": "Use beta versions"
+    }
+  },
+  "commands": {
+    "no_result": "No matching command found",
+    "type_slash": "Type / for blocks",
+    "blocks": {
+      "h1": {
+        "title": "Heading 1",
+        "description": "A level one heading."
+      },
+      "h2": {
+        "title": "Heading 2",
+        "description": "A level two heading."
+      },
+      "h3": {
+        "title": "Heading 3",
+        "description": "A level three heading."
+      },
+      "bold": {
+        "title": "Bold",
+        "description": "Writing your text bold."
+      },
+      "italic": {
+        "title": "Italic",
+        "description": "Writing your text italic."
+      },
+      "task": {
+        "title": "Todo",
+        "description": "Adds a todo checkbox."
+      },
+      "unorderedList": {
+        "title": "Bullet list",
+        "description": "A unordered bullet list."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Adds a codeblock."
+      },
+      "divider": {
+        "title": "Horizontal Divider",
+        "description": "Adds a horizontal divider."
+      }
+    }
+  }
+}

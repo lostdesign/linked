@@ -1,5 +1,8 @@
 import { DateTime } from 'luxon'
 
+const getToday = () => {
+  return DateTime.now().toISODate()
+}
 
 /**
  * Get the year from a date string
@@ -56,4 +59,4 @@ const getCurrentWeekDates = (date: string): Array<{
   return week
 }
 
-export {setDate, shiftDateByDays, formatDate,getCurrentWeekDates, getYearFromDate}
+export {getToday, setDate, shiftDateByDays, formatDate,getCurrentWeekDates, getYearFromDate}

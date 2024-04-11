@@ -12,6 +12,9 @@
   "tauri": {
     "allowlist": {
       "all": false,
+      "globalShortcut": {
+        "all": true
+      },
       "shell": {
         "all": false,
         "open": true
@@ -32,7 +35,9 @@
         "resizable": true,
         "title": "linked",
         "width": 450,
-        "height": 850
+        "height": 850,
+        "minWidth": 450,
+        "minHeight": 450
       }
     ],
     "security": {
