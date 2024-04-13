@@ -38,50 +38,50 @@
       }
     },
     "allowPrerelease": {
-      "title": "Beta Test Program",
-      "hint": "By enabling the checkbox, you will receive test builds of linked before their release.",
-      "enabled": "Use beta versions"
+      "title": "برنامج الاختبار التجريبي",
+      "hint": "من خلال تمكين خانة الاختيار، ستتلقى إصدارات اختبارية من الإصدارات المرتبطة قبل إصدارها.",
+      "enabled": "استخدام الإصدارات التجريبية"
     }
   },
   "commands": {
-    "no_result": "No matching command found",
-    "type_slash": "Type / for blocks",
+    "no_result": "لم يتم العثور على أمر مطابق",
+    "type_slash": "اكتب / للكتل",
     "blocks": {
       "h1": {
-        "title": "Heading 1",
-        "description": "A level one heading."
+        "title": "العنوان 1",
+        "description": "عنوان من المستوى الأول."
       },
       "h2": {
-        "title": "Heading 2",
-        "description": "A level two heading."
+        "title": "العنوان 2",
+        "description": "عنوان من المستوى الثاني."
       },
       "h3": {
-        "title": "Heading 3",
-        "description": "A level three heading."
+        "title": "العنوان 3",
+        "description": "عنوان من المستوى الثالث."
       },
       "bold": {
-        "title": "Bold",
-        "description": "Writing your text bold."
+        "title": "غامق",
+        "description": "كتابة النص بخط عريض"
       },
       "italic": {
-        "title": "Italic",
-        "description": "Writing your text italic."
+        "title": "مائل",
+        "description": "كتابة النص مائل"
       },
       "task": {
-        "title": "Todo",
-        "description": "Adds a todo checkbox."
+        "title": "تودو",
+        "description": "يضيف خانة اختيار المهام."
       },
       "unorderedList": {
-        "title": "Bullet list",
-        "description": "A unordered bullet list."
+        "title": "القائمة النقطية",
+        "description": "قائمة نقطية غير مرتبة."
       },
       "codeBlock": {
-        "title": "Code",
-        "description": "Adds a codeblock."
+        "title": "الرمز",
+        "description": "يضيف كتلة كود."
       },
       "divider": {
-        "title": "Horizontal Divider",
-        "description": "Adds a horizontal divider."
+        "title": "مقسم أفقي",
+        "description": "يضيف مقسمًا أفقيًا."
       }
     }
   }
