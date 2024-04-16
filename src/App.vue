@@ -2,7 +2,7 @@
 import {onMounted} from "vue";
 import {useRouter} from "vue-router";
 import {useCalendarStore} from "@/stores/useCalendarStore.ts";
-import {registerAll} from '@tauri-apps/api/globalShortcut';
+import { registerAll } from '@tauri-apps/plugin-global-shortcut';
 import {getToday, shiftDateByDays} from "@/utils/calendar.ts";
 
 const store = useCalendarStore()

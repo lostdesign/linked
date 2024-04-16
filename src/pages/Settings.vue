@@ -6,7 +6,7 @@ import UpdateSettings from "@/components/update-settings.vue";
 import BackButton from "@/components/back-button.vue";
 import SearchSettings from "@/components/search-settings.vue";
 import {onMounted} from "vue";
-import {registerAll} from "@tauri-apps/api/globalShortcut";
+import { registerAll } from '@tauri-apps/plugin-global-shortcut';
 import {useRouter} from "vue-router";
 
 const router = useRouter()

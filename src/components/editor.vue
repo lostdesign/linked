@@ -2,7 +2,7 @@
 import {onBeforeUnmount, onMounted, ref} from "vue";
 import {watchDebounced} from "@vueuse/core";
 import {useCalendarStore} from "@/stores/useCalendarStore.ts";
-import {fetchContent, storeContent} from "@/utils/storage.ts";
+import {readContent, writeContent} from "@/api/content.ts";
 import {EditorContent, Editor} from "@tiptap/vue-3";
 import {Gapcursor} from "@tiptap/extension-gapcursor";
 import {CharacterCount} from "@tiptap/extension-character-count";
@@ -30,7 +30,7 @@ const content = ref('')
 onMounted(async () => {
   editor.value = new Editor({
     autofocus: 'end',
-    content: await fetchContent(store.currentDate) as string,
+    content: await readContent(store.currentDate) as string,
     editable: true,
     extensions: [
       Document,
@@ -71,7 +71,7 @@ const focusEditor = () => editor.value.chain().focus().run()
 
 watchDebounced(
   content,
-  async () => storeContent(store.currentDate, content.value),
+  async () => writeContent(store.currentDate, content.value),
   {debounce: 500, maxWait: 1500},
 )
 
