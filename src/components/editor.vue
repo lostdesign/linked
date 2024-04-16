@@ -75,6 +75,7 @@ watchDebounced(
   {debounce: 500, maxWait: 1500},
 )
 
+// TODO: maybe save before destroy
 onBeforeUnmount(() => console.log('destroying'))
 </script>
 
