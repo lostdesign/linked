@@ -7,23 +7,28 @@ function getFilePath(date: string) {
 
 async function readContent(date: string) {
   try {
-    return await readTextFile(
-      getFilePath(date), 
-      {  baseDir: BaseDirectory.Document }
-    )
+    return JSON.parse(
+      await readTextFile(
+        getFilePath(date),
+        {baseDir: BaseDirectory.Document}
+      )
+    ).content
   } catch {
-    await mkdir('.linked/' + getYearFromDate(date), {  baseDir: BaseDirectory.Document, recursive: true })
+    await mkdir('.linked/' + getYearFromDate(date), {baseDir: BaseDirectory.Document, recursive: true})
     return await writeTextFile(
       getFilePath(date),
-      '',  
-      {  baseDir: BaseDirectory.Document }
+      '',
+      {baseDir: BaseDirectory.Document}
     )
   }
 }
 
 async function writeContent(date: string, content: string) {
-  await mkdir('.linked', { baseDir: BaseDirectory.Document, recursive: true });
-  await writeTextFile(getFilePath(date), content, { baseDir: BaseDirectory.Document });
+  await writeTextFile(
+    getFilePath(date),
+    JSON.stringify({content}),
+    {baseDir: BaseDirectory.Document}
+  );
 }
 
 export {readContent, writeContent}
