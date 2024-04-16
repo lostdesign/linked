@@ -1,6 +1,0 @@
-node_modules
-.husky
-.vscode
-public
-src-tauri
-pnpm-lock.yaml
