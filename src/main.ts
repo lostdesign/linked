@@ -21,9 +21,8 @@ router.beforeEach((to, _, next) => {
 
   if (to.name === 'day') {
     store.setDate(to.params.day as string)
-    next()
-  } else {
-    next()
   }
+
+  next()
 })
 
