@@ -49,10 +49,7 @@ onMounted(async () => {
       Strike,
       Link,
       History,
-      /*Commands.configure({
-        suggestion,
-      }),
-      Image,
+      /*Image,
       Placeholder.configure({
         includeChildren: true,
         placeholder: ({ node }) => {

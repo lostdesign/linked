@@ -2,10 +2,12 @@
 import ArrowLeftIcon from '@/assets/icons/arrow-left.svg'
 import ArrowRightIcon from '@/assets/icons/arrow-right.svg'
 
-import {formatDate} from "@/utils/calendar.ts";
+import {formatDate, shiftDateByDays} from "@/utils/calendar.ts";
 import {useCalendarStore} from "@/stores/useCalendarStore.ts";
+import {useRouter} from "vue-router";
 
 const store = useCalendarStore()
+const router = useRouter()
 
 </script>
 
@@ -28,7 +30,7 @@ const store = useCalendarStore()
     >
       <span
         class="text-bright-pink hover:text-red-400 cursor-pointer"
-        @click="store.shiftDate( -7)"
+        @click="router.push({name: 'day', params: {day: shiftDateByDays(store.currentDate, -7)}})"
       >
         <arrow-left-icon/>
       </span>
@@ -37,7 +39,7 @@ const store = useCalendarStore()
         {{ formatDate(store.currentDate, 'WW') }}</span>
       <span
         class="text-bright-pink hover:text-red-400 cursor-pointer"
-        @click="store.shiftDate(7)"
+        @click="router.push({name: 'day', params: {day: shiftDateByDays(store.currentDate, 7)}})"
       >
         <arrow-right-icon/>
       </span>

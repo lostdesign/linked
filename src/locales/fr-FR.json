@@ -1,0 +1,88 @@
+{
+  "title": "Français",
+  "code": "fr-FR",
+  "home": {
+    "calendarWeek": "Semaine"
+  },
+  "settings": {
+    "back": "Retour",
+    "title": "Paramètres",
+    "designMode": {
+      "title": "Thème",
+      "hint": "Choisissez un thème clair ou sombre."
+    },
+    "languages": {
+      "title": "Langue",
+      "hint": "Dans quelle langue souhaitez-vous utiliser linked ?"
+    },
+    "data": {
+      "title": "Chemin de stockage",
+      "hint": "Où vos données doivent-elles être stockées ? Localisation actuelle : ",
+      "choose": "Sélectionnez un nouvel emplacement"
+    },
+    "updates": {
+      "title": "Intervalle de mise à jour",
+      "hint": "À quelle fréquence vérifier les nouvelles versions ?",
+      "daily": "Tous les jours",
+      "weekly": "Toutes les semaines"
+    },
+    "search": {
+      "placeholder": "Cherchez dans vos notes...",
+      "no_result": "Aucun résultat pour <br> <strong>{searchTerm}</strong>.",
+      "start_searching": "Recherchez des mots, des phrases, ou utilisez des caractères génériques tels que <em>J'aime *</em> ...",
+      "result_amount": "résultats",
+      "index": {
+        "title": "Indice de base de données",
+        "hint": "En commençant l'indexation, vos journées seront scannées et ajoutées à la base de données de recherche. Cela n'est nécessaire que pour les données d'inventaire antérieures à la version 1.4.0. Vous pouvez trouver plus d'informations sur le site Web.",
+        "start": "Réparer la base de données maintenant"
+      }
+    },
+    "allowPrerelease": {
+      "title": "Programme de test bêta",
+      "hint": "En cochant cette case, vous recevrez des versions de test des liens avant leur publication.",
+      "enabled": "Utiliser les versions bêta"
+    }
+  },
+  "commands": {
+    "no_result": "Aucune commande correspondante trouvée",
+    "type_slash": "Type / pour blocs",
+    "blocks": {
+      "h1": {
+        "title": "Titre 1",
+        "description": "Une rubrique de niveau 1."
+      },
+      "h2": {
+        "title": "Titre 2",
+        "description": "Une rubrique de niveau 2."
+      },
+      "h3": {
+        "title": "Titre 3",
+        "description": "Une rubrique de niveau 3."
+      },
+      "bold": {
+        "title": "Gras",
+        "description": "Écrire votre texte en gras."
+      },
+      "italic": {
+        "title": "Italiques",
+        "description": "Écrire votre texte en italique."
+      },
+      "task": {
+        "title": "Todo",
+        "description": "Ajoute une case à cocher pour les tâches à accomplir."
+      },
+      "unorderedList": {
+        "title": "Liste à puces",
+        "description": "Une liste à puces non ordonnée."
+      },
+      "codeBlock": {
+        "title": "Code",
+        "description": "Ajoute un bloc de code."
+      },
+      "divider": {
+        "title": "Diviseur horizontal",
+        "description": "Ajoute un séparateur horizontal."
+      }
+    }
+  }
+}

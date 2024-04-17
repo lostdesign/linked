@@ -16,6 +16,9 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.5.2",
+    "@tauri-apps/plugin-fs": "^2.0.0-beta.2",
+    "@tauri-apps/plugin-global-shortcut": "2.0.0-beta.2",
+    "@tauri-apps/plugin-store": "2.0.0-beta.2",
     "@tiptap/core": "^2.2.4",
     "@tiptap/extension-bold": "^2.2.4",
     "@tiptap/extension-bullet-list": "^2.2.4",
@@ -44,13 +47,14 @@
     "pinia": "^2.1.7",
     "tippy.js": "^6.3.7",
     "vue": "^3.3.4",
+    "vue-i18n": "^9.10.2",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@eslint/js": "^9.0.0",
-    "@tauri-apps/cli": "^1.5.8",
+    "@tauri-apps/cli": "^2.0.0-beta.13",
     "@types/luxon": "^3.4.2",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@vitejs/plugin-vue": "^4.2.3",
