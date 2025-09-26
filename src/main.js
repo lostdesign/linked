@@ -10,8 +10,7 @@ import i18n from './i18n'
 
 const Storage = require('electron-store')
 window.mainStorage = new Storage({
-  watch: true,
-  defaults: {}
+  watch: true
 })
 
 Vue.config.productionTip = false
