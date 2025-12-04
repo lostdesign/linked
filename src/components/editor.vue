@@ -19,7 +19,7 @@
       </button>
     </bubble-menu>
     <div class='text-black dark:text-white'>
-      <editor-content class='pb-10' :editor='editor' v-model='getContent' />
+      <editor-content :key="getCurrentDate" class='pb-10' :editor='editor' v-model='getContent' />
     </div>
   </div>
 </template>
@@ -30,6 +30,9 @@ import {
   Getters as FileGetters,
   Actions as FileActions
 } from '@/store/modules/file/types'
+import {
+  Getters as CalendarGetters
+} from '@/store/modules/calendar/types'
 
 import PenIcon from '@/assets/icons/editor/pen.svg'
 import BoldIcon from '@/assets/icons/editor/bold.svg'
@@ -84,7 +87,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('file', [FileGetters.GET_CONTENT])
+    ...mapGetters('file', [FileGetters.GET_CONTENT]),
+    ...mapGetters('calendar', [CalendarGetters.GET_CURRENT_DATE])
   },
   mounted() {
     this.editor = new Editor({
